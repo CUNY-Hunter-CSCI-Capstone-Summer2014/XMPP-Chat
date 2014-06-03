@@ -1,8 +1,9 @@
 Budget
 =======
 
-| Name   | Price  | Due Date   | Workers            | Task                                                     | Notes                                           
-|----------|-----------|------------|--------------------|----------------------------------------------------------|------------------------------------------------ 
-| Assigned | Very High | 2014-06-03 | Everyone           | Install Developer Tools (Visual Studio/Xcode)            |
+| Name        | Price | Purchase Date | Purchaser          | Payback                                      | Notes                                           
+|-------------|-------|---------------|--------------------|----------------------------------------------|------------------------------------------------ 
+| Domain Name | 15.50 | 2014-06-03    | Omar               |                                              |
 
-| **TOTAL** | Medium    | 2014-06-09 | Everyone           | Create visual mockups of Windows and Mac UI              |
+
+ **TOTAL**  --  15.50 
