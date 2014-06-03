@@ -1,12 +1,16 @@
-#End Goals#
+End Goals
+==========
 
-**Functional requirement**
-
+Functional requirement
+------
 - Client
   - username@server/pw -> log in and stay logged in (encrypted)
   - 
+  
 
-**Non-functional requirement**
+Non-functional requirement
+-----------------
+
 - Server
   - create users
   - be able to log in
