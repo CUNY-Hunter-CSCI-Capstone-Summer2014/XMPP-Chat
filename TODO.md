@@ -6,4 +6,4 @@
 | Assigned | High      | 2014-06-05 | All Mac Developers | Learn Objective-C / Objective-C++                        |
 | Assigned | High      | 2014-06-05 | Everyone           | Read XMPP Standard Documents (RFCs)                      |
 | Assigned | High      | 2014-06-05 | Everyone           | Design Windows (Desktop) and Mac UI                      |
-| Assigned | Medium    | 2014-06-09 | Everyone           | Create visual mockups of Windows and Mac UI              |
+| Assigned | Medium    | 2014-06-09 | Arnab              | Create visual mockups of Windows and Mac UI              |
