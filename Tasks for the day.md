@@ -9,5 +9,9 @@
 - [ ] Break down goals to smaller tasks - UML use case (diagram)
 - [ ] Begin to delegate tasks
 - [ ] Set end dates for tasks
-- [ ] Choose name
 - [ ] Create task list for next meeting
+
+- [ ] Choose name
+- [ ] What do we want it to look like
+- [ ] What are we going to use / Interaction diagram 
+- 
