@@ -2,8 +2,9 @@
 
 ©2014 by the Authors (see Authors.md)
 
-XMPP-Chat is Licensed under the Apache License, Version 2.0 (the "License");
-You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+XMPP-Chat is Licensed under the Apache License, Version 2.0 (the "License").
+A copy of the License is include with the source distribution (see APACHE LICENSE 2.0)
+You may also obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
