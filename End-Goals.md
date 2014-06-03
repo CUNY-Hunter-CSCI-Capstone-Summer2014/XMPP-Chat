@@ -1,6 +1,7 @@
 #End Goals#
 
 **Functional requirement**
+
 - Client
   - username@server/pw -> log in and stay logged in (encrypted)
   - 
