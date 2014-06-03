@@ -11,7 +11,7 @@
 - [ ] Set end dates for tasks
 - [ ] Create task list for next meeting
 
+
 - [ ] Choose name
 - [ ] What do we want it to look like
 - [ ] What are we going to use / Interaction diagram 
-- 
