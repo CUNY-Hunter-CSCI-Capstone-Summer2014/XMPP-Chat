@@ -10,3 +10,4 @@
 - [ ] Begin to delegate tasks
 - [ ] Set end dates for tasks
 - [ ] Choose name
+- [ ] Create task list for next meeting
