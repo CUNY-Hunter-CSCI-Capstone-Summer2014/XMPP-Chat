@@ -1,9 +1,9 @@
 #Tasks For the day#
 
-2014-06-03
+**2014-06-03**
 
-- [ ] Check in where everyone is on installing and reading materials 
-- [ ] Create github accounts
+- [X] Check in where everyone is on installing and reading materials 
+- [X] Create github accounts
 - [ ] How to use github
 - [ ] Go over end goals - domain expert
 - [ ] Break down goals to smaller tasks - UML use case (diagram)
