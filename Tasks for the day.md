@@ -2,9 +2,9 @@
 
 2014-06-03
 
-1 [ ] Create github accounts
-2 [ ] Go over end goals
-3 [ ] Break down goals to smaller tasks
-4 [ ] Begin to delegate tasks
-5 [ ] Set end dates for tasks
-6 [ ] Choose name
+- [ ] Create github accounts
+- [ ] Go over end goals
+- [ ] Break down goals to smaller tasks
+- [ ] Begin to delegate tasks
+- [ ] Set end dates for tasks
+- [ ] Choose name
