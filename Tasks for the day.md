@@ -2,7 +2,7 @@
 
 **2014-06-04**
 - [ ] How to use github
-- [ ] Go over end goals - domain expert
+- [ ] Finish end goals - domain expert
 - [ ] Break down goals to smaller tasks - UML use case (diagram)
 - [ ] Begin to delegate tasks
 - [ ] Set end dates for tasks
