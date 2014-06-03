@@ -1,0 +1,7 @@
+#End Goals#
+
+
+
+
+
+- buddy list
