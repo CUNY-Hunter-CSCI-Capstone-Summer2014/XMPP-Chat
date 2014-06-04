@@ -1,6 +1,6 @@
 | Status   | Priority  | Due Date   | Workers            | Task                                                     | Notes                                           
 |----------|-----------|------------|--------------------|----------------------------------------------------------|------------------------------------------------ 
-| Assigned | Very High | 2014-06-03 | Everyone           | <del>Install Developer Tools (Visual Studio/Xcode) <del>           |
+| <del>Assigned | Very High | 2014-06-03 | Everyone           | Install Developer Tools (Visual Studio/Xcode) <del>           |
 | Assigned | Very High | 2014-06-04 | Arnab              | Get Hackintosh with XCode up and running                 |
 | Assigned | High      | 2014-06-05 | Everyone           | Learn C#                                                 |
 | Assigned | High      | 2014-06-05 | All Mac Developers | Learn Objective-C / Objective-C++                        |
