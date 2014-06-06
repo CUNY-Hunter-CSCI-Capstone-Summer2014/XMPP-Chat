@@ -14,6 +14,15 @@
 * [Extensible Messaging and Presence Protocol (XMPP): Instant Messaging and Presence](http://tools.ietf.org/html/rfc6121)
 * [Extensible Messaging and Presence Protocol (XMPP): Address Format](http://tools.ietf.org/html/rfc6122)
 
+#### Extensions ####
+
+[List of Extensions](http://xmpp.org/xmpp-protocols/xmpp-extensions/)
+
+We should go through these, especially the finalized ones, and (time permitting) implement any that are particularly useful.
+
+##### Notable Extensions that we should aim to implement #####
+
+* [Multi-User Chat](http://xmpp.org/extensions/xep-0045.html)
 
 ### OS X / Objective-C ###
 
