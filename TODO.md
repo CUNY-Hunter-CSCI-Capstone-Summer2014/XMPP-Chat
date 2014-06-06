@@ -5,8 +5,8 @@
 | Assigned  | High      | 2014-06-05 | Everyone              | Learn C#                                                  |
 | Assigned  | High      | 2014-06-05 | All Mac Developers    | Learn Objective-C / Objective-C++                         |
 | Assigned  | High      | 2014-06-05 | Everyone              | Read XMPP Standard Documents (RFCs)                       |
-| Assigned  | High      | 2014-06-05 | Everyone              | <del> Design Windows (Desktop) and Mac UI</del>           |
-| Assigned  | Medium    | 2014-06-09 | Arnab                 | <del> Create visual mockups of Windows and Mac UI</del>   |
+| Completed | High      | 2014-06-05 | Everyone              | <del> Design Windows (Desktop) and Mac UI</del>           |
+| Completed | Medium    | 2014-06-09 | Arnab                 | <del> Create visual mockups of Windows and Mac UI</del>   |
 | Assigned  | Medium    | 2014-06-24 | Omar, Mark            | Complete (up to text IM) libDampKeg (C++ XMPP library)    |
 | Assigned  | Medium    | 2014-06-25 | Geoffrey, Mark        | Complete DampKeg.NET (C# API)                             |
 | Assigned  | Medium    | 2014-06-25 | Arnab, Omar           | Complete DampKeg.framework (Objective-C API)              |
