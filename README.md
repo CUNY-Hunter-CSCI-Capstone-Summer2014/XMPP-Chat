@@ -34,3 +34,4 @@ We should go through these, especially the finalized ones, and (time permitting)
 
 * [Visual C# resources](http://msdn.microsoft.com/en-us/vstudio/hh341490.aspx)
 * [C# Tutorial](http://www.tutorialspoint.com/csharp/csharp_tutorial.pdf)
+* [C# Programming Guide - MSDN] (http://msdn.microsoft.com/en-us/library/67ef8sbd.aspx)
