@@ -7,164 +7,162 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07F3DEE0193E6B6B002657DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F3DEDF193E6B6B002657DD /* Cocoa.framework */; };
-		07F3DEEA193E6B6B002657DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07F3DEE8193E6B6B002657DD /* InfoPlist.strings */; };
-		07F3DEEC193E6B6B002657DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F3DEEB193E6B6B002657DD /* main.m */; };
-		07F3DEF0193E6B6B002657DD /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 07F3DEEE193E6B6B002657DD /* Credits.rtf */; };
-		07F3DEF3193E6B6B002657DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F3DEF2193E6B6B002657DD /* AppDelegate.m */; };
-		07F3DEF6193E6B6B002657DD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07F3DEF4193E6B6B002657DD /* MainMenu.xib */; };
-		07F3DEF8193E6B6B002657DD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07F3DEF7193E6B6B002657DD /* Images.xcassets */; };
-		07F3DEFF193E6B6B002657DD /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F3DEFE193E6B6B002657DD /* XCTest.framework */; };
-		07F3DF00193E6B6B002657DD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F3DEDF193E6B6B002657DD /* Cocoa.framework */; };
-		07F3DF08193E6B6B002657DD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07F3DF06193E6B6B002657DD /* InfoPlist.strings */; };
-		07F3DF0A193E6B6B002657DD /* Damp_KegTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 07F3DF09193E6B6B002657DD /* Damp_KegTests.m */; };
+		07CF1FF1194672E6004884CD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF1FF0194672E6004884CD /* main.swift */; };
+		07CF1FF3194672E6004884CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF1FF2194672E6004884CD /* AppDelegate.swift */; };
+		07CF1FF5194672E6004884CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07CF1FF4194672E6004884CD /* Images.xcassets */; };
+		07CF1FF8194672E6004884CD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07CF1FF6194672E6004884CD /* MainMenu.xib */; };
+		07CF2004194672E6004884CD /* Damp_KegTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF2003194672E6004884CD /* Damp_KegTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		07F3DF01193E6B6B002657DD /* PBXContainerItemProxy */ = {
+		07CF1FFE194672E6004884CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 07F3DED4193E6B6B002657DD /* Project object */;
+			containerPortal = 07CF1FE3194672E6004884CD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 07F3DEDB193E6B6B002657DD;
+			remoteGlobalIDString = 07CF1FEA194672E6004884CD;
+			remoteInfo = "Damp Keg";
+		};
+		07CF200F194674B5004884CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07CF1FE3194672E6004884CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07CF1FEA194672E6004884CD;
+			remoteInfo = "Damp Keg";
+		};
+		07CF2011194674B5004884CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07CF1FE3194672E6004884CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07CF1FEA194672E6004884CD;
+			remoteInfo = "Damp Keg";
+		};
+		07CF2013194674D6004884CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07CF1FE3194672E6004884CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07CF1FEA194672E6004884CD;
+			remoteInfo = "Damp Keg";
+		};
+		07CF2015194674DE004884CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07CF1FE3194672E6004884CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07CF1FEA194672E6004884CD;
+			remoteInfo = "Damp Keg";
+		};
+		07CF2017194675D1004884CD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07CF1FE3194672E6004884CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07CF1FEA194672E6004884CD;
 			remoteInfo = "Damp Keg";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07F3DEDC193E6B6B002657DD /* Damp Keg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Damp Keg.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		07F3DEDF193E6B6B002657DD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		07F3DEE2193E6B6B002657DD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		07F3DEE3193E6B6B002657DD /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		07F3DEE4193E6B6B002657DD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		07F3DEE7193E6B6B002657DD /* Damp Keg-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Damp Keg-Info.plist"; sourceTree = "<group>"; };
-		07F3DEE9193E6B6B002657DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		07F3DEEB193E6B6B002657DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		07F3DEED193E6B6B002657DD /* Damp Keg-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Damp Keg-Prefix.pch"; sourceTree = "<group>"; };
-		07F3DEEF193E6B6B002657DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		07F3DEF1193E6B6B002657DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		07F3DEF2193E6B6B002657DD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		07F3DEF5193E6B6B002657DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		07F3DEF7193E6B6B002657DD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		07F3DEFD193E6B6B002657DD /* Damp KegTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Damp KegTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		07F3DEFE193E6B6B002657DD /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		07F3DF05193E6B6B002657DD /* Damp KegTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Damp KegTests-Info.plist"; sourceTree = "<group>"; };
-		07F3DF07193E6B6B002657DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		07F3DF09193E6B6B002657DD /* Damp_KegTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Damp_KegTests.m; sourceTree = "<group>"; };
+		07CF1FEB194672E6004884CD /* Damp Keg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Damp Keg.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07CF1FEF194672E6004884CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		07CF1FF0194672E6004884CD /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		07CF1FF2194672E6004884CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		07CF1FF4194672E6004884CD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		07CF1FF7194672E6004884CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		07CF1FFD194672E6004884CD /* Damp Keg – Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Damp Keg – Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07CF2002194672E6004884CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		07CF2003194672E6004884CD /* Damp_KegTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Damp_KegTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		07F3DED9193E6B6B002657DD /* Frameworks */ = {
+		07CF1FE8194672E6004884CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F3DEE0193E6B6B002657DD /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		07F3DEFA193E6B6B002657DD /* Frameworks */ = {
+		07CF1FFA194672E6004884CD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F3DF00193E6B6B002657DD /* Cocoa.framework in Frameworks */,
-				07F3DEFF193E6B6B002657DD /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07F3DED3193E6B6B002657DD = {
+		07CF1FE2194672E6004884CD = {
 			isa = PBXGroup;
 			children = (
-				07F3DF13193E7395002657DD /* Source Code */,
-				07F3DF14193E739B002657DD /* Resources */,
-				07F3DF03193E6B6B002657DD /* Damp KegTests */,
-				07F3DEDE193E6B6B002657DD /* Frameworks */,
-				07F3DEDD193E6B6B002657DD /* Products */,
+				07CF1FED194672E6004884CD /* Damp Keg */,
+				07CF2000194672E6004884CD /* Damp Keg – Tests */,
+				07CF1FEC194672E6004884CD /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		07F3DEDD193E6B6B002657DD /* Products */ = {
+		07CF1FEC194672E6004884CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				07F3DEDC193E6B6B002657DD /* Damp Keg.app */,
-				07F3DEFD193E6B6B002657DD /* Damp KegTests.xctest */,
+				07CF1FEB194672E6004884CD /* Damp Keg.app */,
+				07CF1FFD194672E6004884CD /* Damp Keg – Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		07F3DEDE193E6B6B002657DD /* Frameworks */ = {
+		07CF1FED194672E6004884CD /* Damp Keg */ = {
 			isa = PBXGroup;
 			children = (
-				07F3DEDF193E6B6B002657DD /* Cocoa.framework */,
-				07F3DEFE193E6B6B002657DD /* XCTest.framework */,
-				07F3DEE1193E6B6B002657DD /* Other Frameworks */,
+				07CF200E1946736F004884CD /* Source Code */,
+				07CF200D19467367004884CD /* Resources */,
 			);
-			name = Frameworks;
+			path = "Damp Keg";
 			sourceTree = "<group>";
 		};
-		07F3DEE1193E6B6B002657DD /* Other Frameworks */ = {
+		07CF2000194672E6004884CD /* Damp Keg – Tests */ = {
 			isa = PBXGroup;
 			children = (
-				07F3DEE2193E6B6B002657DD /* AppKit.framework */,
-				07F3DEE3193E6B6B002657DD /* CoreData.framework */,
-				07F3DEE4193E6B6B002657DD /* Foundation.framework */,
+				07CF2003194672E6004884CD /* Damp_KegTests.swift */,
+				07CF2001194672E6004884CD /* Supporting Files */,
 			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		07F3DF03193E6B6B002657DD /* Damp KegTests */ = {
-			isa = PBXGroup;
-			children = (
-				07F3DF09193E6B6B002657DD /* Damp_KegTests.m */,
-				07F3DF04193E6B6B002657DD /* Supporting Files */,
-			);
-			name = "Damp KegTests";
+			name = "Damp Keg – Tests";
 			path = Tests;
 			sourceTree = "<group>";
 		};
-		07F3DF04193E6B6B002657DD /* Supporting Files */ = {
+		07CF2001194672E6004884CD /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				07F3DF05193E6B6B002657DD /* Damp KegTests-Info.plist */,
-				07F3DF06193E6B6B002657DD /* InfoPlist.strings */,
+				07CF2002194672E6004884CD /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		07F3DF13193E7395002657DD /* Source Code */ = {
+		07CF200D19467367004884CD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				07F3DEF1193E6B6B002657DD /* AppDelegate.h */,
-				07F3DEF2193E6B6B002657DD /* AppDelegate.m */,
-				07F3DEEB193E6B6B002657DD /* main.m */,
-				07F3DEED193E6B6B002657DD /* Damp Keg-Prefix.pch */,
-			);
-			path = "Source Code";
-			sourceTree = "<group>";
-		};
-		07F3DF14193E739B002657DD /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				07F3DEF4193E6B6B002657DD /* MainMenu.xib */,
-				07F3DEF7193E6B6B002657DD /* Images.xcassets */,
-				07F3DEE7193E6B6B002657DD /* Damp Keg-Info.plist */,
-				07F3DEE8193E6B6B002657DD /* InfoPlist.strings */,
-				07F3DEEE193E6B6B002657DD /* Credits.rtf */,
+				07CF1FF4194672E6004884CD /* Images.xcassets */,
+				07CF1FF6194672E6004884CD /* MainMenu.xib */,
+				07CF1FEF194672E6004884CD /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		07CF200E1946736F004884CD /* Source Code */ = {
+			isa = PBXGroup;
+			children = (
+				07CF1FF2194672E6004884CD /* AppDelegate.swift */,
+				07CF1FF0194672E6004884CD /* main.swift */,
+			);
+			path = "Source Code";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		07F3DEDB193E6B6B002657DD /* Damp Keg */ = {
+		07CF1FEA194672E6004884CD /* Damp Keg */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 07F3DF0D193E6B6B002657DD /* Build configuration list for PBXNativeTarget "Damp Keg" */;
+			buildConfigurationList = 07CF2007194672E6004884CD /* Build configuration list for PBXNativeTarget "Damp Keg" */;
 			buildPhases = (
-				07F3DED8193E6B6B002657DD /* Sources */,
-				07F3DED9193E6B6B002657DD /* Frameworks */,
-				07F3DEDA193E6B6B002657DD /* Resources */,
+				07CF1FE7194672E6004884CD /* Sources */,
+				07CF1FE8194672E6004884CD /* Frameworks */,
+				07CF1FE9194672E6004884CD /* Resources */,
 			);
 			buildRules = (
 			);
@@ -172,42 +170,51 @@
 			);
 			name = "Damp Keg";
 			productName = "Damp Keg";
-			productReference = 07F3DEDC193E6B6B002657DD /* Damp Keg.app */;
+			productReference = 07CF1FEB194672E6004884CD /* Damp Keg.app */;
 			productType = "com.apple.product-type.application";
 		};
-		07F3DEFC193E6B6B002657DD /* Damp KegTests */ = {
+		07CF1FFC194672E6004884CD /* Damp Keg – Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 07F3DF10193E6B6B002657DD /* Build configuration list for PBXNativeTarget "Damp KegTests" */;
+			buildConfigurationList = 07CF200A194672E6004884CD /* Build configuration list for PBXNativeTarget "Damp Keg – Tests" */;
 			buildPhases = (
-				07F3DEF9193E6B6B002657DD /* Sources */,
-				07F3DEFA193E6B6B002657DD /* Frameworks */,
-				07F3DEFB193E6B6B002657DD /* Resources */,
+				07CF1FF9194672E6004884CD /* Sources */,
+				07CF1FFA194672E6004884CD /* Frameworks */,
+				07CF1FFB194672E6004884CD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				07F3DF02193E6B6B002657DD /* PBXTargetDependency */,
+				07CF1FFF194672E6004884CD /* PBXTargetDependency */,
+				07CF2010194674B5004884CD /* PBXTargetDependency */,
+				07CF2012194674B5004884CD /* PBXTargetDependency */,
+				07CF2014194674D6004884CD /* PBXTargetDependency */,
+				07CF2016194674DE004884CD /* PBXTargetDependency */,
+				07CF2018194675D1004884CD /* PBXTargetDependency */,
 			);
-			name = "Damp KegTests";
+			name = "Damp Keg – Tests";
 			productName = "Damp KegTests";
-			productReference = 07F3DEFD193E6B6B002657DD /* Damp KegTests.xctest */;
+			productReference = 07CF1FFD194672E6004884CD /* Damp Keg – Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		07F3DED4193E6B6B002657DD /* Project object */ = {
+		07CF1FE3194672E6004884CD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Damp Keg";
 				TargetAttributes = {
-					07F3DEFC193E6B6B002657DD = {
-						TestTargetID = 07F3DEDB193E6B6B002657DD;
+					07CF1FEA194672E6004884CD = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					07CF1FFC194672E6004884CD = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 07CF1FEA194672E6004884CD;
 					};
 				};
 			};
-			buildConfigurationList = 07F3DED7193E6B6B002657DD /* Build configuration list for PBXProject "Damp Keg" */;
+			buildConfigurationList = 07CF1FE6194672E6004884CD /* Build configuration list for PBXProject "Damp Keg" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -215,104 +222,102 @@
 				en,
 				Base,
 			);
-			mainGroup = 07F3DED3193E6B6B002657DD;
-			productRefGroup = 07F3DEDD193E6B6B002657DD /* Products */;
+			mainGroup = 07CF1FE2194672E6004884CD;
+			productRefGroup = 07CF1FEC194672E6004884CD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				07F3DEDB193E6B6B002657DD /* Damp Keg */,
-				07F3DEFC193E6B6B002657DD /* Damp KegTests */,
+				07CF1FEA194672E6004884CD /* Damp Keg */,
+				07CF1FFC194672E6004884CD /* Damp Keg – Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		07F3DEDA193E6B6B002657DD /* Resources */ = {
+		07CF1FE9194672E6004884CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F3DEEA193E6B6B002657DD /* InfoPlist.strings in Resources */,
-				07F3DEF8193E6B6B002657DD /* Images.xcassets in Resources */,
-				07F3DEF0193E6B6B002657DD /* Credits.rtf in Resources */,
-				07F3DEF6193E6B6B002657DD /* MainMenu.xib in Resources */,
+				07CF1FF5194672E6004884CD /* Images.xcassets in Resources */,
+				07CF1FF8194672E6004884CD /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		07F3DEFB193E6B6B002657DD /* Resources */ = {
+		07CF1FFB194672E6004884CD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F3DF08193E6B6B002657DD /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		07F3DED8193E6B6B002657DD /* Sources */ = {
+		07CF1FE7194672E6004884CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F3DEF3193E6B6B002657DD /* AppDelegate.m in Sources */,
-				07F3DEEC193E6B6B002657DD /* main.m in Sources */,
+				07CF1FF3194672E6004884CD /* AppDelegate.swift in Sources */,
+				07CF1FF1194672E6004884CD /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		07F3DEF9193E6B6B002657DD /* Sources */ = {
+		07CF1FF9194672E6004884CD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07F3DF0A193E6B6B002657DD /* Damp_KegTests.m in Sources */,
+				07CF2004194672E6004884CD /* Damp_KegTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		07F3DF02193E6B6B002657DD /* PBXTargetDependency */ = {
+		07CF1FFF194672E6004884CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 07F3DEDB193E6B6B002657DD /* Damp Keg */;
-			targetProxy = 07F3DF01193E6B6B002657DD /* PBXContainerItemProxy */;
+			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			targetProxy = 07CF1FFE194672E6004884CD /* PBXContainerItemProxy */;
+		};
+		07CF2010194674B5004884CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			targetProxy = 07CF200F194674B5004884CD /* PBXContainerItemProxy */;
+		};
+		07CF2012194674B5004884CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			targetProxy = 07CF2011194674B5004884CD /* PBXContainerItemProxy */;
+		};
+		07CF2014194674D6004884CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			targetProxy = 07CF2013194674D6004884CD /* PBXContainerItemProxy */;
+		};
+		07CF2016194674DE004884CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			targetProxy = 07CF2015194674DE004884CD /* PBXContainerItemProxy */;
+		};
+		07CF2018194675D1004884CD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			targetProxy = 07CF2017194675D1004884CD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		07F3DEE8193E6B6B002657DD /* InfoPlist.strings */ = {
+		07CF1FF6194672E6004884CD /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				07F3DEE9193E6B6B002657DD /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		07F3DEEE193E6B6B002657DD /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				07F3DEEF193E6B6B002657DD /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		07F3DEF4193E6B6B002657DD /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				07F3DEF5193E6B6B002657DD /* Base */,
+				07CF1FF7194672E6004884CD /* Base */,
 			);
 			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-		07F3DF06193E6B6B002657DD /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				07F3DF07193E6B6B002657DD /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		07F3DF0B193E6B6B002657DD /* Debug */ = {
+		07CF2005194672E6004884CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -327,11 +332,13 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -345,12 +352,14 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		07F3DF0C193E6B6B002657DD /* Release */ = {
+		07CF2006194672E6004884CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -365,12 +374,14 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -378,37 +389,34 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		07F3DF0E193E6B6B002657DD /* Debug */ = {
+		07CF2008194672E6004884CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Damp Keg/Damp Keg-Prefix.pch";
-				INFOPLIST_FILE = "Damp Keg/Damp Keg-Info.plist";
+				INFOPLIST_FILE = "Damp Keg/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
-		07F3DF0F193E6B6B002657DD /* Release */ = {
+		07CF2009194672E6004884CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Damp Keg/Damp Keg-Prefix.pch";
-				INFOPLIST_FILE = "Damp Keg/Damp Keg-Info.plist";
+				INFOPLIST_FILE = "Damp Keg/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
-		07F3DF11193E6B6B002657DD /* Debug */ = {
+		07CF200B194672E6004884CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Damp Keg.app/Contents/MacOS/Damp Keg";
@@ -417,20 +425,19 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Damp Keg/Damp Keg-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "Damp KegTests/Damp KegTests-Info.plist";
+				INFOPLIST_FILE = "Damp KegTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		07F3DF12193E6B6B002657DD /* Release */ = {
+		07CF200C194672E6004884CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Damp Keg.app/Contents/MacOS/Damp Keg";
@@ -439,46 +446,45 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Damp Keg/Damp Keg-Prefix.pch";
-				INFOPLIST_FILE = "Damp KegTests/Damp KegTests-Info.plist";
+				INFOPLIST_FILE = "Damp KegTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		07F3DED7193E6B6B002657DD /* Build configuration list for PBXProject "Damp Keg" */ = {
+		07CF1FE6194672E6004884CD /* Build configuration list for PBXProject "Damp Keg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				07F3DF0B193E6B6B002657DD /* Debug */,
-				07F3DF0C193E6B6B002657DD /* Release */,
+				07CF2005194672E6004884CD /* Debug */,
+				07CF2006194672E6004884CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		07F3DF0D193E6B6B002657DD /* Build configuration list for PBXNativeTarget "Damp Keg" */ = {
+		07CF2007194672E6004884CD /* Build configuration list for PBXNativeTarget "Damp Keg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				07F3DF0E193E6B6B002657DD /* Debug */,
-				07F3DF0F193E6B6B002657DD /* Release */,
+				07CF2008194672E6004884CD /* Debug */,
+				07CF2009194672E6004884CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		07F3DF10193E6B6B002657DD /* Build configuration list for PBXNativeTarget "Damp KegTests" */ = {
+		07CF200A194672E6004884CD /* Build configuration list for PBXNativeTarget "Damp Keg – Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				07F3DF11193E6B6B002657DD /* Debug */,
-				07F3DF12193E6B6B002657DD /* Release */,
+				07CF200B194672E6004884CD /* Debug */,
+				07CF200C194672E6004884CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 07F3DED4193E6B6B002657DD /* Project object */;
+	rootObject = 07CF1FE3194672E6004884CD /* Project object */;
 }
