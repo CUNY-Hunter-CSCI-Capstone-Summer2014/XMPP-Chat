@@ -1,5 +1,7 @@
 # Copying #
 
+## Damp Keg ##
+
 © 2014 by the Authors (see Authors.md)
 
 Damp Keg is Licensed under the Apache License, Version 2.0 (the "License").
