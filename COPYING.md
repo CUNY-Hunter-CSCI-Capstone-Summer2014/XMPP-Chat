@@ -17,8 +17,7 @@ limitations under the License.
 
 ## Acknowledgements ##
 
-Portions of Damp Keg may utilize the following copyrighted material, the use
-of which is hereby acknowledged
+Portions of Damp Keg may utilize the following copyrighted material, the use of which is hereby acknowledged:
 
 
 ### libstrophe ###
