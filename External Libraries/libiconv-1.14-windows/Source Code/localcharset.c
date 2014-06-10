@@ -73,11 +73,6 @@
 # define relocate(pathname) (pathname)
 #endif
 
-/* Get LIBDIR.  */
-#ifndef LIBDIR
-# include "configmake.h"
-#endif
-
 /* Define O_NOFOLLOW to 0 on platforms where it does not exist.  */
 #ifndef O_NOFOLLOW
 # define O_NOFOLLOW 0
@@ -465,7 +460,8 @@ locale_charset (void)
      GetConsoleOutputCP() encoding if it is using a TrueType font.
      But in GUI programs and for output sent to files and pipes, GetACP()
      encoding is the best bet.  */
-  sprintf (buf, "CP%u", GetACP ());
+  //sprintf (buf, "CP%u", GetACP ());
+  sprintf_s(buf, 2 + 10 + 1, "CP%u", GetACP()); /* Secure version */
   codeset = buf;
 
 #elif defined OS2

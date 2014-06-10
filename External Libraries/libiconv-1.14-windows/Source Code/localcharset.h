@@ -21,8 +21,12 @@
 #define _LOCALCHARSET_H
 
 
-#ifdef __cplusplus
-extern "C" {
+#ifdef BUILDING_LIBCHARSET
+#define LIBCHARSET_DLL_EXPORTED __declspec(dllexport)
+#elif USING_STATIC_LIBICONV
+#define LIBCHARSET_DLL_EXPORTED
+#else
+#define LIBCHARSET_DLL_EXPORTED __declspec(dllimport)
 #endif
 
 
