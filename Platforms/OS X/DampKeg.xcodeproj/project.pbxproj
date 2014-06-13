@@ -15,62 +15,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		07800D321946D3E600D553BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07800D261946D3E600D553BB /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800C611946C97200D553BB;
-			remoteInfo = strophe;
-		};
-		07800D341946D3E600D553BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07800D261946D3E600D553BB /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800C2F1946C02D00D553BB;
-			remoteInfo = "Check Parser";
-		};
-		07800D361946D3E600D553BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07800D261946D3E600D553BB /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800C4D1946C0F800D553BB;
-			remoteInfo = "Test Base64";
-		};
-		07800D381946D3E600D553BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07800D261946D3E600D553BB /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800CD21946CB6C00D553BB;
-			remoteInfo = "Test ctx";
-		};
-		07800D3A1946D3E600D553BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07800D261946D3E600D553BB /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800CDF1946CCD700D553BB;
-			remoteInfo = "Test Hash";
-		};
-		07800D3C1946D3E600D553BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07800D261946D3E600D553BB /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800CEB1946CD3000D553BB;
-			remoteInfo = "Test JID";
-		};
-		07800D3E1946D3E600D553BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07800D261946D3E600D553BB /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800D071946CF0200D553BB;
-			remoteInfo = "Test Socket";
-		};
-		07800D401946D3E600D553BB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07800D261946D3E600D553BB /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800D131946CFAC00D553BB;
-			remoteInfo = "Test SASL";
-		};
 		07CF1FFE194672E6004884CD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 07CF1FE3194672E6004884CD /* Project object */;
@@ -130,9 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		07800D261946D3E600D553BB /* libstrophe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libstrophe.xcodeproj; path = libstrophe/libstrophe.xcodeproj; sourceTree = "<group>"; };
-		07CF1FEB194672E6004884CD /* Damp Keg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Damp Keg.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		07CF1FFD194672E6004884CD /* Damp Keg – Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Damp Keg – Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07CF1FEB194672E6004884CD /* DampKeg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DampKeg.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		07CF1FFD194672E6004884CD /* DampKeg – Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DampKeg – Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CF20481946769E004884CD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Source Code/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		07CF20491946769E004884CD /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = "Source Code/main.swift"; sourceTree = SOURCE_ROOT; };
 		07CF204C194676C2004884CD /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Resources/Images.xcassets; sourceTree = SOURCE_ROOT; };
@@ -160,27 +103,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07800D271946D3E600D553BB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				07800D331946D3E600D553BB /* libstrophe.dylib */,
-				07800D351946D3E600D553BB /* Check Parser */,
-				07800D371946D3E600D553BB /* Test Base64 */,
-				07800D391946D3E600D553BB /* Test ctx */,
-				07800D3B1946D3E600D553BB /* Test Hash */,
-				07800D3D1946D3E600D553BB /* Test JID */,
-				07800D3F1946D3E600D553BB /* Test Socket */,
-				07800D411946D3E600D553BB /* Test SASL */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		07CF1FE2194672E6004884CD = {
 			isa = PBXGroup;
 			children = (
-				07CF1FED194672E6004884CD /* Damp Keg */,
-				07CF2000194672E6004884CD /* Damp Keg – Tests */,
-				07CF206E1946B186004884CD /* External Libraries */,
+				07CF1FED194672E6004884CD /* DampKeg */,
+				07CF2000194672E6004884CD /* DampKeg – Tests */,
 				07CF1FEC194672E6004884CD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -188,28 +115,29 @@
 		07CF1FEC194672E6004884CD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				07CF1FEB194672E6004884CD /* Damp Keg.app */,
-				07CF1FFD194672E6004884CD /* Damp Keg – Tests.xctest */,
+				07CF1FEB194672E6004884CD /* DampKeg.app */,
+				07CF1FFD194672E6004884CD /* DampKeg – Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		07CF1FED194672E6004884CD /* Damp Keg */ = {
+		07CF1FED194672E6004884CD /* DampKeg */ = {
 			isa = PBXGroup;
 			children = (
 				07CF200E1946736F004884CD /* Source Code */,
 				07CF200D19467367004884CD /* Resources */,
 			);
+			name = DampKeg;
 			path = "Damp Keg";
 			sourceTree = "<group>";
 		};
-		07CF2000194672E6004884CD /* Damp Keg – Tests */ = {
+		07CF2000194672E6004884CD /* DampKeg – Tests */ = {
 			isa = PBXGroup;
 			children = (
 				07CF205519467773004884CD /* Source Code */,
 				07CF2001194672E6004884CD /* Resources */,
 			);
-			name = "Damp Keg – Tests";
+			name = "DampKeg – Tests";
 			path = Tests;
 			sourceTree = "<group>";
 		};
@@ -248,21 +176,12 @@
 			path = "Source Code";
 			sourceTree = "<group>";
 		};
-		07CF206E1946B186004884CD /* External Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				07800D261946D3E600D553BB /* libstrophe.xcodeproj */,
-			);
-			name = "External Libraries";
-			path = "../../External Libraries";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		07CF1FEA194672E6004884CD /* Damp Keg */ = {
+		07CF1FEA194672E6004884CD /* DampKeg */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 07CF2007194672E6004884CD /* Build configuration list for PBXNativeTarget "Damp Keg" */;
+			buildConfigurationList = 07CF2007194672E6004884CD /* Build configuration list for PBXNativeTarget "DampKeg" */;
 			buildPhases = (
 				07CF1FE7194672E6004884CD /* Sources */,
 				07CF1FE8194672E6004884CD /* Frameworks */,
@@ -272,14 +191,14 @@
 			);
 			dependencies = (
 			);
-			name = "Damp Keg";
+			name = DampKeg;
 			productName = "Damp Keg";
-			productReference = 07CF1FEB194672E6004884CD /* Damp Keg.app */;
+			productReference = 07CF1FEB194672E6004884CD /* DampKeg.app */;
 			productType = "com.apple.product-type.application";
 		};
-		07CF1FFC194672E6004884CD /* Damp Keg – Tests */ = {
+		07CF1FFC194672E6004884CD /* DampKeg – Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 07CF200A194672E6004884CD /* Build configuration list for PBXNativeTarget "Damp Keg – Tests" */;
+			buildConfigurationList = 07CF200A194672E6004884CD /* Build configuration list for PBXNativeTarget "DampKeg – Tests" */;
 			buildPhases = (
 				07CF1FF9194672E6004884CD /* Sources */,
 				07CF1FFA194672E6004884CD /* Frameworks */,
@@ -297,9 +216,9 @@
 				07CF201A194675D1004884CD /* PBXTargetDependency */,
 				07CF205C194677FE004884CD /* PBXTargetDependency */,
 			);
-			name = "Damp Keg – Tests";
+			name = "DampKeg – Tests";
 			productName = "Damp KegTests";
-			productReference = 07CF1FFD194672E6004884CD /* Damp Keg – Tests.xctest */;
+			productReference = 07CF1FFD194672E6004884CD /* DampKeg – Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -320,7 +239,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 07CF1FE6194672E6004884CD /* Build configuration list for PBXProject "Damp Keg" */;
+			buildConfigurationList = 07CF1FE6194672E6004884CD /* Build configuration list for PBXProject "DampKeg" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -331,78 +250,13 @@
 			mainGroup = 07CF1FE2194672E6004884CD;
 			productRefGroup = 07CF1FEC194672E6004884CD /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 07800D271946D3E600D553BB /* Products */;
-					ProjectRef = 07800D261946D3E600D553BB /* libstrophe.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				07CF1FEA194672E6004884CD /* Damp Keg */,
-				07CF1FFC194672E6004884CD /* Damp Keg – Tests */,
+				07CF1FEA194672E6004884CD /* DampKeg */,
+				07CF1FFC194672E6004884CD /* DampKeg – Tests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		07800D331946D3E600D553BB /* libstrophe.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = libstrophe.dylib;
-			remoteRef = 07800D321946D3E600D553BB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07800D351946D3E600D553BB /* Check Parser */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Check Parser";
-			remoteRef = 07800D341946D3E600D553BB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07800D371946D3E600D553BB /* Test Base64 */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test Base64";
-			remoteRef = 07800D361946D3E600D553BB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07800D391946D3E600D553BB /* Test ctx */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test ctx";
-			remoteRef = 07800D381946D3E600D553BB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07800D3B1946D3E600D553BB /* Test Hash */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test Hash";
-			remoteRef = 07800D3A1946D3E600D553BB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07800D3D1946D3E600D553BB /* Test JID */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test JID";
-			remoteRef = 07800D3C1946D3E600D553BB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07800D3F1946D3E600D553BB /* Test Socket */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test Socket";
-			remoteRef = 07800D3E1946D3E600D553BB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07800D411946D3E600D553BB /* Test SASL */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test SASL";
-			remoteRef = 07800D401946D3E600D553BB /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		07CF1FE9194672E6004884CD /* Resources */ = {
@@ -446,42 +300,42 @@
 /* Begin PBXTargetDependency section */
 		07CF1FFF194672E6004884CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			target = 07CF1FEA194672E6004884CD /* DampKeg */;
 			targetProxy = 07CF1FFE194672E6004884CD /* PBXContainerItemProxy */;
 		};
 		07CF2010194674B5004884CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			target = 07CF1FEA194672E6004884CD /* DampKeg */;
 			targetProxy = 07CF200F194674B5004884CD /* PBXContainerItemProxy */;
 		};
 		07CF2012194674B5004884CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			target = 07CF1FEA194672E6004884CD /* DampKeg */;
 			targetProxy = 07CF2011194674B5004884CD /* PBXContainerItemProxy */;
 		};
 		07CF2014194674D6004884CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			target = 07CF1FEA194672E6004884CD /* DampKeg */;
 			targetProxy = 07CF2013194674D6004884CD /* PBXContainerItemProxy */;
 		};
 		07CF2016194674DE004884CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			target = 07CF1FEA194672E6004884CD /* DampKeg */;
 			targetProxy = 07CF2015194674DE004884CD /* PBXContainerItemProxy */;
 		};
 		07CF2018194675D1004884CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			target = 07CF1FEA194672E6004884CD /* DampKeg */;
 			targetProxy = 07CF2017194675D1004884CD /* PBXContainerItemProxy */;
 		};
 		07CF201A194675D1004884CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			target = 07CF1FEA194672E6004884CD /* DampKeg */;
 			targetProxy = 07CF2019194675D1004884CD /* PBXContainerItemProxy */;
 		};
 		07CF205C194677FE004884CD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 07CF1FEA194672E6004884CD /* Damp Keg */;
+			target = 07CF1FEA194672E6004884CD /* DampKeg */;
 			targetProxy = 07CF205B194677FE004884CD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -582,7 +436,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DampKeg;
 			};
 			name = Debug;
 		};
@@ -593,7 +447,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DampKeg;
 			};
 			name = Release;
 		};
@@ -613,7 +467,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "DampKeg – Tests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -630,7 +484,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Tests/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "DampKeg – Tests";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -638,7 +492,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		07CF1FE6194672E6004884CD /* Build configuration list for PBXProject "Damp Keg" */ = {
+		07CF1FE6194672E6004884CD /* Build configuration list for PBXProject "DampKeg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				07CF2005194672E6004884CD /* Debug */,
@@ -647,7 +501,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		07CF2007194672E6004884CD /* Build configuration list for PBXNativeTarget "Damp Keg" */ = {
+		07CF2007194672E6004884CD /* Build configuration list for PBXNativeTarget "DampKeg" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				07CF2008194672E6004884CD /* Debug */,
@@ -656,7 +510,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		07CF200A194672E6004884CD /* Build configuration list for PBXNativeTarget "Damp Keg – Tests" */ = {
+		07CF200A194672E6004884CD /* Build configuration list for PBXNativeTarget "DampKeg – Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				07CF200B194672E6004884CD /* Debug */,

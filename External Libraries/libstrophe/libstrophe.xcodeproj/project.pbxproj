@@ -54,8 +54,6 @@
 		07800CB61946CAF100D553BB /* sock.c in Sources */ = {isa = PBXBuildFile; fileRef = 07800C921946CAF100D553BB /* sock.c */; };
 		07800CB71946CAF100D553BB /* sock.h in Headers */ = {isa = PBXBuildFile; fileRef = 07800C931946CAF100D553BB /* sock.h */; };
 		07800CB81946CAF100D553BB /* stanza.c in Sources */ = {isa = PBXBuildFile; fileRef = 07800C941946CAF100D553BB /* stanza.c */; };
-		07800CB91946CAF100D553BB /* strophe.h in Headers */ = {isa = PBXBuildFile; fileRef = 07800C951946CAF100D553BB /* strophe.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07800CBA1946CAF100D553BB /* strophepp.h in Headers */ = {isa = PBXBuildFile; fileRef = 07800C961946CAF100D553BB /* strophepp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07800CBB1946CAF100D553BB /* thread.c in Sources */ = {isa = PBXBuildFile; fileRef = 07800C971946CAF100D553BB /* thread.c */; };
 		07800CBC1946CAF100D553BB /* thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 07800C981946CAF100D553BB /* thread.h */; };
 		07800CBD1946CAF100D553BB /* tls_dummy.c in Sources */ = {isa = PBXBuildFile; fileRef = 07800C991946CAF100D553BB /* tls_dummy.c */; };
@@ -268,8 +266,6 @@
 		07800C921946CAF100D553BB /* sock.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sock.c; sourceTree = "<group>"; };
 		07800C931946CAF100D553BB /* sock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sock.h; sourceTree = "<group>"; };
 		07800C941946CAF100D553BB /* stanza.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = stanza.c; sourceTree = "<group>"; };
-		07800C951946CAF100D553BB /* strophe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strophe.h; sourceTree = "<group>"; };
-		07800C961946CAF100D553BB /* strophepp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = strophepp.h; sourceTree = "<group>"; };
 		07800C971946CAF100D553BB /* thread.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thread.c; sourceTree = "<group>"; };
 		07800C981946CAF100D553BB /* thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
 		07800C991946CAF100D553BB /* tls_dummy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tls_dummy.c; sourceTree = "<group>"; };
@@ -420,8 +416,6 @@
 				07800C921946CAF100D553BB /* sock.c */,
 				07800C931946CAF100D553BB /* sock.h */,
 				07800C941946CAF100D553BB /* stanza.c */,
-				07800C951946CAF100D553BB /* strophe.h */,
-				07800C961946CAF100D553BB /* strophepp.h */,
 				07800C971946CAF100D553BB /* thread.c */,
 				07800C981946CAF100D553BB /* thread.h */,
 				07800C991946CAF100D553BB /* tls_dummy.c */,
@@ -450,8 +444,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07800CB91946CAF100D553BB /* strophe.h in Headers */,
-				07800CBA1946CAF100D553BB /* strophepp.h in Headers */,
 				07800CC31946CAF100D553BB /* util.h in Headers */,
 				07800CB41946CAF100D553BB /* sha1.h in Headers */,
 				07800CAA1946CAF100D553BB /* md5.h in Headers */,
@@ -888,6 +880,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"$(PROJECT_DIR)/include",
+				);
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -896,6 +893,11 @@
 		07800CD11946CB6C00D553BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"$(PROJECT_DIR)/include",
+				);
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1028,6 +1030,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"$(PROJECT_DIR)/include",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1063,6 +1070,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					"$(PROJECT_DIR)/include",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
@@ -1151,6 +1163,7 @@
 				07800D171946D02000D553BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		07CF20BF1946BCAD004884CD /* Build configuration list for PBXProject "libstrophe" */ = {
 			isa = XCConfigurationList;

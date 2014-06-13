@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:Platforms/OS X/DampKeg.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:External Libraries/libstrophe/libstrophe.xcodeproj">
+   </FileRef>
+</Workspace>
