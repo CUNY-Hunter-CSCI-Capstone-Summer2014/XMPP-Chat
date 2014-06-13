@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source Code\buf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\c14n.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\catalog.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\chvalid.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\debugXML.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\dict.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\DOCBparser.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\encoding.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\entities.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\error.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\globals.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\hash.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\HTMLparser.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\HTMLtree.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\legacy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\list.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\nanoftp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\nanohttp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\parser.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\parserInternals.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\pattern.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\relaxng.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\SAX.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\SAX2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\schematron.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\threads.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\tree.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\uri.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\valid.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xinclude.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xlink.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xmlcatalog.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xmlIO.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xmlmemory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xmlmodule.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xmlreader.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xmlregexp.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xmlsave.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xmlschemas.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xmlschemastypes.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xmlstring.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xmlunicode.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xmlwriter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xpath.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\xpointer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source Code\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\libxml.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\elfgcchack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\buf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\enc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\save.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\timsort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

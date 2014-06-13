@@ -26,6 +26,7 @@
     <ProjectGuid>{86D2F8EE-CDFA-4753-8760-365135039DCC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>libiconv114windows</RootNamespace>
+    <ProjectName>libiconv</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -56,14 +57,12 @@
     <OutDir>$(SolutionDir)Build\Products\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)\include;$(IncludePath)</IncludePath>
-    <TargetName>libiconv</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\Products\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</OutDir>
     <IntDir>$(SolutionDir)Build\Intermediates\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)\include;$(IncludePath)</IncludePath>
-    <TargetName>libiconv</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
