@@ -24,6 +24,9 @@ We should go through these, especially the finalized ones, and (time permitting)
 
 * [Multi-User Chat](http://xmpp.org/extensions/xep-0045.html)
 
+### Both C# and OS X Tutorials ###
+* (https://www.youtube.com/user/gurirayat29/playlists)
+
 ### OS X / Objective-C ###
 
 * [Start Developing Mac Apps](https://developer.apple.com/library/mac/referencelibrary/GettingStarted/RoadMapOSX/chapters/01_Introduction.html)
@@ -36,3 +39,4 @@ We should go through these, especially the finalized ones, and (time permitting)
 * [C# Tutorial](http://www.tutorialspoint.com/csharp/csharp_tutorial.pdf)
 * [C# Programming Guide - MSDN] (http://msdn.microsoft.com/en-us/library/67ef8sbd.aspx)
 * [YouTube series - WPF Tutorial Microsft Visual] (https://www.youtube.com/watch?v=TE8-xwW4ZuM)
+
