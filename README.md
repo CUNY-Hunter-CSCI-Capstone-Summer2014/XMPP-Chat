@@ -25,7 +25,7 @@ We should go through these, especially the finalized ones, and (time permitting)
 * [Multi-User Chat](http://xmpp.org/extensions/xep-0045.html)
 
 ### Both C# and OS X Tutorials ###
-* (https://www.youtube.com/user/gurirayat29/playlists)
+* https://www.youtube.com/user/gurirayat29/playlists
 
 ### OS X / Objective-C ###
 
