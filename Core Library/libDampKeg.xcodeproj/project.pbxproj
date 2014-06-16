@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07265C60194C7B6D00F28EBC /* Connection_CFNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07265C5F194C7B6D00F28EBC /* Connection_CFNetwork.cpp */; };
+		0775BBC8194E6EDA00DA3325 /* dns_utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0775BBC7194E6EDA00DA3325 /* dns_utilities.cpp */; };
+		0775BBCB194E803100DA3325 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0775BBCA194E803100DA3325 /* CoreFoundation.framework */; };
+		0775BBD6194E840D00DA3325 /* main_OSX.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0775BBD5194E840D00DA3325 /* main_OSX.cpp */; };
+		07784EDB194CC2E0003C5101 /* SRVRecordResolver_CFNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07784EDA194CC2E0003C5101 /* SRVRecordResolver_CFNetwork.cpp */; };
+		07B94294194E89F800A41BBE /* libDampKeg.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07265C50194C7A1A00F28EBC /* libDampKeg.dylib */; };
+		07B94295194E8CB900A41BBE /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0775BBCA194E803100DA3325 /* CoreFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		07B94292194E89E000A41BBE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07265C48194C7A1A00F28EBC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07265C4F194C7A1A00F28EBC;
+			remoteInfo = dampkeg;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0775BBD1194E840D00DA3325 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		07265C50194C7A1A00F28EBC /* libDampKeg.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libDampKeg.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		07265C5F194C7B6D00F28EBC /* Connection_CFNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Connection_CFNetwork.cpp; sourceTree = "<group>"; };
+		07265C61194C7B7E00F28EBC /* Connection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
+		0775BBC7194E6EDA00DA3325 /* dns_utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dns_utilities.cpp; sourceTree = "<group>"; };
+		0775BBC9194E6F5C00DA3325 /* dns_utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dns_utilities.h; sourceTree = "<group>"; };
+		0775BBCA194E803100DA3325 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		0775BBD3194E840D00DA3325 /* test_libDampKeg */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = test_libDampKeg; sourceTree = BUILT_PRODUCTS_DIR; };
+		0775BBD5194E840D00DA3325 /* main_OSX.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main_OSX.cpp; sourceTree = "<group>"; };
+		07784ED9194CC2CA003C5101 /* SRVRecordResolver_CFNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRVRecordResolver_CFNetwork.h; sourceTree = "<group>"; };
+		07784EDA194CC2E0003C5101 /* SRVRecordResolver_CFNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SRVRecordResolver_CFNetwork.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07265C4D194C7A1A00F28EBC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0775BBCB194E803100DA3325 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0775BBD0194E840D00DA3325 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07B94295194E8CB900A41BBE /* CoreFoundation.framework in Frameworks */,
+				07B94294194E89F800A41BBE /* libDampKeg.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07265C47194C7A1A00F28EBC = {
+			isa = PBXGroup;
+			children = (
+				07265C52194C7A1A00F28EBC /* Source Code */,
+				0775BBCC194E805600DA3325 /* External Frameworks and Libraries */,
+				0775BBD4194E840D00DA3325 /* libdampkeg – Tests */,
+				07265C51194C7A1A00F28EBC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		07265C51194C7A1A00F28EBC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07265C50194C7A1A00F28EBC /* libDampKeg.dylib */,
+				0775BBD3194E840D00DA3325 /* test_libDampKeg */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07265C52194C7A1A00F28EBC /* Source Code */ = {
+			isa = PBXGroup;
+			children = (
+				07265C5F194C7B6D00F28EBC /* Connection_CFNetwork.cpp */,
+				07265C61194C7B7E00F28EBC /* Connection.h */,
+				07784ED9194CC2CA003C5101 /* SRVRecordResolver_CFNetwork.h */,
+				07784EDA194CC2E0003C5101 /* SRVRecordResolver_CFNetwork.cpp */,
+				0775BBC7194E6EDA00DA3325 /* dns_utilities.cpp */,
+				0775BBC9194E6F5C00DA3325 /* dns_utilities.h */,
+			);
+			path = "Source Code";
+			sourceTree = "<group>";
+		};
+		0775BBCC194E805600DA3325 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				0775BBCA194E803100DA3325 /* CoreFoundation.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		0775BBD4194E840D00DA3325 /* libdampkeg – Tests */ = {
+			isa = PBXGroup;
+			children = (
+				0775BBD5194E840D00DA3325 /* main_OSX.cpp */,
+			);
+			name = "libdampkeg – Tests";
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		07265C4E194C7A1A00F28EBC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		07265C4F194C7A1A00F28EBC /* DampKeg */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07265C5B194C7A1A00F28EBC /* Build configuration list for PBXNativeTarget "DampKeg" */;
+			buildPhases = (
+				07265C4C194C7A1A00F28EBC /* Sources */,
+				07265C4D194C7A1A00F28EBC /* Frameworks */,
+				07265C4E194C7A1A00F28EBC /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DampKeg;
+			productName = libDampKeg;
+			productReference = 07265C50194C7A1A00F28EBC /* libDampKeg.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+		0775BBD2194E840D00DA3325 /* test_libDampKeg */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0775BBD7194E840D00DA3325 /* Build configuration list for PBXNativeTarget "test_libDampKeg" */;
+			buildPhases = (
+				0775BBCF194E840D00DA3325 /* Sources */,
+				0775BBD0194E840D00DA3325 /* Frameworks */,
+				0775BBD1194E840D00DA3325 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07B94293194E89E000A41BBE /* PBXTargetDependency */,
+			);
+			name = test_libDampKeg;
+			productName = test_libDampKeg;
+			productReference = 0775BBD3194E840D00DA3325 /* test_libDampKeg */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07265C48194C7A1A00F28EBC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = DampKeg;
+				TargetAttributes = {
+					07265C4F194C7A1A00F28EBC = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					0775BBD2194E840D00DA3325 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
+			};
+			buildConfigurationList = 07265C4B194C7A1A00F28EBC /* Build configuration list for PBXProject "libDampKeg" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 07265C47194C7A1A00F28EBC;
+			productRefGroup = 07265C51194C7A1A00F28EBC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07265C4F194C7A1A00F28EBC /* DampKeg */,
+				0775BBD2194E840D00DA3325 /* test_libDampKeg */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07265C4C194C7A1A00F28EBC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07784EDB194CC2E0003C5101 /* SRVRecordResolver_CFNetwork.cpp in Sources */,
+				07265C60194C7B6D00F28EBC /* Connection_CFNetwork.cpp in Sources */,
+				0775BBC8194E6EDA00DA3325 /* dns_utilities.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0775BBCF194E840D00DA3325 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0775BBD6194E840D00DA3325 /* main_OSX.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		07B94293194E89E000A41BBE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07265C4F194C7A1A00F28EBC /* DampKeg */;
+			targetProxy = 07B94292194E89E000A41BBE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		07265C59194C7A1A00F28EBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		07265C5A194C7A1A00F28EBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		07265C5C194C7A1A00F28EBC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		07265C5D194C7A1A00F28EBC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_ENABLE_CPP_EXCEPTIONS = YES;
+				GCC_ENABLE_CPP_RTTI = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0775BBD8194E840D00DA3325 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0775BBD9194E840D00DA3325 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07265C4B194C7A1A00F28EBC /* Build configuration list for PBXProject "libDampKeg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07265C59194C7A1A00F28EBC /* Debug */,
+				07265C5A194C7A1A00F28EBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07265C5B194C7A1A00F28EBC /* Build configuration list for PBXNativeTarget "DampKeg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07265C5C194C7A1A00F28EBC /* Debug */,
+				07265C5D194C7A1A00F28EBC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0775BBD7194E840D00DA3325 /* Build configuration list for PBXNativeTarget "test_libDampKeg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0775BBD8194E840D00DA3325 /* Debug */,
+				0775BBD9194E840D00DA3325 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 07265C48194C7A1A00F28EBC /* Project object */;
+}

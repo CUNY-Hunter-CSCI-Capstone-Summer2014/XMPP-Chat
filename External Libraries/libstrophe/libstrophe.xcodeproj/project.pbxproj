@@ -26,6 +26,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		07265C46194C74DF00F28EBC /* snprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 07800C911946CAF100D553BB /* snprintf.c */; };
 		07800C3E1946C08B00D553BB /* check_parser.c in Sources */ = {isa = PBXBuildFile; fileRef = 07800C361946C07F00D553BB /* check_parser.c */; };
 		07800C4E1946C11400D553BB /* test_base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 07800C371946C07F00D553BB /* test_base64.c */; };
 		07800C7A1946C9F300D553BB /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07800C591946C83000D553BB /* libxml2.dylib */; };
@@ -50,7 +51,6 @@
 		07800CB21946CAF100D553BB /* sasl.h in Headers */ = {isa = PBXBuildFile; fileRef = 07800C8E1946CAF100D553BB /* sasl.h */; };
 		07800CB31946CAF100D553BB /* sha1.c in Sources */ = {isa = PBXBuildFile; fileRef = 07800C8F1946CAF100D553BB /* sha1.c */; };
 		07800CB41946CAF100D553BB /* sha1.h in Headers */ = {isa = PBXBuildFile; fileRef = 07800C901946CAF100D553BB /* sha1.h */; };
-		07800CB51946CAF100D553BB /* snprintf.c in Sources */ = {isa = PBXBuildFile; fileRef = 07800C911946CAF100D553BB /* snprintf.c */; };
 		07800CB61946CAF100D553BB /* sock.c in Sources */ = {isa = PBXBuildFile; fileRef = 07800C921946CAF100D553BB /* sock.c */; };
 		07800CB71946CAF100D553BB /* sock.h in Headers */ = {isa = PBXBuildFile; fileRef = 07800C931946CAF100D553BB /* sock.h */; };
 		07800CB81946CAF100D553BB /* stanza.c in Sources */ = {isa = PBXBuildFile; fileRef = 07800C941946CAF100D553BB /* stanza.c */; };
@@ -670,7 +670,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				07800CB11946CAF100D553BB /* sasl.c in Sources */,
-				07800CB51946CAF100D553BB /* snprintf.c in Sources */,
 				07800CA31946CAF100D553BB /* ctx.c in Sources */,
 				07800CC21946CAF100D553BB /* util.c in Sources */,
 				07800CBD1946CAF100D553BB /* tls_dummy.c in Sources */,
@@ -680,6 +679,7 @@
 				07800CB81946CAF100D553BB /* stanza.c in Sources */,
 				07800CB61946CAF100D553BB /* sock.c in Sources */,
 				07800CA01946CAF100D553BB /* auth.c in Sources */,
+				07265C46194C74DF00F28EBC /* snprintf.c in Sources */,
 				07800CAC1946CAF100D553BB /* oostanza.cpp in Sources */,
 				07800CBB1946CAF100D553BB /* thread.c in Sources */,
 				07800CA81946CAF100D553BB /* jid.c in Sources */,

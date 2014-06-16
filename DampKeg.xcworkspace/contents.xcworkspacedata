@@ -2,7 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Platforms/OS X/DampKeg.xcodeproj">
+      location = "group:Platforms/OS X/Desktop Client.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Core Library/libDampKeg.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:External Libraries/libstrophe/libstrophe.xcodeproj">
