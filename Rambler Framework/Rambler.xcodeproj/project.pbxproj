@@ -10,6 +10,17 @@
 		07D1E6DB1950A833008C76CF /* Rambler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E6CF1950A833008C76CF /* Rambler.framework */; };
 		07D1E6ED1950A8CA008C76CF /* Rambler.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D1E6EC1950A8CA008C76CF /* Rambler.h */; };
 		07D1E6F11950A907008C76CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E6F01950A907008C76CF /* Foundation.framework */; };
+		07D5DCBB1950B1A90041A7F3 /* AbstractConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D5DCB61950B1A90041A7F3 /* AbstractConnection.cpp */; };
+		07D5DCBC1950B1A90041A7F3 /* AbstractConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D5DCB71950B1A90041A7F3 /* AbstractConnection.h */; };
+		07D5DCBD1950B1A90041A7F3 /* CFNetworkBasedConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D5DCB81950B1A90041A7F3 /* CFNetworkBasedConnection.cpp */; };
+		07D5DCBE1950B1A90041A7F3 /* CFNetworkBasedConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D5DCB91950B1A90041A7F3 /* CFNetworkBasedConnection.h */; };
+		07D5DCBF1950B1A90041A7F3 /* State.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D5DCBA1950B1A90041A7F3 /* State.h */; };
+		07D5DCCD1950B2110041A7F3 /* dns_utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D5DCC91950B2110041A7F3 /* dns_utilities.cpp */; };
+		07D5DCCE1950B2110041A7F3 /* dns_utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D5DCCA1950B2110041A7F3 /* dns_utilities.h */; };
+		07D5DCCF1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D5DCCB1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp */; };
+		07D5DCD01950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D5DCCC1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h */; };
+		07D5DD2E1950B6570041A7F3 /* libstrophe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D5DD2D1950B6570041A7F3 /* libstrophe.a */; };
+		07D5DD301950B6670041A7F3 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D5DD2F1950B6670041A7F3 /* libxml2.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,16 +59,130 @@
 			remoteGlobalIDString = 07D1E6CE1950A833008C76CF;
 			remoteInfo = Rambler;
 		};
+		07D5DC9E1950AF500041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D1E6C61950A833008C76CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07D1E6CE1950A833008C76CF;
+			remoteInfo = Rambler;
+		};
+		07D5DCA01950AF670041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D1E6C61950A833008C76CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07D1E6CE1950A833008C76CF;
+			remoteInfo = Rambler;
+		};
+		07D5DCA21950AFB60041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D1E6C61950A833008C76CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07D1E6CE1950A833008C76CF;
+			remoteInfo = Rambler;
+		};
+		07D5DCA71950AFED0041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D1E6C61950A833008C76CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07D1E6CE1950A833008C76CF;
+			remoteInfo = Rambler;
+		};
+		07D5DD1C1950B6570041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07800C611946C97200D553BB;
+			remoteInfo = strophe;
+		};
+		07D5DD1E1950B6570041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07800C2F1946C02D00D553BB;
+			remoteInfo = "Check Parser";
+		};
+		07D5DD201950B6570041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07800C4D1946C0F800D553BB;
+			remoteInfo = "Test Base64";
+		};
+		07D5DD221950B6570041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07800CD21946CB6C00D553BB;
+			remoteInfo = "Test ctx";
+		};
+		07D5DD241950B6570041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07800CDF1946CCD700D553BB;
+			remoteInfo = "Test Hash";
+		};
+		07D5DD261950B6570041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07800CEB1946CD3000D553BB;
+			remoteInfo = "Test JID";
+		};
+		07D5DD281950B6570041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07800D071946CF0200D553BB;
+			remoteInfo = "Test Socket";
+		};
+		07D5DD2A1950B6570041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07800D131946CFAC00D553BB;
+			remoteInfo = "Test SASL";
+		};
+		07D5DD2C1950B6570041A7F3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07D5DCE41950B52C0041A7F3;
+			remoteInfo = "strophe-static";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		07D5DCB21950B0AD0041A7F3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		07D1E6CF1950A833008C76CF /* Rambler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rambler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		07D1E6DA1950A833008C76CF /* RamblerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RamblerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		07D1E6DA1950A833008C76CF /* Rambler – Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rambler – Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D1E6EC1950A8CA008C76CF /* Rambler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rambler.h; sourceTree = "<group>"; };
 		07D1E6F01950A907008C76CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		07D1E6F51950A9D5008C76CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07D1E6FF1950AA38008C76CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = SOURCE_ROOT; };
 		07D1E7011950AA59008C76CF /* RamblerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RamblerTests.m; sourceTree = "<group>"; };
+		07D5DCB61950B1A90041A7F3 /* AbstractConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractConnection.cpp; sourceTree = "<group>"; };
+		07D5DCB71950B1A90041A7F3 /* AbstractConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractConnection.h; sourceTree = "<group>"; };
+		07D5DCB81950B1A90041A7F3 /* CFNetworkBasedConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CFNetworkBasedConnection.cpp; sourceTree = "<group>"; };
+		07D5DCB91950B1A90041A7F3 /* CFNetworkBasedConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFNetworkBasedConnection.h; sourceTree = "<group>"; };
+		07D5DCBA1950B1A90041A7F3 /* State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		07D5DCC91950B2110041A7F3 /* dns_utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dns_utilities.cpp; sourceTree = "<group>"; };
+		07D5DCCA1950B2110041A7F3 /* dns_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dns_utilities.h; sourceTree = "<group>"; };
+		07D5DCCB1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SRVRecordResolver_CFNetwork.cpp; sourceTree = "<group>"; };
+		07D5DCCC1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVRecordResolver_CFNetwork.h; sourceTree = "<group>"; };
+		07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libstrophe.xcodeproj; path = "../External Libraries/libstrophe/libstrophe.xcodeproj"; sourceTree = "<group>"; };
+		07D5DD2F1950B6670041A7F3 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +190,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D5DD301950B6670041A7F3 /* libxml2.dylib in Frameworks */,
+				07D5DD2E1950B6570041A7F3 /* libstrophe.a in Frameworks */,
 				07D1E6F11950A907008C76CF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,8 +211,10 @@
 			isa = PBXGroup;
 			children = (
 				07D1E6D11950A833008C76CF /* Rambler */,
+				07D5DCB31950B1260041A7F3 /* librambler */,
 				07D1E6DE1950A833008C76CF /* Rambler – Tests */,
 				07D1E6F21950A913008C76CF /* Frameworks */,
+				07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */,
 				07D1E6D01950A833008C76CF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,7 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				07D1E6CF1950A833008C76CF /* Rambler.framework */,
-				07D1E6DA1950A833008C76CF /* RamblerTests.xctest */,
+				07D1E6DA1950A833008C76CF /* Rambler – Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,6 +266,7 @@
 		07D1E6F21950A913008C76CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				07D5DD2F1950B6670041A7F3 /* libxml2.dylib */,
 				07D1E6F01950A907008C76CF /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -158,6 +288,63 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		07D5DCB31950B1260041A7F3 /* librambler */ = {
+			isa = PBXGroup;
+			children = (
+				07D5DCB41950B13A0041A7F3 /* Source Code */,
+			);
+			name = librambler;
+			path = ../librambler;
+			sourceTree = "<group>";
+		};
+		07D5DCB41950B13A0041A7F3 /* Source Code */ = {
+			isa = PBXGroup;
+			children = (
+				07D5DCC81950B1F00041A7F3 /* DNS */,
+				07D5DCB51950B18D0041A7F3 /* Connection */,
+			);
+			path = "Source Code";
+			sourceTree = "<group>";
+		};
+		07D5DCB51950B18D0041A7F3 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				07D5DCB61950B1A90041A7F3 /* AbstractConnection.cpp */,
+				07D5DCB71950B1A90041A7F3 /* AbstractConnection.h */,
+				07D5DCB81950B1A90041A7F3 /* CFNetworkBasedConnection.cpp */,
+				07D5DCB91950B1A90041A7F3 /* CFNetworkBasedConnection.h */,
+				07D5DCBA1950B1A90041A7F3 /* State.h */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
+		07D5DCC81950B1F00041A7F3 /* DNS */ = {
+			isa = PBXGroup;
+			children = (
+				07D5DCC91950B2110041A7F3 /* dns_utilities.cpp */,
+				07D5DCCA1950B2110041A7F3 /* dns_utilities.h */,
+				07D5DCCB1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp */,
+				07D5DCCC1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h */,
+			);
+			path = DNS;
+			sourceTree = "<group>";
+		};
+		07D5DD101950B6480041A7F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07D5DD1D1950B6570041A7F3 /* libstrophe.dylib */,
+				07D5DD1F1950B6570041A7F3 /* Check Parser */,
+				07D5DD211950B6570041A7F3 /* Test Base64 */,
+				07D5DD231950B6570041A7F3 /* Test ctx */,
+				07D5DD251950B6570041A7F3 /* Test Hash */,
+				07D5DD271950B6570041A7F3 /* Test JID */,
+				07D5DD291950B6570041A7F3 /* Test Socket */,
+				07D5DD2B1950B6570041A7F3 /* Test SASL */,
+				07D5DD2D1950B6570041A7F3 /* libstrophe.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -165,7 +352,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D5DCBC1950B1A90041A7F3 /* AbstractConnection.h in Headers */,
 				07D1E6ED1950A8CA008C76CF /* Rambler.h in Headers */,
+				07D5DCCE1950B2110041A7F3 /* dns_utilities.h in Headers */,
+				07D5DCBF1950B1A90041A7F3 /* State.h in Headers */,
+				07D5DCBE1950B1A90041A7F3 /* CFNetworkBasedConnection.h in Headers */,
+				07D5DCD01950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +372,7 @@
 				07D1E6CB1950A833008C76CF /* Frameworks */,
 				07D1E6CC1950A833008C76CF /* Headers */,
 				07D1E6CD1950A833008C76CF /* Resources */,
+				07D5DCB21950B0AD0041A7F3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -190,9 +383,9 @@
 			productReference = 07D1E6CF1950A833008C76CF /* Rambler.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		07D1E6D91950A833008C76CF /* RamblerTests */ = {
+		07D1E6D91950A833008C76CF /* Rambler – Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 07D1E6E81950A833008C76CF /* Build configuration list for PBXNativeTarget "RamblerTests" */;
+			buildConfigurationList = 07D1E6E81950A833008C76CF /* Build configuration list for PBXNativeTarget "Rambler – Tests" */;
 			buildPhases = (
 				07D1E6D61950A833008C76CF /* Sources */,
 				07D1E6D71950A833008C76CF /* Frameworks */,
@@ -206,10 +399,14 @@
 				07D1E6FC1950AA05008C76CF /* PBXTargetDependency */,
 				07D1E6FE1950AA23008C76CF /* PBXTargetDependency */,
 				07D5DC9D1950AF500041A7F3 /* PBXTargetDependency */,
+				07D5DC9F1950AF500041A7F3 /* PBXTargetDependency */,
+				07D5DCA11950AF670041A7F3 /* PBXTargetDependency */,
+				07D5DCA31950AFB60041A7F3 /* PBXTargetDependency */,
+				07D5DCA81950AFED0041A7F3 /* PBXTargetDependency */,
 			);
-			name = RamblerTests;
+			name = "Rambler – Tests";
 			productName = RamblerTests;
-			productReference = 07D1E6DA1950A833008C76CF /* RamblerTests.xctest */;
+			productReference = 07D1E6DA1950A833008C76CF /* Rambler – Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -240,13 +437,85 @@
 			mainGroup = 07D1E6C51950A833008C76CF;
 			productRefGroup = 07D1E6D01950A833008C76CF /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 07D5DD101950B6480041A7F3 /* Products */;
+					ProjectRef = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				07D1E6CE1950A833008C76CF /* Rambler */,
-				07D1E6D91950A833008C76CF /* RamblerTests */,
+				07D1E6D91950A833008C76CF /* Rambler – Tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		07D5DD1D1950B6570041A7F3 /* libstrophe.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libstrophe.dylib;
+			remoteRef = 07D5DD1C1950B6570041A7F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07D5DD1F1950B6570041A7F3 /* Check Parser */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Check Parser";
+			remoteRef = 07D5DD1E1950B6570041A7F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07D5DD211950B6570041A7F3 /* Test Base64 */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Test Base64";
+			remoteRef = 07D5DD201950B6570041A7F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07D5DD231950B6570041A7F3 /* Test ctx */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Test ctx";
+			remoteRef = 07D5DD221950B6570041A7F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07D5DD251950B6570041A7F3 /* Test Hash */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Test Hash";
+			remoteRef = 07D5DD241950B6570041A7F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07D5DD271950B6570041A7F3 /* Test JID */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Test JID";
+			remoteRef = 07D5DD261950B6570041A7F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07D5DD291950B6570041A7F3 /* Test Socket */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Test Socket";
+			remoteRef = 07D5DD281950B6570041A7F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07D5DD2B1950B6570041A7F3 /* Test SASL */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Test SASL";
+			remoteRef = 07D5DD2A1950B6570041A7F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07D5DD2D1950B6570041A7F3 /* libstrophe.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libstrophe.a;
+			remoteRef = 07D5DD2C1950B6570041A7F3 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		07D1E6CD1950A833008C76CF /* Resources */ = {
@@ -270,6 +539,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07D5DCBB1950B1A90041A7F3 /* AbstractConnection.cpp in Sources */,
+				07D5DCBD1950B1A90041A7F3 /* CFNetworkBasedConnection.cpp in Sources */,
+				07D5DCCF1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp in Sources */,
+				07D5DCCD1950B2110041A7F3 /* dns_utilities.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +580,26 @@
 			isa = PBXTargetDependency;
 			target = 07D1E6CE1950A833008C76CF /* Rambler */;
 			targetProxy = 07D5DC9C1950AF500041A7F3 /* PBXContainerItemProxy */;
+		};
+		07D5DC9F1950AF500041A7F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07D1E6CE1950A833008C76CF /* Rambler */;
+			targetProxy = 07D5DC9E1950AF500041A7F3 /* PBXContainerItemProxy */;
+		};
+		07D5DCA11950AF670041A7F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07D1E6CE1950A833008C76CF /* Rambler */;
+			targetProxy = 07D5DCA01950AF670041A7F3 /* PBXContainerItemProxy */;
+		};
+		07D5DCA31950AFB60041A7F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07D1E6CE1950A833008C76CF /* Rambler */;
+			targetProxy = 07D5DCA21950AFB60041A7F3 /* PBXContainerItemProxy */;
+		};
+		07D5DCA81950AFED0041A7F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07D1E6CE1950A833008C76CF /* Rambler */;
+			targetProxy = 07D5DCA71950AFED0041A7F3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -480,7 +773,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		07D1E6E81950A833008C76CF /* Build configuration list for PBXNativeTarget "RamblerTests" */ = {
+		07D1E6E81950A833008C76CF /* Build configuration list for PBXNativeTarget "Rambler – Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				07D1E6E91950A833008C76CF /* Debug */,
