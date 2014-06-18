@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:DampKeg/OS X/Resources/Base.lproj/ProfileUpdate.xib">
-   </FileRef>
-   <FileRef
       location = "group:DampKeg/OS X/DampKeg.xcodeproj">
    </FileRef>
 </Workspace>

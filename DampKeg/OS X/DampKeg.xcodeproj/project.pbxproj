@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		013207DF1950D4AB005B49E3 /* PlainAuthenticationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013207DE1950D4AB005B49E3 /* PlainAuthenticationCredentials.swift */; };
-		075D13001950EB710067E11B /* Roster List.xib in Resources */ = {isa = PBXBuildFile; fileRef = 075D12FE1950EB710067E11B /* Roster List.xib */; };
+		073D427819513A920067A17F /* Roster List.xib in Resources */ = {isa = PBXBuildFile; fileRef = 073D427619513A920067A17F /* Roster List.xib */; };
 		07CF204A1946769E004884CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF20481946769E004884CD /* AppDelegate.swift */; };
 		07CF204B1946769E004884CD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF20491946769E004884CD /* main.swift */; };
 		07CF204E194676C2004884CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07CF204C194676C2004884CD /* Images.xcassets */; };
@@ -116,7 +116,7 @@
 
 /* Begin PBXFileReference section */
 		013207DE1950D4AB005B49E3 /* PlainAuthenticationCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlainAuthenticationCredentials.swift; path = "Source Code/PlainAuthenticationCredentials.swift"; sourceTree = SOURCE_ROOT; };
-		075D12FF1950EB710067E11B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Resources/Base.lproj/Roster List.xib"; sourceTree = SOURCE_ROOT; };
+		073D427719513A920067A17F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Resources/Base.lproj/Roster List.xib"; sourceTree = SOURCE_ROOT; };
 		07CF1FEB194672E6004884CD /* DampKeg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DampKeg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CF1FFD194672E6004884CD /* DampKeg – Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DampKeg – Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CF20481946769E004884CD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Source Code/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
@@ -202,7 +202,9 @@
 			children = (
 				07CF2053194676E7004884CD /* Info.plist */,
 				07CF2050194676CC004884CD /* MainMenu.xib */,
-				075D12FE1950EB710067E11B /* Roster List.xib */,
+				54B6F3871950EADB002E4BBF /* ProfileUpdate.xib */,
+				54B6F38A1950EB3E002E4BBF /* ContactProfile.xib */,
+				073D427619513A920067A17F /* Roster List.xib */,
 				07CF204C194676C2004884CD /* Images.xcassets */,
 			);
 			path = Resources;
@@ -347,10 +349,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				073D427819513A920067A17F /* Roster List.xib in Resources */,
 				54B6F38C1950EB3E002E4BBF /* ContactProfile.xib in Resources */,
 				07CF204E194676C2004884CD /* Images.xcassets in Resources */,
 				07CF2052194676CC004884CD /* MainMenu.xib in Resources */,
-				075D13001950EB710067E11B /* Roster List.xib in Resources */,
+				54B6F3881950EADB002E4BBF /* ProfileUpdate.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,10 +436,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		075D12FE1950EB710067E11B /* Roster List.xib */ = {
+		073D427619513A920067A17F /* Roster List.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				075D12FF1950EB710067E11B /* Base */,
+				073D427719513A920067A17F /* Base */,
 			);
 			name = "Roster List.xib";
 			sourceTree = "<group>";
