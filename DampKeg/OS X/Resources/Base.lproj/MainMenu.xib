@@ -738,7 +738,7 @@
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="-12" y="146"/>
+            <point key="canvasLocation" x="126" y="122"/>
         </window>
         <window title="Roster List" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="fxQ-Ap-2LR">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
@@ -911,7 +911,7 @@
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="134.5" y="58.5"/>
+            <point key="canvasLocation" x="180.5" y="-326.5"/>
         </window>
         <customObject id="ekj-YD-GJp" customClass="PlainAuthenticationCredentials" customModule="DampKeg" customModuleProvider="target"/>
         <window title="Add Contact" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="vVp-6K-vgW">
@@ -960,6 +960,10 @@
             <point key="canvasLocation" x="491" y="-301.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="mIg-pu-ZT7"/>
+        <drawer trailingOffset="15" id="Zdb-CW-ctX">
+            <size key="contentSize" width="100" height="100"/>
+            <size key="maxContentSize" width="10000" height="10000"/>
+        </drawer>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
