@@ -16,6 +16,8 @@
 		07CF205A194677CA004884CD /* Damp_KegTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF2056194677BA004884CD /* Damp_KegTests.swift */; };
 		07D5DC971950AE3A0041A7F3 /* Rambler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E7091950ABB3008C76CF /* Rambler.framework */; };
 		07D5DC981950AE3A0041A7F3 /* Rambler.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E7091950ABB3008C76CF /* Rambler.framework */; };
+		54B6F3881950EADB002E4BBF /* ProfileUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54B6F3871950EADB002E4BBF /* ProfileUpdate.xib */; };
+		54B6F38C1950EB3E002E4BBF /* ContactProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54B6F38A1950EB3E002E4BBF /* ContactProfile.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,8 @@
 		07CF2056194677BA004884CD /* Damp_KegTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Damp_KegTests.swift; sourceTree = "<group>"; };
 		07CF2058194677C7004884CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07D1E7031950ABB3008C76CF /* Rambler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rambler.xcodeproj; path = "../../Rambler Framework/Rambler.xcodeproj"; sourceTree = "<group>"; };
+		54B6F3871950EADB002E4BBF /* ProfileUpdate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProfileUpdate.xib; path = Base.lproj/ProfileUpdate.xib; sourceTree = "<group>"; };
+		54B6F38B1950EB3E002E4BBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/ContactProfile.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +350,7 @@
 				013207E21952336C005B49E3 /* AddContact.xib in Resources */,
 				07CF204E194676C2004884CD /* Images.xcassets in Resources */,
 				07CF2052194676CC004884CD /* MainMenu.xib in Resources */,
+				54B6F3881950EADB002E4BBF /* ProfileUpdate.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,12 +433,28 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		073D427619513A920067A17F /* Roster List.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				073D427719513A920067A17F /* Base */,
+			);
+			name = "Roster List.xib";
+			sourceTree = "<group>";
+		};
 		07CF2050194676CC004884CD /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				07CF2051194676CC004884CD /* Base */,
 			);
 			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		54B6F38A1950EB3E002E4BBF /* ContactProfile.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54B6F38B1950EB3E002E4BBF /* Base */,
+			);
+			name = ContactProfile.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
