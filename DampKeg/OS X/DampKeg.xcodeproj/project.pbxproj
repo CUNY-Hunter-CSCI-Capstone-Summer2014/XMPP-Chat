@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		013207DF1950D4AB005B49E3 /* PlainAuthenticationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013207DE1950D4AB005B49E3 /* PlainAuthenticationCredentials.swift */; };
+		013207E21952336C005B49E3 /* AddContact.xib in Resources */ = {isa = PBXBuildFile; fileRef = 013207E11952336C005B49E3 /* AddContact.xib */; };
 		07CF204A1946769E004884CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF20481946769E004884CD /* AppDelegate.swift */; };
 		07CF204B1946769E004884CD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF20491946769E004884CD /* main.swift */; };
 		07CF204E194676C2004884CD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07CF204C194676C2004884CD /* Images.xcassets */; };
@@ -113,6 +114,7 @@
 
 /* Begin PBXFileReference section */
 		013207DE1950D4AB005B49E3 /* PlainAuthenticationCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlainAuthenticationCredentials.swift; path = "Source Code/PlainAuthenticationCredentials.swift"; sourceTree = SOURCE_ROOT; };
+		013207E11952336C005B49E3 /* AddContact.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddContact.xib; path = Resources/AddContact.xib; sourceTree = SOURCE_ROOT; };
 		07CF1FEB194672E6004884CD /* DampKeg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DampKeg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CF1FFD194672E6004884CD /* DampKeg – Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DampKeg – Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CF20481946769E004884CD /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Source Code/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
@@ -196,6 +198,7 @@
 			children = (
 				07CF2053194676E7004884CD /* Info.plist */,
 				07CF2050194676CC004884CD /* MainMenu.xib */,
+				013207E11952336C005B49E3 /* AddContact.xib */,
 				07CF204C194676C2004884CD /* Images.xcassets */,
 			);
 			path = Resources;
@@ -223,7 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				07D1E7091950ABB3008C76CF /* Rambler.framework */,
-				07D1E70B1950ABB3008C76CF /* RamblerTests.xctest */,
+				07D1E70B1950ABB3008C76CF /* Rambler – Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,7 +329,7 @@
 			remoteRef = 07D1E7081950ABB3008C76CF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		07D1E70B1950ABB3008C76CF /* RamblerTests.xctest */ = {
+		07D1E70B1950ABB3008C76CF /* Rambler – Tests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = "Rambler – Tests.xctest";
@@ -340,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				013207E21952336C005B49E3 /* AddContact.xib in Resources */,
 				07CF204E194676C2004884CD /* Images.xcassets in Resources */,
 				07CF2052194676CC004884CD /* MainMenu.xib in Resources */,
 			);
