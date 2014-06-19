@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		075F2D06195378B40072E170 /* RamblerTests.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D1E7011950AA59008C76CF /* RamblerTests.mm */; };
+		075F2D06195378B40072E170 /* ConnectionTestCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D1E7011950AA59008C76CF /* ConnectionTestCase.mm */; };
 		07D1E6DB1950A833008C76CF /* Rambler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E6CF1950A833008C76CF /* Rambler.framework */; };
 		07D1E6F11950A907008C76CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E6F01950A907008C76CF /* Foundation.framework */; };
 		07D5DCBB1950B1A90041A7F3 /* AbstractConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D5DCB61950B1A90041A7F3 /* AbstractConnection.cpp */; };
@@ -165,14 +165,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		075F2D04195378A30072E170 /* ConnectionTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionTestCase.m; sourceTree = "<group>"; };
 		07D1E6CF1950A833008C76CF /* Rambler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rambler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D1E6DA1950A833008C76CF /* Rambler – Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rambler – Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D1E6EC1950A8CA008C76CF /* Rambler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rambler.h; sourceTree = "<group>"; };
 		07D1E6F01950A907008C76CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		07D1E6F51950A9D5008C76CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07D1E6FF1950AA38008C76CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = SOURCE_ROOT; };
-		07D1E7011950AA59008C76CF /* RamblerTests.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RamblerTests.mm; sourceTree = "<group>"; };
+		07D1E7011950AA59008C76CF /* ConnectionTestCase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConnectionTestCase.mm; sourceTree = "<group>"; };
 		07D5DCB61950B1A90041A7F3 /* AbstractConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractConnection.cpp; sourceTree = "<group>"; };
 		07D5DCB71950B1A90041A7F3 /* AbstractConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractConnection.h; sourceTree = "<group>"; };
 		07D5DCB81950B1A90041A7F3 /* CFNetworkBasedConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CFNetworkBasedConnection.cpp; sourceTree = "<group>"; };
@@ -276,8 +275,7 @@
 		07D1E6F31950A92B008C76CF /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
-				075F2D04195378A30072E170 /* ConnectionTestCase.m */,
-				07D1E7011950AA59008C76CF /* RamblerTests.mm */,
+				07D1E7011950AA59008C76CF /* ConnectionTestCase.mm */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -551,7 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				075F2D06195378B40072E170 /* RamblerTests.mm in Sources */,
+				075F2D06195378B40072E170 /* ConnectionTestCase.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
