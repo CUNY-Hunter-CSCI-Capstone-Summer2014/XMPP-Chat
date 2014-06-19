@@ -1,18 +1,18 @@
 //
-//  RamblerTests.m
-//  RamblerTests
+//  ConnectionTestCase.m
+//  
 //
-//  Created by Omar Stefan Evans on 6/17/14.
-//  Copyright (c) 2014 DampKeg. All rights reserved.
+//  Created by Omar Stefan Evans on 6/19/14.
+//
 //
 
 #import <XCTest/XCTest.h>
 
-@interface RamblerTests : XCTestCase
+@interface ConnectionTestCase : XCTestCase
 
 @end
 
-@implementation RamblerTests
+@implementation ConnectionTestCase
 
 - (void)setUp {
     [super setUp];

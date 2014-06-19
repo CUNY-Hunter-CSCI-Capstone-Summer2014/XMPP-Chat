@@ -13,5 +13,20 @@ namespace DampKeg {
         {
             /* Nothing to do here */
         }
+
+        State AbstractConnection::getState() {
+            return state;
+        }
+
+        void AbstractConnection::setConnectedEventHandler(ConnectedEventHandler eventHandler)
+        {
+            handleConnectedEvent = eventHandler;
+        }
+
+        void AbstractConnection::setDataReceivedEventHandler(DataReceivedEventHandler eventHandler)
+        {
+            handleDataRecievedEvent = eventHandler;
+        }
+
     }
 }

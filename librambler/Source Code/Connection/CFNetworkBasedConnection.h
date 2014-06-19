@@ -9,9 +9,11 @@
 
 #include "AbstractConnection.h"
 
+#include <CoreFoundation/CoreFoundation.h>
+
 namespace DampKeg {
     namespace Connection {
-        class CFNetworkBasedConnection : AbstractConnection {
+        class CFNetworkBasedConnection : public AbstractConnection {
         public:
             CFNetworkBasedConnection() = default;
             CFNetworkBasedConnection(std::string host, std::string service);
@@ -19,8 +21,17 @@ namespace DampKeg {
 
             virtual void open();
             virtual void close();
+            virtual void sendData(std::string data);
         private:
+            /* CFNetwork Specific Functions */
+            static void inputStreamCallback(CFReadStreamRef inputStream,
+                                     CFStreamEventType eventType,
+                                     void *clientCallBackInfo);
+
             /* CFNetwork Specific Types */
+            CFReadStreamRef inputStream   { nullptr };
+            CFWriteStreamRef outputStream { nullptr };
+
         };
     }
 }

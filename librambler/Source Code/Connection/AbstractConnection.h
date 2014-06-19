@@ -8,6 +8,7 @@
 #pragma once
 
 #include <functional>
+#include <vector>
 #include <string>
 
 #include "State.h"
@@ -16,7 +17,7 @@ namespace DampKeg {
     namespace Connection {
         class AbstractConnection {
         public:
-            using DataReceivedEventHandler = std::function<void(void)>;
+            using DataReceivedEventHandler = std::function<void(const std::string&)>;
             using ConnectedEventHandler = std::function<void(void)>;
 
             AbstractConnection() = default;
@@ -26,6 +27,12 @@ namespace DampKeg {
 
             virtual void open() = 0;
             virtual void close() = 0;
+            virtual void sendData(std::string data) = 0;
+
+            State getState();
+
+            void setConnectedEventHandler(ConnectedEventHandler eventHandler);
+            void setDataReceivedEventHandler(DataReceivedEventHandler eventHandler);
         protected:
             std::string host;
             std::string service;
