@@ -19,6 +19,7 @@
 		07FEA3A21951539400C0A874 /* Login Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07FEA3A01951539400C0A874 /* Login Window.xib */; };
 		54BF8CA619524CCB00661932 /* ContactProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54BF8CA219524CCB00661932 /* ContactProfile.xib */; };
 		54BF8CA719524CCB00661932 /* Roster List.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54BF8CA419524CCB00661932 /* Roster List.xib */; };
+		54BF8CA919524E9C00661932 /* PrefWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54BF8CA819524E9C00661932 /* PrefWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		07FEA3A11951539400C0A874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Resources/Base.lproj/Login Window.xib"; sourceTree = SOURCE_ROOT; };
 		54BF8CA319524CCB00661932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/ContactProfile.xib; sourceTree = SOURCE_ROOT; };
 		54BF8CA519524CCB00661932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Resources/Base.lproj/Roster List.xib"; sourceTree = SOURCE_ROOT; };
+		54BF8CA819524E9C00661932 /* PrefWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PrefWindow.xib; path = Resources/PrefWindow.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 				07FEA3A01951539400C0A874 /* Login Window.xib */,
 				073D427619513A920067A17F /* Roster List.xib */,
 				07CF204C194676C2004884CD /* Images.xcassets */,
+				54BF8CA819524E9C00661932 /* PrefWindow.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				07FEA39F19514E3100C0A874 /* ProfileUpdate.xib in Resources */,
 				07FEA3A21951539400C0A874 /* Login Window.xib in Resources */,
 				07CF204E194676C2004884CD /* Images.xcassets in Resources */,
+				54BF8CA919524E9C00661932 /* PrefWindow.xib in Resources */,
 				07CF2052194676CC004884CD /* MainMenu.xib in Resources */,
 				54BF8CA619524CCB00661932 /* ContactProfile.xib in Resources */,
 				54BF8CA719524CCB00661932 /* Roster List.xib in Resources */,
