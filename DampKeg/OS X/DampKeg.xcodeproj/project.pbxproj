@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		010778FC19524E1800CDC093 /* GroupChatBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 010778FB19524E1800CDC093 /* GroupChatBox.xib */; };
 		013207DF1950D4AB005B49E3 /* PlainAuthenticationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013207DE1950D4AB005B49E3 /* PlainAuthenticationCredentials.swift */; };
 		013207E21952336C005B49E3 /* AddContact.xib in Resources */ = {isa = PBXBuildFile; fileRef = 013207E11952336C005B49E3 /* AddContact.xib */; };
 		01CA742B195238D300F7442A /* ChatBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01CA742A195238D300F7442A /* ChatBox.xib */; };
@@ -117,6 +118,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		010778FB19524E1800CDC093 /* GroupChatBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupChatBox.xib; path = Resources/GroupChatBox.xib; sourceTree = SOURCE_ROOT; };
 		013207DE1950D4AB005B49E3 /* PlainAuthenticationCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlainAuthenticationCredentials.swift; path = "Source Code/PlainAuthenticationCredentials.swift"; sourceTree = SOURCE_ROOT; };
 		013207E11952336C005B49E3 /* AddContact.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AddContact.xib; path = Resources/AddContact.xib; sourceTree = SOURCE_ROOT; };
 		01CA742A195238D300F7442A /* ChatBox.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChatBox.xib; path = Resources/ChatBox.xib; sourceTree = SOURCE_ROOT; };
@@ -210,6 +212,7 @@
 				54B6F3871950EADB002E4BBF /* ProfileUpdate.xib */,
 				54B6F38A1950EB3E002E4BBF /* ContactProfile.xib */,
 				01CA742A195238D300F7442A /* ChatBox.xib */,
+				010778FB19524E1800CDC093 /* GroupChatBox.xib */,
 				073D427619513A920067A17F /* Roster List.xib */,
 				07CF204C194676C2004884CD /* Images.xcassets */,
 			);
@@ -362,6 +365,7 @@
 				07CF2052194676CC004884CD /* MainMenu.xib in Resources */,
 				54B6F3881950EADB002E4BBF /* ProfileUpdate.xib in Resources */,
 				01CA742B195238D300F7442A /* ChatBox.xib in Resources */,
+				010778FC19524E1800CDC093 /* GroupChatBox.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
