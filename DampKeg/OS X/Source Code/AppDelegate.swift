@@ -9,11 +9,16 @@ import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    @IBOutlet var loginWindow: NSWindow
-    @IBOutlet var rosterListWindow: NSWindow
+    var loginWindowController: NSWindowController? = nil
+    var rosterListWindowController: NSWindowController? = nil
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
+
+        loginWindowController = NSWindowController(windowNibName: "Login Window")
+        rosterListWindowController = NSWindowController(windowNibName: "Roster List")
+
+        loginWindowController!.showWindow(self)
     }
     
     func applicationWillTerminate(aNotification: NSNotification?) {
@@ -26,8 +31,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func closeLoginWindowAndOpenRosterListWindow(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.loginWindow.orderOut(self)
-            self.rosterListWindow.makeKeyAndOrderFront(self)
+            self.loginWindowController!.window.orderOut(self)
+            self.rosterListWindowController!.showWindow(self)
         }
     }
     
