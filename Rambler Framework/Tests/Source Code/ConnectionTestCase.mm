@@ -13,6 +13,7 @@
 
 @interface RamblerTests : XCTestCase {
     DampKeg::Connection::CFNetworkBasedConnection *connection;
+    bool passed;
 }
 
 @end
@@ -23,6 +24,7 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     connection = new DampKeg::Connection::CFNetworkBasedConnection("localhost", "2014");
+    passed = false;
 }
 
 - (void)tearDown {
@@ -37,6 +39,7 @@
     });
     connection->setDataReceivedEventHandler([self](std::string data) {
         std::cout << data;
+        passed = true;
         connection->close();
     });
     connection->open();
@@ -44,7 +47,7 @@
     while (connection->getState() != DampKeg::Connection::State::NotConnected) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }
-    XCTAssert(YES, @"Pass");
+    XCTAssert(passed, @"Connection established and message sent and received.");
 }
 
 - (void)testPerformanceExample {
