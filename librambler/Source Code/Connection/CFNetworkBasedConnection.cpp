@@ -90,7 +90,7 @@ namespace DampKeg {
                                       inputStreamCallback,
                                       &inputStreamContext);
 
-                CFReadStreamScheduleWithRunLoop(inputStream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
+                CFReadStreamScheduleWithRunLoop(inputStream, CFRunLoopGetMain(), kCFRunLoopDefaultMode);
 
                 if (CFReadStreamOpen(inputStream) && CFWriteStreamOpen(outputStream)) {
                     state = State::Connected;
@@ -135,14 +135,18 @@ namespace DampKeg {
 
         void CFNetworkBasedConnection::close()
         {
-            CFReadStreamUnscheduleFromRunLoop(inputStream, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
-            CFReadStreamClose(inputStream);
+            if (inputStream != nullptr) {
+                CFReadStreamUnscheduleFromRunLoop(inputStream, CFRunLoopGetMain(), kCFRunLoopDefaultMode);
+                CFReadStreamClose(inputStream);
+                CFRelease(inputStream);
+                inputStream = nullptr;
+            }
 
-            CFWriteStreamClose(outputStream);
-
-            CFRelease(inputStream);
-            CFRelease(outputStream);
-            CFRunLoopStop(CFRunLoopGetCurrent());
+            if (outputStream != nullptr) {
+                CFWriteStreamClose(outputStream);
+                CFRelease(outputStream);
+                outputStream= nullptr;
+            }
 
             state = State::NotConnected;
         }

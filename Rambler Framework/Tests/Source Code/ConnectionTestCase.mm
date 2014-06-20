@@ -8,11 +8,15 @@
 
 #import <XCTest/XCTest.h>
 
+#import "Rambler.h"
+
 #include <iostream>
+
 #include "CFNetworkBasedConnection.h"
 
 @interface RamblerTests : XCTestCase {
-    DampKeg::Connection::CFNetworkBasedConnection *connection;
+    TCPConnection * theConnection;
+
     bool passed;
 }
 
@@ -23,30 +27,39 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    connection = new DampKeg::Connection::CFNetworkBasedConnection("localhost", "2014");
+    theConnection = [[TCPConnection alloc] initWithHost:@"localhost" service:@"2014"];
     passed = false;
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
-    delete connection;
+    theConnection = nil;
     [super tearDown];
 }
 
 - (void)testExample {
-    connection->setConnectedEventHandler([self]() {
-        connection->sendData("Once upon a time, Omar said hi.\n");
-    });
-    connection->setDataReceivedEventHandler([self](std::string data) {
-        std::cout << data;
-        passed = true;
-        connection->close();
-    });
-    connection->open();
-    // This is an example of a functional test case.
-    while (connection->getState() != DampKeg::Connection::State::NotConnected) {
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+
+    RamblerTests * __weak w_self = self;
+
+    theConnection.connectedEventHandler = ^{
+        RamblerTests * s_self = w_self;
+        NSString * string = @"Once upon a time, Omar said hi.\n";
+        [s_self->theConnection sendData:[string dataUsingEncoding:NSUTF8StringEncoding]];
+    };
+
+    theConnection.dataReceivedEventHandler = ^(NSData * data) {
+        RamblerTests * s_self = w_self;
+        std::cout << std::string(reinterpret_cast<const char *>(data.bytes), data.length);
+        s_self->passed = true;
+        [s_self->theConnection close];
+    };
+
+    [theConnection open];
+
+    while (theConnection.state != Closed) {
+        [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1]];
     }
+
     XCTAssert(passed, @"Connection established and message sent and received.");
 }
 
