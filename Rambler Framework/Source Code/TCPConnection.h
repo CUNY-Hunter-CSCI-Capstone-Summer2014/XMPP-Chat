@@ -21,6 +21,8 @@ typedef void (^DataReceivedEventHandler)(NSData *);
 
 - (instancetype)initWithHost:(NSString *)host service:(NSString *)service;
 
+/* Asynchronous methods */
+
 /**
  * Opens the connection asynchronously.
  * Has no effect if the connection is not closed when the operation is executed.
@@ -56,6 +58,8 @@ typedef void (^DataReceivedEventHandler)(NSData *);
 - (NSOperation *)asynchronouslySendData:(NSData *) data thenExecuteTask:(Task) task;
 
 
+/* Synchronous methods */
+
 /**
  * Opens the connection. Has no effect if the connection is not closed.
  * @author  Omar Stefan Evans
@@ -86,6 +90,7 @@ typedef void (^DataReceivedEventHandler)(NSData *);
 - (void)sendData:(NSData *) data;
 
 /* Disabling read properties for event handlers */
+
 - (ConnectedEventHandler)connectedEventHandler UNAVAILABLE_ATTRIBUTE;
 - (DataReceivedEventHandler)dataReceivedEventHandler UNAVAILABLE_ATTRIBUTE;
 

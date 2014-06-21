@@ -8,37 +8,43 @@
 #pragma once
 
 #include <functional>
-#include <vector>
 #include <string>
 
 #include "State.h"
 
-namespace DampKeg {
-    namespace Connection {
-        class AbstractConnection {
-        public:
-            using DataReceivedEventHandler = std::function<void(const std::string&)>;
-            using ConnectedEventHandler = std::function<void(void)>;
+namespace Rambler { namespace Connection {
 
-            AbstractConnection() = default;
-            AbstractConnection(std::string host, std::string service);
+    class AbstractConnection {
+    public:
+        using DataReceivedEventHandler = std::function<void(const std::string&)>;
+        using ConnectedEventHandler = std::function<void(void)>;
 
-            virtual ~AbstractConnection() = default;
+        AbstractConnection() = default;
+        AbstractConnection(std::string host, std::string service);
 
-            virtual void open() = 0;
-            virtual void close() = 0;
-            virtual void sendData(std::string data) = 0;
+        virtual ~AbstractConnection() = default;
 
-            State getState();
+        virtual bool open() = 0;
+        virtual void close() = 0;
+        virtual void sendData(std::string data) = 0;
 
-            void setConnectedEventHandler(ConnectedEventHandler eventHandler);
-            void setDataReceivedEventHandler(DataReceivedEventHandler eventHandler);
-        protected:
-            std::string host;
-            std::string service;
-            State state = State::NotConnected;
-            ConnectedEventHandler handleConnectedEvent = nullptr;
-            DataReceivedEventHandler handleDataRecievedEvent = nullptr;
-        };
-    }
-}
+        State getState() const;
+
+        std::string getConnectedHost() const;
+        uint16_t getConnectedPort() const;
+
+        void setConnectedEventHandler(ConnectedEventHandler eventHandler);
+        void setDataReceivedEventHandler(DataReceivedEventHandler eventHandler);
+    protected:
+        std::string host;
+        std::string service;
+        State state = State::NotConnected;
+
+        std::string connectedHost;
+        uint16_t connectedPort;
+
+        ConnectedEventHandler handleConnectedEvent = nullptr;
+        DataReceivedEventHandler handleDataRecievedEvent = nullptr;
+    };
+    
+}}

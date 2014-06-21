@@ -11,27 +11,27 @@
 
 #include <CoreFoundation/CoreFoundation.h>
 
-namespace DampKeg {
-    namespace Connection {
-        class CFNetworkBasedConnection : public AbstractConnection {
-        public:
-            CFNetworkBasedConnection() = default;
-            CFNetworkBasedConnection(std::string host, std::string service);
-            virtual ~CFNetworkBasedConnection() = default;
+namespace Rambler { namespace Connection {
 
-            virtual void open();
-            virtual void close();
-            virtual void sendData(std::string data);
-        private:
-            /* CFNetwork Specific Functions */
-            static void inputStreamCallback(CFReadStreamRef inputStream,
-                                     CFStreamEventType eventType,
-                                     void *clientCallBackInfo);
+    class CFNetworkBasedConnection : public AbstractConnection {
+    public:
+        CFNetworkBasedConnection() = default;
+        CFNetworkBasedConnection(std::string host, std::string service);
+        virtual ~CFNetworkBasedConnection() = default;
 
-            /* CFNetwork Specific Types */
-            CFReadStreamRef inputStream   { nullptr };
-            CFWriteStreamRef outputStream { nullptr };
+        virtual bool open();
+        virtual void close();
+        virtual void sendData(std::string data);
+    private:
+        /* CFNetwork Specific Functions */
+        static void inputStreamCallback(CFReadStreamRef inputStream,
+                                 CFStreamEventType eventType,
+                                 void *clientCallBackInfo);
 
-        };
-    }
-}
+        /* CFNetwork Specific Types */
+        CFReadStreamRef inputStream   { nullptr };
+        CFWriteStreamRef outputStream { nullptr };
+
+    };
+    
+}}
