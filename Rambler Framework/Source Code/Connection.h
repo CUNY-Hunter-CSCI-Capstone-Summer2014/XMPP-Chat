@@ -1,17 +1,9 @@
 /**********************************************************************************************************************
- * @file    State.h
- * @date    2014-06-16
+ * @file    Connection.h
+ * @date    2014-06-20
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-namespace Rambler { namespace Connection {
-
-    enum class State {
-        NotConnected,
-        Connecting,
-        Connected,
-        SecurelyConnected
-    };
-
-}}
+#import "ConnectionState.h"
+#import "TCPConnection.h"

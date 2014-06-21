@@ -9,18 +9,29 @@
 
 #include "AbstractConnection.h"
 
-namespace DampKeg {
-    namespace Connection {
-        class CFNetworkBasedConnection : AbstractConnection {
-        public:
-            CFNetworkBasedConnection() = default;
-            CFNetworkBasedConnection(std::string host, std::string service);
-            virtual ~CFNetworkBasedConnection() = default;
+#include <CoreFoundation/CoreFoundation.h>
 
-            virtual void open();
-            virtual void close();
-        private:
-            /* CFNetwork Specific Types */
-        };
-    }
-}
+namespace Rambler { namespace Connection {
+
+    class CFNetworkBasedConnection : public AbstractConnection {
+    public:
+        CFNetworkBasedConnection() = default;
+        CFNetworkBasedConnection(std::string host, std::string service);
+        virtual ~CFNetworkBasedConnection() = default;
+
+        virtual bool open();
+        virtual void close();
+        virtual void sendData(std::string data);
+    private:
+        /* CFNetwork Specific Functions */
+        static void inputStreamCallback(CFReadStreamRef inputStream,
+                                 CFStreamEventType eventType,
+                                 void *clientCallBackInfo);
+
+        /* CFNetwork Specific Types */
+        CFReadStreamRef inputStream   { nullptr };
+        CFWriteStreamRef outputStream { nullptr };
+
+    };
+    
+}}

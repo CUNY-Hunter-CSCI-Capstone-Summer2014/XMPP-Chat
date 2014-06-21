@@ -1,17 +1,17 @@
 /**********************************************************************************************************************
  * @file    State.h
- * @date    2014-06-16
+ * @date    2014-06-20
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-namespace Rambler { namespace Connection {
+#pragma once
 
-    enum class State {
-        NotConnected,
-        Connecting,
-        Connected,
-        SecurelyConnected
+namespace Rambler { namespace Stream {
+    enum State {
+        Closed,
+        Opening,
+        Open,
+        OpenAndSecure
     };
-
 }}

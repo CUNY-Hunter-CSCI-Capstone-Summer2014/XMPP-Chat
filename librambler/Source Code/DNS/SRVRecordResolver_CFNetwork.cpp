@@ -17,7 +17,7 @@
 
 #include "dns_utilities.h"
 
-namespace DampKeg {
+namespace Rambler {
     namespace DNS {
         const CFStringRef SRVRecordResolver::ErrorDomain = CFStringCreateWithCString(kCFAllocatorDefault,
                                                                                      "SRVRecordResolverErrorDomain",
