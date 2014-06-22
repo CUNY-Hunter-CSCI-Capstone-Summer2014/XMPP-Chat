@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.h">
+      <Filter>librambler\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\State.h">
+      <Filter>librambler\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h">
+      <Filter>RamblerRT\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)RamblerRT.h">
+      <Filter>RamblerRT\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)targetver.h">
+      <Filter>RamblerRT\Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.cpp">
+      <Filter>librambler\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)dllmain.cpp">
+      <Filter>RamblerRT\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
+      <Filter>RamblerRT\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)RamblerRT.cpp">
+      <Filter>RamblerRT\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="RamblerRT">
+      <UniqueIdentifier>{9dbdf5a0-d588-4171-8996-5fe486990d79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RamblerRT\Source Files">
+      <UniqueIdentifier>{905bc20a-3db9-4337-a4fd-6252bf5602c3}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="RamblerRT\Header Files">
+      <UniqueIdentifier>{a71483a6-cf82-48e5-ac7c-2a99ce35dff0}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="librambler">
+      <UniqueIdentifier>{df1b068f-9c77-4c0e-889a-20db02cb51d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="librambler\Header Files">
+      <UniqueIdentifier>{689fb92b-d711-4347-a3d6-b22c3db75b57}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="librambler\Source Files">
+      <UniqueIdentifier>{375cdb03-9035-4c3b-abbd-2527df1cd70b}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+</Project>
