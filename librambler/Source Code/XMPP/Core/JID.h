@@ -13,9 +13,12 @@ using std::string;
 
 namespace Rambler { namespace XMPP { namespace Core {
     struct JID {
+        static JID  createJIDFromString(string const jid);
         static bool validateLocalPart(JID const jid);
         static bool validateDomainPart(JID const jid);
         static bool validateResourcePart(JID const jid);
+
+        static JID const None;
 
         JID() = default;
         JID(string localPart, string domainPart);
@@ -39,6 +42,6 @@ namespace Rambler { namespace XMPP { namespace Core {
         string const domainPart;
         string const resourcePart;
         
-
+        bool operator == (JID const & other) const;
     };
 }}}

@@ -9,6 +9,8 @@
 
 namespace Rambler { namespace XMPP { namespace Core {
 
+    JID const JID::None = JID();
+
     JID::JID(string localPart, string domainPart) : localPart(localPart), domainPart(domainPart)
     {
         /* Nothing to do here */
@@ -18,6 +20,44 @@ namespace Rambler { namespace XMPP { namespace Core {
     : localPart(localPart), domainPart(domainPart), resourcePart(resourcePart)
     {
         /* Nothing to do here */
+    }
+
+    JID JID::createJIDFromString(string const jidString) {
+        string localPart;
+        string domainPart;
+        string resourcePart;
+
+        bool hasLocalPart = false;
+        bool hasResourcePart = false;
+
+        string rest = jidString;
+        string::size_type delimiter;
+
+        delimiter = rest.find("@", 0);
+
+        if (delimiter != string::npos) {
+            hasLocalPart = true;
+            localPart = rest.substr(0, delimiter);
+            rest = rest.substr(delimiter + 1);
+        }
+
+        delimiter = rest.find("/");
+
+        if (delimiter != string::npos) {
+            hasResourcePart = true;
+            resourcePart = rest.substr(delimiter + 1);
+            domainPart = rest.substr(0, delimiter);
+        } else {
+            domainPart = rest;
+        }
+
+        if (domainPart.length() == 0 ||
+            (hasLocalPart && localPart.length() == 0) ||
+            (hasResourcePart && resourcePart.length() == 0)) {
+            return {};
+        }
+
+        return {localPart, domainPart, resourcePart};
     }
 
     bool JID::validateLocalPart(JID const jid)
@@ -85,6 +125,11 @@ namespace Rambler { namespace XMPP { namespace Core {
                 return domainPart;
             }
         }
+    }
+
+    bool JID::operator == (JID const & other) const
+    {
+        return localPart == other.localPart && domainPart == other.domainPart && resourcePart == other.resourcePart;
     }
 
 }}}
