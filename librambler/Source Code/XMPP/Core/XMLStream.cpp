@@ -39,6 +39,11 @@ namespace Rambler { namespace XMPP { namespace Core {
         /* Nothing to do here */
     }
 
+    XMLStream::~XMLStream()
+    {
+        /* Cleanup goes here */
+    }
+
     bool XMLStream::open()
     {
         if (state != Stream::State::Closed) {
@@ -80,6 +85,17 @@ namespace Rambler { namespace XMPP { namespace Core {
         });
 
         return connection->open();
+    }
+
+    void XMLStream::close()
+    {
+        connection->sendData("</stream>");
+        connection->close();
+    }
+
+    void XMLStream::sendData(std::vector<uint8_t> &data)
+    {
+        connection->sendData({reinterpret_cast<char const *>(data.data()), data.size()});
     }
 
     string XMLStream::getStreamHeader() const

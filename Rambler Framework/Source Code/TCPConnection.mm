@@ -8,7 +8,7 @@
 #import "TCPConnection.h"
 #include "CFNetworkBasedConnection.h"
 
-using namespace DampKeg::Connection;
+using namespace Rambler::Connection;
 
 @implementation TCPConnection {
     CFNetworkBasedConnection *theConnection;

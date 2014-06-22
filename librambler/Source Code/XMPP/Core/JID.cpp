@@ -9,6 +9,17 @@
 
 namespace Rambler { namespace XMPP { namespace Core {
 
+    JID::JID(string localPart, string domainPart) : localPart(localPart), domainPart(domainPart)
+    {
+        /* Nothing to do here */
+    }
+
+    JID::JID(string localPart, string domainPart, string resourcePart)
+    : localPart(localPart), domainPart(domainPart), resourcePart(resourcePart)
+    {
+        /* Nothing to do here */
+    }
+
     bool JID::validateLocalPart(JID const jid)
     {
         return jid.localPart.length() < 1024;
