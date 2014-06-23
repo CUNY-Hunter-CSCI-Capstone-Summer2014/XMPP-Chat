@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6154.21" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6154.17"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6154.21"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner"/>
@@ -32,29 +32,22 @@
                         </buttonCell>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y1e-zB-DGs">
-                        <rect key="frame" x="-2" y="92" width="29" height="28"/>
+                        <rect key="frame" x="0.0" y="92" width="33" height="28"/>
                         <buttonCell key="cell" type="bevel" title="B" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Gbo-0O-8JI">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="systemBold"/>
                         </buttonCell>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JLt-OV-bY0">
-                        <rect key="frame" x="23" y="92" width="29" height="28"/>
+                        <rect key="frame" x="31" y="92" width="34" height="28"/>
                         <buttonCell key="cell" type="bevel" title="I" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zm8-6I-BRl">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" size="10" name="MalayalamMN"/>
                         </buttonCell>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iar-Af-Nd9">
-                        <rect key="frame" x="48" y="92" width="29" height="28"/>
+                        <rect key="frame" x="64" y="91" width="31" height="28"/>
                         <buttonCell key="cell" type="bevel" title="U" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="S6q-5d-P2p">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system" size="10"/>
-                        </buttonCell>
-                    </button>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nxz-mH-XYM">
-                        <rect key="frame" x="73" y="92" width="66" height="28"/>
-                        <buttonCell key="cell" type="bevel" title="Add Files" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2uY-eO-oNo">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system" size="10"/>
                         </buttonCell>
@@ -66,8 +59,15 @@
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAF-Xl-5rg">
-                        <rect key="frame" x="135" y="91" width="55" height="28"/>
+                        <rect key="frame" x="166" y="91" width="55" height="28"/>
                         <buttonCell key="cell" type="bevel" title="Smile" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dru-Fk-Z0e">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system" size="10"/>
+                        </buttonCell>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nxz-mH-XYM">
+                        <rect key="frame" x="94" y="91" width="73" height="28"/>
+                        <buttonCell key="cell" type="bevel" title="Add Files" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2uY-eO-oNo">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system" size="10"/>
                         </buttonCell>
