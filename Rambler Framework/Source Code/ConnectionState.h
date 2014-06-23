@@ -1,17 +1,13 @@
 /**********************************************************************************************************************
- * @file    State.h
- * @date    2014-06-16
+ * @file    ConnectionState.h
+ * @date    2014-06-20
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-namespace Rambler { namespace Connection {
-
-    enum class State {
-        NotConnected,
-        Connecting,
-        Connected,
-        SecurelyConnected
-    };
-
-}}
+typedef NS_ENUM(NSInteger, ConnectionState) {
+    Closed,
+    Opening,
+    Open,
+    OpenAndSecured
+};

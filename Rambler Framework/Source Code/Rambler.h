@@ -16,4 +16,4 @@ FOUNDATION_EXPORT const unsigned char RamblerVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Rambler/PublicHeader.h>
 
-
+#import "Connection.h"

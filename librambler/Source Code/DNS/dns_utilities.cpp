@@ -12,7 +12,7 @@
 #include <cstring>
 #include <iostream>
 
-namespace DampKeg {
+namespace Rambler {
     namespace DNS {
         uint16_t parse_domain_name(uint8_t const * const data,
                                   size_t                data_length,

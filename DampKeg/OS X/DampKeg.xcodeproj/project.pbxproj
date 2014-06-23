@@ -21,6 +21,11 @@
 		07CF205A194677CA004884CD /* Damp_KegTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF2056194677BA004884CD /* Damp_KegTests.swift */; };
 		07D5DC971950AE3A0041A7F3 /* Rambler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E7091950ABB3008C76CF /* Rambler.framework */; };
 		07D5DC981950AE3A0041A7F3 /* Rambler.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E7091950ABB3008C76CF /* Rambler.framework */; };
+		07FEA39F19514E3100C0A874 /* ProfileUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07FEA39D19514E3100C0A874 /* ProfileUpdate.xib */; };
+		07FEA3A21951539400C0A874 /* Login Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07FEA3A01951539400C0A874 /* Login Window.xib */; };
+		54BF8CA619524CCB00661932 /* ContactProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54BF8CA219524CCB00661932 /* ContactProfile.xib */; };
+		54BF8CA719524CCB00661932 /* Roster List.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54BF8CA419524CCB00661932 /* Roster List.xib */; };
+		54BF8CA919524E9C00661932 /* PrefWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54BF8CA819524E9C00661932 /* PrefWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +141,9 @@
 		07D1E7031950ABB3008C76CF /* Rambler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rambler.xcodeproj; path = "../../Rambler Framework/Rambler.xcodeproj"; sourceTree = "<group>"; };
 		07FEA39E19514E3100C0A874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/ProfileUpdate.xib; sourceTree = SOURCE_ROOT; };
 		07FEA3A11951539400C0A874 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Resources/Base.lproj/Login Window.xib"; sourceTree = SOURCE_ROOT; };
+		54BF8CA319524CCB00661932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Resources/Base.lproj/ContactProfile.xib; sourceTree = SOURCE_ROOT; };
+		54BF8CA519524CCB00661932 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Resources/Base.lproj/Roster List.xib"; sourceTree = SOURCE_ROOT; };
+		54BF8CA819524E9C00661932 /* PrefWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PrefWindow.xib; path = Resources/PrefWindow.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +225,7 @@
 				01CA742A195238D300F7442A /* ChatBox.xib */,
 				010778FB19524E1800CDC093 /* GroupChatBox.xib */,
 				07CF204C194676C2004884CD /* Images.xcassets */,
+				54BF8CA819524E9C00661932 /* PrefWindow.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -362,6 +371,7 @@
 			files = (
 				073D427819513A920067A17F /* (null) in Resources */,
 				07CF204E194676C2004884CD /* Images.xcassets in Resources */,
+				54BF8CA919524E9C00661932 /* PrefWindow.xib in Resources */,
 				07CF2052194676CC004884CD /* MainMenu.xib in Resources */,
 				018DD03F19536FE4002C0887 /* Roster List.xib in Resources */,
 				01CA742B195238D300F7442A /* ChatBox.xib in Resources */,

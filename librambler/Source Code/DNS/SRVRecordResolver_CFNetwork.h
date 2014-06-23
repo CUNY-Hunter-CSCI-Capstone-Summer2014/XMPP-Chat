@@ -15,7 +15,7 @@
 #include <list>
 #include <functional>
 
-namespace DampKeg {
+namespace Rambler {
     namespace DNS {
         class SRVRecordResolver {
         public:

@@ -10,7 +10,7 @@
 #include <cstdint>
 #include <cstddef>
 
-namespace DampKeg {
+namespace Rambler {
     namespace DNS {
         /**
          */
