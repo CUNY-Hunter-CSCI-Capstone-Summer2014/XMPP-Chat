@@ -83,7 +83,7 @@
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="126" y="122"/>
+            <point key="canvasLocation" x="76" y="122"/>
         </window>
         <customObject id="N3D-Nq-8bj" customClass="PlainAuthenticationCredentials" customModule="DampKeg" customModuleProvider="target"/>
     </objects>
