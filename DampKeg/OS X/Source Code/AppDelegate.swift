@@ -18,6 +18,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         loginWindowController = NSWindowController(windowNibName: "Login Window")
         rosterListWindowController = NSWindowController(windowNibName: "Roster List")
 
+        /* The login button has a tag of 1 in the .xib file */
+        let loginButton: NSButton = loginWindowController!.window.contentView.viewWithTag(1) as NSButton
+
+        loginButton.target = self;
+        loginButton.action = "closeLoginWindowAndOpenRosterListWindow:"
+
         loginWindowController!.showWindow(self)
     }
     
