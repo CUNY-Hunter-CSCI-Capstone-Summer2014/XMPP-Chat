@@ -15,7 +15,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
             <rect key="contentRect" x="10" y="288" width="200" height="500"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" wantsLayer="YES" id="9kf-qG-P4T">
                 <rect key="frame" x="0.0" y="0.0" width="200" height="500"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -28,9 +28,9 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eht-Qe-yxG">
-                        <rect key="frame" x="0.0" y="31" width="200" height="440"/>
-                        <clipView key="contentView" ambiguous="YES" misplaced="YES" drawsBackground="NO" id="Ft1-iP-Sx6">
+                    <scrollView autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eht-Qe-yxG">
+                        <rect key="frame" x="0.0" y="32" width="200" height="438"/>
+                        <clipView key="contentView" drawsBackground="NO" id="Ft1-iP-Sx6">
                             <rect key="frame" x="1" y="1" width="148" height="398"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
@@ -108,7 +108,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <searchField wantsLayer="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HdH-CL-dsw">
+                    <searchField wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HdH-CL-dsw">
                         <rect key="frame" x="10" y="474" width="180" height="22"/>
                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Search name.." usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" recentsAutosaveName="" id="afq-3I-Elf">
                             <font key="font" metaFont="system"/>
@@ -116,14 +116,14 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </searchFieldCell>
                     </searchField>
-                    <button appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6u-kD-QAX">
+                    <button appearanceType="aqua" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6u-kD-QAX">
                         <rect key="frame" x="151" y="3" width="39" height="25"/>
                         <buttonCell key="cell" type="roundTextured" title="Edit" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EAz-FS-R3K">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
-                    <button appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eWt-M9-UW0">
+                    <button appearanceType="aqua" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eWt-M9-UW0">
                         <rect key="frame" x="7" y="3" width="21" height="25"/>
                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dDd-Xg-NAN">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -131,6 +131,19 @@
                         </buttonCell>
                     </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="Eht-Qe-yxG" firstAttribute="top" secondItem="HdH-CL-dsw" secondAttribute="bottom" constant="4" id="39c-Wd-fR7"/>
+                    <constraint firstItem="HdH-CL-dsw" firstAttribute="leading" secondItem="9kf-qG-P4T" secondAttribute="leading" constant="10" id="8gQ-k1-skj"/>
+                    <constraint firstItem="HdH-CL-dsw" firstAttribute="top" secondItem="9kf-qG-P4T" secondAttribute="top" constant="4" id="HHx-r9-9oF"/>
+                    <constraint firstAttribute="trailing" secondItem="HdH-CL-dsw" secondAttribute="trailing" constant="10" id="ItI-gc-uBq"/>
+                    <constraint firstAttribute="trailing" secondItem="Eht-Qe-yxG" secondAttribute="trailing" id="MfR-xd-hye"/>
+                    <constraint firstAttribute="bottom" secondItem="v6u-kD-QAX" secondAttribute="bottom" constant="5" id="NLf-d5-WiX"/>
+                    <constraint firstAttribute="bottom" secondItem="Eht-Qe-yxG" secondAttribute="bottom" constant="32" id="Rp8-y7-dvs"/>
+                    <constraint firstAttribute="bottom" secondItem="eWt-M9-UW0" secondAttribute="bottom" constant="5" id="aIz-bQ-3Sf"/>
+                    <constraint firstAttribute="trailing" secondItem="v6u-kD-QAX" secondAttribute="trailing" constant="10" id="alH-zr-gyL"/>
+                    <constraint firstItem="Eht-Qe-yxG" firstAttribute="leading" secondItem="9kf-qG-P4T" secondAttribute="leading" id="dPr-ob-6t0"/>
+                    <constraint firstItem="eWt-M9-UW0" firstAttribute="leading" secondItem="9kf-qG-P4T" secondAttribute="leading" constant="10" id="vF9-cO-08W"/>
+                </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="0EEF7C02-50FF-4E12-9E67-C0E3B9A6D6B5" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="AEB-dI-ziX">
                 <allowedToolbarItems>
