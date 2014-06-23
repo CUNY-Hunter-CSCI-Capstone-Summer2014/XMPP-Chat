@@ -123,8 +123,8 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
-                    <button appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="eWt-M9-UW0">
-                        <rect key="frame" x="7" y="3" width="21" height="25"/>
+                    <button appearanceType="aqua" verticalHuggingPriority="750" misplaced="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="eWt-M9-UW0">
+                        <rect key="frame" x="10" y="3" width="21" height="25"/>
                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dDd-Xg-NAN">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>

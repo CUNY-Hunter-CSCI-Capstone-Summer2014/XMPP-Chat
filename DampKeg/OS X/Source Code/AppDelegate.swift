@@ -11,14 +11,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var loginWindowController: NSWindowController? = nil
     var rosterListWindowController: NSWindowController? = nil
-    var AddContactWindowController: NSWindowController? = nil
+    var addContactWindowController: NSWindowController? = nil
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
 
         loginWindowController = NSWindowController(windowNibName: "Login Window")
         rosterListWindowController = NSWindowController(windowNibName: "Roster List")
-        AddContactWindowController = NSWindowController(windowNibName: "AddContact")
+        addContactWindowController = NSWindowController(windowNibName: "AddContact")
 
         /* The login button has a tag of 1 in the .xib file */
         let loginButton: NSButton = loginWindowController!.window.contentView.viewWithTag(1) as NSButton
@@ -52,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func openAddContactScreen(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.AddContactWindowController!.showWindow(self)
+            self.addContactWindowController!.showWindow(self)
         }
     }
     
