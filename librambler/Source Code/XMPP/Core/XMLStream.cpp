@@ -7,9 +7,14 @@
 
 #include "XMLStream.h"
 
-#ifdef __APPLE__
+#include <cassert>
+
+#if defined __APPLE__
 #include "CFNetworkBasedConnection.h"
 using TCPConnection = Rambler::Connection::CFNetworkBasedConnection;
+#elif defined _WIN32
+#include "WindowsRuntimeBasedConnection.h"
+using TCPConnection = Rambler::Connection::WindowsRuntimeBasedConnection;
 #endif
 
 namespace Rambler { namespace XMPP { namespace Core {

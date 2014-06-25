@@ -18,7 +18,7 @@ namespace Rambler { namespace XMPP { namespace Core {
 
         static JID const None;
 
-        JID() = default;
+        JID();
         JID(string localPart, string domainPart);
         JID(string localPart, string domainPart, string resourcePart);
 

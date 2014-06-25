@@ -16,6 +16,7 @@
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\State.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\WindowsRuntimeBasedConnection.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\BidirectionalStream.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\State.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\types.h" />
@@ -26,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\WindowsRuntimeBasedConnection.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\BidirectionalStream.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\JID.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\XMLStream.cpp" />

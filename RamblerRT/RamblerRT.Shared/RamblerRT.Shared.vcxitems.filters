@@ -28,6 +28,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\types.h">
       <Filter>librambler</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\WindowsRuntimeBasedConnection.h">
+      <Filter>librambler\Connection\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.cpp">
@@ -44,6 +47,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\XMLStream.cpp">
       <Filter>librambler\XMPP\Core\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\WindowsRuntimeBasedConnection.cpp">
+      <Filter>librambler\Connection\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
