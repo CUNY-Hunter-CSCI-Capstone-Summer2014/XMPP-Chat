@@ -2,10 +2,10 @@
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.h">
-      <Filter>librambler\Header Files</Filter>
+      <Filter>librambler\Connection\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\State.h">
-      <Filter>librambler\Header Files</Filter>
+      <Filter>librambler\Connection\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h">
       <Filter>RamblerRT\Header Files</Filter>
@@ -16,10 +16,22 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)targetver.h">
       <Filter>RamblerRT\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\BidirectionalStream.h">
+      <Filter>librambler\Stream\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\State.h">
+      <Filter>librambler\Stream\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\JID.h">
+      <Filter>librambler\XMPP\Core\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\XMLStream.h">
+      <Filter>librambler\XMPP\Core\Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.cpp">
-      <Filter>librambler\Source Files</Filter>
+      <Filter>librambler\Connection\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)dllmain.cpp">
       <Filter>RamblerRT\Source Files</Filter>
@@ -29,6 +41,15 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)RamblerRT.cpp">
       <Filter>RamblerRT\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\BidirectionalStream.cpp">
+      <Filter>librambler\Stream\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\JID.cpp">
+      <Filter>librambler\XMPP\Core\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\XMLStream.cpp">
+      <Filter>librambler\XMPP\Core\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -46,12 +67,40 @@
     <Filter Include="librambler">
       <UniqueIdentifier>{df1b068f-9c77-4c0e-889a-20db02cb51d3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="librambler\Header Files">
+    <Filter Include="librambler\XMPP">
+      <UniqueIdentifier>{bd94fc12-a1ed-4218-a232-da7478fbd7e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="librambler\XMPP\Core">
+      <UniqueIdentifier>{4cbaf116-23d5-4771-a57b-2c0a9224cdf1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="librambler\Stream">
+      <UniqueIdentifier>{da08b2cf-3144-4d10-bcf8-f10e0b955816}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="librambler\Connection">
+      <UniqueIdentifier>{f67d2dd8-8953-4e60-a5ba-3846b589fefb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="librambler\Connection\Source Files">
+      <UniqueIdentifier>{375cdb03-9035-4c3b-abbd-2527df1cd70b}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="librambler\Connection\Header Files">
       <UniqueIdentifier>{689fb92b-d711-4347-a3d6-b22c3db75b57}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="librambler\Source Files">
-      <UniqueIdentifier>{375cdb03-9035-4c3b-abbd-2527df1cd70b}</UniqueIdentifier>
+    <Filter Include="librambler\Stream\Header Files">
+      <UniqueIdentifier>{cbcb13df-4ffb-4362-b406-a2802347fbce}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="librambler\Stream\Source Files">
+      <UniqueIdentifier>{ccc7043a-b2e8-46f2-ba8f-38109aa25150}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="librambler\XMPP\Core\Header Files">
+      <UniqueIdentifier>{48e5b882-3d66-4f16-8658-c36db1fff4d4}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="librambler\XMPP\Core\Source Files">
+      <UniqueIdentifier>{b3b91000-fbcd-48b0-9413-7264ab161d72}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
   </ItemGroup>
