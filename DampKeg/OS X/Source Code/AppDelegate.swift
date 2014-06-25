@@ -33,6 +33,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         AddContactButton.target = self;
         AddContactButton.action = "openAddContactScreen:";
         
+        let DoneAddingContact: NSButton = addContactWindowController!.window.contentView.viewWithTag(1) as NSButton
+        
+        DoneAddingContact.target = self;
+        DoneAddingContact.action = "CloseAddingContactScreen";
+        
     }
     
     func applicationWillTerminate(aNotification: NSNotification?) {
@@ -53,6 +58,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func openAddContactScreen(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
             self.addContactWindowController!.showWindow(self)
+        }
+    }
+    
+    @IBAction func CloseAddingContactScreen(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.addContactWindowController!.window.orderOut(self)
         }
     }
     

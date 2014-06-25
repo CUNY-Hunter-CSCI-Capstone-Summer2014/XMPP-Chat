@@ -16,12 +16,140 @@
                 <rect key="frame" x="0.0" y="0.0" width="544" height="320"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <browser verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" enabled="YES" hasHorizontalScroller="YES" allowsEmptySelection="YES" defaultColumnWidth="100" minColumnWidth="100" maxVisibleColumns="1" titled="YES" separatesColumns="YES" allowsTypeSelect="YES" columnsAutosaveName="Options" columnResizingType="auto" translatesAutoresizingMaskIntoConstraints="NO" id="Lp8-nL-kSn">
-                        <rect key="frame" x="20" y="20" width="127" height="300"/>
-                    </browser>
+                    <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="MpY-m4-Ttm">
+                        <rect key="frame" x="0.0" y="215" width="544" height="5"/>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="system"/>
+                    </box>
+                    <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XcA-EZ-HoN">
+                        <rect key="frame" x="110" y="216" width="177" height="124"/>
+                        <font key="font" metaFont="system"/>
+                        <tabViewItems>
+                            <tabViewItem label="Tab" identifier="1" id="izR-9T-tBv">
+                                <view key="view" ambiguous="YES" id="plD-yV-DCV">
+                                    <rect key="frame" x="10" y="33" width="157" height="78"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="View" identifier="2" id="drf-CM-Q6c">
+                                <view key="view" id="D78-l0-6OS">
+                                    <rect key="frame" x="10" y="33" width="157" height="78"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
+                    </tabView>
                 </subviews>
             </view>
             <point key="canvasLocation" x="263" y="273"/>
+        </window>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="i7m-8H-fs1">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="109" y="132" width="480" height="270"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <view key="contentView" id="kDR-dY-YhB">
+                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VXS-ol-us9">
+                        <rect key="frame" x="-8" y="-10" width="496" height="286"/>
+                        <font key="font" metaFont="system"/>
+                        <tabViewItems>
+                            <tabViewItem label="General" identifier="1" id="uoT-ZK-IGP">
+                                <view key="view" id="qdr-9j-fBf">
+                                    <rect key="frame" x="10" y="33" width="476" height="240"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smW-fo-fhy">
+                                            <rect key="frame" x="20" y="206" width="72" height="31"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Startup" id="AAd-QW-01w">
+                                                <font key="font" size="18" name=".LucidaGrandeUI"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRR-IO-J9P">
+                                            <rect key="frame" x="20" y="113" width="72" height="29"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Status" id="dPP-9s-dBz">
+                                                <font key="font" size="18" name=".LucidaGrandeUI"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mO8-bV-wat">
+                                            <rect key="frame" x="15" y="182" width="253" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Start Dampkeg on Computer Startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ZV9-gK-jDp">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qco-VE-bxR">
+                                            <rect key="frame" x="15" y="89" width="167" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Change status after " bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qR0-K8-Ver">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTh-0u-ja5">
+                                            <rect key="frame" x="163" y="81" width="140" height="26"/>
+                                            <popUpButtonCell key="cell" type="push" title="After 10 Minutes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Q2o-XY-G1t" id="2m2-dT-3V2">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="menu"/>
+                                                <menu key="menu" id="mS6-jn-Igg">
+                                                    <items>
+                                                        <menuItem title="After 5 Minutes" id="N9M-nD-Jde"/>
+                                                        <menuItem title="After 10 Minutes" state="on" id="Q2o-XY-G1t"/>
+                                                        <menuItem title="After 15 Minutes" id="2OL-IM-AQD"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                        </popUpButton>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Chat" identifier="2" id="1Q1-Dh-P51">
+                                <view key="view" ambiguous="YES" id="9nq-N0-eWg">
+                                    <rect key="frame" x="10" y="33" width="476" height="240"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jbi-hK-Edt">
+                                            <rect key="frame" x="15" y="207" width="146" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Show chat history" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="nkP-2h-1bi">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" size="14" name=".LucidaGrandeUI"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yru-eT-zSY">
+                                            <rect key="frame" x="15" y="173" width="264" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Leave chat room when closing window" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zGE-ce-E2E">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hjv-RT-s8c">
+                                            <rect key="frame" x="159" y="203" width="115" height="26"/>
+                                            <popUpButtonCell key="cell" type="push" title="15 messages" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Fys-Kk-vvj" id="Rs0-co-9v0">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="menu"/>
+                                                <menu key="menu" id="Y9v-V4-b6Q">
+                                                    <items>
+                                                        <menuItem title="5 messages" id="bYw-t5-zO2"/>
+                                                        <menuItem title="10 messages" id="uV3-q3-x7O"/>
+                                                        <menuItem title="15 messages" state="on" id="Fys-Kk-vvj"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                        </popUpButton>
+                                    </subviews>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
+                    </tabView>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="227" y="246"/>
         </window>
     </objects>
 </document>
