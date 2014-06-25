@@ -7,9 +7,7 @@
 
 #pragma once
 
-#include <string>
-
-using std::string;
+#include "types.h"
 
 namespace Rambler { namespace XMPP { namespace Core {
     struct JID {

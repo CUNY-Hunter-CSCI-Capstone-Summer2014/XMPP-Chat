@@ -7,8 +7,7 @@
 
 #pragma once
 
-#include <functional>
-#include <string>
+#include "types.h"
 
 #include "State.h"
 

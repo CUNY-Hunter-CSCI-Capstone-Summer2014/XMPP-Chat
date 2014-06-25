@@ -7,16 +7,16 @@
 
 #pragma once
 
+#include "types.h"
+
 #include "BidirectionalStream.h"
 #include "AbstractConnection.h"
 
 #include "JID.h"
 
 #include <memory>
-#include <string>
 
 using std::shared_ptr;
-using std::string;
 
 namespace Rambler { namespace XMPP { namespace Core {
 

@@ -5,8 +5,7 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#include <functional>
-#include <vector>
+#include "types.h"
 
 #include "State.h"
 
@@ -16,7 +15,7 @@ namespace Rambler { namespace Stream {
     public:
         using OpenedEventHandler  = std::function<void(void)>;
         using ClosedEventHandler  = std::function<void(void)>;
-        using HasDataEventHandler = std::function<void(const std::vector<T>&)>;
+        using HasDataEventHandler = std::function<void(std::vector<T> const &)>;
 
         BidirectionalStream() = default;
         virtual ~BidirectionalStream() = default;
