@@ -7,9 +7,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\State.h">
       <Filter>librambler\Connection\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h">
-      <Filter>RamblerRT\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)RamblerRT.h">
       <Filter>RamblerRT\Header Files</Filter>
     </ClInclude>
@@ -28,16 +25,13 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\XMLStream.h">
       <Filter>librambler\XMPP\Core\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\types.h">
+      <Filter>librambler</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.cpp">
       <Filter>librambler\Connection\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)dllmain.cpp">
-      <Filter>RamblerRT\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
-      <Filter>RamblerRT\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)RamblerRT.cpp">
       <Filter>RamblerRT\Source Files</Filter>
