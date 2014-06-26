@@ -64,13 +64,6 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UXU-bQ-sxM">
-                        <rect key="frame" x="58" y="114" width="114" height="18"/>
-                        <buttonCell key="cell" type="check" title="Remember me" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ghl-RC-OId">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="Xg8-hg-OBh">
                         <rect key="frame" x="123" y="68" width="75" height="32"/>
                         <buttonCell key="cell" type="push" title="Login" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Spa-Fw-Gbf">
@@ -80,6 +73,13 @@
                         <connections>
                             <binding destination="N3D-Nq-8bj" name="enabled" keyPath="isValid" id="fXT-YT-cpi"/>
                         </connections>
+                    </button>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UXU-bQ-sxM">
+                        <rect key="frame" x="58" y="114" width="114" height="18"/>
+                        <buttonCell key="cell" type="check" title="Remember me" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="ghl-RC-OId">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
                     </button>
                 </subviews>
             </view>
