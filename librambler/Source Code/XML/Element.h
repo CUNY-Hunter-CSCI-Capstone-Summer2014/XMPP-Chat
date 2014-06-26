@@ -20,7 +20,7 @@ namespace rambler { namespace XML {
         string getPrefix() const;
         string getName() const;
         string getQualifiedName() const;
-        std::list<Node *> getChildren() const;
+        std::list<shared_ptr<Node>> getChildren() const;
 
         void addAttribute(Attribute attribute);
         void getAttribute(string name) const;
@@ -30,7 +30,7 @@ namespace rambler { namespace XML {
     private:
         string prefix;
         string name;
-        std::list<Node *> children;
+        std::list<shared_ptr<Node>> children;
         std::set<Attribute> attributes;
     };
 }}

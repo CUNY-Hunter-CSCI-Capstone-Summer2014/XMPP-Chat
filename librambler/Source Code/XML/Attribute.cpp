@@ -19,14 +19,14 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    Attribute::Attribute(string prefix, string name, string value) : prefix(prefix), name(name), value(value), Node(Type::Attribute)
+    Attribute::Attribute(Namespace xmlnamespace, string name, string value) : xmlnamespace(xmlnamespace), name(name), value(value), Node(Type::Attribute)
     {
         /* Nothing to do here */
     }
 
-    string Attribute::getPrefix() const
+    Namespace Attribute::getNamespace() const
     {
-        return prefix;
+        return xmlnamespace;
     }
 
     string Attribute::getName() const
@@ -36,7 +36,7 @@ namespace rambler { namespace XML {
 
     string Attribute::getQualifiedName() const
     {
-        return prefix + ':' + name;
+        return (xmlnamespace == Namespace::DefaultNamespace) ? name : xmlnamespace.getPrefix() + ':' + name;
     }
 
     string Attribute::getValue() const
@@ -58,7 +58,7 @@ namespace rambler { namespace XML {
 
     string Attribute::getStringValue() const
     {
-        return (getPrefix().empty() ? getName() : getQualifiedName()) + "=" + getQuotedValue();
+        return getQualifiedName() + "=" + getQuotedValue();
     }
 
     bool Attribute::isValid() const
@@ -68,7 +68,7 @@ namespace rambler { namespace XML {
 
     bool Attribute::operator < (Attribute other) const
     {
-        return (prefix < other.prefix) || (prefix == other.prefix && name < other.name);
+        return (xmlnamespace < other.xmlnamespace) || (xmlnamespace == other.xmlnamespace && name < other.name);
     }
 
 }}

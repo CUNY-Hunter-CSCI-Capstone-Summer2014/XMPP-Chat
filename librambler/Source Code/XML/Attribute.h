@@ -7,17 +7,19 @@
 
 #pragma once
 
-#include "types.h"
 #include "Node.h"
+#include "Namespace.h"
+
+#include "string_types.h"
 
 namespace rambler { namespace XML {
     class Attribute : public Node {
     public:
         Attribute();
         Attribute(string name, string value);
-        Attribute(string prefix, string name, string value);
+        Attribute(Namespace xmlnamespace, string name, string value);
 
-        string getPrefix() const;
+        Namespace getNamespace() const;
         string getName() const;
         string getQualifiedName() const;
         string getValue() const;
@@ -31,7 +33,7 @@ namespace rambler { namespace XML {
         bool operator < (Attribute other) const;
 
     private:
-        string const prefix;
+        Namespace const xmlnamespace;
         string const name;
         string const value;
     };

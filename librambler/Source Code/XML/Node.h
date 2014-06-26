@@ -16,6 +16,7 @@ namespace rambler { namespace XML {
             Element,
             Attribute,
             Text,
+            Namespace
         };
 
         /* Constructors */
