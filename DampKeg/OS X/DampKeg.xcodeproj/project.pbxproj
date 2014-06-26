@@ -24,6 +24,7 @@
 		07CF205A194677CA004884CD /* Damp_KegTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF2056194677BA004884CD /* Damp_KegTests.swift */; };
 		07D5DC971950AE3A0041A7F3 /* Rambler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E7091950ABB3008C76CF /* Rambler.framework */; };
 		07D5DC981950AE3A0041A7F3 /* Rambler.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E7091950ABB3008C76CF /* Rambler.framework */; };
+		548A9B7A195CBAF5004BD118 /* PrefWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548A9B79195CBAF5004BD118 /* PrefWindow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		07CF2056194677BA004884CD /* Damp_KegTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Damp_KegTests.swift; sourceTree = "<group>"; };
 		07CF2058194677C7004884CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07D1E7031950ABB3008C76CF /* Rambler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rambler.xcodeproj; path = "../../Rambler Framework/Rambler.xcodeproj"; sourceTree = "<group>"; };
+		548A9B79195CBAF5004BD118 /* PrefWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PrefWindow.swift; path = "Source Code/PrefWindow.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 				07CF20481946769E004884CD /* AppDelegate.swift */,
 				013207DE1950D4AB005B49E3 /* PlainAuthenticationCredentials.swift */,
 				07CF20491946769E004884CD /* main.swift */,
+				548A9B79195CBAF5004BD118 /* PrefWindow.swift */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				548A9B7A195CBAF5004BD118 /* PrefWindow.swift in Sources */,
 				07CF204B1946769E004884CD /* main.swift in Sources */,
 				013207DF1950D4AB005B49E3 /* PlainAuthenticationCredentials.swift in Sources */,
 				07CF204A1946769E004884CD /* AppDelegate.swift in Sources */,
