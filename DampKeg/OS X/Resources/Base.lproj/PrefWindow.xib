@@ -58,7 +58,7 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="General" identifier="1" id="uoT-ZK-IGP">
-                                <view key="view" id="qdr-9j-fBf">
+                                <view key="view" ambiguous="YES" id="qdr-9j-fBf">
                                     <rect key="frame" x="10" y="33" width="476" height="240"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -106,11 +106,17 @@
                                                 </menu>
                                             </popUpButtonCell>
                                         </popUpButton>
+                                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="YQt-qe-6w5">
+                                            <rect key="frame" x="-3" y="153" width="482" height="5"/>
+                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <font key="titleFont" metaFont="system"/>
+                                        </box>
                                     </subviews>
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Chat" identifier="2" id="1Q1-Dh-P51">
-                                <view key="view" ambiguous="YES" id="9nq-N0-eWg">
+                                <view key="view" id="9nq-N0-eWg">
                                     <rect key="frame" x="10" y="33" width="476" height="240"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -149,7 +155,7 @@
                     </tabView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="227" y="246"/>
+            <point key="canvasLocation" x="263" y="264"/>
         </window>
     </objects>
 </document>
