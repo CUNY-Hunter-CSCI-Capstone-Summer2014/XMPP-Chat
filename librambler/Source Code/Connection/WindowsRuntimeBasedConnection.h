@@ -11,12 +11,28 @@
 
 namespace Rambler { namespace Connection {
 
+	/*
+	* Creates a connection using StreamSockets
+	* Supports only Windows 8.1 and later.
+	*/
 	class WindowsRuntimeBasedConnection : public AbstractConnection {
 	public:
 		WindowsRuntimeBasedConnection() = default;
+
+		/**
+		* Host is the hostname ie domain or ip address
+		* service is either port number or actual service name
+		*/
 		WindowsRuntimeBasedConnection(std::string host, std::string service);
+
+		/*
+		*/
 		virtual ~WindowsRuntimeBasedConnection() = default;
 
+
+		/**
+		* Creates a Streamsocket connection
+		*/
 		virtual bool open();
 		virtual void close();
 		virtual void sendData(std::string data);
@@ -30,3 +46,4 @@ namespace Rambler { namespace Connection {
 	};
 
 }}
+
