@@ -93,8 +93,11 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <CompileAsWinRT>false</CompileAsWinRT>
+      <CompileAsWinRT>true</CompileAsWinRT>
       <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>
+      </AdditionalUsingDirectories>
+      <PreprocessorDefinitions>_WINRT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -105,8 +108,9 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <CompileAsWinRT>false</CompileAsWinRT>
+      <CompileAsWinRT>true</CompileAsWinRT>
       <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -117,8 +121,9 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <CompileAsWinRT>false</CompileAsWinRT>
+      <CompileAsWinRT>true</CompileAsWinRT>
       <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,8 +134,9 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <CompileAsWinRT>false</CompileAsWinRT>
+      <CompileAsWinRT>true</CompileAsWinRT>
       <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
