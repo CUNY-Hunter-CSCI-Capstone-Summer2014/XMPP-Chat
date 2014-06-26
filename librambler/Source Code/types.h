@@ -2,9 +2,13 @@
 
 #include <cstdint>
 #include <functional>
-#include <vector>
+#include <list>
+#include <memory>
+#include <set>
 #include <string>
+#include <vector>
 
+using std::shared_ptr;
 using string = std::string;
 
 using UInt8  = uint8_t;
