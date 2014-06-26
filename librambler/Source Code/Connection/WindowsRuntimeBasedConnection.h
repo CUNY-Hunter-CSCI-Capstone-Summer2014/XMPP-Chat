@@ -9,6 +9,12 @@
 
 #include "AbstractConnection.h"
 
+using namespace Platform;
+using namespace Windows::Foundation;
+using namespace Windows::Networking;
+using namespace Windows::Networking::Sockets;
+using namespace Windows::Storage::Streams;
+
 namespace Rambler { namespace Connection {
 
 	/*
