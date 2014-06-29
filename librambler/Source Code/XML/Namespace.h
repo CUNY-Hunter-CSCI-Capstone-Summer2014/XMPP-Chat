@@ -7,12 +7,11 @@
 
 #pragma once
 
-#include "string_types.h"
-#include "Node.h"
+#include "NameableNode.h"
 
 namespace rambler { namespace XML {
 
-    class Namespace : public Node {
+    class Namespace : public NameableNode {
     public:
         static Namespace DefaultNamespace;
 
@@ -20,15 +19,12 @@ namespace rambler { namespace XML {
         Namespace(string prefix, string name);
 
         string getPrefix() const;
-        string getName() const;
 
         bool isValid() const;
 
-        bool operator < (Namespace const & other) const;
         bool operator == (Namespace const & other) const;
     private:
         string const prefix;
-        string const name;
     };
 
 }}

@@ -7,21 +7,18 @@
 
 #pragma once
 
-#include "Node.h"
-#include "Namespace.h"
-
-#include "string_types.h"
+#include "NamespaceableNode.h"
 
 namespace rambler { namespace XML {
-    class Attribute : public Node {
+
+    class Attribute : public NamespaceableNode {
     public:
+        static Attribute NoAttribute;
+
         Attribute();
         Attribute(string name, string value);
         Attribute(Namespace xmlnamespace, string name, string value);
 
-        Namespace getNamespace() const;
-        string getName() const;
-        string getQualifiedName() const;
         string getValue() const;
         string getEscapedValue() const;
         string getQuotedValue() const;
@@ -30,11 +27,8 @@ namespace rambler { namespace XML {
 
         virtual bool isValid() const;
 
-        bool operator < (Attribute other) const;
-
     private:
-        Namespace const xmlnamespace;
-        string const name;
         string const value;
     };
+
 }}

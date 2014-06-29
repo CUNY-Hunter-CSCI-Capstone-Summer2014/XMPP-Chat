@@ -8,6 +8,7 @@
 #pragma once
 
 namespace rambler { namespace XML {
+
     class Node {
     public:
         enum class Type {
@@ -31,7 +32,8 @@ namespace rambler { namespace XML {
         /* Virtual Functions */
         virtual bool isValid() const = 0;
 
-    private:
+    protected:
         Type const type;
     };
+    
 }}

@@ -11,12 +11,12 @@ namespace rambler { namespace XML {
 
     Namespace Namespace::DefaultNamespace = Namespace();
 
-    Namespace::Namespace() : Node(Type::Namespace)
+    Namespace::Namespace() : NameableNode(Type::Namespace)
     {
         /* Nothing to do here */
     }
 
-    Namespace::Namespace(string prefix, string name) : prefix(prefix), name(name), Node(Type::Namespace)
+    Namespace::Namespace(string prefix, string name) : prefix(prefix), NameableNode(name, Type::Namespace)
     {
         /* Nothing to do here */
     }
@@ -26,19 +26,9 @@ namespace rambler { namespace XML {
         return prefix;
     }
 
-    string Namespace::getName() const
-    {
-        return name;
-    }
-
     bool Namespace::isValid() const
     {
         return (prefix.empty() && name.empty()) || (!prefix.empty() && !name.empty());
-    }
-
-    bool Namespace::operator < (Namespace const & other) const
-    {
-        return name < other.name;
     }
 
     bool Namespace::operator == (Namespace const & other) const
