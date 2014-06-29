@@ -59,6 +59,7 @@ namespace Rambler { namespace Connection {
 		String^ serviceName;
 
 		StreamSocket ^ actualSocket;
+		IAsyncAction ^ streamSocketOperation;
 	};
 
 }}
