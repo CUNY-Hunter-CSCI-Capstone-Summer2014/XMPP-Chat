@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "Node.h"
+#include "Node.hpp"
 #include "string_types.h"
 
 namespace rambler { namespace XML {

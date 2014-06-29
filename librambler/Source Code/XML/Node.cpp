@@ -5,7 +5,7 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#include "Node.h"
+#include "Node.hpp"
 
 namespace rambler { namespace XML {
 

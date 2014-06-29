@@ -7,8 +7,8 @@
 
 #pragma once
 
-#include "NamespaceableNode.h"
-#include "Attribute.h"
+#include "NamespaceableNode.hpp"
+#include "Attribute.hpp"
 #include "types.h"
 
 namespace rambler { namespace XML {

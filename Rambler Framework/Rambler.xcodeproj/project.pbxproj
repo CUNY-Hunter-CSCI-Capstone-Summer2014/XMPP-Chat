@@ -195,24 +195,24 @@
 		0715A63C195512A8004519D9 /* JID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JID.cpp; sourceTree = "<group>"; };
 		0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreateJIDFromStringTestCase.mm; sourceTree = "<group>"; };
 		0739C3D9195B9D8F006A7EA8 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
-		0739C3E6195BA6D0006A7EA8 /* Element.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Element.h; sourceTree = "<group>"; };
-		0739C3E7195BB391006A7EA8 /* Attribute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Attribute.h; sourceTree = "<group>"; };
+		0739C3E6195BA6D0006A7EA8 /* Element.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Element.hpp; sourceTree = "<group>"; };
+		0739C3E7195BB391006A7EA8 /* Attribute.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Attribute.hpp; sourceTree = "<group>"; };
 		0739C3E8195BB781006A7EA8 /* Attribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Attribute.cpp; sourceTree = "<group>"; };
-		0739C3EA195BC1F7006A7EA8 /* Node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
+		0739C3EA195BC1F7006A7EA8 /* Node.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Node.hpp; sourceTree = "<group>"; };
 		0739C3EB195BC68C006A7EA8 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
-		0739C3ED195BE296006A7EA8 /* Namespace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Namespace.h; sourceTree = "<group>"; };
+		0739C3ED195BE296006A7EA8 /* Namespace.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Namespace.hpp; sourceTree = "<group>"; };
 		0739C3EE195BE40A006A7EA8 /* integer_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = integer_types.h; sourceTree = "<group>"; };
 		0739C3EF195BE5D4006A7EA8 /* string_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = string_types.h; sourceTree = "<group>"; };
 		0739C3F0195BE732006A7EA8 /* Namespace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Namespace.cpp; sourceTree = "<group>"; };
-		0747F28A1960879E003A0D0C /* NameableNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NameableNode.h; sourceTree = "<group>"; };
+		0747F28A1960879E003A0D0C /* NameableNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NameableNode.hpp; sourceTree = "<group>"; };
 		0747F28B196088B7003A0D0C /* NameableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NameableNode.cpp; sourceTree = "<group>"; };
-		0747F28D19608C3F003A0D0C /* NamespaceableNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NamespaceableNode.h; sourceTree = "<group>"; };
+		0747F28D19608C3F003A0D0C /* NamespaceableNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NamespaceableNode.hpp; sourceTree = "<group>"; };
 		0747F28E19608DCB003A0D0C /* NamespaceableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NamespaceableNode.cpp; sourceTree = "<group>"; };
 		075F2D151953F2E50072E170 /* TCPConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TCPConnection.h; path = "Source Code/TCPConnection.h"; sourceTree = SOURCE_ROOT; };
 		075F2D201953F2FB0072E170 /* TCPConnection.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TCPConnection.mm; path = "Source Code/TCPConnection.mm"; sourceTree = SOURCE_ROOT; };
 		075F2D241954208D0072E170 /* Rambler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rambler.h; path = "Source Code/Rambler.h"; sourceTree = SOURCE_ROOT; };
 		07ABA9FD1960A8A4001543FB /* Element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Element.cpp; sourceTree = "<group>"; };
-		07ABAA091960B0E4001543FB /* TextNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextNode.h; sourceTree = "<group>"; };
+		07ABAA091960B0E4001543FB /* TextNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextNode.hpp; sourceTree = "<group>"; };
 		07ABAA0A1960B0EF001543FB /* TextNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextNode.cpp; sourceTree = "<group>"; };
 		07D1E6CF1950A833008C76CF /* Rambler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rambler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D1E6DA1950A833008C76CF /* Rambler – Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rambler – Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,19 +295,19 @@
 		0739C3E5195BA600006A7EA8 /* XML */ = {
 			isa = PBXGroup;
 			children = (
-				0739C3E7195BB391006A7EA8 /* Attribute.h */,
+				0739C3E7195BB391006A7EA8 /* Attribute.hpp */,
 				0739C3E8195BB781006A7EA8 /* Attribute.cpp */,
-				0739C3E6195BA6D0006A7EA8 /* Element.h */,
+				0739C3E6195BA6D0006A7EA8 /* Element.hpp */,
 				07ABA9FD1960A8A4001543FB /* Element.cpp */,
-				0739C3EA195BC1F7006A7EA8 /* Node.h */,
+				0739C3EA195BC1F7006A7EA8 /* Node.hpp */,
 				0739C3EB195BC68C006A7EA8 /* Node.cpp */,
-				0747F28A1960879E003A0D0C /* NameableNode.h */,
+				0747F28A1960879E003A0D0C /* NameableNode.hpp */,
 				0747F28B196088B7003A0D0C /* NameableNode.cpp */,
-				0739C3ED195BE296006A7EA8 /* Namespace.h */,
+				0739C3ED195BE296006A7EA8 /* Namespace.hpp */,
 				0739C3F0195BE732006A7EA8 /* Namespace.cpp */,
-				0747F28D19608C3F003A0D0C /* NamespaceableNode.h */,
+				0747F28D19608C3F003A0D0C /* NamespaceableNode.hpp */,
 				0747F28E19608DCB003A0D0C /* NamespaceableNode.cpp */,
-				07ABAA091960B0E4001543FB /* TextNode.h */,
+				07ABAA091960B0E4001543FB /* TextNode.hpp */,
 				07ABAA0A1960B0EF001543FB /* TextNode.cpp */,
 			);
 			path = XML;

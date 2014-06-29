@@ -5,7 +5,7 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#include "Element.h"
+#include "Element.hpp"
 
 namespace rambler { namespace XML {
 
@@ -66,7 +66,8 @@ namespace rambler { namespace XML {
 
     void Element::setAttributes(std::set<Attribute> attributes)
     {
-        this->attributes = attributes;
+#warning FIXME: setAttributes is broken!
+        //this->attributes = attributes;
     }
 
     void Element::removeAttribute(string name)

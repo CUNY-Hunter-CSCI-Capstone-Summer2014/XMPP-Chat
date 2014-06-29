@@ -5,7 +5,7 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#include "Namespace.h"
+#include "Namespace.hpp"
 
 namespace rambler { namespace XML {
 
