@@ -14,6 +14,7 @@ using namespace Windows::Foundation;
 using namespace Windows::Networking;
 using namespace Windows::Networking::Sockets;
 using namespace Windows::Storage::Streams;
+using namespace Windows::Security::Cryptography;
 
 namespace Rambler { namespace Connection {
 
