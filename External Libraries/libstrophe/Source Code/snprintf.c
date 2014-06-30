@@ -371,7 +371,7 @@ static int dopr (char *buffer, size_t maxlen, const char *format, va_list args)
 	{
 	  int *num;
 	  num = va_arg (args, int *);
-	  *num = currlen;
+	  *num = (int)currlen;
         }
 	break;
       case '%':
