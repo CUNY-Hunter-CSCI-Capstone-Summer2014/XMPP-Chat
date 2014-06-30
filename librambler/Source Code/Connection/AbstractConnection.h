@@ -11,7 +11,7 @@
 
 #include "State.h"
 
-namespace Rambler { namespace Connection {
+namespace rambler { namespace Connection {
 
     class AbstractConnection {
     public:
