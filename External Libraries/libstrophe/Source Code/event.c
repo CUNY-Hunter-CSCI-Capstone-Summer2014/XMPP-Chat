@@ -78,10 +78,10 @@ void xmpp_run_once(xmpp_ctx_t *ctx, const unsigned long timeout)
     xmpp_conn_t *conn;
     fd_set rfds, wfds;
     sock_t max = 0;
-    int ret;
+    long ret;
     struct timeval tv;
     xmpp_send_queue_t *sq, *tsq;
-    int towrite;
+    long towrite;
     char buf[4096];
     uint64_t next;
     long usec;

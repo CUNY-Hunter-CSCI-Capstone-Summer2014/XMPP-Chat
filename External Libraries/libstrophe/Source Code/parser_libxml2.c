@@ -200,7 +200,7 @@ int parser_reset(parser_t *parser)
 }
 
 /* feed a chunk of data to the parser */
-int parser_feed(parser_t *parser, char *chunk, int len)
+int parser_feed(parser_t *parser, char *chunk, long len)
 {
      /* xmlParseChunk API returns 0 on success which is opposite logic to
        the status returned by parser_feed */

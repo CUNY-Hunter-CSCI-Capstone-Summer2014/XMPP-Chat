@@ -30,15 +30,15 @@ char *sasl_digest_md5(xmpp_ctx_t *ctx, const char *challenge,
 
 /** Base64 encoding routines. Implemented according to RFC 3548 */
 
-int base64_encoded_len(xmpp_ctx_t *ctx, const unsigned len);
+size_t base64_encoded_len(xmpp_ctx_t *ctx, const size_t len);
 
 char *base64_encode(xmpp_ctx_t *ctx, 
-		    const unsigned char * const buffer, const unsigned len);
+		    const unsigned char * const buffer, const size_t len);
 
-int base64_decoded_len(xmpp_ctx_t *ctx,
-		       const char * const buffer, const unsigned len);
+size_t base64_decoded_len(xmpp_ctx_t *ctx,
+		       const char * const buffer, const size_t len);
 
 unsigned char *base64_decode(xmpp_ctx_t *ctx,
-			     const char * const buffer, const unsigned  len);
+			     const char * const buffer, const size_t  len);
 
 #endif /* _LIBXMPP_SASL_H__ */
