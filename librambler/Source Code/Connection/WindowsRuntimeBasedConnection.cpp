@@ -9,4 +9,15 @@
 
 namespace Rambler { namespace Connection {
 
+	bool WindowsRuntimeBasedConnection::open(){
+
+	}
+
+	void WindowsRuntimeBasedConnection::close(){
+
+	}
+
+	void WindowsRuntimeBasedConnection::sendData(std::string data){
+
+	}
 }}

@@ -144,12 +144,12 @@ int sock_set_nonblocking(const sock_t sock)
 #endif
 }
 
-int sock_read(const sock_t sock, void * const buff, const size_t len)
+long sock_read(const sock_t sock, void * const buff, const size_t len)
 {
     return recv(sock, buff, len, 0);
 }
 
-int sock_write(const sock_t sock, const void * const buff, const size_t len)
+long sock_write(const sock_t sock, const void * const buff, const size_t len)
 {
     return send(sock, buff, len, 0);
 }

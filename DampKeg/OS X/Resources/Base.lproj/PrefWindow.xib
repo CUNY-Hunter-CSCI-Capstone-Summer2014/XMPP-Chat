@@ -7,43 +7,6 @@
         <customObject id="-2" userLabel="File's Owner"/>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="OgH-Jq-gda">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="131" y="159" width="544" height="320"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
-            <view key="contentView" id="Mkk-Kl-kOO">
-                <rect key="frame" x="0.0" y="0.0" width="544" height="320"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="MpY-m4-Ttm">
-                        <rect key="frame" x="0.0" y="215" width="544" height="5"/>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <font key="titleFont" metaFont="system"/>
-                    </box>
-                    <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XcA-EZ-HoN">
-                        <rect key="frame" x="110" y="216" width="177" height="124"/>
-                        <font key="font" metaFont="system"/>
-                        <tabViewItems>
-                            <tabViewItem label="Tab" identifier="1" id="izR-9T-tBv">
-                                <view key="view" ambiguous="YES" id="plD-yV-DCV">
-                                    <rect key="frame" x="10" y="33" width="157" height="78"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </view>
-                            </tabViewItem>
-                            <tabViewItem label="View" identifier="2" id="drf-CM-Q6c">
-                                <view key="view" id="D78-l0-6OS">
-                                    <rect key="frame" x="10" y="33" width="157" height="78"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </tabViewItem>
-                        </tabViewItems>
-                    </tabView>
-                </subviews>
-            </view>
-            <point key="canvasLocation" x="263" y="273"/>
-        </window>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" animationBehavior="default" id="i7m-8H-fs1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -106,6 +69,12 @@
                                                 </menu>
                                             </popUpButtonCell>
                                         </popUpButton>
+                                        <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="YQt-qe-6w5">
+                                            <rect key="frame" x="-3" y="153" width="482" height="5"/>
+                                            <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                                            <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <font key="titleFont" metaFont="system"/>
+                                        </box>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -125,7 +94,7 @@
                                             <rect key="frame" x="15" y="173" width="264" height="18"/>
                                             <buttonCell key="cell" type="check" title="Leave chat room when closing window" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="zGE-ce-E2E">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
+                                                <font key="font" size="14" name=".LucidaGrandeUI"/>
                                             </buttonCell>
                                         </button>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hjv-RT-s8c">
@@ -149,7 +118,7 @@
                     </tabView>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="227" y="246"/>
+            <point key="canvasLocation" x="256" y="236"/>
         </window>
     </objects>
 </document>

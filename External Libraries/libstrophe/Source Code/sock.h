@@ -38,8 +38,8 @@ int sock_close(const sock_t sock);
 
 int sock_set_blocking(const sock_t sock);
 int sock_set_nonblocking(const sock_t sock);
-int sock_read(const sock_t sock, void * const buff, const size_t len);
-int sock_write(const sock_t sock, const void * const buff, const size_t len);
+long sock_read(const sock_t sock, void * const buff, const size_t len);
+long sock_write(const sock_t sock, const void * const buff, const size_t len);
 int sock_is_recoverable(const int error);
 /* checks for an error after connect, return 0 if connect successful */
 int sock_connect_error(const sock_t sock);
