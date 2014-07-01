@@ -17,7 +17,7 @@
 
 #include "dns_utilities.h"
 
-namespace Rambler {
+namespace rambler {
     namespace DNS {
         const CFStringRef SRVRecordResolver::ErrorDomain = CFStringCreateWithCString(kCFAllocatorDefault,
                                                                                      "SRVRecordResolverErrorDomain",
@@ -117,12 +117,12 @@ namespace Rambler {
 
         std::list<SRVRecordResolver::Result> SRVRecordResolver::prioritizeResults(std::list<Result> results)
         {
-            std::list<Rambler::DNS::SRVRecordResolver::Result> prioritizedResults;
+            std::list<rambler::DNS::SRVRecordResolver::Result> prioritizedResults;
 
-            std::map<UInt16, std::list<Rambler::DNS::SRVRecordResolver::Result>> resultsByPriority;
+            std::map<UInt16, std::list<rambler::DNS::SRVRecordResolver::Result>> resultsByPriority;
             for (auto result : results) {
                 if (resultsByPriority.count(result.priority) == 0) {
-                    resultsByPriority[result.priority] = std::list<Rambler::DNS::SRVRecordResolver::Result>();
+                    resultsByPriority[result.priority] = std::list<rambler::DNS::SRVRecordResolver::Result>();
                 }
                 resultsByPriority[result.priority].push_back(result);
             }

@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    NamespaceableNode
+ * @file    NamespaceableNode.hpp
  * @date    2014-06-29
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
@@ -16,11 +16,11 @@ namespace rambler { namespace XML {
     public:
         NamespaceableNode() = default;
         NamespaceableNode(Type type);
-        NamespaceableNode(string name, Type type);
-        NamespaceableNode(Namespace xmlnamespace, string name, Type type);
+        NamespaceableNode(String name, Type type);
+        NamespaceableNode(Namespace xmlnamespace, String name, Type type);
 
         Namespace getNamespace() const;
-        string getQualifiedName() const;
+        String getQualifiedName() const;
 
         virtual bool operator < (NamespaceableNode const & other) const;
     protected:

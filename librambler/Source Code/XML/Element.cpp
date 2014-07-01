@@ -16,17 +16,39 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    Element::Element(string name) : NamespaceableNode(name, Type::Element)
+    Element::Element(String name) : NamespaceableNode(name, Type::Element)
     {
         /* Nothing to do here */
     }
 
-    Element::Element(Namespace xmlnamespace, string name) : NamespaceableNode(xmlnamespace, name, Type::Element)
+    Element::Element(Namespace xmlnamespace, String name) : NamespaceableNode(xmlnamespace, name, Type::Element)
     {
         /* Nothing to do here */
     }
 
-    std::list<shared_ptr<Node>> Element::getChildren() const
+    StrongPointer<Element> Element::getPtr()
+    {
+        return shared_from_this();
+    }
+
+    StrongPointer<Element> Element::getParent() const
+    {
+        return parent.lock();
+    }
+
+    void Element::addChild(StrongPointer<Element> child)
+    {
+        child->parent = getPtr();
+        children.push_back(std::static_pointer_cast<Node>(child));
+    }
+
+    void Element::addChild(StrongPointer<TextNode> child)
+    {
+        child->setParent(getPtr());
+        children.push_back(std::static_pointer_cast<Node>(child));
+    }
+
+    std::vector<StrongPointer<Node>> Element::getChildren() const
     {
         return children;
     }
@@ -43,12 +65,12 @@ namespace rambler { namespace XML {
         }
     }
 
-    Attribute Element::getAttribute(string name) const
+    Attribute Element::getAttribute(String name) const
     {
         return getAttribute(Namespace::DefaultNamespace, name);
     }
 
-    Attribute Element::getAttribute(Namespace xmlnamespace, string name) const
+    Attribute Element::getAttribute(Namespace xmlnamespace, String name) const
     {
         auto result = attributes.find(Attribute(xmlnamespace, name, "" /* Value doesn't matter */));
 
@@ -70,12 +92,12 @@ namespace rambler { namespace XML {
         //this->attributes = attributes;
     }
 
-    void Element::removeAttribute(string name)
+    void Element::removeAttribute(String name)
     {
         removeAttribute(Namespace::DefaultNamespace, name);
     }
 
-    void Element::removeAttribute(Namespace xmlnamespace, string name)
+    void Element::removeAttribute(Namespace xmlnamespace, String name)
     {
         attributes.erase(Attribute(xmlnamespace, name, "" /* Value doesn't matter */));
     }

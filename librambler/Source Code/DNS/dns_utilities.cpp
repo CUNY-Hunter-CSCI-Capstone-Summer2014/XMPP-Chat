@@ -12,7 +12,7 @@
 #include <cstring>
 #include <iostream>
 
-namespace Rambler {
+namespace rambler {
     namespace DNS {
         uint16_t parse_domain_name(uint8_t const * const data,
                                   size_t                data_length,

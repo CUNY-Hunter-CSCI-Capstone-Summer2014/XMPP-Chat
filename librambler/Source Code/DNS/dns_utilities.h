@@ -10,7 +10,7 @@
 #include <cstdint>
 #include <cstddef>
 
-namespace Rambler {
+namespace rambler {
     namespace DNS {
         /**
          */

@@ -5,9 +5,9 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#include "JID.h"
+#include "JID.hpp"
 
-namespace Rambler { namespace XMPP { namespace Core {
+namespace rambler { namespace XMPP { namespace Core {
 
     JID const JID::None = JID();
 
@@ -15,31 +15,31 @@ namespace Rambler { namespace XMPP { namespace Core {
 		/* Nothing to do here */
 	}
 
-    JID::JID(string localPart, string domainPart) : localPart(localPart), domainPart(domainPart)
+    JID::JID(String localPart, String domainPart) : localPart(localPart), domainPart(domainPart)
     {
         /* Nothing to do here */
     }
 
-    JID::JID(string localPart, string domainPart, string resourcePart)
+    JID::JID(String localPart, String domainPart, String resourcePart)
     : localPart(localPart), domainPart(domainPart), resourcePart(resourcePart)
     {
         /* Nothing to do here */
     }
 
-    JID JID::createJIDFromString(string const jidString) {
-        string localPart;
-        string domainPart;
-        string resourcePart;
+    JID JID::createJIDFromString(String const jidString) {
+        String localPart;
+        String domainPart;
+        String resourcePart;
 
         bool hasLocalPart = false;
         bool hasResourcePart = false;
 
-        string rest = jidString;
-        string::size_type delimiter;
+        String rest = jidString;
+        String::size_type delimiter;
 
         delimiter = rest.find("@", 0);
 
-        if (delimiter != string::npos) {
+        if (delimiter != String::npos) {
             hasLocalPart = true;
             localPart = rest.substr(0, delimiter);
             rest = rest.substr(delimiter + 1);
@@ -47,7 +47,7 @@ namespace Rambler { namespace XMPP { namespace Core {
 
         delimiter = rest.find("/");
 
-        if (delimiter != string::npos) {
+        if (delimiter != String::npos) {
             hasResourcePart = true;
             resourcePart = rest.substr(delimiter + 1);
             domainPart = rest.substr(0, delimiter);
@@ -114,7 +114,7 @@ namespace Rambler { namespace XMPP { namespace Core {
         return JID(localPart, domainPart);
     }
 
-    string JID::toString() const
+    String JID::toString() const
     {
         if (isFullJID()) {
             if (!localPart.empty()) {

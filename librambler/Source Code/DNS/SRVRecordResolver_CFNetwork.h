@@ -15,7 +15,7 @@
 #include <list>
 #include <functional>
 
-namespace Rambler {
+namespace rambler {
     namespace DNS {
         class SRVRecordResolver {
         public:

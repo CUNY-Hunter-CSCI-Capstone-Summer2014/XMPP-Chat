@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    NamedNode.h
+ * @file    NamedNode.hpp
  * @date    2014-06-29
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
@@ -8,7 +8,7 @@
 #pragma once
 
 #include "Node.hpp"
-#include "string_types.h"
+#include "string_types.hpp"
 
 namespace rambler { namespace XML {
 
@@ -16,13 +16,13 @@ namespace rambler { namespace XML {
     public:
         NameableNode() = default;
         NameableNode(Type type);
-        NameableNode(string name, Type type);
+        NameableNode(String name, Type type);
         
-        string getName() const;
+        String getName() const;
 
         virtual bool operator < (NameableNode const & other) const;
     protected:
-        string const name;
+        String const name;
     };
     
 }}
