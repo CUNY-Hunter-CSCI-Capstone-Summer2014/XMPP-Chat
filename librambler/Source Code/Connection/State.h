@@ -5,7 +5,7 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-namespace Rambler { namespace Connection {
+namespace rambler { namespace Connection {
 
     enum class State {
         NotConnected,
