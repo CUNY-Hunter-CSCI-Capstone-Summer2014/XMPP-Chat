@@ -131,8 +131,15 @@
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Mj-ot-pmI">
-                        <rect key="frame" x="59" y="-1" width="82" height="32"/>
+                        <rect key="frame" x="33" y="-1" width="82" height="32"/>
                         <buttonCell key="cell" type="push" title="ChatTest" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Vt-bM-fhL">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CvS-ky-hx1">
+                        <rect key="frame" x="117" y="3" width="25" height="25"/>
+                        <buttonCell key="cell" type="squareTextured" title="O" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fjA-dt-Saj">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -176,6 +183,7 @@
             <contentBorderThickness minY="32"/>
             <point key="canvasLocation" x="383" y="176"/>
         </window>
+        <objectController id="zd9-HD-fcG"/>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
