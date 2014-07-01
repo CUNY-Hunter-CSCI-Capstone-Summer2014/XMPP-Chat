@@ -132,7 +132,7 @@
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Mj-ot-pmI">
                         <rect key="frame" x="59" y="-1" width="82" height="32"/>
-                        <buttonCell key="cell" type="push" title="Chat Test" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Vt-bM-fhL">
+                        <buttonCell key="cell" type="push" title="ChatTest" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Vt-bM-fhL">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>

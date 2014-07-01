@@ -74,4 +74,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    @IBAction func openChatBox(sender: AnyObject)
+        {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.openEmptyChatController!.showWindow(self)
+        }
+    }
+    
+    
 }
