@@ -12,6 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var loginWindowController: NSWindowController? = nil
     var rosterListWindowController: NSWindowController? = nil
     var addContactWindowController: NSWindowController? = nil
+    var openEmptyChatController: NSWindowController? = nil;
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
@@ -19,6 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         loginWindowController = NSWindowController(windowNibName: "Login Window")
         rosterListWindowController = NSWindowController(windowNibName: "Roster List")
         addContactWindowController = NSWindowController(windowNibName: "AddContact")
+        openEmptyChatController = NSWindowController(windowNibName: "GroupChatBox")
 
         /* The login button has a tag of 1 in the .xib file */
         let loginButton: NSButton = loginWindowController!.window.contentView.viewWithTag(1) as NSButton
@@ -36,7 +38,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let DoneAddingContact: NSButton = addContactWindowController!.window.contentView.viewWithTag(1) as NSButton
         
         DoneAddingContact.target = self;
-        DoneAddingContact.action = "CloseAddingContactScreen";
+        DoneAddingContact.action = "CloseAddingContactScreen:";
+        
+        let ChatBoxButton: NSButton = openEmptyChatController!.window.contentView.viewWithTag(1) as NSButton
+        
+        ChatBoxButton.target = self;
+        ChatBoxButton.action = "openChatBox:";
         
     }
     
