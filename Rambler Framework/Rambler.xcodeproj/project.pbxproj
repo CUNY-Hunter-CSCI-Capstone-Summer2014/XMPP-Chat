@@ -11,7 +11,6 @@
 		0715A62C1954D2D3004519D9 /* Connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A62B1954D267004519D9 /* Connection.h */; };
 		0715A6311954FC6C004519D9 /* XMLStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0715A6301954FC6C004519D9 /* XMLStream.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		0715A6331954FC82004519D9 /* XMLStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0715A6321954FC82004519D9 /* XMLStream.cpp */; };
-		0715A63A19550473004519D9 /* BidirectionalStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0715A63919550473004519D9 /* BidirectionalStream.cpp */; };
 		0715A63D195512A8004519D9 /* JID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0715A63C195512A8004519D9 /* JID.cpp */; };
 		0715A6CA1957872E004519D9 /* JID.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0715A63B19550DEE004519D9 /* JID.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		0715A6CC19579204004519D9 /* CreateJIDFromStringTestCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */; };
@@ -38,8 +37,8 @@
 		07D5DCCE1950B2110041A7F3 /* dns_utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D5DCCA1950B2110041A7F3 /* dns_utilities.h */; };
 		07D5DCCF1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D5DCCB1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp */; };
 		07D5DCD01950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = 07D5DCCC1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h */; };
-		07D5DD2E1950B6570041A7F3 /* libstrophe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D5DD2D1950B6570041A7F3 /* libstrophe.a */; };
 		07D5DD301950B6670041A7F3 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D5DD2F1950B6670041A7F3 /* libxml2.dylib */; };
+		07E4F11C19634FD100D57971 /* XMLSteamTestCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -191,7 +190,7 @@
 		0715A6321954FC82004519D9 /* XMLStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLStream.cpp; sourceTree = "<group>"; };
 		0715A6341954FF8E004519D9 /* BidirectionalStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BidirectionalStream.hpp; sourceTree = "<group>"; };
 		0715A63619550276004519D9 /* State.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = State.hpp; sourceTree = "<group>"; };
-		0715A63919550473004519D9 /* BidirectionalStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BidirectionalStream.cpp; sourceTree = "<group>"; };
+		0715A63919550473004519D9 /* BidirectionalStream.tpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = BidirectionalStream.tpp; sourceTree = "<group>"; };
 		0715A63B19550DEE004519D9 /* JID.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JID.hpp; sourceTree = "<group>"; };
 		0715A63C195512A8004519D9 /* JID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JID.cpp; sourceTree = "<group>"; };
 		0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreateJIDFromStringTestCase.mm; sourceTree = "<group>"; };
@@ -232,6 +231,7 @@
 		07D5DCCC1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVRecordResolver_CFNetwork.h; sourceTree = "<group>"; };
 		07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libstrophe.xcodeproj; path = "../External Libraries/libstrophe/libstrophe.xcodeproj"; sourceTree = "<group>"; };
 		07D5DD2F1950B6670041A7F3 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XMLSteamTestCase.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,7 +240,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				07D5DD301950B6670041A7F3 /* libxml2.dylib in Frameworks */,
-				07D5DD2E1950B6570041A7F3 /* libstrophe.a in Frameworks */,
 				07D1E6F11950A907008C76CF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,7 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				0715A6341954FF8E004519D9 /* BidirectionalStream.hpp */,
-				0715A63919550473004519D9 /* BidirectionalStream.cpp */,
+				0715A63919550473004519D9 /* BidirectionalStream.tpp */,
 				0715A63619550276004519D9 /* State.hpp */,
 			);
 			path = Stream;
@@ -386,6 +385,7 @@
 		07D1E6F31950A92B008C76CF /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
+				07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */,
 				0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */,
 				07D1E7011950AA59008C76CF /* ConnectionTestCase.mm */,
 			);
@@ -668,7 +668,6 @@
 				07D5DCBD1950B1A90041A7F3 /* CFNetworkBasedConnection.cpp in Sources */,
 				07ABAA0B1960B0EF001543FB /* TextNode.cpp in Sources */,
 				0739C3F1195BE732006A7EA8 /* Namespace.cpp in Sources */,
-				0715A63A19550473004519D9 /* BidirectionalStream.cpp in Sources */,
 				07D5DCCF1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp in Sources */,
 				0747F28F19608DCB003A0D0C /* NamespaceableNode.cpp in Sources */,
 				0715A6331954FC82004519D9 /* XMLStream.cpp in Sources */,
@@ -688,6 +687,7 @@
 			files = (
 				0715A6CC19579204004519D9 /* CreateJIDFromStringTestCase.mm in Sources */,
 				075F2D06195378B40072E170 /* ConnectionTestCase.mm in Sources */,
+				07E4F11C19634FD100D57971 /* XMLSteamTestCase.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

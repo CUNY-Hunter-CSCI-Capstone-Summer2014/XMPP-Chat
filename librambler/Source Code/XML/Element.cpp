@@ -102,6 +102,26 @@ namespace rambler { namespace XML {
         attributes.erase(Attribute(xmlnamespace, name, "" /* Value doesn't matter */));
     }
 
+    String Element::getStringValue() const {
+        String startTag;
+        String body;
+        String endTag;
+
+        startTag = "<" + getQualifiedName();
+        for (auto attribute: attributes) {
+            startTag += " " + attribute.getStringValue();
+        }
+        startTag += ">";
+
+        for (auto child : children) {
+            body += child->getStringValue();
+        }
+
+        endTag = "</" + getQualifiedName() + ">";
+
+        return startTag + body + endTag;
+    }
+
     bool Element::isValid() const
     {
         return !name.empty();

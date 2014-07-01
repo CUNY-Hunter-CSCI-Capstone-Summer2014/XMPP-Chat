@@ -26,6 +26,12 @@ namespace rambler { namespace XML {
         return prefix;
     }
 
+    String Namespace::getStringValue() const
+    {
+        return name;
+    }
+
+
     bool Namespace::isValid() const
     {
         return (prefix.empty() && name.empty()) || (!prefix.empty() && !name.empty());
@@ -33,7 +39,7 @@ namespace rambler { namespace XML {
 
     bool Namespace::operator == (Namespace const & other) const
     {
-        return name < other.name;
+        return name == other.name;
     }
 
 }}

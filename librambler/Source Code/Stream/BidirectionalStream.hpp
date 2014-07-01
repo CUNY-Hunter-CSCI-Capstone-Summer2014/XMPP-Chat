@@ -39,3 +39,5 @@ namespace rambler { namespace Stream {
     };
     
 }}
+
+#include "BidirectionalStream.tpp"

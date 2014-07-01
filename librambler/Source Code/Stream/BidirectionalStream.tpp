@@ -1,11 +1,9 @@
 /**********************************************************************************************************************
- * @file    BidirectionalStream.cpp
+ * @file    BidirectionalStream.tpp
  * @date    2014-06-20
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
-
-#include "BidirectionalStream.hpp"
 
 namespace rambler { namespace Stream {
 

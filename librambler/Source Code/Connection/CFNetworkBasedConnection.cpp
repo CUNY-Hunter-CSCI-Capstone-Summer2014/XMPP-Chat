@@ -124,6 +124,7 @@ namespace rambler { namespace Connection {
         auto results = DNS::SRVRecordResolver::prioritizeResults(resolver.getResults());
 
         for (auto result : results) {
+            std::cout << result.target << ":" << result.port << std::endl;
             std::cout << "Attempting to connect to " << result.target << std::endl;
             if (connectToHostOnPort(result.target, result.port)) {
                 std::cout << "Connected!\n";

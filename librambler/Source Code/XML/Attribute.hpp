@@ -23,7 +23,7 @@ namespace rambler { namespace XML {
         String getEscapedValue() const;
         String getQuotedValue() const;
 
-        String getStringValue() const;
+        virtual String getStringValue() const override;
 
         virtual bool isValid() const;
 

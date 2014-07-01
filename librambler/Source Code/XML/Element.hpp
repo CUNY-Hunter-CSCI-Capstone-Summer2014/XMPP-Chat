@@ -43,6 +43,8 @@ namespace rambler { namespace XML {
         void removeAttribute(String name);
         void removeAttribute(Namespace xmlnamespace, String name);
 
+        virtual String getStringValue() const override;
+
         virtual bool isValid() const;
     private:
         WeakPointer<Element> parent;

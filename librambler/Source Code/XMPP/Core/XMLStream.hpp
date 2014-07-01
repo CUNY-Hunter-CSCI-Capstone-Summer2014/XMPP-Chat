@@ -21,6 +21,8 @@ namespace rambler { namespace XMPP { namespace Core {
 
     class XMLStream : public Stream::BidirectionalStream<UInt8> {
     public:
+        using XMLElementReceivedEvent = function<void(StrongPointer<XML::Element>)>;
+
         XMLStream() = default;
         XMLStream(JID jid);
         XMLStream(String host);
@@ -62,10 +64,16 @@ namespace rambler { namespace XMPP { namespace Core {
                                            const xmlChar * localname,
                                            const xmlChar * prefix,
                                            const xmlChar * URI);
+
+            static void handleText(void * ctx,
+                                   const xmlChar * ch,
+                                   int len);
+
             Parser();
 
+            XMLStream *xmlstream;
 
-
+            StrongPointer<XML::Element> topElement;
             StrongPointer<XML::Element> currentElement;
             xmlSAXHandler *saxHandler;
             Int depth { -1 };
@@ -77,9 +85,14 @@ namespace rambler { namespace XMPP { namespace Core {
         JID jid;
         String host;
         String port;
-
+        
         Parser *parser;
+
         StrongPointer<Connection::AbstractConnection> connection;
+
+        void handleReceivedXMLElementEvent(StrongPointer<XML::Element> element);
+
+        XMLElementReceivedEvent XMLElementReceivedEventHandler;
     };
 
 }}}

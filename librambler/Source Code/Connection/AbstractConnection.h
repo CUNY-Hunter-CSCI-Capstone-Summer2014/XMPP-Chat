@@ -40,7 +40,7 @@ namespace rambler { namespace Connection {
         State state = State::NotConnected;
 
         std::string connectedHost;
-        uint16_t connectedPort;
+        uint16_t connectedPort {0};
 
         ConnectedEventHandler handleConnectedEvent = nullptr;
         DataReceivedEventHandler handleDataRecievedEvent = nullptr;

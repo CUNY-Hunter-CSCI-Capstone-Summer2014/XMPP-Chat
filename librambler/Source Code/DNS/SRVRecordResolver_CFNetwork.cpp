@@ -56,6 +56,7 @@ namespace rambler {
             stop();
             if (error != nullptr) {
                 CFRelease(error);
+                error = nullptr;
             }
         }
 
@@ -90,6 +91,7 @@ namespace rambler {
             if (this->error != nullptr) {
                 CFRetain(error);
                 CFRelease(this->error);
+                this->error = nullptr;
             }
             this->error = error;
 
@@ -108,6 +110,7 @@ namespace rambler {
 
             stopWithError(error);
             CFRelease(error);
+            error = nullptr;
         }
 
         std::list<SRVRecordResolver::Result> SRVRecordResolver::getResults()

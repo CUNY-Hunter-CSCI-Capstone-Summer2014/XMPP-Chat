@@ -20,6 +20,8 @@ namespace rambler { namespace XML {
 
         String getPrefix() const;
 
+        virtual String getStringValue() const override;
+
         bool isValid() const;
 
         bool operator == (Namespace const & other) const;

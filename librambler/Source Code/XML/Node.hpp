@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include "types.hpp"
+
 namespace rambler { namespace XML {
 
     class Node {
@@ -30,6 +32,8 @@ namespace rambler { namespace XML {
 
 
         /* Virtual Functions */
+        virtual String getStringValue() const = 0;
+
         virtual bool isValid() const = 0;
 
     protected:

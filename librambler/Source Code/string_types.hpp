@@ -27,11 +27,21 @@ namespace rambler {
     /**
      * The C-style string equivalent to String
      */
-    using CString = char [];
+    using CString = char *;
+
+    /**
+     * An immutable C-style string;
+     */
+    using CImmutableString = char const *;
 
     /**
      * The C-style wide string equivalent to WideString
      */
-    using CWideString = wchar_t [];
+    using CWideString = wchar_t *;
+
+    /**
+     * An immutable C-style wide string;
+     */
+    using CImmutableWideString = wchar_t const *;
 
 }
