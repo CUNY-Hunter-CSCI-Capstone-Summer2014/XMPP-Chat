@@ -14,24 +14,34 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    TextNode::TextNode(string value) : value(value), Node(Type::Text)
+    TextNode::TextNode(String value) : value(value), Node(Type::Text)
     {
         /* Nothing to do here */
     }
 
-    string TextNode::getValue() const
+    StrongPointer<Element> TextNode::getParent() const
+    {
+        return parent.lock();
+    }
+
+    void TextNode::setParent(StrongPointer<Element> parent)
+    {
+        this->parent = parent;
+    }
+
+    String TextNode::getValue() const
     {
         return value;
     }
 
-    string TextNode::getEscapedValue() const
+    String TextNode::getEscapedValue() const
     {
 #warning TODO: Actually escape the value in rambler::XML::Attribute::getEscapedValue()
         //TODO: Actually escape the value
         return value;
     }
 
-    string TextNode::getStringValue() const
+    String TextNode::getStringValue() const
     {
         return getEscapedValue();
     }

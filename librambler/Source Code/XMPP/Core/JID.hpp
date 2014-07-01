@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    JID.h
+ * @file    JID.hpp
  * @date    2014-06-20
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
@@ -7,11 +7,12 @@
 
 #pragma once
 
-#include "types.h"
+#include "types.hpp"
 
-namespace Rambler { namespace XMPP { namespace Core {
+namespace rambler { namespace XMPP { namespace Core {
+
     struct JID {
-        static JID  createJIDFromString(string const jid);
+        static JID  createJIDFromString(String const jid);
         static bool validateLocalPart(JID const jid);
         static bool validateDomainPart(JID const jid);
         static bool validateResourcePart(JID const jid);
@@ -19,8 +20,8 @@ namespace Rambler { namespace XMPP { namespace Core {
         static JID const None;
 
         JID();
-        JID(string localPart, string domainPart);
-        JID(string localPart, string domainPart, string resourcePart);
+        JID(String localPart, String domainPart);
+        JID(String localPart, String domainPart, String resourcePart);
 
         bool isBareJID() const;
         bool isBareJIDWithLocalPart() const;
@@ -34,12 +35,13 @@ namespace Rambler { namespace XMPP { namespace Core {
 
         JID getBareJID() const;
 
-        string toString() const;
+        String toString() const;
 
-        string const localPart;
-        string const domainPart;
-        string const resourcePart;
+        String const localPart;
+        String const domainPart;
+        String const resourcePart;
         
         bool operator == (JID const & other) const;
     };
+    
 }}}

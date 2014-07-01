@@ -5,41 +5,41 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#include "XMLStream.h"
+#include "XMLStream.hpp"
 
 #include <cassert>
 
 #if defined __APPLE__
 #include "CFNetworkBasedConnection.h"
-using TCPConnection = Rambler::Connection::CFNetworkBasedConnection;
+using TCPConnection = rambler::Connection::CFNetworkBasedConnection;
 #elif defined _WIN32
 #include "WindowsRuntimeBasedConnection.h"
-using TCPConnection = Rambler::Connection::WindowsRuntimeBasedConnection;
+using TCPConnection = rambler::Connection::WindowsRuntimeBasedConnection;
 #endif
 
-namespace Rambler { namespace XMPP { namespace Core {
+namespace rambler { namespace XMPP { namespace Core {
 
     XMLStream::XMLStream(JID jid) : jid(jid)
     {
         /* Nothing to do here */
     }
 
-    XMLStream::XMLStream(string host) : host(host)
+    XMLStream::XMLStream(String host) : host(host)
     {
         /* Nothing to do here */
     }
 
-    XMLStream::XMLStream(string host, JID jid) : host(host), jid(jid)
+    XMLStream::XMLStream(String host, JID jid) : host(host), jid(jid)
     {
         /* Nothing to do here */
     }
 
-    XMLStream::XMLStream(string host, string port) : host(host), port(port)
+    XMLStream::XMLStream(String host, String port) : host(host), port(port)
     {
         /* Nothing to do here */
     }
 
-    XMLStream::XMLStream(string host, string port, JID jid) : host(host), port(port), jid(jid)
+    XMLStream::XMLStream(String host, String port, JID jid) : host(host), port(port), jid(jid)
     {
         /* Nothing to do here */
     }
@@ -83,9 +83,9 @@ namespace Rambler { namespace XMPP { namespace Core {
             }
         });
 
-        connection->setDataReceivedEventHandler([this](string byteString) {
-            auto bytePtr = reinterpret_cast<uint8_t const *>(byteString.data());
-            std::vector<uint8_t> byteData { bytePtr, bytePtr + byteString.length() };
+        connection->setDataReceivedEventHandler([this](String byteString) {
+            auto bytePtr = reinterpret_cast<UInt8 const *>(byteString.data());
+            std::vector<UInt8> byteData { bytePtr, bytePtr + byteString.length() };
             handleHasDataEvent(byteData);
         });
 
@@ -98,12 +98,12 @@ namespace Rambler { namespace XMPP { namespace Core {
         connection->close();
     }
 
-    void XMLStream::sendData(std::vector<uint8_t> &data)
+    void XMLStream::sendData(std::vector<UInt8> &data)
     {
         connection->sendData({reinterpret_cast<char const *>(data.data()), data.size()});
     }
 
-    string XMLStream::getStreamHeader() const
+    String XMLStream::getStreamHeader() const
     {
         return "<?xml version='1.0'?>"
                "<stream:stream to='" + connection->getConnectedHost() +
@@ -111,6 +111,56 @@ namespace Rambler { namespace XMPP { namespace Core {
                              " xml:lang='en'"
                              " xmlns='jabber:client'"
                              " xmlns:stream='http://etherx.jabber.org/streams'>";
+    }
+
+    /* Parser */
+
+    XMLStream::Parser::Parser()
+    {
+        saxHandler = new xmlSAXHandler;
+        memset(reinterpret_cast<void *>(saxHandler), 0, sizeof(xmlSAXHandler));
+        saxHandler->initialized = XML_SAX2_MAGIC;
+        saxHandler->startElementNs = &Parser::handleElementStarted;
+        saxHandler->endElementNs = &Parser::handleElementEnded;
+    }
+
+    void XMLStream::Parser::handleElementStarted(void * ctx,
+                                                 const xmlChar * localname,
+                                                 const xmlChar * prefix,
+                                                 const xmlChar * URI,
+                                                 int nb_namespaces,
+                                                 const xmlChar ** namespaces,
+                                                 int nb_attributes,
+                                                 int nb_defaulted,
+                                                 const xmlChar ** attributes)
+    {
+        /* ctx is always a Parser */
+        Parser *parser = reinterpret_cast<Parser *>(ctx);
+        parser->depth += 1;
+
+        if (parser->depth == 0) {
+            //TODO: signal the steam is open
+        } else {
+            auto child = std::make_shared<XML::Element>(/*args here*/);
+            parser->currentElement->addChild(child);
+            parser->currentElement = child;
+        }
+    }
+
+    void XMLStream::Parser::handleElementEnded(void * ctx,
+                                               const xmlChar * localname,
+                                               const xmlChar * prefix,
+                                               const xmlChar * URI)
+    {
+        /* ctx is always a Parser */
+        Parser *parser = reinterpret_cast<Parser *>(ctx);
+        parser->depth -= 1;
+
+        if (parser->depth == 0) {
+            //TODO: send the current object to the stream
+        } else {
+            parser->currentElement = parser->currentElement->getParent();
+        }
     }
 
 }}}

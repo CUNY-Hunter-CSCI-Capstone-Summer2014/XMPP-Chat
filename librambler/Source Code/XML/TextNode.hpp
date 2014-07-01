@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
-* @file    TextNode.h
+* @file    TextNode.hpp
 * @date    2014-06-29
 * @brief   <# Brief Description#>
 * @details <#Detailed Description#>
@@ -8,23 +8,31 @@
 #pragma once
 
 #include "Node.hpp"
-#include "string_types.h"
+
+#include "types.hpp"
 
 namespace rambler { namespace XML {
+
+    class Element;
 
     class TextNode : public Node {
     public:
         TextNode();
-        TextNode(string value);
+        TextNode(String value);
 
-        string getValue() const;
-        string getEscapedValue() const;
+        StrongPointer<Element> getParent() const;
+        void setParent(StrongPointer<Element> parent);
+        
+        String getValue() const;
+        String getEscapedValue() const;
 
-        string getStringValue() const;
+        String getStringValue() const;
 
         virtual bool isValid() const;
     private:
-        string value;
+        WeakPointer<Element> parent;
+
+        String value;
     };
 
 }}

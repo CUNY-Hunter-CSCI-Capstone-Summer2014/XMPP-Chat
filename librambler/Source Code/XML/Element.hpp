@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    Element.h
+ * @file    Element.hpp
  * @date    2014-06-25
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
@@ -9,35 +9,44 @@
 
 #include "NamespaceableNode.hpp"
 #include "Attribute.hpp"
-#include "types.h"
+#include "TextNode.hpp"
+#include "types.hpp"
 
 namespace rambler { namespace XML {
 
-    class Element : public NamespaceableNode {
+    class Element : public NamespaceableNode, public std::enable_shared_from_this<Element> {
     public:
         static Element NoElement;
 
         Element();
-        Element(string name);
-        Element(Namespace xmlnamespace, string name);
+        Element(String name);
+        Element(Namespace xmlnamespace, String name);
 
-        std::list<shared_ptr<Node>> getChildren() const;
+        StrongPointer<Element> getPtr();
+
+        StrongPointer<Element> getParent() const;
+
+        void addChild(StrongPointer<Element> child);
+        void addChild(StrongPointer<TextNode> child);
+
+        std::vector<StrongPointer<Node>> getChildren() const;
 
         void addAttribute(Attribute attribute);
         void addAttributes(std::set<Attribute> attributes);
 
-        Attribute getAttribute(string name) const;
-        Attribute getAttribute(Namespace xmlnamespace, string name) const;
+        Attribute getAttribute(String name) const;
+        Attribute getAttribute(Namespace xmlnamespace, String name) const;
         std::set<Attribute> getAttributes() const;
 
         void setAttributes(std::set<Attribute> attributes);
 
-        void removeAttribute(string name);
-        void removeAttribute(Namespace xmlnamespace, string name);
+        void removeAttribute(String name);
+        void removeAttribute(Namespace xmlnamespace, String name);
 
         virtual bool isValid() const;
     private:
-        std::list<shared_ptr<Node>> children;
+        WeakPointer<Element> parent;
+        std::vector<StrongPointer<Node>> children;
         std::set<Attribute> attributes;
     };
 

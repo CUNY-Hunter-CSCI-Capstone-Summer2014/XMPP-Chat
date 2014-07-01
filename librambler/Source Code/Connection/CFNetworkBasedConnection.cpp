@@ -12,7 +12,7 @@
 #include <iostream>
 #include <vector>
 
-namespace Rambler { namespace Connection {
+namespace rambler { namespace Connection {
 
     void CFNetworkBasedConnection::inputStreamCallback(CFReadStreamRef inputStream,
                                                        CFStreamEventType eventType,

@@ -7,7 +7,7 @@
 
 #include "AbstractConnection.h"
 
-namespace Rambler { namespace Connection {
+namespace rambler { namespace Connection {
 
     AbstractConnection::AbstractConnection(std::string host, std::string service) : host(host), service(service)
     {

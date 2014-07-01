@@ -14,12 +14,12 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    NamespaceableNode::NamespaceableNode(string name, Type type) : NameableNode(name, type)
+    NamespaceableNode::NamespaceableNode(String name, Type type) : NameableNode(name, type)
     {
         /* Nothing to do here */
     }
 
-    NamespaceableNode::NamespaceableNode(Namespace xmlnamespace, string name, Type type)
+    NamespaceableNode::NamespaceableNode(Namespace xmlnamespace, String name, Type type)
     : xmlnamespace(xmlnamespace), NameableNode(name, type)
     {
         /* Nothing to do here */
@@ -30,7 +30,7 @@ namespace rambler { namespace XML {
         return xmlnamespace;
     }
 
-    string NamespaceableNode::getQualifiedName() const
+    String NamespaceableNode::getQualifiedName() const
     {
         return (xmlnamespace == Namespace::DefaultNamespace) ? name : xmlnamespace.getPrefix() + ':' + name;
     }

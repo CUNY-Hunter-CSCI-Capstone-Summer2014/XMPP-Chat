@@ -1,21 +1,22 @@
 /**********************************************************************************************************************
- * @file    BidirectionalStream.h
+ * @file    BidirectionalStream.hpp
  * @date    2014-06-20
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#include "types.h"
+#include "types.hpp"
 
-#include "State.h"
+#include "State.hpp"
 
-namespace Rambler { namespace Stream {
+namespace rambler { namespace Stream {
+
     template <typename T>
     class BidirectionalStream {
     public:
-        using OpenedEventHandler  = std::function<void(void)>;
-        using ClosedEventHandler  = std::function<void(void)>;
-        using HasDataEventHandler = std::function<void(std::vector<T> const &)>;
+        using OpenedEventHandler  = function<void(void)>;
+        using ClosedEventHandler  = function<void(void)>;
+        using HasDataEventHandler = function<void(std::vector<T> const &)>;
 
         BidirectionalStream() = default;
         virtual ~BidirectionalStream() = default;
@@ -36,4 +37,5 @@ namespace Rambler { namespace Stream {
         ClosedEventHandler  handleClosedEvent;
         HasDataEventHandler handleHasDataEvent;
     };
+    
 }}

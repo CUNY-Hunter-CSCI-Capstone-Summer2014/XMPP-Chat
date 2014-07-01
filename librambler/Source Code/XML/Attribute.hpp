@@ -16,19 +16,19 @@ namespace rambler { namespace XML {
         static Attribute NoAttribute;
 
         Attribute();
-        Attribute(string name, string value);
-        Attribute(Namespace xmlnamespace, string name, string value);
+        Attribute(String name, String value);
+        Attribute(Namespace xmlnamespace, String name, String value);
 
-        string getValue() const;
-        string getEscapedValue() const;
-        string getQuotedValue() const;
+        String getValue() const;
+        String getEscapedValue() const;
+        String getQuotedValue() const;
 
-        string getStringValue() const;
+        String getStringValue() const;
 
         virtual bool isValid() const;
 
     private:
-        string const value;
+        String const value;
     };
 
 }}

@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		0715A6201954D1C5004519D9 /* ConnectionState.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A61F1954D1C5004519D9 /* ConnectionState.h */; };
 		0715A62C1954D2D3004519D9 /* Connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A62B1954D267004519D9 /* Connection.h */; };
-		0715A6311954FC6C004519D9 /* XMLStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A6301954FC6C004519D9 /* XMLStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0715A6311954FC6C004519D9 /* XMLStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0715A6301954FC6C004519D9 /* XMLStream.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		0715A6331954FC82004519D9 /* XMLStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0715A6321954FC82004519D9 /* XMLStream.cpp */; };
 		0715A63A19550473004519D9 /* BidirectionalStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0715A63919550473004519D9 /* BidirectionalStream.cpp */; };
 		0715A63D195512A8004519D9 /* JID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0715A63C195512A8004519D9 /* JID.cpp */; };
-		0715A6CA1957872E004519D9 /* JID.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A63B19550DEE004519D9 /* JID.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0715A6CA1957872E004519D9 /* JID.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0715A63B19550DEE004519D9 /* JID.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		0715A6CC19579204004519D9 /* CreateJIDFromStringTestCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */; };
-		0739C3DA195B9D8F006A7EA8 /* types.h in Headers */ = {isa = PBXBuildFile; fileRef = 0739C3D9195B9D8F006A7EA8 /* types.h */; };
+		0739C3DA195B9D8F006A7EA8 /* types.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0739C3D9195B9D8F006A7EA8 /* types.hpp */; };
 		0739C3E9195BB781006A7EA8 /* Attribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3E8195BB781006A7EA8 /* Attribute.cpp */; };
 		0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3EB195BC68C006A7EA8 /* Node.cpp */; };
 		0739C3F1195BE732006A7EA8 /* Namespace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3F0195BE732006A7EA8 /* Namespace.cpp */; };
@@ -184,25 +184,26 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0700FFE319625F940001283D /* pointer_types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pointer_types.hpp; sourceTree = "<group>"; };
 		0715A61F1954D1C5004519D9 /* ConnectionState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionState.h; path = "Source Code/ConnectionState.h"; sourceTree = SOURCE_ROOT; };
 		0715A62B1954D267004519D9 /* Connection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Connection.h; path = "Source Code/Connection.h"; sourceTree = SOURCE_ROOT; };
-		0715A6301954FC6C004519D9 /* XMLStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLStream.h; sourceTree = "<group>"; };
+		0715A6301954FC6C004519D9 /* XMLStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = XMLStream.hpp; sourceTree = "<group>"; };
 		0715A6321954FC82004519D9 /* XMLStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLStream.cpp; sourceTree = "<group>"; };
-		0715A6341954FF8E004519D9 /* BidirectionalStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BidirectionalStream.h; sourceTree = "<group>"; };
-		0715A63619550276004519D9 /* State.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = State.h; sourceTree = "<group>"; };
+		0715A6341954FF8E004519D9 /* BidirectionalStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BidirectionalStream.hpp; sourceTree = "<group>"; };
+		0715A63619550276004519D9 /* State.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = State.hpp; sourceTree = "<group>"; };
 		0715A63919550473004519D9 /* BidirectionalStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BidirectionalStream.cpp; sourceTree = "<group>"; };
-		0715A63B19550DEE004519D9 /* JID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JID.h; sourceTree = "<group>"; };
+		0715A63B19550DEE004519D9 /* JID.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JID.hpp; sourceTree = "<group>"; };
 		0715A63C195512A8004519D9 /* JID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JID.cpp; sourceTree = "<group>"; };
 		0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreateJIDFromStringTestCase.mm; sourceTree = "<group>"; };
-		0739C3D9195B9D8F006A7EA8 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		0739C3D9195B9D8F006A7EA8 /* types.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = types.hpp; sourceTree = "<group>"; };
 		0739C3E6195BA6D0006A7EA8 /* Element.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Element.hpp; sourceTree = "<group>"; };
 		0739C3E7195BB391006A7EA8 /* Attribute.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Attribute.hpp; sourceTree = "<group>"; };
 		0739C3E8195BB781006A7EA8 /* Attribute.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Attribute.cpp; sourceTree = "<group>"; };
 		0739C3EA195BC1F7006A7EA8 /* Node.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Node.hpp; sourceTree = "<group>"; };
 		0739C3EB195BC68C006A7EA8 /* Node.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Node.cpp; sourceTree = "<group>"; };
 		0739C3ED195BE296006A7EA8 /* Namespace.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Namespace.hpp; sourceTree = "<group>"; };
-		0739C3EE195BE40A006A7EA8 /* integer_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = integer_types.h; sourceTree = "<group>"; };
-		0739C3EF195BE5D4006A7EA8 /* string_types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = string_types.h; sourceTree = "<group>"; };
+		0739C3EE195BE40A006A7EA8 /* integer_types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = integer_types.hpp; sourceTree = "<group>"; };
+		0739C3EF195BE5D4006A7EA8 /* string_types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = string_types.hpp; sourceTree = "<group>"; };
 		0739C3F0195BE732006A7EA8 /* Namespace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Namespace.cpp; sourceTree = "<group>"; };
 		0747F28A1960879E003A0D0C /* NameableNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NameableNode.hpp; sourceTree = "<group>"; };
 		0747F28B196088B7003A0D0C /* NameableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NameableNode.cpp; sourceTree = "<group>"; };
@@ -267,9 +268,9 @@
 		0715A62E1954F987004519D9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				0715A6301954FC6C004519D9 /* XMLStream.h */,
+				0715A6301954FC6C004519D9 /* XMLStream.hpp */,
 				0715A6321954FC82004519D9 /* XMLStream.cpp */,
-				0715A63B19550DEE004519D9 /* JID.h */,
+				0715A63B19550DEE004519D9 /* JID.hpp */,
 				0715A63C195512A8004519D9 /* JID.cpp */,
 			);
 			path = Core;
@@ -285,9 +286,9 @@
 		0715A6351955021F004519D9 /* Stream */ = {
 			isa = PBXGroup;
 			children = (
-				0715A6341954FF8E004519D9 /* BidirectionalStream.h */,
+				0715A6341954FF8E004519D9 /* BidirectionalStream.hpp */,
 				0715A63919550473004519D9 /* BidirectionalStream.cpp */,
-				0715A63619550276004519D9 /* State.h */,
+				0715A63619550276004519D9 /* State.hpp */,
 			);
 			path = Stream;
 			sourceTree = "<group>";
@@ -411,9 +412,10 @@
 		07D5DCB41950B13A0041A7F3 /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
-				0739C3EE195BE40A006A7EA8 /* integer_types.h */,
-				0739C3EF195BE5D4006A7EA8 /* string_types.h */,
-				0739C3D9195B9D8F006A7EA8 /* types.h */,
+				0739C3EE195BE40A006A7EA8 /* integer_types.hpp */,
+				0700FFE319625F940001283D /* pointer_types.hpp */,
+				0739C3EF195BE5D4006A7EA8 /* string_types.hpp */,
+				0739C3D9195B9D8F006A7EA8 /* types.hpp */,
 				07D5DCB51950B18D0041A7F3 /* Connection */,
 				07D5DCC81950B1F00041A7F3 /* DNS */,
 				0715A6351955021F004519D9 /* Stream */,
@@ -426,8 +428,8 @@
 		07D5DCB51950B18D0041A7F3 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
-				07D5DCB61950B1A90041A7F3 /* AbstractConnection.cpp */,
 				07D5DCB71950B1A90041A7F3 /* AbstractConnection.h */,
+				07D5DCB61950B1A90041A7F3 /* AbstractConnection.cpp */,
 				07D5DCB81950B1A90041A7F3 /* CFNetworkBasedConnection.cpp */,
 				07D5DCB91950B1A90041A7F3 /* CFNetworkBasedConnection.h */,
 				07D5DCBA1950B1A90041A7F3 /* State.h */,
@@ -469,17 +471,17 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0715A6CA1957872E004519D9 /* JID.h in Headers */,
+				0715A6CA1957872E004519D9 /* JID.hpp in Headers */,
 				07D5DCBC1950B1A90041A7F3 /* AbstractConnection.h in Headers */,
 				075F2D231954202A0072E170 /* TCPConnection.h in Headers */,
 				0715A6201954D1C5004519D9 /* ConnectionState.h in Headers */,
 				075F2D251954208D0072E170 /* Rambler.h in Headers */,
 				0715A62C1954D2D3004519D9 /* Connection.h in Headers */,
-				0739C3DA195B9D8F006A7EA8 /* types.h in Headers */,
+				0739C3DA195B9D8F006A7EA8 /* types.hpp in Headers */,
 				07D5DCBE1950B1A90041A7F3 /* CFNetworkBasedConnection.h in Headers */,
 				07D5DCBF1950B1A90041A7F3 /* State.h in Headers */,
 				07D5DCCE1950B2110041A7F3 /* dns_utilities.h in Headers */,
-				0715A6311954FC6C004519D9 /* XMLStream.h in Headers */,
+				0715A6311954FC6C004519D9 /* XMLStream.hpp in Headers */,
 				07D5DCD01950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -774,6 +776,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					/usr/include/libxml2,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -812,6 +819,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+					/usr/include/libxml2,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;

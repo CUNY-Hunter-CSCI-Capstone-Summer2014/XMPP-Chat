@@ -16,35 +16,35 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    Attribute::Attribute(string name, string value) : value(value), NamespaceableNode(name, Type::Attribute)
+    Attribute::Attribute(String name, String value) : value(value), NamespaceableNode(name, Type::Attribute)
     {
         /* Nothing to do here */
     }
 
-    Attribute::Attribute(Namespace xmlnamespace, string name, string value)
+    Attribute::Attribute(Namespace xmlnamespace, String name, String value)
     : value(value), NamespaceableNode(xmlnamespace, name, Type::Attribute)
     {
         /* Nothing to do here */
     }
 
-    string Attribute::getValue() const
+    String Attribute::getValue() const
     {
         return value;
     }
 
-    string Attribute::getEscapedValue() const
+    String Attribute::getEscapedValue() const
     {
 #warning TODO: Actually escape the value in rambler::XML::Attribute::getEscapedValue()
         //TODO: Actually escape the value
         return value;
     }
 
-    string Attribute::getQuotedValue() const
+    String Attribute::getQuotedValue() const
     {
         return '"' + getEscapedValue() + '"';
     }
 
-    string Attribute::getStringValue() const
+    String Attribute::getStringValue() const
     {
         return getQualifiedName() + "=" + getQuotedValue();
     }

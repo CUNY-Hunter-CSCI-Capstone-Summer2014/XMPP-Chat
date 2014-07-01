@@ -16,12 +16,12 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    Namespace::Namespace(string prefix, string name) : prefix(prefix), NameableNode(name, Type::Namespace)
+    Namespace::Namespace(String prefix, String name) : prefix(prefix), NameableNode(name, Type::Namespace)
     {
         /* Nothing to do here */
     }
 
-    string Namespace::getPrefix() const
+    String Namespace::getPrefix() const
     {
         return prefix;
     }

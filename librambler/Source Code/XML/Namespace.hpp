@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    Namespace.h
+ * @file    Namespace.hpp
  * @date    2014-06-26
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
@@ -16,15 +16,15 @@ namespace rambler { namespace XML {
         static Namespace DefaultNamespace;
 
         Namespace();
-        Namespace(string prefix, string name);
+        Namespace(String prefix, String name);
 
-        string getPrefix() const;
+        String getPrefix() const;
 
         bool isValid() const;
 
         bool operator == (Namespace const & other) const;
     private:
-        string const prefix;
+        String const prefix;
     };
 
 }}

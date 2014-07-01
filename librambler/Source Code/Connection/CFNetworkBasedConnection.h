@@ -11,7 +11,7 @@
 
 #include <CoreFoundation/CoreFoundation.h>
 
-namespace Rambler { namespace Connection {
+namespace rambler { namespace Connection {
 
     class CFNetworkBasedConnection : public AbstractConnection {
     public:

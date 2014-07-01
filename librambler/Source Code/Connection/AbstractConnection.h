@@ -7,11 +7,11 @@
 
 #pragma once
 
-#include "types.h"
+#include "types.hpp"
 
 #include "State.h"
 
-namespace Rambler { namespace Connection {
+namespace rambler { namespace Connection {
 
     class AbstractConnection {
     public:

@@ -14,12 +14,12 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    NameableNode::NameableNode(string name, Type type) : name(name), Node(type)
+    NameableNode::NameableNode(String name, Type type) : name(name), Node(type)
     {
         /* Nothing to do here */
     }
 
-    string NameableNode::getName() const
+    String NameableNode::getName() const
     {
         return name;
     }

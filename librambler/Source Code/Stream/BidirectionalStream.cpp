@@ -5,9 +5,9 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#include "BidirectionalStream.h"
+#include "BidirectionalStream.hpp"
 
-namespace Rambler { namespace Stream {
+namespace rambler { namespace Stream {
 
     template<typename T>
     State BidirectionalStream<T>::getState()
