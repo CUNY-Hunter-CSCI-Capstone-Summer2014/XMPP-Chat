@@ -26,6 +26,7 @@
 		075F2D251954208D0072E170 /* Rambler.h in Headers */ = {isa = PBXBuildFile; fileRef = 075F2D241954208D0072E170 /* Rambler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07ABA9FD1960A8A4001543FB /* Element.cpp */; };
 		07ABAA0B1960B0EF001543FB /* TextNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07ABAA0A1960B0EF001543FB /* TextNode.cpp */; };
+		07BF1F2A19638F0700FC8348 /* XMLStream_Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07BF1F2919638F0700FC8348 /* XMLStream_Parser.cpp */; };
 		07D1E6DB1950A833008C76CF /* Rambler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E6CF1950A833008C76CF /* Rambler.framework */; };
 		07D1E6F11950A907008C76CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E6F01950A907008C76CF /* Foundation.framework */; };
 		07D5DCBB1950B1A90041A7F3 /* AbstractConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D5DCB61950B1A90041A7F3 /* AbstractConnection.cpp */; };
@@ -214,6 +215,7 @@
 		07ABA9FD1960A8A4001543FB /* Element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Element.cpp; sourceTree = "<group>"; };
 		07ABAA091960B0E4001543FB /* TextNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextNode.hpp; sourceTree = "<group>"; };
 		07ABAA0A1960B0EF001543FB /* TextNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextNode.cpp; sourceTree = "<group>"; };
+		07BF1F2919638F0700FC8348 /* XMLStream_Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLStream_Parser.cpp; sourceTree = "<group>"; };
 		07D1E6CF1950A833008C76CF /* Rambler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rambler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D1E6DA1950A833008C76CF /* Rambler – Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rambler – Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		07D1E6F01950A907008C76CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -269,6 +271,7 @@
 			children = (
 				0715A6301954FC6C004519D9 /* XMLStream.hpp */,
 				0715A6321954FC82004519D9 /* XMLStream.cpp */,
+				07BF1F2919638F0700FC8348 /* XMLStream_Parser.cpp */,
 				0715A63B19550DEE004519D9 /* JID.hpp */,
 				0715A63C195512A8004519D9 /* JID.cpp */,
 			);
@@ -676,6 +679,7 @@
 				075F2D211953F2FB0072E170 /* TCPConnection.mm in Sources */,
 				07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */,
 				0747F28C196088B7003A0D0C /* NameableNode.cpp in Sources */,
+				07BF1F2A19638F0700FC8348 /* XMLStream_Parser.cpp in Sources */,
 				0715A63D195512A8004519D9 /* JID.cpp in Sources */,
 				0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */,
 			);

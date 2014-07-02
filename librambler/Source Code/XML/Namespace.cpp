@@ -9,9 +9,14 @@
 
 namespace rambler { namespace XML {
 
-    Namespace Namespace::DefaultNamespace = Namespace();
+    StrongPointer<Namespace> const Namespace::DefaultNamespace = std::make_shared<Namespace>();
 
     Namespace::Namespace() : NameableNode(Type::Namespace)
+    {
+        /* Nothing to do here */
+    }
+
+    Namespace::Namespace(String name) : NameableNode(name, Type::Namespace)
     {
         /* Nothing to do here */
     }
@@ -31,15 +36,19 @@ namespace rambler { namespace XML {
         return name;
     }
 
-
     bool Namespace::isValid() const
     {
-        return (prefix.empty() && name.empty()) || (!prefix.empty() && !name.empty());
+        return (prefix.empty() && name.empty()) || (!name.empty());
     }
 
     bool Namespace::operator == (Namespace const & other) const
     {
         return name == other.name;
+    }
+
+    bool Namespace::operator != (Namespace const & other) const
+    {
+        return name != other.name;
     }
 
 }}

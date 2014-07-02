@@ -15,6 +15,7 @@ namespace rambler { namespace Stream {
     class BidirectionalStream {
     public:
         using OpenedEventHandler  = function<void(void)>;
+        using SecuredEventHandler  = function<void(void)>;
         using ClosedEventHandler  = function<void(void)>;
         using HasDataEventHandler = function<void(std::vector<T> const &)>;
 
@@ -24,6 +25,7 @@ namespace rambler { namespace Stream {
         State getState();
 
         void setOpenedEventHandler(OpenedEventHandler eventHandler);
+        void setSecuredEventHandler(SecuredEventHandler eventHandler);
         void setClosedEventHandler(ClosedEventHandler eventHandler);
         void setHasDataEventHandler(HasDataEventHandler eventHandler);
 
@@ -33,9 +35,15 @@ namespace rambler { namespace Stream {
     protected:
         State state { State::Closed };
 
-        OpenedEventHandler  handleOpenedEvent;
-        ClosedEventHandler  handleClosedEvent;
-        HasDataEventHandler handleHasDataEvent;
+        OpenedEventHandler  openedEventHandler;
+        SecuredEventHandler securedEventHandler;
+        ClosedEventHandler  closedEventHandler;
+        HasDataEventHandler hasDataEventHandler;
+
+        virtual void handleOpenedEvent();
+        virtual void handleSecuredEvent();
+        virtual void handleClosedEvent();
+        virtual void handleHasDataEvent(std::vector<T> const & data);
     };
     
 }}

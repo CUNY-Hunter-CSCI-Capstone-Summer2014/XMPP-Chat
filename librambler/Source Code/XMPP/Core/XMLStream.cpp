@@ -84,9 +84,7 @@ namespace rambler { namespace XMPP { namespace Core {
             parser = new Parser;
             parser->xmlstream = this;
 
-            if (handleOpenedEvent != nullptr) {
-                handleOpenedEvent();
-            }
+            handleOpenedEvent();
         });
 
         connection->setDataReceivedEventHandler([this](String byteString) {
@@ -128,123 +126,42 @@ namespace rambler { namespace XMPP { namespace Core {
 
         std::cout << element->getStringValue();
 
+        if (!isBoundToResource) {
+            if (!receivedStreamFeatures) {
+                if (element->getName() == "features") {
+                    receivedStreamFeatures = true;
+                    if (getState() != Stream::State::OpenAndSecure) {
+                        bool tlsSupported = false;
+
+                        for (auto feature : element->getChildren()) {
+                            if (feature->getType() == XML::Node::Type::Element) {
+#warning compare to a constant element
+                                if (std::dynamic_pointer_cast<XML::Element>(feature)->getName() == "starttls") {
+                                    tlsSupported = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (tlsSupported) {
+                            std::cout << "starttls!";
+                            connection->sendData("<starttls/>");
+                        } else {
+                            /* We never allow non-secure connections! Close the stream */
+                            close();
+                        }
+                    }
+                } else {
+#warning TODO: Check RFC for correct behavior
+                    /* TODO: Check RFC for correct behavior */
+                }
+            }
+        }
+
         if (XMLElementReceivedEventHandler != nullptr) {
             XMLElementReceivedEventHandler(element);
         }
     }
 
     /* Parser */
-
-    XMLStream::Parser::Parser()
-    {
-        saxHandler = new xmlSAXHandler;
-        memset(reinterpret_cast<void *>(saxHandler), 0, sizeof(xmlSAXHandler));
-        saxHandler->initialized = XML_SAX2_MAGIC;
-        saxHandler->startElementNs = &Parser::handleElementStarted;
-        saxHandler->endElementNs = &Parser::handleElementEnded;
-        saxHandler->characters = &Parser::handleText;
-    }
-
-    void XMLStream::Parser::handleElementStarted(void * ctx,
-                                                 const xmlChar * localname,
-                                                 const xmlChar * prefix,
-                                                 const xmlChar * URI,
-                                                 int nb_namespaces,
-                                                 const xmlChar ** namespaces,
-                                                 int numberOfAttributes,
-                                                 int numberOfDefaultedAttributes,
-                                                 const xmlChar ** attributes)
-    {
-        /* ctx is always a Parser */
-        Parser *parser = reinterpret_cast<Parser *>(ctx);
-
-        parser->depth += 1;
-
-        if (parser->depth == 0) {
-            //TODO: signal the stream is open
-        } else {
-            StrongPointer<XML::Element> element;
-
-            String elementName;
-            String elementNamespacePrefix;
-            String elementNamespaceURI;
-
-            if (localname != nullptr) {
-                elementName = reinterpret_cast<CImmutableString>(localname);
-            }
-
-            if (prefix != nullptr) {
-                elementNamespacePrefix = reinterpret_cast<CImmutableString>(prefix);
-            }
-
-            if (URI != nullptr) {
-                elementNamespaceURI = reinterpret_cast<CImmutableString>(URI);
-            }
-
-            if (!elementNamespaceURI.empty() && !elementNamespacePrefix.empty()) {
-                XML::Namespace elementNamespace{ elementNamespacePrefix, elementNamespaceURI };
-                element = std::make_shared<XML::Element>(elementNamespace, elementName);
-            } else {
-                element = std::make_shared<XML::Element>(elementName);
-            }
-
-            CImmutableString *xmlnamespaceData = reinterpret_cast<CImmutableString *>(namespaces);
-
-
-            CImmutableString *attributeData = reinterpret_cast<CImmutableString *>(attributes);
-
-            for (int i = 0; i < numberOfAttributes; ++i) {
-                String attributeName            { attributeData[5 * i + 0] };
-                String attributeNamespacePrefix { attributeData[5 * i + 1] };
-                String attributeNamespaceURI    { attributeData[5 * i + 2] };
-                String attributeValue           { attributeData[5 * i + 3], attributeData[5 * i + 4] };
-
-                if (!attributeNamespaceURI.empty()) {
-                    XML::Namespace attributeNamespace{ attributeNamespacePrefix, attributeNamespaceURI };
-                    element->addAttribute({ attributeNamespace, attributeName, attributeValue });
-                } else {
-                    element->addAttribute({ attributeName, attributeValue });
-                }
-            }
-
-
-            if (parser->depth > 1) {
-                parser->currentElement->addChild(element);
-            } else if (parser->depth == 1) {
-                parser->topElement = element;
-            }
-            
-            parser->currentElement = element;
-        }
-    }
-
-    void XMLStream::Parser::handleElementEnded(void * ctx,
-                                               const xmlChar * localname,
-                                               const xmlChar * prefix,
-                                               const xmlChar * URI)
-    {
-        /* ctx is always a Parser */
-        Parser *parser = reinterpret_cast<Parser *>(ctx);
-        parser->depth -= 1;
-
-        if (parser->depth < 1) {
-            parser->xmlstream->handleReceivedXMLElementEvent(parser->topElement);
-            parser->topElement = nullptr;
-        } else {
-            parser->currentElement = parser->currentElement->getParent();
-        }
-    }
-
-    void XMLStream::Parser::handleText(void *ctx, const xmlChar *ch, int len)
-    {
-        /* ctx is always a Parser */
-        Parser *parser = reinterpret_cast<Parser *>(ctx);
-
-        if (parser->currentElement != nullptr && len > 0) {
-            String text(reinterpret_cast<CImmutableString>(ch), len);
-            auto textNode = std::make_shared<XML::TextNode>(text);
-            parser->currentElement->addChild(textNode);
-        }
-    }
-
 }}}

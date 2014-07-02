@@ -17,14 +17,14 @@ namespace rambler { namespace XML {
         NamespaceableNode() = default;
         NamespaceableNode(Type type);
         NamespaceableNode(String name, Type type);
-        NamespaceableNode(Namespace xmlnamespace, String name, Type type);
+        NamespaceableNode(StrongPointer<Namespace> xmlnamespace, String name, Type type);
 
-        Namespace getNamespace() const;
+        virtual StrongPointer<Namespace> getNamespace() const;
         String getQualifiedName() const;
 
         virtual bool operator < (NamespaceableNode const & other) const;
     protected:
-        Namespace const xmlnamespace;
+        StrongPointer<Namespace> const xmlnamespace { Namespace::DefaultNamespace };
     };
     
 }}

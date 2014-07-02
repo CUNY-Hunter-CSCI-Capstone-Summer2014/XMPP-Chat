@@ -21,7 +21,7 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    Attribute::Attribute(Namespace xmlnamespace, String name, String value)
+    Attribute::Attribute(StrongPointer<Namespace> xmlnamespace, String name, String value)
     : value(value), NamespaceableNode(xmlnamespace, name, Type::Attribute)
     {
         /* Nothing to do here */

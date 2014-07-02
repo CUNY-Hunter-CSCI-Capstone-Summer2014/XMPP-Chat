@@ -20,10 +20,9 @@ namespace rambler { namespace XML {
 
         Element();
         Element(String name);
-        Element(Namespace xmlnamespace, String name);
+        Element(StrongPointer<Namespace> xmlnamespace, String name);
 
         StrongPointer<Element> getPtr();
-
         StrongPointer<Element> getParent() const;
 
         void addChild(StrongPointer<Element> child);
@@ -31,25 +30,34 @@ namespace rambler { namespace XML {
 
         std::vector<StrongPointer<Node>> getChildren() const;
 
+        virtual StrongPointer<Namespace> getNamespace() const override;
+        StrongPointer<Namespace> getDefaultNamespace() const;
+        void addNamespace(StrongPointer<Namespace> xmlnamespace);
+        std::vector<StrongPointer<Namespace>> getNamespaces() const;
+        void setDefaultNamespace(StrongPointer<Namespace> xmlnamespace);
+
         void addAttribute(Attribute attribute);
         void addAttributes(std::set<Attribute> attributes);
 
         Attribute getAttribute(String name) const;
-        Attribute getAttribute(Namespace xmlnamespace, String name) const;
+        Attribute getAttribute(StrongPointer<Namespace> xmlnamespace, String name) const;
         std::set<Attribute> getAttributes() const;
 
         void setAttributes(std::set<Attribute> attributes);
 
         void removeAttribute(String name);
-        void removeAttribute(Namespace xmlnamespace, String name);
+        void removeAttribute(StrongPointer<Namespace> xmlnamespace, String name);
 
         virtual String getStringValue() const override;
 
         virtual bool isValid() const;
     private:
+        StrongPointer<Namespace> defaultNamespace { Namespace::DefaultNamespace };
+        std::vector<StrongPointer<Namespace>> namespaces;
+        std::set<Attribute> attributes;
+
         WeakPointer<Element> parent;
         std::vector<StrongPointer<Node>> children;
-        std::set<Attribute> attributes;
     };
 
 }}

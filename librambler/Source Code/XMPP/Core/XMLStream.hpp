@@ -85,7 +85,7 @@ namespace rambler { namespace XMPP { namespace Core {
         JID jid;
         String host;
         String port;
-        
+
         Parser *parser;
 
         StrongPointer<Connection::AbstractConnection> connection;
@@ -93,6 +93,11 @@ namespace rambler { namespace XMPP { namespace Core {
         void handleReceivedXMLElementEvent(StrongPointer<XML::Element> element);
 
         XMLElementReceivedEvent XMLElementReceivedEventHandler;
+
+        /* State Machine states */
+
+        bool receivedStreamFeatures = false;
+        bool isBoundToResource = false;
     };
 
 }}}

@@ -21,7 +21,7 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    Element::Element(Namespace xmlnamespace, String name) : NamespaceableNode(xmlnamespace, name, Type::Element)
+    Element::Element(StrongPointer<Namespace> xmlnamespace, String name) : NamespaceableNode(xmlnamespace, name, Type::Element)
     {
         /* Nothing to do here */
     }
@@ -53,6 +53,46 @@ namespace rambler { namespace XML {
         return children;
     }
 
+    StrongPointer<Namespace> Element::getNamespace() const
+    {
+        if (NamespaceableNode::getNamespace() != Namespace::DefaultNamespace) {
+            return NamespaceableNode::getNamespace();
+        }
+        return getDefaultNamespace();
+
+    }
+
+    StrongPointer<Namespace> Element::getDefaultNamespace() const
+    {
+        if (getParent() == nullptr) {
+            return defaultNamespace;
+        }
+
+        if (defaultNamespace == Namespace::DefaultNamespace) {
+            return getParent()->getDefaultNamespace();
+        }
+
+        return defaultNamespace;
+    }
+
+    void Element::addNamespace(StrongPointer<Namespace> xmlnamespace)
+    {
+        namespaces.push_back(xmlnamespace);
+    }
+
+
+    std::vector<StrongPointer<Namespace>> Element::getNamespaces() const
+    {
+        return namespaces;
+    }
+
+    void Element::setDefaultNamespace(StrongPointer<Namespace> xmlnamespace)
+    {
+        if (xmlnamespace != nullptr && xmlnamespace->isValid()) {
+            defaultNamespace = xmlnamespace;
+        }
+    }
+
     void Element::addAttribute(Attribute attribute)
     {
         attributes.insert(attribute);
@@ -70,7 +110,7 @@ namespace rambler { namespace XML {
         return getAttribute(Namespace::DefaultNamespace, name);
     }
 
-    Attribute Element::getAttribute(Namespace xmlnamespace, String name) const
+    Attribute Element::getAttribute(StrongPointer<Namespace> xmlnamespace, String name) const
     {
         auto result = attributes.find(Attribute(xmlnamespace, name, "" /* Value doesn't matter */));
 
@@ -97,7 +137,7 @@ namespace rambler { namespace XML {
         removeAttribute(Namespace::DefaultNamespace, name);
     }
 
-    void Element::removeAttribute(Namespace xmlnamespace, String name)
+    void Element::removeAttribute(StrongPointer<Namespace> xmlnamespace, String name)
     {
         attributes.erase(Attribute(xmlnamespace, name, "" /* Value doesn't matter */));
     }
@@ -111,6 +151,22 @@ namespace rambler { namespace XML {
         for (auto attribute: attributes) {
             startTag += " " + attribute.getStringValue();
         }
+
+        if (defaultNamespace != Namespace::DefaultNamespace) {
+#warning TODO: Use quoted (and escaped) value for the name
+            startTag += " xmlns=" "\"" + defaultNamespace->getName() + "\"";
+        }
+
+        for (auto xmlnamespace : namespaces) {
+#warning TODO: Use quoted (and escaped) value for the name
+            startTag += " xmlns:" + xmlnamespace->getPrefix() + "=" "\"" + xmlnamespace->getName() + "\"";
+        }
+
+        if (children.empty()) {
+            startTag += "/>";
+            return startTag;
+        }
+
         startTag += ">";
 
         for (auto child : children) {

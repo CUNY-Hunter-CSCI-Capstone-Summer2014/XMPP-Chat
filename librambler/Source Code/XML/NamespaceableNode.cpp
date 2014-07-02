@@ -19,20 +19,20 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    NamespaceableNode::NamespaceableNode(Namespace xmlnamespace, String name, Type type)
-    : xmlnamespace(xmlnamespace), NameableNode(name, type)
+    NamespaceableNode::NamespaceableNode(StrongPointer<Namespace> xmlnamespace, String name, Type type)
+    : xmlnamespace(xmlnamespace == nullptr ? Namespace::DefaultNamespace : xmlnamespace), NameableNode(name, type)
     {
         /* Nothing to do here */
     }
 
-    Namespace NamespaceableNode::getNamespace() const
+    StrongPointer<Namespace> NamespaceableNode::getNamespace() const
     {
         return xmlnamespace;
     }
 
     String NamespaceableNode::getQualifiedName() const
     {
-        return (xmlnamespace == Namespace::DefaultNamespace) ? name : xmlnamespace.getPrefix() + ':' + name;
+        return (xmlnamespace == Namespace::DefaultNamespace) ? name : xmlnamespace->getPrefix() + ':' + name;
     }
 
     bool NamespaceableNode::operator < (NamespaceableNode const & other) const
