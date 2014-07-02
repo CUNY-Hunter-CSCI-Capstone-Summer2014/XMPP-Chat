@@ -31,6 +31,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\WindowsRuntimeBasedConnection.h">
       <Filter>librambler\Connection\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)TCPConnection.h">
+      <Filter>RamblerRT\Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)State.h">
+      <Filter>RamblerRT\Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.cpp">
@@ -50,6 +56,9 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\WindowsRuntimeBasedConnection.cpp">
       <Filter>librambler\Connection\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TCPConnection.cpp">
+      <Filter>RamblerRT\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

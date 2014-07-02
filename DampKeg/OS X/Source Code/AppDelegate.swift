@@ -12,6 +12,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var loginWindowController: NSWindowController? = nil
     var rosterListWindowController: NSWindowController? = nil
     var addContactWindowController: NSWindowController? = nil
+    var openEmptyChatController: NSWindowController? = nil
+    var viewProfileController: NSWindowController? = nil
+    
+    /* *********************************** */
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
@@ -19,7 +23,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         loginWindowController = NSWindowController(windowNibName: "Login Window")
         rosterListWindowController = NSWindowController(windowNibName: "Roster List")
         addContactWindowController = NSWindowController(windowNibName: "AddContact")
+        openEmptyChatController = NSWindowController(windowNibName: "GroupChatBox")
+        viewProfileController = NSWindowController(windowNibName: "ContactProfile")
 
+        /* *********************************** */
+        
         /* The login button has a tag of 1 in the .xib file */
         let loginButton: NSButton = loginWindowController!.window.contentView.viewWithTag(1) as NSButton
 
@@ -28,25 +36,45 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         loginWindowController!.showWindow(self)
         
+        /* *********************************** */
+        
         let AddContactButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(1) as NSButton
         
         AddContactButton.target = self;
         AddContactButton.action = "openAddContactScreen:";
         
+        /* *********************************** */
+        
         let DoneAddingContact: NSButton = addContactWindowController!.window.contentView.viewWithTag(1) as NSButton
         
         DoneAddingContact.target = self;
-        DoneAddingContact.action = "CloseAddingContactScreen";
+        DoneAddingContact.action = "closeAddingContactScreen:";
         
+        /* *********************************** */
+        
+        let ChatBoxButton: NSButton = openEmptyChatController!.window.contentView.viewWithTag(1) as NSButton
+        
+        ChatBoxButton.target = self;
+        ChatBoxButton.action = "openChatBox:";
+        
+        /* *********************************** */
+        
+        let ContactProfileButton: NSButton = viewProfileController!.window.contentView.viewWithTag(1) as NSButton
+        
+        ContactProfileButton.target = self;
+        ContactProfileButton.action = "openProfile:";
     }
     
+    /* *********************************** */
+    
     func applicationWillTerminate(aNotification: NSNotification?) {
-        // Insert code here to tear down your application
     }
     
     func applicationShouldTerminateAfterLastWindowClosed(sender: NSApplication!) -> Bool {
         return true;
     }
+    
+    /* *********************************** */
     
     @IBAction func closeLoginWindowAndOpenRosterListWindow(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
@@ -61,10 +89,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    @IBAction func CloseAddingContactScreen(sender: AnyObject) {
+    @IBAction func closeAddingContactScreen(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
             self.addContactWindowController!.window.orderOut(self)
         }
     }
+    
+    @IBAction func openChatBox(sender: AnyObject)
+        {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.openEmptyChatController!.showWindow(self)
+        }
+    }
+    
+    /* *********************************** */
     
 }
