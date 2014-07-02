@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var loginWindowController: NSWindowController? = nil
     var rosterListWindowController: NSWindowController? = nil
     var addContactWindowController: NSWindowController? = nil
-    var openEmptyChatController: NSWindowController? = nil
+    var ChatController: NSWindowController? = nil
     var viewProfileController: NSWindowController? = nil
     
     /* *********************************** */
@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         loginWindowController = NSWindowController(windowNibName: "Login Window")
         rosterListWindowController = NSWindowController(windowNibName: "Roster List")
         addContactWindowController = NSWindowController(windowNibName: "AddContact")
-        openEmptyChatController = NSWindowController(windowNibName: "GroupChatBox")
+        ChatController = NSWindowController(windowNibName: "GroupChatBox")
         viewProfileController = NSWindowController(windowNibName: "ContactProfile")
 
         /* *********************************** */
@@ -52,14 +52,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         /* *********************************** */
         
-        let ChatBoxButton: NSButton = openEmptyChatController!.window.contentView.viewWithTag(1) as NSButton
+        let OpenChatBoxButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(2) as NSButton
         
-        ChatBoxButton.target = self;
-        ChatBoxButton.action = "openChatBox:";
+        OpenChatBoxButton.target = self;
+        OpenChatBoxButton.action = "openChatBox:";
         
         /* *********************************** */
         
-        let ContactProfileButton: NSButton = viewProfileController!.window.contentView.viewWithTag(1) as NSButton
+        /* *********************************** */
+        let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(3) as NSButton
         
         ContactProfileButton.target = self;
         ContactProfileButton.action = "openProfile:";
@@ -98,9 +99,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func openChatBox(sender: AnyObject)
         {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.openEmptyChatController!.showWindow(self)
+            self.ChatController!.showWindow(self)
+            //self.openEmptyChatController!.window.orderOut(self)
         }
     }
+    
+//    @IBAction func closeChatBox(sender: AnyObject)
+//    {
+//        NSOperationQueue.mainQueue().addOperationWithBlock() {
+//            self.openEmptyChatController!.window.orderOut(self)
+//        }
+//    }
     
     /* *********************************** */
     
