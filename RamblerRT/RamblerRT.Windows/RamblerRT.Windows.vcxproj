@@ -26,6 +26,11 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\External Libraries\libxml-2.9.1-windows\libxml2.vcxproj">
+      <Project>{2277975a-de58-461c-8790-41f9b3897641}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{1cba0a2d-78b4-4848-aecf-6aeec464e623}</ProjectGuid>
     <RootNamespace>RamblerRT</RootNamespace>
@@ -131,7 +136,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(SolutionDir)External Libraries\libxml-2.9.1-windows\include;$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XML;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <PreprocessorDefinitions>_WINRT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -142,13 +147,14 @@
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(SolutionDir)External Libraries\libxml-2.9.1-windows\include;$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XML;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <PreprocessorDefinitions>_WINRT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -159,13 +165,14 @@
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(SolutionDir)External Libraries\libxml-2.9.1-windows\include;$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XML;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <PreprocessorDefinitions>_WINRT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -176,13 +183,14 @@
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(SolutionDir)External Libraries\libxml-2.9.1-windows\include;$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XML;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <PreprocessorDefinitions>_WINRT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -193,13 +201,14 @@
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(SolutionDir)External Libraries\libxml-2.9.1-windows\include;$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XML;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <PreprocessorDefinitions>_WINRT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -210,13 +219,14 @@
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(SolutionDir)External Libraries\libxml-2.9.1-windows\include;$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XML;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <PreprocessorDefinitions>_WINRT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -227,6 +237,7 @@
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -135,7 +135,11 @@ namespace rambler { namespace XMPP { namespace Core {
 
                         for (auto feature : element->getChildren()) {
                             if (feature->getType() == XML::Node::Type::Element) {
+#ifdef _MSC_VER
+#pragma message("compare to a constant element")
+#else
 #warning compare to a constant element
+#endif
                                 if (std::dynamic_pointer_cast<XML::Element>(feature)->getName() == "starttls") {
                                     tlsSupported = true;
                                     break;
@@ -152,7 +156,11 @@ namespace rambler { namespace XMPP { namespace Core {
                         }
                     }
                 } else {
+#ifdef _MSC_VER
+#pragma message("TODO: Check RFC for correct behavior")
+#else
 #warning TODO: Check RFC for correct behavior
+#endif
                     /* TODO: Check RFC for correct behavior */
                 }
             }

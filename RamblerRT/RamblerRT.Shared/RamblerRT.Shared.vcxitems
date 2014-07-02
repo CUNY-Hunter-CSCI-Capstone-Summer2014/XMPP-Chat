@@ -17,11 +17,21 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\State.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\WindowsRuntimeBasedConnection.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\BidirectionalStream.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\State.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\types.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\JID.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\XMLStream.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\integer_types.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\pointer_types.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\BidirectionalStream.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\State.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\string_types.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\types.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\Attribute.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\Element.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\NameableNode.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\Namespace.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\NamespaceableNode.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\Node.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\TextNode.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\JID.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\XMLStream.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RamblerRT.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)State.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)targetver.h" />
@@ -30,13 +40,23 @@
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\WindowsRuntimeBasedConnection.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\BidirectionalStream.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\Attribute.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\Element.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\NameableNode.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\Namespace.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\NamespaceableNode.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\Node.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\TextNode.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\JID.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\XMLStream.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\XMLStream_Parser.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RamblerRT.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)TCPConnection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\BidirectionalStream.tpp" />
   </ItemGroup>
 </Project>

@@ -128,7 +128,11 @@ namespace rambler { namespace XML {
 
     void Element::setAttributes(std::set<Attribute> attributes)
     {
+#ifdef _MSC_VER
+#pragma message("FIXME: setAttributes is broken!")
+#else
 #warning FIXME: setAttributes is broken!
+#endif
         //this->attributes = attributes;
     }
 
@@ -153,12 +157,20 @@ namespace rambler { namespace XML {
         }
 
         if (defaultNamespace != Namespace::DefaultNamespace) {
+#ifdef _MSC_VER
+#pragma message("TODO: Use quoted (and escaped) value for the name")
+#else
 #warning TODO: Use quoted (and escaped) value for the name
+#endif
             startTag += " xmlns=" "\"" + defaultNamespace->getName() + "\"";
         }
 
         for (auto xmlnamespace : namespaces) {
+#ifdef _MSC_VER
+#pragma message("TODO: Use quoted (and escaped) value for the name")
+#else
 #warning TODO: Use quoted (and escaped) value for the name
+#endif
             startTag += " xmlns:" + xmlnamespace->getPrefix() + "=" "\"" + xmlnamespace->getName() + "\"";
         }
 
