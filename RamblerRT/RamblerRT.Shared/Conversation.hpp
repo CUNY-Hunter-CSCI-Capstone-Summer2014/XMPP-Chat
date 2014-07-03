@@ -1,6 +1,10 @@
+#pragma once
 #include "types.hpp"
 #include "Message.hpp"
 #include <map>
+#include <vector>
+#include "JID.hpp"
+
 
 namespace rambler{
 	namespace XMPP{
@@ -9,28 +13,25 @@ namespace rambler{
 				class Conversation{
 
 				public:
-					using  MessageReceivedForConversationByUniqueIdEventHandler
-						= function < void(Message, String) > ;
+					using  MessageReceievedEventHandler
+						= function < void(Message) > ;
 
-					void setMessageReceivedForConversationByUniqueIdEventHandler
-						(MessageReceivedForConversationByUniqueIdEventHandler eventHandler);
+					const String uniqueID;
 
-					/**
-					* Send message with incoming message
-					*/
+					void setMessageReceivedEventHandler
+						(MessageReceievedEventHandler eventHandler);
+
 					void sendMessage(Message message);
 
-
-					/**
-					* Removes a conversations via the uniqueID string
-					*/
-					void removeConversation(String uniqueID);
-
+					void leave();
+					
 				private:
-					MessageReceivedForConversationByUniqueIdEventHandler
-						handleMessageReceivedForConversationByUniqueId;
+					std::vector<XMPP::Core::JID> participants;
+					std::vector<Message> messages;
+					std::pair <String, Message> uniqueId_message;
+					MessageReceievedEventHandler handleMessageReceived;
 
-					std::map<String, Conversation>uniqueID_conversations
+					
 				};
 			}
 		}

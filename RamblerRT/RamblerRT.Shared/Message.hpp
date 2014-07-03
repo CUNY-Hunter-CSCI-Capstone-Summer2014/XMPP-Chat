@@ -1,10 +1,9 @@
 #pragma once
 #include "types.hpp"
 #include "JID.hpp"
+#include <ctime>
 
 
-
-using namespace System::DateTime;
 
 namespace rambler{
 	namespace XMPP {
@@ -16,7 +15,7 @@ namespace rambler{
 					const Core::JID sender;
 					const Core::JID recipients;
 					const String body;
-					const DateTime timestamp;
+					const time_t timestamp;
 					const String uniqueId;
 
 				};

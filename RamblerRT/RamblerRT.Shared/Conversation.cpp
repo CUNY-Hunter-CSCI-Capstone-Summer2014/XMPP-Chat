@@ -1,25 +1,24 @@
+#pragma once
 #include "Conversation.hpp"
 
 namespace rambler{
 	namespace XMPP{
 		namespace IM{
 			namespace Client {
-
-				void Conversation::setMessageReceivedForConversationByUniqueIdEventHandler
-					(MessageReceivedForConversationByUniqueIdEventHandler eventHandler)
+				void Conversation::setMessageReceivedEventHandler
+					(MessageReceievedEventHandler eventHandler)
 				{
-					handleMessageReceivedForConversationByUniqueId = eventHandler;
-
+					handleMessageReceived = eventHandler;
 				}
 
 				void Conversation::sendMessage(Message message)
 				{
-					//IDK WHAT GOES HERE
+					HeilError bob;
 				}
 
-				void Conversation::removeConversation(String uniqueID)
+				void Conversation::leave()
 				{
-					uniqueID_conversations.erase(uniqueID);
+					HeilError bob;
 				}
 			}
 		}

@@ -3,6 +3,7 @@
 #include "RosterItem.hpp"
 #include "JID.hpp"
 #include <map>
+#include <ctime>
 
 
 namespace rambler{ namespace XMPP { namespace IM { namespace Client{
