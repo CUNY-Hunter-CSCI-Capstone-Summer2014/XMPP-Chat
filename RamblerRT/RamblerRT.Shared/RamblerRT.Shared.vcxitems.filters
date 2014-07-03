@@ -76,6 +76,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\RosterList.hpp">
       <Filter>librambler\XMPP\IM\Client</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Message.hpp">
+      <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.cpp">
@@ -124,6 +127,9 @@
       <Filter>librambler\XMPP\IM\Client</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\RosterList.cpp">
+      <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Message.cpp">
       <Filter>librambler\XMPP\IM\Client</Filter>
     </ClCompile>
   </ItemGroup>

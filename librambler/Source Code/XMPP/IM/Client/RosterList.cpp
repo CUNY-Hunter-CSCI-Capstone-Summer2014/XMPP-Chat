@@ -13,12 +13,15 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client{
 
 	void RosterList::updateItem(RosterItem item)
 	{
-		items.push_back(item);
+		//item contains JID already, insert the RosterItem using JID as the key
+		//item as the value
+		items.insert(std::pair<Core::JID, RosterItem>(item.jid, item));
 	}
 
 	void RosterList::removeItem(Core::JID jid)
 	{
-		
+		//erases by key
+		items.erase(jid);
 
 	}
 

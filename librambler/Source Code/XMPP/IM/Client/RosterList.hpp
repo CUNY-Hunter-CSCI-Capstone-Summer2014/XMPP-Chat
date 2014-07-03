@@ -4,6 +4,7 @@
 #include "JID.hpp"
 #include <map>
 
+
 namespace rambler{ namespace XMPP { namespace IM { namespace Client{
 	 
 	class RosterList{
