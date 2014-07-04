@@ -39,9 +39,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)ConversationController.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Message.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RamblerRT.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)State.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)State.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)targetver.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)TCPConnection.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)TCPConnection.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\JID.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\Utility.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\XMLStream.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.cpp" />
@@ -63,6 +66,8 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Message.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RamblerRT.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)TCPConnection.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\Core\JID.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\Core\XMLStream.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectCapability Include="SourceItemsFromImports" />
