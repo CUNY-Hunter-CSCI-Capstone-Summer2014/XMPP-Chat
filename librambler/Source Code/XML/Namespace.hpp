@@ -13,7 +13,7 @@ namespace rambler { namespace XML {
 
     class Namespace : public NameableNode {
     public:
-        static StrongPointer<Namespace> const DefaultNamespace;
+        static StrongPointer<Namespace> DefaultNamespace();
 
         Namespace();
         Namespace(String name);
@@ -25,10 +25,10 @@ namespace rambler { namespace XML {
 
         bool isValid() const;
 
-        bool operator == (Namespace const & other) const;
-        bool operator != (Namespace const & other) const;
     private:
         String const prefix;
     };
 
+    bool equivalent(StrongPointer<Namespace> const x, StrongPointer<Namespace> const y);
+    
 }}

@@ -54,4 +54,22 @@ namespace rambler { namespace XML {
         return !name.empty() && !value.empty();
     }
 
+    bool Attribute::operator == (Attribute const & other) const
+    {
+        return (value == other.value) && (NamespaceableNode::operator==(other));
+    }
+
+    bool Attribute::operator != (Attribute const & other) const
+    {
+        return !(*this == other);
+    }
+
+//    bool equivalent(StrongPointer<Attribute> const anElement, StrongPointer<Attribute> const anotherElement)
+//    {
+//        return ((anElement->getValue() == anotherElement->getValue()) &&
+//                (anElement->getName() == anotherElement->getName()) &&
+//                (equivalent(anElement->getNamespace(), anotherElement->getNamespace()));
+//    }
+
+
 }}

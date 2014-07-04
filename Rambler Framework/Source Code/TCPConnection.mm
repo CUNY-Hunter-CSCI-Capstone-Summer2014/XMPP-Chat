@@ -6,19 +6,19 @@
  **********************************************************************************************************************/
 
 #import "TCPConnection.h"
-#include "CFNetworkBasedConnection.h"
+#include "CFNetworkBasedTCPConnection.hpp"
 
-using namespace rambler::Connection;
+using namespace rambler;
 
 @implementation TCPConnection {
-    CFNetworkBasedConnection *theConnection;
+    StrongPointer<Connection::CFNetworkBasedTCPConnection> theConnection;
     NSOperationQueue *queue;
 }
 
 - (instancetype)initWithHost:(NSString *)host service:(NSString *)service
 {
     if (self = [super init]) {
-        theConnection = new CFNetworkBasedConnection(host.UTF8String, service.UTF8String);
+        theConnection = std::make_shared<Connection::CFNetworkBasedTCPConnection>(host.UTF8String, service.UTF8String);
         queue = [[NSOperationQueue alloc] init];
         return self;
     }
@@ -28,37 +28,37 @@ using namespace rambler::Connection;
 
 - (void)dealloc
 {
-    if (theConnection != nullptr) {
-        theConnection->close();
-        delete theConnection;
-    }
     theConnection = nullptr;
 }
 
-- (ConnectionState)state
+- (StreamState)state
 {
     switch (theConnection->getState()) {
-        case State::NotConnected:
+        case Stream::State::Closed:
             return Closed;
-        case State::Connecting:
+        case Stream::State::Closing:
+            return Closing;
+        case Stream::State::Opening:
             return Opening;
-        case State::Connected:
+        case Stream::State::Open:
             return Open;
-        case State::SecurelyConnected:
+        case Stream::State::OpenAndSecuring:
+            return OpenAndSecuring;
+        case Stream::State::OpenAndSecured:
             return OpenAndSecured;
     }
 }
 
 - (void)setConnectedEventHandler:(ConnectedEventHandler)connectedEventHandler
 {
-    theConnection->setConnectedEventHandler(connectedEventHandler);
+    theConnection->setOpenedEventHandler(connectedEventHandler);
 }
 
 - (void)setDataReceivedEventHandler:(DataReceivedEventHandler)dataReceivedEventHandler
 {
-    theConnection->setDataReceivedEventHandler(^(std::string byteString) {
-        dataReceivedEventHandler([NSData dataWithBytes:reinterpret_cast<const void *>(byteString.c_str())
-                                                length:byteString.size()]);
+    theConnection->setHasDataEventHandler(^(std::vector<UInt8> data) {
+        dataReceivedEventHandler([NSData dataWithBytes:reinterpret_cast<const void *>(data.data())
+                                                length:data.size()]);
     });
 }
 
@@ -69,7 +69,8 @@ using namespace rambler::Connection;
 
 - (NSOperation *)asynchronouslyOpenThenExecuteTask:(Task) task
 {
-    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+    NSOperation *operation = nullptr;
+    operation = [NSBlockOperation blockOperationWithBlock:^{
         if (operation.isCancelled) {
             return;
         }
@@ -89,7 +90,8 @@ using namespace rambler::Connection;
 
 - (NSOperation *)asynchronouslyCloseThenExecuteTask:(Task) task
 {
-    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+    NSOperation *operation = nullptr;
+    operation = [NSBlockOperation blockOperationWithBlock:^{
         if (operation.isCancelled) {
             return;
         }
@@ -109,7 +111,8 @@ using namespace rambler::Connection;
 
 - (NSOperation *)asynchronouslySendData:(NSData *) data thenExecuteTask:(Task) task
 {
-    NSOperation *operation = [NSBlockOperation blockOperationWithBlock:^{
+    NSOperation *operation = nullptr;
+    operation = [NSBlockOperation blockOperationWithBlock:^{
         if (operation.isCancelled) {
             return;
         }
@@ -134,10 +137,11 @@ using namespace rambler::Connection;
 
 - (void)sendData:(NSData *)data
 {
-    std::string byteString;
-    byteString.reserve(data.length);
-    byteString.append(reinterpret_cast<const char *>(data.bytes), data.length);
-    theConnection->sendData(byteString);
+    auto data_start = reinterpret_cast<UInt8 const *>(data.bytes);
+    auto data_end = data_start + data.length;
+
+    const std::vector<UInt8> bytes(data_start, data_end);
+    theConnection->sendData(bytes);
 }
 
 @end

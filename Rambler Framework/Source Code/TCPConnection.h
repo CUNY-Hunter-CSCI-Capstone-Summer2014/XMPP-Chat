@@ -15,7 +15,7 @@ typedef void (^DataReceivedEventHandler)(NSData *);
 
 @interface TCPConnection : NSObject
 
-@property (readonly) ConnectionState state;
+@property (readonly) StreamState state;
 @property (nonatomic, copy) ConnectedEventHandler connectedEventHandler;
 @property (nonatomic, copy) DataReceivedEventHandler dataReceivedEventHandler;
 

@@ -12,7 +12,7 @@
 
 #include <iostream>
 
-#include "CFNetworkBasedConnection.h"
+#include "CFNetworkBasedConnection.hpp"
 
 @interface RamblerTests : XCTestCase {
     TCPConnection * theConnection;

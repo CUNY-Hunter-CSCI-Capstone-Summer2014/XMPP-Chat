@@ -23,8 +23,10 @@ namespace rambler { namespace XML {
         String getQualifiedName() const;
 
         virtual bool operator < (NamespaceableNode const & other) const;
+        virtual bool operator == (NamespaceableNode const & other) const;
+        virtual bool operator != (NamespaceableNode const & other) const;
     protected:
-        StrongPointer<Namespace> const xmlnamespace { Namespace::DefaultNamespace };
+        StrongPointer<Namespace> const xmlnamespace = Namespace::DefaultNamespace();
     };
     
 }}

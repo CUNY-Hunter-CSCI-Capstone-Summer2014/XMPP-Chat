@@ -11,9 +11,11 @@ namespace rambler { namespace Stream {
 
     enum State {
         Closed,
+        Closing,
         Opening,
         Open,
-        OpenAndSecure
+        OpenAndSecuring,
+        OpenAndSecured
     };
 
 }}

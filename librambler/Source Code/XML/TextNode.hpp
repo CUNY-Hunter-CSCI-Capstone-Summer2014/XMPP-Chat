@@ -29,10 +29,15 @@ namespace rambler { namespace XML {
         virtual String getStringValue() const override;
 
         virtual bool isValid() const;
+
+        virtual bool operator == (TextNode const & other) const;
+        virtual bool operator != (TextNode const & other) const;
     private:
         WeakPointer<Element> parent;
 
         String value;
     };
+
+    bool equivalent(StrongPointer<TextNode> const x, StrongPointer<TextNode> const y);
 
 }}

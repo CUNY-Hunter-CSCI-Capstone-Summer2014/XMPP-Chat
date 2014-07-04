@@ -29,4 +29,15 @@ namespace rambler { namespace XML {
         return name < other.name;
     }
 
+    bool NameableNode::operator == (NameableNode const & other) const
+    {
+        return name == other.name;
+    }
+
+    bool NameableNode::operator != (NameableNode const & other) const
+    {
+        return !(*this == other);
+    }
+
+
 }}

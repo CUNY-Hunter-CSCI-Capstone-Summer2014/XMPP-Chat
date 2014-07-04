@@ -20,7 +20,7 @@ namespace rambler { namespace XML {
     }
 
     NamespaceableNode::NamespaceableNode(StrongPointer<Namespace> xmlnamespace, String name, Type type)
-    : xmlnamespace(xmlnamespace == nullptr ? Namespace::DefaultNamespace : xmlnamespace), NameableNode(name, type)
+    : xmlnamespace(xmlnamespace == nullptr ? Namespace::DefaultNamespace() : xmlnamespace), NameableNode(name, type)
     {
         /* Nothing to do here */
     }
@@ -32,12 +32,22 @@ namespace rambler { namespace XML {
 
     String NamespaceableNode::getQualifiedName() const
     {
-        return (xmlnamespace == Namespace::DefaultNamespace) ? name : xmlnamespace->getPrefix() + ':' + name;
+        return (equivalent(xmlnamespace, Namespace::DefaultNamespace())) ? name : xmlnamespace->getPrefix() + ':' + name;
     }
 
     bool NamespaceableNode::operator < (NamespaceableNode const & other) const
     {
         return (xmlnamespace < other.xmlnamespace) || (xmlnamespace == other.xmlnamespace && name < other.name);
+    }
+
+    bool NamespaceableNode::operator == (NamespaceableNode const & other) const
+    {
+        return (xmlnamespace == other.xmlnamespace) && (NameableNode::operator==(other));
+    }
+
+    bool NamespaceableNode::operator != (NamespaceableNode const & other) const
+    {
+        return !(*this == other);
     }
 
 }}

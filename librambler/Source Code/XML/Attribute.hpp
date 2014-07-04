@@ -27,6 +27,9 @@ namespace rambler { namespace XML {
 
         virtual bool isValid() const;
 
+        virtual bool operator == (Attribute const & other) const;
+        virtual bool operator != (Attribute const & other) const;
+
     private:
         String const value;
     };

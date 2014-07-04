@@ -6,6 +6,8 @@
  **********************************************************************************************************************/
 
 #include "Element.hpp"
+#include <iostream>
+#include <cassert>
 
 namespace rambler { namespace XML {
 
@@ -21,7 +23,21 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
+    Element::Element(String name, StrongPointer<Namespace> defaultNamespace)
+    : defaultNamespace(defaultNamespace == nullptr ? Namespace::DefaultNamespace() : defaultNamespace),
+    NamespaceableNode(name, Type::Element)
+    {
+        /* Nothing to do here */
+    }
+
     Element::Element(StrongPointer<Namespace> xmlnamespace, String name) : NamespaceableNode(xmlnamespace, name, Type::Element)
+    {
+        /* Nothing to do here */
+    }
+
+    Element::Element(StrongPointer<Namespace> xmlnamespace, String name, StrongPointer<Namespace> defaultNamespace)
+    : defaultNamespace(defaultNamespace == nullptr ? Namespace::DefaultNamespace() : defaultNamespace),
+    NamespaceableNode(xmlnamespace, name, Type::Element)
     {
         /* Nothing to do here */
     }
@@ -55,7 +71,7 @@ namespace rambler { namespace XML {
 
     StrongPointer<Namespace> Element::getNamespace() const
     {
-        if (NamespaceableNode::getNamespace() != Namespace::DefaultNamespace) {
+        if (NamespaceableNode::getNamespace() != Namespace::DefaultNamespace()) {
             return NamespaceableNode::getNamespace();
         }
         return getDefaultNamespace();
@@ -68,7 +84,7 @@ namespace rambler { namespace XML {
             return defaultNamespace;
         }
 
-        if (defaultNamespace == Namespace::DefaultNamespace) {
+        if (defaultNamespace == Namespace::DefaultNamespace()) {
             return getParent()->getDefaultNamespace();
         }
 
@@ -107,7 +123,7 @@ namespace rambler { namespace XML {
 
     Attribute Element::getAttribute(String name) const
     {
-        return getAttribute(Namespace::DefaultNamespace, name);
+        return getAttribute(Namespace::DefaultNamespace(), name);
     }
 
     Attribute Element::getAttribute(StrongPointer<Namespace> xmlnamespace, String name) const
@@ -134,7 +150,7 @@ namespace rambler { namespace XML {
 
     void Element::removeAttribute(String name)
     {
-        removeAttribute(Namespace::DefaultNamespace, name);
+        removeAttribute(Namespace::DefaultNamespace(), name);
     }
 
     void Element::removeAttribute(StrongPointer<Namespace> xmlnamespace, String name)
@@ -152,7 +168,7 @@ namespace rambler { namespace XML {
             startTag += " " + attribute.getStringValue();
         }
 
-        if (defaultNamespace != Namespace::DefaultNamespace) {
+        if (defaultNamespace != Namespace::DefaultNamespace()) {
 #warning TODO: Use quoted (and escaped) value for the name
             startTag += " xmlns=" "\"" + defaultNamespace->getName() + "\"";
         }
@@ -181,6 +197,104 @@ namespace rambler { namespace XML {
     bool Element::isValid() const
     {
         return !name.empty();
+    }
+
+    bool Element::operator == (Element const & other)
+    {
+
+        if (attributes.size() != other.attributes.size() || children.size() != other.children.size()) {
+            return false;
+        }
+
+        auto a1 = attributes.begin();
+        auto a2 = other.attributes.begin();
+        while (a1 != attributes.end()) {
+            if (*a1 != *a2) {
+                return false;
+            }
+            ++a1;
+            ++a2;
+        }
+
+        auto c1 = children.begin();
+        auto c2 = other.children.begin();
+        while (c1 != children.end()) {
+            if ((*c1)->getType() != (*c2)->getType()) {
+                return false;
+            } else if ((*c1)->getType() == Type::Element) {
+                if (*std::dynamic_pointer_cast<Element>(*c1) != *std::dynamic_pointer_cast<Element>(*c2)) {
+                    return false;
+                }
+            } else if ((*c1)->getType() == Type::Text) {
+                if (*std::dynamic_pointer_cast<TextNode>(*c1) != *std::dynamic_pointer_cast<TextNode>(*c2)) {
+                    return false;
+                }
+            }
+            ++c1;
+            ++c2;
+        }
+
+        return *getNamespace() == *other.getNamespace();
+    }
+
+    bool Element::operator != (Element const & other)
+    {
+        return !(*this == other);
+    }
+
+    bool equivalent(StrongPointer<Element> const anElement, StrongPointer<Element> const anotherElement)
+    {
+        if (anElement->getName() != anotherElement->getName()) {
+            return false;
+        }
+
+        std::cout << anElement->getName();
+
+        if (!equivalent(anElement->getNamespace(), anotherElement->getNamespace())) {
+            return false;
+        }
+
+        if (anElement->getAttributes().size() != anotherElement->getAttributes().size()) {
+            return false;
+        }
+
+        if (anElement->getChildren().size() != anotherElement->getChildren().size()) {
+            return false;
+        }
+
+        if (anElement->getAttributes().size() > 0) {
+            auto a1 = anElement->getAttributes().begin();
+            auto a2 = anotherElement->getAttributes().begin();
+            while (a1 != anElement->getAttributes().end()) {
+                if (*a1 != *a2) {
+                    return false;
+                }
+                ++a1;
+                ++a2;
+            }
+        }
+
+        if (anElement->getChildren().size() > 0) {
+            auto c1 = anElement->getChildren().begin();
+            auto c2 = anotherElement->getChildren().begin();
+            while (c1 != anElement->getChildren().end()) {
+                if ((*c1)->getType() != (*c2)->getType()) {
+                    return false;
+                } else if ((*c1)->getType() == Node::Type::Element) {
+                    if (!equivalent(std::dynamic_pointer_cast<Element>(*c1), std::dynamic_pointer_cast<Element>(*c2))) {
+                        return false;
+                    }
+                } else if ((*c1)->getType() == Node::Type::Text) {
+                    if (!equivalent(std::dynamic_pointer_cast<TextNode>(*c1), std::dynamic_pointer_cast<TextNode>(*c2))) {
+                        return false;
+                    }
+                }
+                ++c1;
+                ++c2;
+            }
+        }
+
+        return true;
     }
 
 }}

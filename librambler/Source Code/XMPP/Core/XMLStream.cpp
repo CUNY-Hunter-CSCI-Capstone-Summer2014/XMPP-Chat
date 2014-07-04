@@ -10,14 +10,6 @@
 #include <cassert>
 #include <iostream>
 
-#if defined __APPLE__
-#include "CFNetworkBasedConnection.h"
-using TCPConnection = rambler::Connection::CFNetworkBasedConnection;
-#elif defined _WIN32
-#include "WindowsRuntimeBasedConnection.h"
-using TCPConnection = rambler::Connection::WindowsRuntimeBasedConnection;
-#endif
-
 namespace rambler { namespace XMPP { namespace Core {
 
     XMLStream::XMLStream(JID jid) : jid(jid)
@@ -59,12 +51,12 @@ namespace rambler { namespace XMPP { namespace Core {
         state = Stream::State::Opening;
         if (host != "") {
             if (port != "") {
-                connection = std::make_shared<TCPConnection>(host, port);
+                connection = Connection::TCPConnection::nativeTCPConnection(host, port);
             } else {
-                connection = std::make_shared<TCPConnection>(host, "_xmpp-client");
+                connection = Connection::TCPConnection::nativeTCPConnection(host, "_xmpp-client");
             }
         } else if (jid.isValid()) {
-            connection = std::make_shared<TCPConnection>(jid.domainPart, "_xmpp-client");
+            connection = Connection::TCPConnection::nativeTCPConnection(jid.domainPart, "_xmpp-client");
         } else {
             state = Stream::State::Closed;
             return false;
@@ -76,7 +68,7 @@ namespace rambler { namespace XMPP { namespace Core {
 
         /* set connection's event handlers */
 
-        connection->setConnectedEventHandler([this]() {
+        connection->setOpenedEventHandler([this]() {
             std::cout << getStreamHeader();
             connection->sendData(getStreamHeader());
             state = Stream::State::Open;
@@ -87,14 +79,15 @@ namespace rambler { namespace XMPP { namespace Core {
             handleOpenedEvent();
         });
 
-        connection->setDataReceivedEventHandler([this](String byteString) {
+        connection->setHasDataEventHandler([this](std::vector<UInt8> data) {
 
-            xmlSAXUserParseMemory(parser->saxHandler, reinterpret_cast<void *>(parser),
-                                  byteString.c_str(), byteString.size());
+            if (parser != nullptr) {
+                xmlSAXUserParseMemory(parser->saxHandler, reinterpret_cast<void *>(parser),
+                                      reinterpret_cast<char *>(data.data()), data.size());
 
-            auto bytePtr = reinterpret_cast<UInt8 const *>(byteString.data());
-            std::vector<UInt8> byteData { bytePtr, bytePtr + byteString.length() };
-            handleHasDataEvent(byteData);
+                handleHasDataEvent(data);
+            }
+
         });
 
         return connection->open();
@@ -106,15 +99,49 @@ namespace rambler { namespace XMPP { namespace Core {
         connection->close();
     }
 
-    void XMLStream::sendData(std::vector<UInt8> &data)
+    bool XMLStream::secure()
     {
-        connection->sendData({reinterpret_cast<char const *>(data.data()), data.size()});
+        if (state != Stream::State::Open) {
+            return false;
+        }
+
+        state = Stream::State::OpenAndSecuring;
+
+        parser = nullptr;
+
+        connection->setSecuredEventHandler([this]() {
+            parser = new Parser;
+            parser->xmlstream = this;
+
+            connection->sendData(getStreamHeader());
+            state = Stream::State::OpenAndSecured;
+
+            handleSecuredEvent();
+        });
+
+        if (!connection->secure()) {
+            close();
+            return false;
+        }
+
+        return true;
+    }
+
+    void XMLStream::sendData(std::vector<UInt8> const & data)
+    {
+        connection->sendData(data);
+    }
+
+    void XMLStream::sendData(StrongPointer<XML::Element> const & data)
+    {
+        connection->sendData(data->getStringValue());
     }
 
     String XMLStream::getStreamHeader() const
     {
         return "<?xml version='1.0'?>"
-               "<stream:stream to='" + connection->getConnectedHost() +
+                             "<stream:stream to='" + connection->getRemoteHostName() +
+                             (connection->getState() == Stream::State::OpenAndSecured ? "' from='" + jid.toString() : "") +
                              "' version='1.0'"
                              " xml:lang='en'"
                              " xmlns='jabber:client'"
@@ -127,30 +154,41 @@ namespace rambler { namespace XMPP { namespace Core {
         std::cout << element->getStringValue();
 
         if (!isBoundToResource) {
-            if (!receivedStreamFeatures) {
+            if (state == Stream::State::OpenAndSecured) {
+                ;//
+            } else if (didSend_starttls) {
+                if (XML::equivalent(element, Proceed_Element)) {
+                    secure();
+                } else if (XML::equivalent(element, Failure_Element)) {
+                    //We probably did something wrong. Ooops.
+                    close();
+                } else {
+                    //Something went horribly wrong.  Close!
+                    close();
+                }
+            } else if (!receivedStreamFeatures) {
                 if (element->getName() == "features") {
                     receivedStreamFeatures = true;
-                    if (getState() != Stream::State::OpenAndSecure) {
-                        bool tlsSupported = false;
 
-                        for (auto feature : element->getChildren()) {
-                            if (feature->getType() == XML::Node::Type::Element) {
-#warning compare to a constant element
-                                if (std::dynamic_pointer_cast<XML::Element>(feature)->getName() == "starttls") {
-                                    tlsSupported = true;
-                                    break;
-                                }
+                    bool tlsSupported = false;
+
+                    for (auto feature : element->getChildren()) {
+                        if (feature->getType() == XML::Node::Type::Element) {
+                            if (XML::equivalent(StartTLS_Element, std::dynamic_pointer_cast<XML::Element>(feature))) {
+                                tlsSupported = true;
+                                break;
                             }
                         }
-
-                        if (tlsSupported) {
-                            std::cout << "starttls!";
-                            connection->sendData("<starttls/>");
-                        } else {
-                            /* We never allow non-secure connections! Close the stream */
-                            close();
-                        }
                     }
+
+                    if (tlsSupported) {
+                        didSend_starttls = true;
+                        connection->sendData(StartTLS_Element->getStringValue());
+                    } else {
+                        /* We never allow non-secure connections! Close the stream */
+                        close();
+                    }
+
                 } else {
 #warning TODO: Check RFC for correct behavior
                     /* TODO: Check RFC for correct behavior */

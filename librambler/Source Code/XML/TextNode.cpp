@@ -51,4 +51,18 @@ namespace rambler { namespace XML {
         return !value.empty();
     }
 
+    bool TextNode::operator == (TextNode const & other) const
+    {
+        return value == other.value;
+    }
+
+    bool TextNode::operator != (TextNode const & other) const
+    {
+        return !(*this == other);
+    }
+
+    bool equivalent(StrongPointer<TextNode> const x, StrongPointer<TextNode> const y)
+    {
+        return x->getValue() == y->getValue();
+    }
 }}

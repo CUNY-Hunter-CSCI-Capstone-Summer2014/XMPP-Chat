@@ -9,19 +9,28 @@
 
 #include "types.hpp"
 
-#include "BidirectionalStream.hpp"
-#include "AbstractConnection.h"
+#include "BidirectionalByteStream.hpp"
+#include "TCPConnection.hpp"
 
 #include "JID.hpp"
-
 #include "Element.hpp"
+
 #include <libxml/SAX2.h>
 
 namespace rambler { namespace XMPP { namespace Core {
 
-    class XMLStream : public Stream::BidirectionalStream<UInt8> {
+    class XMLStream : public Stream::BidirectionalByteStream {
     public:
         using XMLElementReceivedEvent = function<void(StrongPointer<XML::Element>)>;
+
+        /* Static Constants */
+        static const String TLS_Namespace_String;
+
+        static const StrongPointer<XML::Namespace> TLS_Namespace;
+
+        static const StrongPointer<XML::Element> StartTLS_Element;
+        static const StrongPointer<XML::Element> Proceed_Element;
+        static const StrongPointer<XML::Element> Failure_Element;
 
         XMLStream() = default;
         XMLStream(JID jid);
@@ -44,10 +53,24 @@ namespace rambler { namespace XMPP { namespace Core {
          */
         virtual void close() override;
 
+
+        /**
+         * Secures the connection. Has no effect if the stream is not open or is already secured.
+         * @pre    this stream is open, but not securing or already secure
+         * @return true on success, false on failure.
+         * @post   closes the stream on failure.
+         */
+        virtual bool secure() override;
+
         /**
          * Send binary data over the stream.
          */
-        virtual void sendData(std::vector<UInt8> & data) override;
+        virtual void sendData(std::vector<UInt8> const & data) override;
+
+        /**
+         * Send XML data over the stream.
+         */
+        void sendData(StrongPointer<XML::Element> const & data);
     private:
         struct Parser {
             static void handleElementStarted(void * ctx,
@@ -88,7 +111,7 @@ namespace rambler { namespace XMPP { namespace Core {
 
         Parser *parser;
 
-        StrongPointer<Connection::AbstractConnection> connection;
+        StrongPointer<Connection::TCPConnection> connection;
 
         void handleReceivedXMLElementEvent(StrongPointer<XML::Element> element);
 
@@ -97,7 +120,9 @@ namespace rambler { namespace XMPP { namespace Core {
         /* State Machine states */
 
         bool receivedStreamFeatures = false;
+        bool didSend_starttls = false;
         bool isBoundToResource = false;
+
     };
 
 }}}

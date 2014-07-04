@@ -35,7 +35,6 @@ namespace rambler { namespace XML {
         virtual String getStringValue() const = 0;
 
         virtual bool isValid() const = 0;
-
     protected:
         Type const type;
     };

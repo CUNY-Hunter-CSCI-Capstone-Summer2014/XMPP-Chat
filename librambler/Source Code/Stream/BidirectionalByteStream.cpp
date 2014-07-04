@@ -1,17 +1,18 @@
 /**********************************************************************************************************************
- * @file    State.h
- * @date    2014-06-16
+ * @file    BidirectionalByteStream.cpp
+ * @date    2014-07-04
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-namespace rambler { namespace Connection {
+#include "BidirectionalByteStream.hpp"
 
-    enum class State {
-        NotConnected,
-        Connecting,
-        Connected,
-        SecurelyConnected
-    };
+namespace rambler { namespace Stream {
+
+    void BidirectionalByteStream::sendData(String const & data)
+    {
+        std::vector<UInt8> byteData(data.begin(), data.end());
+        this->sendData(byteData);
+    }
 
 }}

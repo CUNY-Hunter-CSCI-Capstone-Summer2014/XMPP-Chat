@@ -5,5 +5,5 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#import "ConnectionState.h"
+#import "StreamState.h"
 #import "TCPConnection.h"

@@ -21,6 +21,8 @@ namespace rambler { namespace XML {
         String getName() const;
 
         virtual bool operator < (NameableNode const & other) const;
+        virtual bool operator == (NameableNode const & other) const;
+        virtual bool operator != (NameableNode const & other) const;
     protected:
         String const name;
     };
