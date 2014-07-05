@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		017B1A011965FB9600F3CBA7 /* XMLStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A001965FB9600F3CBA7 /* XMLStream.mm */; };
+		017B1A0419687FB700F3CBA7 /* RosterItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A0319687FB700F3CBA7 /* RosterItem.mm */; };
+		017B1A071968915900F3CBA7 /* RosterList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A061968915900F3CBA7 /* RosterList.mm */; };
 		0715A6201954D1C5004519D9 /* ConnectionState.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A61F1954D1C5004519D9 /* ConnectionState.h */; };
 		0715A62C1954D2D3004519D9 /* Connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A62B1954D267004519D9 /* Connection.h */; };
 		0715A6311954FC6C004519D9 /* XMLStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0715A6301954FC6C004519D9 /* XMLStream.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -187,6 +189,10 @@
 /* Begin PBXFileReference section */
 		017B19F51965EE8F00F3CBA7 /* XMLStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMLStream.h; path = "Source Code/XMLStream.h"; sourceTree = SOURCE_ROOT; };
 		017B1A001965FB9600F3CBA7 /* XMLStream.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = XMLStream.mm; path = "Source Code/XMLStream.mm"; sourceTree = SOURCE_ROOT; };
+		017B1A0219687FA200F3CBA7 /* RosterItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RosterItem.h; path = "Source Code/RosterItem.h"; sourceTree = SOURCE_ROOT; };
+		017B1A0319687FB700F3CBA7 /* RosterItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RosterItem.mm; path = "Source Code/RosterItem.mm"; sourceTree = SOURCE_ROOT; };
+		017B1A051968914900F3CBA7 /* RosterList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RosterList.h; path = "Source Code/RosterList.h"; sourceTree = SOURCE_ROOT; };
+		017B1A061968915900F3CBA7 /* RosterList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RosterList.mm; path = "Source Code/RosterList.mm"; sourceTree = SOURCE_ROOT; };
 		0700FFE319625F940001283D /* pointer_types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pointer_types.hpp; sourceTree = "<group>"; };
 		0715A61F1954D1C5004519D9 /* ConnectionState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionState.h; path = "Source Code/ConnectionState.h"; sourceTree = SOURCE_ROOT; };
 		0715A62B1954D267004519D9 /* Connection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Connection.h; path = "Source Code/Connection.h"; sourceTree = SOURCE_ROOT; };
@@ -374,6 +380,10 @@
 				0715A62B1954D267004519D9 /* Connection.h */,
 				0715A61F1954D1C5004519D9 /* ConnectionState.h */,
 				017B19F51965EE8F00F3CBA7 /* XMLStream.h */,
+				017B1A0219687FA200F3CBA7 /* RosterItem.h */,
+				017B1A0319687FB700F3CBA7 /* RosterItem.mm */,
+				017B1A051968914900F3CBA7 /* RosterList.h */,
+				017B1A061968915900F3CBA7 /* RosterList.mm */,
 				017B1A001965FB9600F3CBA7 /* XMLStream.mm */,
 				075F2D151953F2E50072E170 /* TCPConnection.h */,
 				075F2D201953F2FB0072E170 /* TCPConnection.mm */,
@@ -675,12 +685,14 @@
 				07D5DCBB1950B1A90041A7F3 /* AbstractConnection.cpp in Sources */,
 				07D5DCBD1950B1A90041A7F3 /* CFNetworkBasedConnection.cpp in Sources */,
 				07ABAA0B1960B0EF001543FB /* TextNode.cpp in Sources */,
+				017B1A0419687FB700F3CBA7 /* RosterItem.mm in Sources */,
 				017B1A011965FB9600F3CBA7 /* XMLStream.mm in Sources */,
 				0739C3F1195BE732006A7EA8 /* Namespace.cpp in Sources */,
 				07D5DCCF1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp in Sources */,
 				0747F28F19608DCB003A0D0C /* NamespaceableNode.cpp in Sources */,
 				0715A6331954FC82004519D9 /* XMLStream.cpp in Sources */,
 				07D5DCCD1950B2110041A7F3 /* dns_utilities.cpp in Sources */,
+				017B1A071968915900F3CBA7 /* RosterList.mm in Sources */,
 				0739C3E9195BB781006A7EA8 /* Attribute.cpp in Sources */,
 				075F2D211953F2FB0072E170 /* TCPConnection.mm in Sources */,
 				07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */,
