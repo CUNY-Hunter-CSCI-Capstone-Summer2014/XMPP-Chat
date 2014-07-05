@@ -1,0 +1,46 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="DampKeg.Roster"
+	x:Name="Window"
+	Title="Roster" Height="480" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterOwner" ToolTip="DampKeg - Roster" Width="320" MinWidth="320" MinHeight="480" SizeToContent="WidthAndHeight">
+
+    <Grid x:Name="LayoutRoot">
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="File" Height="22    ">
+                <MenuItem Header="Add contact" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-2.395,0" Width="180"/>
+                <MenuItem Header="Create group" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-2.318,0" Width="180"/>
+                <Separator HorizontalAlignment="Right" Height="2" Margin="-1.501,0,0,0" Style="{DynamicResource SimpleSeparator}" Width="181.5"/>
+                <MenuItem Header="Add Chat Room" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-2.501,0" Width="180"/>
+                <MenuItem Header="Join chat room" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-0.001,0" Width="180"/>
+                <Separator HorizontalAlignment="Right" Height="2" Margin="-1.501,0,0,0" Style="{DynamicResource SimpleSeparator}" Width="181.5"/>
+                <MenuItem Header="Options" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-2.395,0" Width="180"/>
+            </MenuItem>
+            <MenuItem Header="Tools">
+                <MenuItem Header="Options" HorizontalAlignment="Left" Width="200" Margin="0,0,-2.597,0"/>
+                <MenuItem Header="Hide Offline Contacts" HorizontalAlignment="Left" Width="200"/>
+                <MenuItem Header="Mute"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="Update" HorizontalAlignment="Left" Width="139.506666666667"/>
+                <MenuItem Header="About" HorizontalAlignment="Left" Width="139.506666666667"/>
+            </MenuItem>
+        </Menu>
+        <Button Content="ChatBox" Margin="10,415.04,0,0" Click="open_chat_window" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24.96"/>
+        <Button x:Name="Add_Person_Button" Content="Add Person" Margin="64.81,415.04,179.947,9" Height="24.96" Click="Add_Person" HorizontalAlignment="Left"/>
+        <Button x:Name="Remove_Person_Button" Content="Remove Person" Margin="137.053,415.04,81.675,9" Height="24.96" Click="Remove_Person" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="optionsButton" Content="Opts" Margin="246.053,415.04,0,0" Height="24.96" Click="openOptions" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ListBox x:Name="Roster_Window" Margin="10,89.48,10,38.96" SelectionMode="Multiple" Background="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}">
+
+            <ListBoxItem x:Name="Bob" Content="Bob"/>
+        </ListBox>
+        <ComboBox HorizontalAlignment="Left" Margin="10,53.28,0,0" VerticalAlignment="Top" Width="120" FontSize="13.333">
+            <ComboBoxItem Content="Online" HorizontalAlignment="Left" Width="118" IsSelected="True"/>
+            <ComboBoxItem Content="Offline" HorizontalAlignment="Left" Width="118"/>
+            <ComboBoxItem Content="Busy" HorizontalAlignment="Left" Width="118"/>
+        </ComboBox>
+        <TextBlock x:Name="Roster_Username" HorizontalAlignment="Left" Margin="10,27,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="155.313,53.28,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120" FontSize="13.333"/>
+    </Grid>
+</Window>
