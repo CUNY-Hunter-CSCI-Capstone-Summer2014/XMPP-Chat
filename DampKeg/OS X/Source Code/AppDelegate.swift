@@ -16,9 +16,9 @@ Temporary Checklist for Arnab's Sake
         ...GroupChatBox     [~] (The 'Done' button closes, but Add User and Remove User won't work until Roster Items work.)
         ...Login Window     [~] (Mostly works, but 'Remember me' does nothing.)
         ...MainMenu         [1]
-        ...PrefWindow       [_]
-        ...ProfileUpdate    [_]
-        ...Roster List      [_]
+        ...PrefWindow       [0]
+        ...ProfileUpdate    [0]
+        ...Roster List      [~] (This hub of operations will be the last to finish.)
 
 */
 
@@ -30,8 +30,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var loginWindowController: NSWindowController? = nil
     var rosterListWindowController: NSWindowController? = nil
     var addContactWindowController: NSWindowController? = nil
-    var ChatController: NSWindowController? = nil
+    var groupWindowController: NSWindowController? = nil
     var viewProfileController: NSWindowController? = nil
+    var chatWindowController: NSWindowController? = nil
     
     /* *********************************** */
     
@@ -41,8 +42,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         loginWindowController = NSWindowController(windowNibName: "Login Window")
         rosterListWindowController = NSWindowController(windowNibName: "Roster List")
         addContactWindowController = NSWindowController(windowNibName: "AddContact")
-        ChatController = NSWindowController(windowNibName: "GroupChatBox")
+        groupWindowController = NSWindowController(windowNibName: "GroupChatBox")
         viewProfileController = NSWindowController(windowNibName: "ContactProfile")
+        chatWindowController = NSWindowController(windowNibName: "ChatBox")
 
         /* *********************************** */
         
@@ -50,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let loginButton: NSButton = loginWindowController!.window.contentView.viewWithTag(1) as NSButton
 
         loginButton.target = self;
-        loginButton.action = "closeLoginWindowAndOpenRosterListWindow:"
+        loginButton.action = "closeLoginWindowAndOpenRosterListWindow:";
 
         loginWindowController!.showWindow(self)
         
@@ -85,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
          *********************************** */
 
-        let DoneAddingToChat: NSButton = ChatController!.window.contentView.viewWithTag(2) as NSButton
+        let DoneAddingToChat: NSButton = groupWindowController!.window.contentView.viewWithTag(2) as NSButton
 
         DoneAddingToChat.target = self;
         DoneAddingToChat.action = "closeAddToChatWindow:";
@@ -98,6 +100,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         ContactProfileButton.target = self;
         ContactProfileButton.action = "openProfile:";
+        
+        /* ***********************************
+        
+         *********************************** */
+
+        let CreateGroupChat: NSButton = groupWindowController!.window.contentView.viewWithTag(3) as NSButton
+
+        CreateGroupChat.target = self;
+        CreateGroupChat.action = "createChatBox:";
+
     }
     
     /* *********************************** */
@@ -117,6 +129,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.rosterListWindowController!.showWindow(self)
         }
     }
+
+    /* *********************************** */
+    /* *******Contact Screen Window******* */
     
     @IBAction func openAddContactScreen(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
@@ -129,26 +144,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.addContactWindowController!.window.orderOut(self)
         }
     }
+
+    /* *********************************** */
+    /* ********Add To Group Window******** */
     
     @IBAction func openAddToChatWindow(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.ChatController!.showWindow(self)
+            self.groupWindowController!.showWindow(self)
         }
     }
         
     @IBAction func closeAddToChatWindow(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.ChatController!.window.orderOut(self)
+            self.groupWindowController!.window.orderOut(self)
         }
     }
 
-//    @IBAction func closeChatBox(sender: AnyObject)
-//    {
-//        NSOperationQueue.mainQueue().addOperationWithBlock() {
-//            self.openEmptyChatController!.window.orderOut(self)
-//        }
-//    }
-    
+    @IBAction func createChatBox(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.groupWindowController!.window.orderOut(self)
+            self.chatWindowController!.showWindow(self)
+        }
+    }
+
     /* *********************************** */
+
     
 }
