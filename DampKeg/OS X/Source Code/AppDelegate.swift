@@ -36,30 +36,37 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         loginWindowController!.showWindow(self)
         
-        /* *********************************** */
+        /* ***********************************
+
+         *********************************** */
         
         let AddContactButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(1) as NSButton
         
         AddContactButton.target = self;
         AddContactButton.action = "openAddContactScreen:";
+
+        /* ***********************************
         
-        /* *********************************** */
+         *********************************** */
         
         let DoneAddingContact: NSButton = addContactWindowController!.window.contentView.viewWithTag(1) as NSButton
         
         DoneAddingContact.target = self;
         DoneAddingContact.action = "closeAddingContactScreen:";
         
-        /* *********************************** */
+        /* ***********************************
+
+         *********************************** */
         
-        let OpenChatBoxButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(2) as NSButton
+        let AddToChat: NSButton = rosterListWindowController!.window.contentView.viewWithTag(2) as NSButton
         
-        OpenChatBoxButton.target = self;
-        OpenChatBoxButton.action = "openChatBox:";
+        AddToChat.target = self;
+        AddToChat.action = "openAddToChatWindow:";
         
-        /* *********************************** */
+        /* ***********************************
         
-        /* *********************************** */
+         *********************************** */
+
         let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(3) as NSButton
         
         ContactProfileButton.target = self;
@@ -96,11 +103,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    @IBAction func openChatBox(sender: AnyObject)
-        {
+    @IBAction func openAddToChatWindow(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
             self.ChatController!.showWindow(self)
-            //self.openEmptyChatController!.window.orderOut(self)
         }
     }
     
