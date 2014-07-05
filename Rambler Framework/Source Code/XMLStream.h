@@ -16,7 +16,7 @@
 -(instancetype)initWithHost: (NSString *)host;
 -(instancetype)initWithHost: (NSString *)host jid:(JID *)jid;
 -(instancetype)initWithHost: (NSString *)host port:(NSstring *)port;
--(instancetype)initWithHost: (NSString *)host port:(NSstring *)port (JID *)jid ;
+-(instancetype)initWithHost: (NSString *)host port:(NSstring *)port (JID *)jid;
 
 //Functions declarations
 - (BOOL)open;
@@ -24,3 +24,6 @@
 - (void)close;
 
 - (void)sendData:(NSData *) data;
+
+
+@end

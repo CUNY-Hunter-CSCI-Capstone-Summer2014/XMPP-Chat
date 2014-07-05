@@ -47,30 +47,43 @@ namespace Rambler { namespace XMPP{ namespace Core{
 		return theJid->isBareJID();
 	}
 
-	Platform::Bolean isBareJIDWithLocalPart() const{
+	Platform::Bolean JID::isBareJIDWithLocalPart() const{
 		return theJID->isBareJIDWithLocalPart();
 	}
 
-	Platform::Boolean isFullJID() const{
+	Platform::Boolean JID::isFullJID() const{
 		return theJID->isFullJID();
 	}
 
-	Platform::Boolean isFullJIDWithLocalPart() const{
+	Platform::Boolean JID::isFullJIDWithLocalPart() const{
 		return theJID->isFullJIDWithLocalpart();
 	}
 
-	Platform::Boolean isDomainJID() const{
+	Platform::Boolean JID::isDomainJID() const{
 		return theJID->isDomainJOD();
 	}
 
-	Platform::Boolean isValid() const{
+	Platform::Boolean JID::isValid() const{
 		return theJID->isValid();
 	}
 
-	JID getBareJID() const{
+	JID JID::getBareJID() const{
+		rambler::XMPP::Core::JID tempJID= theJID->getBareJID();
 
-		return JID
+		Platform::String pJID = Utility::STDSTRING_TO_PSTRING(tempJID);
+
+		return Rambler::XMPP::Core::JID.JID(pJID);
 	}
 
+	Platform::String JID::toString(){
+		return (Utility::STDSTRING_TO_PSTRING(theJID->toString()));
 
+	}
+
+	bool JID::operator == (JID const & other) const
+	{
+		return localPart == other.localPart && 
+			domainPart == other.domainPart && resourcePart == other.resourcePart;
+	}
+	
 }}}
