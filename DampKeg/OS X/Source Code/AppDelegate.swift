@@ -5,6 +5,24 @@
 * @details <#Detailed Description#>
 ***********************************************************************************************************************/
 
+
+/*
+
+Temporary Checklist for Arnab's Sake
+    Do all the elements work on...
+        ...AddContact?      [~] (The button works, but the Roster List does not add any names.)
+        ...ChatBox?         [0]
+        ...ContactProfile   [0]
+        ...GroupChatBox     [~] (The 'Done' button closes, but Add User and Remove User won't work until Roster Items work.)
+        ...Login Window     [~] (Mostly works, but 'Remember me' does nothing.)
+        ...MainMenu         [1]
+        ...PrefWindow       [_]
+        ...ProfileUpdate    [_]
+        ...Roster List      [_]
+
+*/
+
+
 import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -67,6 +85,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
          *********************************** */
 
+        let DoneAddingToChat: NSButton = ChatController!.window.contentView.viewWithTag(2) as NSButton
+
+        DoneAddingToChat.target = self;
+        DoneAddingToChat.action = "closeAddToChatWindow:";
+        
+        /* ***********************************
+        
+         *********************************** */
+
         let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(3) as NSButton
         
         ContactProfileButton.target = self;
@@ -108,7 +135,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             self.ChatController!.showWindow(self)
         }
     }
-    
+        
+    @IBAction func closeAddToChatWindow(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.ChatController!.window.orderOut(self)
+        }
+    }
+
 //    @IBAction func closeChatBox(sender: AnyObject)
 //    {
 //        NSOperationQueue.mainQueue().addOperationWithBlock() {
