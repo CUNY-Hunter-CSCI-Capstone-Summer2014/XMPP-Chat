@@ -94,6 +94,21 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\Utility.hpp">
       <Filter>RamblerRT</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)RosterItem.hpp">
+      <Filter>RamblerRT\XMPP\IM\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)RosterList.hpp">
+      <Filter>RamblerRT\XMPP\IM\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Conversation.hpp">
+      <Filter>RamblerRT\XMPP\IM\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Message.hpp">
+      <Filter>RamblerRT\XMPP\IM\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\ConversationController.hpp">
+      <Filter>RamblerRT\XMPP\IM\Client</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.cpp">
@@ -158,6 +173,21 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\Core\JID.cpp">
       <Filter>RamblerRT\XMPP\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)RosterItem.cpp">
+      <Filter>RamblerRT\XMPP\IM\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)RosterList.cpp">
+      <Filter>RamblerRT\XMPP\IM\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Conversation.cpp">
+      <Filter>RamblerRT\XMPP\IM\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Message.cpp">
+      <Filter>RamblerRT\XMPP\IM\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\ConversationController.cpp">
+      <Filter>RamblerRT\XMPP\IM\Client</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +261,12 @@
     </Filter>
     <Filter Include="RamblerRT\XMPP\Core">
       <UniqueIdentifier>{3107789d-bb15-499e-9fcc-64f26ea1c27e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RamblerRT\XMPP\IM">
+      <UniqueIdentifier>{f11ba6fa-026c-4fae-802a-4f13f7c8e435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RamblerRT\XMPP\IM\Client">
+      <UniqueIdentifier>{67093f5d-0603-4c07-83ff-8c6c742807d1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
