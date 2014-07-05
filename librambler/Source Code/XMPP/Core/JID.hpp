@@ -16,7 +16,7 @@ namespace rambler { namespace XMPP { namespace Core {
         static bool validateLocalPart(JID const jid);
         static bool validateDomainPart(JID const jid);
         static bool validateResourcePart(JID const jid);
-
+		
         static JID const None;
 
         JID();

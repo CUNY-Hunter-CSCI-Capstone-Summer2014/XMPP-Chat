@@ -1,0 +1,40 @@
+﻿<Window x:Class="DampKeg.Options"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Options" Height="600" Width="400">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="569" VerticalAlignment="Top" Width="392">
+            <TabItem Header="General" Margin="-2,0">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Startup"/><LineBreak/><Run/></TextBlock>
+                    <CheckBox Content="Start Dampkeg on Computer Startup" HorizontalAlignment="Left" Margin="10,41.92,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                    <Separator HorizontalAlignment="Left" Margin="10,62.018,0,0" VerticalAlignment="Top" Width="366"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,68.018,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="Status"/>
+                    <CheckBox x:Name="changeStatus" Content="Change Status after" HorizontalAlignment="Left" Margin="10,88.978,0,0" VerticalAlignment="Top" Checked="enableAwayMins" Unchecked="disableAwayMinutes" IsChecked="True"/>
+                    <ComboBox x:Name="awayMinutes" Margin="138.885,84.978,127.115,0" VerticalAlignment="Top" Height="24.098" IsEnabled="False">
+                        <ComboBoxItem Content="3 minutes"/>
+                        <ComboBoxItem IsSelected="True" Content="5 minutes"/>
+                        <ComboBoxItem Content="10 minutes"/>
+                        <ComboBoxItem Content="15 minutes"/>
+
+                    </ComboBox>
+                    <Separator HorizontalAlignment="Left" Margin="10,124.076,0,0" VerticalAlignment="Top" Width="366"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Chat" Margin="-2,-2,-2,0">
+                <Grid Background="#FFE5E5E5" Margin="0,-2,0,2">
+                    <CheckBox x:Name="changeStatus_Copy" Content="Show chat history" HorizontalAlignment="Left" Margin="12,14,0,0" VerticalAlignment="Top" Checked="enableAwayMins" Unchecked="disableAwayMinutes" IsChecked="True"/>
+                    <ComboBox x:Name="awayMinutes_Copy" Margin="130.788,10,135.212,0" VerticalAlignment="Top" Height="24.098" IsEnabled="False">
+                        <ComboBoxItem Content="3 messages"/>
+                        <ComboBoxItem IsSelected="True" Content="5 messages"/>
+                        <ComboBoxItem Content="10 messages"/>
+                        <ComboBoxItem Content="15 messages"/>
+
+                    </ComboBox>
+                    <CheckBox Content="Leave chat room when closing window" HorizontalAlignment="Left" Margin="10,39.098,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

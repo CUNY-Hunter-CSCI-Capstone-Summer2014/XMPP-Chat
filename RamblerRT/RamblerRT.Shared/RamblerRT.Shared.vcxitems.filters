@@ -16,12 +16,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\WindowsRuntimeBasedConnection.h">
       <Filter>librambler\Connection\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)TCPConnection.h">
-      <Filter>RamblerRT\Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)State.h">
-      <Filter>RamblerRT\Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\Attribute.hpp">
       <Filter>librambler\XML</Filter>
     </ClInclude>
@@ -67,8 +61,38 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\XMLStream.hpp">
       <Filter>librambler\XMPP\Core\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\RosterItem.h">
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\SubscriptionStatus.hpp">
       <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\RosterItem.hpp">
+      <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\RosterList.hpp">
+      <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Message.hpp">
+      <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Conversation.hpp">
+      <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ConversationController.hpp">
+      <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)State.hpp">
+      <Filter>RamblerRT\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)TCPConnection.hpp">
+      <Filter>RamblerRT\Connection</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\XMLStream.hpp">
+      <Filter>RamblerRT\XMPP\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\JID.hpp">
+      <Filter>RamblerRT\XMPP\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\Utility.hpp">
+      <Filter>RamblerRT</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -86,9 +110,6 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\WindowsRuntimeBasedConnection.cpp">
       <Filter>librambler\Connection\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)TCPConnection.cpp">
-      <Filter>RamblerRT\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\Attribute.cpp">
       <Filter>librambler\XML</Filter>
@@ -116,6 +137,27 @@
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\RosterItem.cpp">
       <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\RosterList.cpp">
+      <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Message.cpp">
+      <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Conversation.cpp">
+      <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ConversationController.cpp">
+      <Filter>librambler\XMPP\IM\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)TCPConnection.cpp">
+      <Filter>RamblerRT\Connection</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\Core\XMLStream.cpp">
+      <Filter>RamblerRT\XMPP\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\Core\JID.cpp">
+      <Filter>RamblerRT\XMPP\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +219,18 @@
     </Filter>
     <Filter Include="librambler\XMPP\IM\Client">
       <UniqueIdentifier>{d859edfa-69f5-4088-bf70-cf63901ffa1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RamblerRT\Stream">
+      <UniqueIdentifier>{e9bb4c30-ac15-4158-8a74-540dc738b641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RamblerRT\Connection">
+      <UniqueIdentifier>{70af9d90-0d08-4a76-b9da-17ba1c426591}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RamblerRT\XMPP">
+      <UniqueIdentifier>{015012b7-23ae-4c9b-b911-76d6d36d3807}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RamblerRT\XMPP\Core">
+      <UniqueIdentifier>{3107789d-bb15-499e-9fcc-64f26ea1c27e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

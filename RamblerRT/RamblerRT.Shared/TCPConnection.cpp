@@ -1,5 +1,5 @@
-#include "TCPConnection.h"
-
+#include "TCPConnection.hpp"
+#include "State.hpp"
 namespace Rambler{ namespace Connection{
 
 	TCPConnection::TCPConnection(){
@@ -20,8 +20,12 @@ namespace Rambler{ namespace Connection{
 		//IDK WHAT GOES HERE
 	}
 	Platform::Boolean TCPConnection::open(){
-		 theConnection->open();
-		 return true;
+		if (theConnection->open()){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	void TCPConnection::close(){
@@ -39,17 +43,17 @@ namespace Rambler{ namespace Connection{
 
 
 
-	State TCPConnection::getState() {
+	Stream::State TCPConnection::getState() {
 			
 		switch (theConnection->getState()){
 			case rambler::Connection::State::NotConnected:
-				return State::Closed;
+				return Stream::State::Closed;
 			case rambler::Connection::State::Connecting:
-				return State::Opening;
+				return Stream::State::Opening;
 			case rambler::Connection::State::Connected:
-					return State::Open;
+					return Stream::State::Open;
 			case rambler::Connection::State::SecurelyConnected:
-				return State::OpenAndSecured;
+				return Stream::State::OpenAndSecured;
 			}
 	}
 

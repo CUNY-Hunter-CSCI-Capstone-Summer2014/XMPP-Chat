@@ -1,0 +1,15 @@
+﻿<Window x:Class="DampKeg.AddContact"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AddContact" Height="300" Width="300">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="42,42,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="125.583,41,0,0"/>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="125.583,91.05,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="42,92.05,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="42,141,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="125.583,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Add Contact" HorizontalAlignment="Left" Margin="105.5,200.5,0,0" VerticalAlignment="Top" Width="75"/>
+
+    </Grid>
+</Window>
