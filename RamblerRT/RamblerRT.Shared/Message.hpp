@@ -13,7 +13,7 @@ namespace rambler{
 				class Message{
 				public:
 					const Core::JID sender;
-					const Core::JID recipients;
+					const std::vector<Core::JID> recipients;
 					const String body;
 					const time_t timestamp;
 					const String uniqueId;
