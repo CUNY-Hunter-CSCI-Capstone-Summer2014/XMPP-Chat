@@ -12,7 +12,9 @@
 
 //Functions declarations
 -(RosterItemUpdatedEventHandler)setRosterItemUpdatedEventHandler;
+
 -(RosterItem)updateItem;
+
 -(JID)removeItem;
 
 @end

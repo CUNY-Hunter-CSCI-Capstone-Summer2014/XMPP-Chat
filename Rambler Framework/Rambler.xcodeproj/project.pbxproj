@@ -10,6 +10,10 @@
 		017B1A011965FB9600F3CBA7 /* XMLStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A001965FB9600F3CBA7 /* XMLStream.mm */; };
 		017B1A0419687FB700F3CBA7 /* RosterItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A0319687FB700F3CBA7 /* RosterItem.mm */; };
 		017B1A071968915900F3CBA7 /* RosterList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A061968915900F3CBA7 /* RosterList.mm */; };
+		017B1A0A1968C1E800F3CBA7 /* JID.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A091968C1E800F3CBA7 /* JID.mm */; };
+		017B1A0D1969FE3E00F3CBA7 /* Message.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A0C1969FE3E00F3CBA7 /* Message.mm */; };
+		017B1A10196A024100F3CBA7 /* Conversation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A0F196A024100F3CBA7 /* Conversation.mm */; };
+		017B1A13196A044600F3CBA7 /* ConversationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A12196A044600F3CBA7 /* ConversationController.mm */; };
 		0715A6201954D1C5004519D9 /* ConnectionState.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A61F1954D1C5004519D9 /* ConnectionState.h */; };
 		0715A62C1954D2D3004519D9 /* Connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A62B1954D267004519D9 /* Connection.h */; };
 		0715A6311954FC6C004519D9 /* XMLStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0715A6301954FC6C004519D9 /* XMLStream.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -193,6 +197,14 @@
 		017B1A0319687FB700F3CBA7 /* RosterItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RosterItem.mm; path = "Source Code/RosterItem.mm"; sourceTree = SOURCE_ROOT; };
 		017B1A051968914900F3CBA7 /* RosterList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RosterList.h; path = "Source Code/RosterList.h"; sourceTree = SOURCE_ROOT; };
 		017B1A061968915900F3CBA7 /* RosterList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RosterList.mm; path = "Source Code/RosterList.mm"; sourceTree = SOURCE_ROOT; };
+		017B1A081968C1D300F3CBA7 /* JID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JID.h; path = "Source Code/JID.h"; sourceTree = SOURCE_ROOT; };
+		017B1A091968C1E800F3CBA7 /* JID.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = JID.mm; path = "Source Code/JID.mm"; sourceTree = SOURCE_ROOT; };
+		017B1A0B1969FE3000F3CBA7 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Message.h; path = "Source Code/Message.h"; sourceTree = SOURCE_ROOT; };
+		017B1A0C1969FE3E00F3CBA7 /* Message.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Message.mm; path = "Source Code/Message.mm"; sourceTree = SOURCE_ROOT; };
+		017B1A0E196A023600F3CBA7 /* Conversation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Conversation.h; path = "Source Code/Conversation.h"; sourceTree = SOURCE_ROOT; };
+		017B1A0F196A024100F3CBA7 /* Conversation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Conversation.mm; path = "Source Code/Conversation.mm"; sourceTree = SOURCE_ROOT; };
+		017B1A11196A043D00F3CBA7 /* ConversationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ConversationController.h; path = "Source Code/ConversationController.h"; sourceTree = SOURCE_ROOT; };
+		017B1A12196A044600F3CBA7 /* ConversationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConversationController.mm; path = "Source Code/ConversationController.mm"; sourceTree = SOURCE_ROOT; };
 		0700FFE319625F940001283D /* pointer_types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pointer_types.hpp; sourceTree = "<group>"; };
 		0715A61F1954D1C5004519D9 /* ConnectionState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConnectionState.h; path = "Source Code/ConnectionState.h"; sourceTree = SOURCE_ROOT; };
 		0715A62B1954D267004519D9 /* Connection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Connection.h; path = "Source Code/Connection.h"; sourceTree = SOURCE_ROOT; };
@@ -378,6 +390,14 @@
 			children = (
 				075F2D241954208D0072E170 /* Rambler.h */,
 				0715A62B1954D267004519D9 /* Connection.h */,
+				017B1A081968C1D300F3CBA7 /* JID.h */,
+				017B1A091968C1E800F3CBA7 /* JID.mm */,
+				017B1A0B1969FE3000F3CBA7 /* Message.h */,
+				017B1A0C1969FE3E00F3CBA7 /* Message.mm */,
+				017B1A0E196A023600F3CBA7 /* Conversation.h */,
+				017B1A0F196A024100F3CBA7 /* Conversation.mm */,
+				017B1A11196A043D00F3CBA7 /* ConversationController.h */,
+				017B1A12196A044600F3CBA7 /* ConversationController.mm */,
 				0715A61F1954D1C5004519D9 /* ConnectionState.h */,
 				017B19F51965EE8F00F3CBA7 /* XMLStream.h */,
 				017B1A0219687FA200F3CBA7 /* RosterItem.h */,
@@ -688,8 +708,10 @@
 				017B1A0419687FB700F3CBA7 /* RosterItem.mm in Sources */,
 				017B1A011965FB9600F3CBA7 /* XMLStream.mm in Sources */,
 				0739C3F1195BE732006A7EA8 /* Namespace.cpp in Sources */,
+				017B1A10196A024100F3CBA7 /* Conversation.mm in Sources */,
 				07D5DCCF1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp in Sources */,
 				0747F28F19608DCB003A0D0C /* NamespaceableNode.cpp in Sources */,
+				017B1A0A1968C1E800F3CBA7 /* JID.mm in Sources */,
 				0715A6331954FC82004519D9 /* XMLStream.cpp in Sources */,
 				07D5DCCD1950B2110041A7F3 /* dns_utilities.cpp in Sources */,
 				017B1A071968915900F3CBA7 /* RosterList.mm in Sources */,
@@ -698,7 +720,9 @@
 				07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */,
 				0747F28C196088B7003A0D0C /* NameableNode.cpp in Sources */,
 				07BF1F2A19638F0700FC8348 /* XMLStream_Parser.cpp in Sources */,
+				017B1A0D1969FE3E00F3CBA7 /* Message.mm in Sources */,
 				0715A63D195512A8004519D9 /* JID.cpp in Sources */,
+				017B1A13196A044600F3CBA7 /* ConversationController.mm in Sources */,
 				0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

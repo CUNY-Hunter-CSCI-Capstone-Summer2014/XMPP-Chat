@@ -59,7 +59,7 @@ using namespace rambler;
 
 - (void)sendData:(NSData *) data{
     //data variable needs to be converted
-    //return xmlstream->sendData(data);
+    return xmlstream->sendData(data);
 }
 
 @end
