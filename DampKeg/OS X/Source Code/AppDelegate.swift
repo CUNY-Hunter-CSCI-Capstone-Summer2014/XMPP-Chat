@@ -33,6 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var groupWindowController: NSWindowController? = nil
     var viewProfileController: NSWindowController? = nil
     var chatWindowController: NSWindowController? = nil
+    var yourProfileWindowController: NSWindowController? = nil
     
     /* *********************************** */
     
@@ -45,8 +46,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         groupWindowController = NSWindowController(windowNibName: "GroupChatBox")
         viewProfileController = NSWindowController(windowNibName: "ContactProfile")
         chatWindowController = NSWindowController(windowNibName: "ChatBox")
-
-        /* *********************************** */
+        yourProfileWindowController = NSWindowController(windowNibName: "ProfileUpdate")
+        
+        /* ***********************************
+        *********************************** */
         
         /* The login button has a tag of 1 in the .xib file */
         let loginButton: NSButton = loginWindowController!.window.contentView.viewWithTag(1) as NSButton
@@ -89,7 +92,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         DoneAddingToChat.action = "closeAddToChatWindow:";
         
         /* ***********************************
-        *********************************** */
+         *********************************** */
         
         let CreateGroupChat: NSButton = groupWindowController!.window.contentView.viewWithTag(3) as NSButton
         
@@ -104,6 +107,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         ContactProfileButton.target = self;
         ContactProfileButton.action = "openProfile:";
         
+        
+        /* ***********************************
+        *********************************** */
+        
+        let SaveYourProfileButton: NSButton = yourProfileWindowController!.window.contentView.viewWithTag(2) as NSButton
+        
+        SaveYourProfileButton.target = self;
+        SaveYourProfileButton.action = "saveProfileChanges:";
+        
+        
+        
+        /* ***********************************
+        *********************************** */
+        
+        let ExitYourProfileButton: NSButton = yourProfileWindowController!.window.contentView.viewWithTag(3) as NSButton
+        
+        ExitYourProfileButton.target = self;
+        ExitYourProfileButton.action = "discardProfileChanges:";
+        
+
     }
     
     /* *********************************** */
@@ -122,6 +145,30 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
             self.loginWindowController!.window.orderOut(self)
             self.rosterListWindowController!.showWindow(self)
+        }
+    }
+    
+    /* *********************************** */
+    /* ************Roster List************ */
+    
+    /* *********************************** */
+    /* *******Update Profile Window******* */
+    
+    @IBAction func openProfile(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.yourProfileWindowController!.showWindow(self)
+        }
+    }
+    
+    @IBAction func saveProfileChanges(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.yourProfileWindowController!.window.orderOut(self)
+        }
+    }
+    
+    @IBAction func discardProfileChanges(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.yourProfileWindowController!.window.orderOut(self)
         }
     }
 

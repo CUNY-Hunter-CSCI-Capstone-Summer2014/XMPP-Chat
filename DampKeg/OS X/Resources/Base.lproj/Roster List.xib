@@ -14,10 +14,10 @@
         <window title="Roster List" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="UGV-17-Rf6">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
-            <rect key="contentRect" x="10" y="288" width="200" height="500"/>
+            <rect key="contentRect" x="10" y="288" width="238" height="500"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" wantsLayer="YES" id="9kf-qG-P4T">
-                <rect key="frame" x="0.0" y="0.0" width="200" height="500"/>
+                <rect key="frame" x="0.0" y="0.0" width="238" height="500"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7i0-uE-lld">
@@ -29,7 +29,7 @@
                         </textFieldCell>
                     </textField>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eht-Qe-yxG">
-                        <rect key="frame" x="0.0" y="32" width="200" height="438"/>
+                        <rect key="frame" x="0.0" y="32" width="238" height="438"/>
                         <clipView key="contentView" drawsBackground="NO" id="Ft1-iP-Sx6">
                             <rect key="frame" x="1" y="1" width="148" height="398"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,7 +40,7 @@
                                     <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="AutomaticTableColumnIdentifier.0" width="195" minWidth="16" maxWidth="1000" id="LSr-R9-O9U">
+                                        <tableColumn identifier="AutomaticTableColumnIdentifier.0" width="233" minWidth="16" maxWidth="1000" id="LSr-R9-O9U">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -54,7 +54,7 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
                                                 <tableCellView identifier="HeaderCell" id="Q8P-OR-udB">
-                                                    <rect key="frame" x="1" y="1" width="195" height="17"/>
+                                                    <rect key="frame" x="1" y="1" width="233" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QJh-Lx-pE1">
@@ -71,7 +71,7 @@
                                                     </connections>
                                                 </tableCellView>
                                                 <tableCellView identifier="DataCell" id="tIv-g1-PA4">
-                                                    <rect key="frame" x="1" y="20" width="195" height="17"/>
+                                                    <rect key="frame" x="1" y="20" width="233" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <imageView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BKO-Kb-WKQ">
@@ -109,20 +109,13 @@
                         </scroller>
                     </scrollView>
                     <searchField wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HdH-CL-dsw">
-                        <rect key="frame" x="10" y="474" width="180" height="22"/>
+                        <rect key="frame" x="10" y="474" width="218" height="22"/>
                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Search name.." usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" recentsAutosaveName="" id="afq-3I-Elf">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </searchFieldCell>
                     </searchField>
-                    <button appearanceType="aqua" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6u-kD-QAX">
-                        <rect key="frame" x="151" y="3" width="39" height="25"/>
-                        <buttonCell key="cell" type="roundTextured" title="Edit" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EAz-FS-R3K">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
                     <button appearanceType="aqua" verticalHuggingPriority="750" misplaced="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="eWt-M9-UW0">
                         <rect key="frame" x="10" y="3" width="21" height="25"/>
                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dDd-Xg-NAN">
@@ -131,15 +124,22 @@
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="4Mj-ot-pmI">
-                        <rect key="frame" x="33" y="-1" width="82" height="32"/>
+                        <rect key="frame" x="33" y="-2" width="67" height="32"/>
                         <buttonCell key="cell" type="push" title="Group" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Vt-bM-fhL">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="CvS-ky-hx1">
-                        <rect key="frame" x="117" y="3" width="25" height="25"/>
+                        <rect key="frame" x="102" y="3" width="25" height="25"/>
                         <buttonCell key="cell" type="squareTextured" title="O" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fjA-dt-Saj">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button appearanceType="aqua" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v6u-kD-QAX">
+                        <rect key="frame" x="135" y="3" width="39" height="25"/>
+                        <buttonCell key="cell" type="roundTextured" title="Edit" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EAz-FS-R3K">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -181,7 +181,7 @@
                 </defaultToolbarItems>
             </toolbar>
             <contentBorderThickness minY="32"/>
-            <point key="canvasLocation" x="383" y="176"/>
+            <point key="canvasLocation" x="402" y="176"/>
         </window>
         <objectController id="zd9-HD-fcG"/>
     </objects>
