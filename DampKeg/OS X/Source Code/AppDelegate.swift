@@ -57,7 +57,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         loginWindowController!.showWindow(self)
         
         /* ***********************************
-
          *********************************** */
         
         let AddContactButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(1) as NSButton
@@ -66,7 +65,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         AddContactButton.action = "openAddContactScreen:";
 
         /* ***********************************
-        
          *********************************** */
         
         let DoneAddingContact: NSButton = addContactWindowController!.window.contentView.viewWithTag(1) as NSButton
@@ -75,7 +73,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         DoneAddingContact.action = "closeAddingContactScreen:";
         
         /* ***********************************
-
          *********************************** */
         
         let AddToChat: NSButton = rosterListWindowController!.window.contentView.viewWithTag(2) as NSButton
@@ -84,7 +81,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         AddToChat.action = "openAddToChatWindow:";
         
         /* ***********************************
-        
          *********************************** */
 
         let DoneAddingToChat: NSButton = groupWindowController!.window.contentView.viewWithTag(2) as NSButton
@@ -93,7 +89,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         DoneAddingToChat.action = "closeAddToChatWindow:";
         
         /* ***********************************
+        *********************************** */
         
+        let CreateGroupChat: NSButton = groupWindowController!.window.contentView.viewWithTag(3) as NSButton
+        
+        CreateGroupChat.target = self;
+        CreateGroupChat.action = "createChatBox:";
+
+        /* ***********************************
          *********************************** */
 
         let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(3) as NSButton
@@ -101,15 +104,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         ContactProfileButton.target = self;
         ContactProfileButton.action = "openProfile:";
         
-        /* ***********************************
-        
-         *********************************** */
-
-        let CreateGroupChat: NSButton = groupWindowController!.window.contentView.viewWithTag(3) as NSButton
-
-        CreateGroupChat.target = self;
-        CreateGroupChat.action = "createChatBox:";
-
     }
     
     /* *********************************** */
@@ -122,6 +116,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     /* *********************************** */
+    /* ******End Login & Open Roster****** */
     
     @IBAction func closeLoginWindowAndOpenRosterListWindow(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
@@ -162,8 +157,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func createChatBox(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.groupWindowController!.window.orderOut(self)
             self.chatWindowController!.showWindow(self)
+            self.groupWindowController!.window.orderOut(self)
         }
     }
 

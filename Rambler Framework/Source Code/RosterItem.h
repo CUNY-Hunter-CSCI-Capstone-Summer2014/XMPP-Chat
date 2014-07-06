@@ -14,7 +14,7 @@
 
 -(NSString *)Name;
 
--(SubscriptionStatus)subscriptionStatus;
+//-(SubscriptionStatus)subscriptionStatus;
 
 -(NSArray *)groups;
 
