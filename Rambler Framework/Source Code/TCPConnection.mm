@@ -6,7 +6,7 @@
  **********************************************************************************************************************/
 
 #import "TCPConnection.h"
-#include "CFNetworkBasedTCPConnection.hpp"
+#include "rambler/Connection/CFNetworkBasedTCPConnection.hpp"
 
 using namespace rambler;
 
@@ -46,6 +46,8 @@ using namespace rambler;
             return OpenAndSecuring;
         case Stream::State::OpenAndSecured:
             return OpenAndSecured;
+        case Stream::State::OpenAndSecuredAndAuthenticated:
+            return OpenAndSecuredAndAuthenticated;
     }
 }
 

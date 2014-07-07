@@ -8,6 +8,10 @@
 
 #import <XCTest/XCTest.h>
 
+#include "rambler/base64.hpp"
+
+using namespace rambler;
+
 @interface Base64 : XCTestCase
 
 @end
@@ -25,8 +29,8 @@
 }
 
 - (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+    String encodedString = base64::encode("Man");
+    XCTAssert(encodedString == "TWFu", @"Pass");
 }
 
 - (void)testPerformanceExample {

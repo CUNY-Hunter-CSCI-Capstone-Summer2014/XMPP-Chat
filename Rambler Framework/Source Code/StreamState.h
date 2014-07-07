@@ -11,5 +11,6 @@ typedef NS_ENUM(NSInteger, StreamState) {
     Opening,
     Open,
     OpenAndSecuring,
-    OpenAndSecured
+    OpenAndSecured,
+    OpenAndSecuredAndAuthenticated
 };

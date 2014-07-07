@@ -8,11 +8,9 @@
 
 #import <XCTest/XCTest.h>
 
-#import "Rambler.h"
+#import <Rambler/Rambler.h>
 
 #include <iostream>
-
-#include "CFNetworkBasedConnection.hpp"
 
 @interface RamblerTests : XCTestCase {
     TCPConnection * theConnection;

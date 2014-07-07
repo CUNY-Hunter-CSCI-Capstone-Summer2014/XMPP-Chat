@@ -8,7 +8,8 @@
 
 #import <XCTest/XCTest.h>
 
-#include "JID.hpp"
+#include "rambler/XMPP/Core/JID.hpp"
+
 using rambler::XMPP::Core::JID;
 
 @interface CreateJIDFromStringTestCase : XCTestCase

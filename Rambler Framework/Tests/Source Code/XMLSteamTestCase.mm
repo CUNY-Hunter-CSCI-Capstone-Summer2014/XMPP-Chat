@@ -7,8 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#include "XMLStream.hpp"
-#include "JID.hpp"
+#include "rambler/XMPP/Core/XMLStream.hpp"
+#include "rambler/XMPP/Core/JID.hpp"
 #include <iostream>
 
 @interface XMLSteamTestCase : XCTestCase
@@ -30,18 +30,12 @@
 - (void)testExample {
     // This is an example of a functional test case.
 
+    using namespace rambler;
     using namespace rambler::XMPP::Core;
 
-    XMLStream stream(JID::createJIDFromString("omar@dampkeg.com"));
-    stream.setHasDataEventHandler([](std::vector<UInt8> data){
-        std::cout << "\n\n\n";
-        for (auto datum : data) {
-            std::cout << (char) datum;
-        }
-        std::cout << "\n\n\n";
-    });
-    stream.open();
-    while (true) {
+    StrongPointer<XMLStream> stream = std::make_shared<XMLStream>(JID::createJIDFromString("omar.evans@dampkeg.com"));
+    stream->open();
+    while (stream->getState() != Stream::State::Closed) {
         [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1]];
     }
 
