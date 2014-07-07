@@ -17,7 +17,7 @@ Temporary Checklist for Arnab's Sake
         ...Login Window     [~] (Mostly works, but 'Remember me' does nothing.)
         ...MainMenu         [1]
         ...PrefWindow       [0]
-        ...ProfileUpdate    [0]
+        ...ProfileUpdate    [~] (Doesn't save.)
         ...Roster List      [~] (This hub of operations will be the last to finish.)
 
 */
