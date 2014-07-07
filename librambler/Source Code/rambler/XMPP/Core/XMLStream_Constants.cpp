@@ -32,4 +32,7 @@ namespace rambler { namespace XMPP { namespace Core {
     const auto XMLStream::SASL_Success_Element    = std::make_shared<XML::Element>("success", SASL_Namespace);
     const auto XMLStream::SASL_Failure_Element    = std::make_shared<XML::Element>("failure", SASL_Namespace);
 
+    const auto XMLStream::Bind_Namespace_String = String("urn:ietf:params:xml:ns:xmpp-bind");
+    const auto XMLStream::Bind_Namespace = std::make_shared<XML::Namespace>(Bind_Namespace_String);
+
 }}}

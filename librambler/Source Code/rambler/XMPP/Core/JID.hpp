@@ -11,7 +11,8 @@
 
 namespace rambler { namespace XMPP { namespace Core {
 
-    struct JID {
+    class JID {
+    public:
         static JID  createJIDFromString(String const jid);
         static bool validateLocalPart(JID const jid);
         static bool validateDomainPart(JID const jid);
@@ -35,13 +36,19 @@ namespace rambler { namespace XMPP { namespace Core {
 
         JID getBareJID() const;
 
+        String getLocalPart() const;
+        String getDomainPart() const;
+        String getResourcePart() const;
+
         String toString() const;
 
-        String const localPart;
-        String const domainPart;
-        String const resourcePart;
-        
         bool operator == (JID const & other) const;
+
+    private:
+
+        String localPart;
+        String domainPart;
+        String resourcePart;
     };
     
 }}}

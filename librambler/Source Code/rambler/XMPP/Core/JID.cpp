@@ -114,6 +114,21 @@ namespace rambler { namespace XMPP { namespace Core {
         return JID(localPart, domainPart);
     }
 
+    String JID::getLocalPart() const
+    {
+        return localPart;
+    }
+
+    String JID::getDomainPart() const
+    {
+        return domainPart;
+    }
+
+    String JID::getResourcePart() const
+    {
+        return resourcePart;
+    }
+
     String JID::toString() const
     {
         if (isFullJID()) {

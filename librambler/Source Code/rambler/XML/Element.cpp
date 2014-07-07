@@ -69,9 +69,58 @@ namespace rambler { namespace XML {
         return children;
     }
 
+    std::vector<StrongPointer<Element>> Element::getElementsByName(String const name) const
+    {
+        return getElementsByName(getDefaultNamespace(), name);
+    }
+
+    std::vector<StrongPointer<Element>> Element::getElementsByName(StrongPointer<Namespace> const xmlnamespace,
+                                                                   String const name) const
+    {
+        std::vector<StrongPointer<Element>> elements;
+
+        for (auto child : children) {
+            if (child->getType() != Type::Element) {
+                continue;
+            }
+
+            auto element = std::dynamic_pointer_cast<Element>(child);
+
+            auto n = name;
+            auto ns = xmlnamespace;
+
+            auto en = element->getName();
+            auto ens = element->getNamespace();
+
+            if (element->getName() == name && XML::equivalent(element->getNamespace(), xmlnamespace)) {
+                elements.push_back(element);
+            }
+        }
+
+        return elements;
+    }
+
+    StrongPointer<Element> Element::getElementByID(String const id) const
+    {
+        for (auto child : children) {
+            if (child->getType() != Type::Element) {
+                continue;
+            }
+
+            auto element = std::dynamic_pointer_cast<Element>(child);
+
+            Attribute idAttribute = element->getAttribute("id");
+            if (idAttribute != Attribute::NoAttribute && idAttribute.getValue() == id) {
+                return element;
+            }
+        }
+
+        return nullptr;
+    }
+
     StrongPointer<Namespace> Element::getNamespace() const
     {
-        if (NamespaceableNode::getNamespace() != Namespace::DefaultNamespace()) {
+        if (!XML::equivalent(NamespaceableNode::getNamespace(), Namespace::DefaultNamespace())) {
             return NamespaceableNode::getNamespace();
         }
         return getDefaultNamespace();
@@ -84,7 +133,7 @@ namespace rambler { namespace XML {
             return defaultNamespace;
         }
 
-        if (defaultNamespace == Namespace::DefaultNamespace()) {
+        if (XML::equivalent(defaultNamespace, Namespace::DefaultNamespace())) {
             return getParent()->getDefaultNamespace();
         }
 

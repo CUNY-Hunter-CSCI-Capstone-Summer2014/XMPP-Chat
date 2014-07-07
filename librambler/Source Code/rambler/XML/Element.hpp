@@ -33,6 +33,12 @@ namespace rambler { namespace XML {
 
         std::vector<StrongPointer<Node>> getChildren() const;
 
+        std::vector<StrongPointer<Element>> getElementsByName(String const name) const;
+        std::vector<StrongPointer<Element>> getElementsByName(StrongPointer<Namespace> const xmlnamespace,
+                                                              String const name) const;
+        
+        StrongPointer<Element> getElementByID(String const id) const;
+
         virtual StrongPointer<Namespace> getNamespace() const override;
         StrongPointer<Namespace> getDefaultNamespace() const;
         void addNamespace(StrongPointer<Namespace> xmlnamespace);

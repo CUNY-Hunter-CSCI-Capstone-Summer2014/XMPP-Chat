@@ -15,6 +15,7 @@
 		0715A63D195512A8004519D9 /* JID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0715A63C195512A8004519D9 /* JID.cpp */; };
 		0715A6CA1957872E004519D9 /* JID.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0715A63B19550DEE004519D9 /* JID.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		0715A6CC19579204004519D9 /* CreateJIDFromStringTestCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */; };
+		07333DED196A46BD0000D8F3 /* XMLStream_Context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07333DEC196A46BD0000D8F3 /* XMLStream_Context.cpp */; };
 		0739C3DA195B9D8F006A7EA8 /* types.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0739C3D9195B9D8F006A7EA8 /* types.hpp */; };
 		0739C3E9195BB781006A7EA8 /* Attribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3E8195BB781006A7EA8 /* Attribute.cpp */; };
 		0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3EB195BC68C006A7EA8 /* Node.cpp */; };
@@ -196,6 +197,7 @@
 		0715A63B19550DEE004519D9 /* JID.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JID.hpp; sourceTree = "<group>"; };
 		0715A63C195512A8004519D9 /* JID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JID.cpp; sourceTree = "<group>"; };
 		0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreateJIDFromStringTestCase.mm; sourceTree = "<group>"; };
+		07333DEC196A46BD0000D8F3 /* XMLStream_Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLStream_Context.cpp; sourceTree = "<group>"; };
 		0739C3D9195B9D8F006A7EA8 /* types.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = types.hpp; sourceTree = "<group>"; };
 		0739C3E6195BA6D0006A7EA8 /* Element.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Element.hpp; sourceTree = "<group>"; };
 		0739C3E7195BB391006A7EA8 /* Attribute.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Attribute.hpp; sourceTree = "<group>"; };
@@ -277,6 +279,7 @@
 				0715A6301954FC6C004519D9 /* XMLStream.hpp */,
 				0715A6321954FC82004519D9 /* XMLStream.cpp */,
 				07DECDC61963C2F1007938D1 /* XMLStream_Constants.cpp */,
+				07333DEC196A46BD0000D8F3 /* XMLStream_Context.cpp */,
 				07BF1F2919638F0700FC8348 /* XMLStream_Parser.cpp */,
 				0715A63B19550DEE004519D9 /* JID.hpp */,
 				0715A63C195512A8004519D9 /* JID.cpp */,
@@ -697,6 +700,7 @@
 				07BC78371968AA9D00393657 /* base64.cpp in Sources */,
 				0715A63D195512A8004519D9 /* JID.cpp in Sources */,
 				0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */,
+				07333DED196A46BD0000D8F3 /* XMLStream_Context.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

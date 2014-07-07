@@ -57,7 +57,7 @@ namespace rambler { namespace XMPP { namespace Core {
                 connection = Connection::TCPConnection::nativeTCPConnection(host, "_xmpp-client");
             }
         } else if (jid.isValid()) {
-            connection = Connection::TCPConnection::nativeTCPConnection(jid.domainPart, "_xmpp-client");
+            connection = Connection::TCPConnection::nativeTCPConnection(jid.getDomainPart(), "_xmpp-client");
         } else {
             state = Stream::State::Closed;
             return false;
@@ -181,97 +181,117 @@ namespace rambler { namespace XMPP { namespace Core {
             return;
         }
 
-        if (!context->boundToResource) {
-            if (state == Stream::State::OpenAndSecuredAndAuthenticated) {
-                ;
-            } else if (state == Stream::State::OpenAndSecured) {
+        if (context->boundToResource) {
+            ;//TODO: Parse stanzas here
+        } else {
+            switch (state) {
+
+
+                case Stream::State::OpenAndSecuredAndAuthenticated:
+                    if (!context->sentBindRequest) {
+#warning assumes that binding is available/possible.  this should be checked first.
+                        context->sentBindRequest = true;
+                        bind();
+                    } else if (element->getName() == "iq" /* && element->getAttribute("type").getValue() == "result" */) {
+#warning There is a bug in the above comparison
+                        auto bindElements = element->getElementsByName(Bind_Namespace, "bind");
+                        if (!bindElements.empty()) {
+                            auto bindElement = bindElements.front();
+                            auto jidElements = bindElement->getElementsByName("jid");
+                            if (jidElements.empty()) {
+                                close();
+                                return;
+                            }
+
+                            auto jidElement = jidElements.front();
+                            jid = JID::createJIDFromString(jidElement->getChildren().front()->getStringValue());
+                            if (jid.isFullJIDWithLocalPart()) {
+                                context->boundToResource = true;
+                            }
+                        }
+                    }
+                    break;
+
+
+                case Stream::State::OpenAndSecured:
 #warning assumes SASL authentication is available.  should check first.
-                if (!context->sentAuth) {
-                    context->sentAuth = true;
+                    if (!context->sentAuth) {
+                        context->sentAuth = true;
 #warning hardcoded authentication
-                    authenticateSASL_Plain("", "omar.evans", "JAJAJA");
-                } else if (XML::equivalentByNameAndNamespace(element, SASL_Success_Element)) {
-                    state = Stream::State::OpenAndSecuredAndAuthenticated;
-                    restart();
-                } else if (XML::equivalentByNameAndNamespace(element, SASL_Failure_Element)) {
-                    std::cout << "Authentication failed\n";
-                    close();
-                    return;
-                }
-            } else if (state == Stream::State::Open) {
-                /* The stream is open, but hasn't been secured yet. It is possible that a request to start TLS
-                 * negotiation has not been sent yet.
-                 */
-                if (!context->sentStartTLS) {
-                    /**
-                     * A request to start TLS negotiation has not been sent.
-                     * It must be determined whether the remote host supports it.
-                     * It is expected that *element* is the features element.
-                     * Otherwise, an error or protocol violation occured.
+                        authenticateSASL_Plain("", "omar.evans", "JAJAJA");
+                    } else if (XML::equivalentByNameAndNamespace(element, SASL_Success_Element)) {
+                        state = Stream::State::OpenAndSecuredAndAuthenticated;
+                        restart();
+                    } else if (XML::equivalentByNameAndNamespace(element, SASL_Failure_Element)) {
+                        std::cout << "Authentication failed\n";
+                        close();
+                        return;
+                    }
+                    break;
+
+
+                case Stream::State::Open:
+                    /* The stream is open, but hasn't been secured yet. It is possible that a request to start TLS
+                     * negotiation has not been sent yet.
                      */
-                    if (XML::equivalentByNameAndNamespace(element, Stream_Features_Element)) {
-                        /* The received *element* is the features element as expected.
-                         * Iterate through each feature to determine if the remote host supports TLS.
+                    if (!context->sentStartTLS) {
+                        /**
+                         * A request to start TLS negotiation has not been sent.
+                         * It must be determined whether the remote host supports it.
+                         * It is expected that *element* is the features element.
+                         * Otherwise, an error or protocol violation occured.
                          */
-                        bool supportsTLS = false;
+                        if (XML::equivalentByNameAndNamespace(element, Stream_Features_Element)) {
+                            /* The received *element* is the features element as expected.
+                             * Iterate through each feature to determine if the remote host supports TLS.
+                             */
+                            bool supportsTLS = false;
 
-                        for (auto child : element->getChildren()) {
-                            if (child->getType() == XML::Node::Type::Element) {
-                                /* This *child* node is an XML element as required.
-                                 */
-                                auto feature = std::dynamic_pointer_cast<XML::Element>(child);
+                            if (!element->getElementsByName(TLS_Namespace, "starttls").empty()) {
+                                supportsTLS = true;
+                            }
 
-                                if (XML::equivalentByNameAndNamespace(feature, TLS_StartTLS_Element)) {
-                                    supportsTLS = true;
-                                    break;
-                                }
+                            if (supportsTLS) {
+                                context->sentStartTLS = true;
+                                sendData(TLS_StartTLS_Element->getStringValue());
                             } else {
-                                /* This *child* is not an XML element.
-                                 * This is a protocol violation. Close the stream!
+                                /* The remote host does not support TLS! Close the stream!
                                  */
                                 close();
                                 return;
                             }
-                        }
-
-                        if (supportsTLS) {
-                            context->sentStartTLS = true;
-                            sendData(TLS_StartTLS_Element->getStringValue());
                         } else {
-                            /* The remote host does not support TLS! Close the stream!
-                             */
+                            /* An error or protocol violation occured */
                             close();
                             return;
                         }
+                    } else if (XML::equivalentByNameAndNamespace(element, TLS_Proceed_Element)) {
+                        /* A request to start TLS negotiation was sent and a response to proceed was received.
+                         * Secure the stream!
+                         */
+                        secure();
+                    } else if (XML::equivalentByNameAndNamespace(element, TLS_Failure_Element)) {
+                        /* A request to start TLS negotiation was sent and a failure was indicated.
+                         * Close the stream. It valid to attempt to reconnect afterwards.
+                         */
+                        close();
+                        return;
                     } else {
-                        /* An error or protocol violation occured */
+                        /* A request to start TLS negotiation was sent but neither a response to proceed
+                         * nor an indication of failure was received.
+                         * This is a protocol violation. Close the stream!
+                         */
                         close();
                         return;
                     }
-                } else if (XML::equivalentByNameAndNamespace(element, TLS_Proceed_Element)) {
-                    /* A request to start TLS negotiation was sent and a response to proceed was received.
-                     * Secure the stream!
-                     */
-                    secure();
-                } else if (XML::equivalentByNameAndNamespace(element, TLS_Failure_Element)) {
-                    /* A request to start TLS negotiation was sent and a failure was indicated.
-                     * Close the stream. It valid to attempt to reconnect afterwards.
-                     */
+                    break;
+
+
+                default:
+                    //Received XML when the stream is in a state other that Open or OpenAndSecured.
+                    //Either this is a protocol violation or something went horribly wrong. Close the stream!
                     close();
                     return;
-                } else {
-                    /* A request to start TLS negotiation was sent but neither a response to proceed
-                     * nor an indication of failure was received.
-                     * This is a protocol violation. Close the stream!
-                     */
-                    close();
-                    return;
-                }
-            } else {
-                //Received XML when the stream is in a state other that Open or OpenAndSecured.
-                //Either this is a protocol violation or something went horribly wrong. Close the stream!
-                close();
-                return;
             }
         }
 
@@ -280,7 +300,20 @@ namespace rambler { namespace XMPP { namespace Core {
         }
     }
 
-    void XMLStream::authenticateSASL_Plain(String authorizationID, String authenticationID, String password) {
+    void XMLStream::bind()
+    {
+        StrongPointer<XML::Element> iqElement = std::make_shared<XML::Element>("iq");
+        iqElement->addAttribute({"id", std::to_string(context->getID())});
+        iqElement->addAttribute({"type", "set"});
+
+        StrongPointer<XML::Element> bindElement = std::make_shared<XML::Element>("bind", Bind_Namespace);
+        iqElement->addChild(bindElement);
+
+        sendData(iqElement);
+    }
+
+    void XMLStream::authenticateSASL_Plain(String authorizationID, String authenticationID, String password)
+    {
         StrongPointer<XML::Element> authElement = std::make_shared<XML::Element>("auth", SASL_Namespace);
         authElement->addAttribute({"mechanism", "PLAIN"});
 

@@ -28,10 +28,12 @@ namespace rambler { namespace XMPP { namespace Core {
         static const String Stream_Namespace_String;
         static const String TLS_Namespace_String;
         static const String SASL_Namespace_String;
+        static const String Bind_Namespace_String;
 
         static const StrongPointer<XML::Namespace> Stream_Namespace;
         static const StrongPointer<XML::Namespace> TLS_Namespace;
         static const StrongPointer<XML::Namespace> SASL_Namespace;
+        static const StrongPointer<XML::Namespace> Bind_Namespace;
 
         static const StrongPointer<XML::Element> Stream_Error_Element;
         static const StrongPointer<XML::Element> Stream_Features_Element;
@@ -75,7 +77,7 @@ namespace rambler { namespace XMPP { namespace Core {
          */
         virtual bool secure() override;
 
-        virtual void restart();
+        void restart();
 
         /**
          * Send binary data over the stream.
@@ -91,6 +93,7 @@ namespace rambler { namespace XMPP { namespace Core {
          * Send XML data over the stream.
          */
         void sendData(StrongPointer<XML::Element> const & data);
+
     private:
         struct Parser {
             static void handleElementStarted(void * ctx,
@@ -127,12 +130,23 @@ namespace rambler { namespace XMPP { namespace Core {
         struct Context {
             bool sentStartTLS                { false };
             bool sentAuth                    { false };
+            bool sentBindRequest             { false };
             bool boundToResource             { false };
             std::list<String> saslMechanisms { "EXTERNAL", "PLAIN", "ANONYMOUS" };
+            UInt32 nextID                    { 1 };
+
+            UInt32 getID();
         };
 
         String getStreamHeader() const;
+
+        void bind();
+
+        /* SASL */
+
         void authenticateSASL_Plain(String authorizationID, String authenticationID, String password);
+
+        /* Private Data */
 
         JID jid;
         String host;
