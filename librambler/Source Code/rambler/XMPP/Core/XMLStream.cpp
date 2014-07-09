@@ -159,6 +159,31 @@ namespace rambler { namespace XMPP { namespace Core {
         sendData(byteData);
     }
 
+    void XMLStream::setAuthenticationRequiredEventHandler(AuthenticationRequiredEventHandler eventHandler)
+    {
+        authenticationRequiredEventHandler = eventHandler;
+    }
+
+    void XMLStream::setResourceBoundEventHandler(ResourceBoundEventHandler eventHandler)
+    {
+        resourceBoundEventHandler = eventHandler;
+    }
+
+    void XMLStream::setIQStanzaReceivedEventHandler(IQStanzaReceivedEventHandler eventHandler)
+    {
+        iqStanzaReceivedEventHandler = eventHandler;
+    }
+
+    void XMLStream::setMessageStanzaReceivedEventHandler(MessageStanzaReceivedEventHandler eventHandler)
+    {
+        messageStanzaReceivedEventHandler = eventHandler;
+    }
+
+    void XMLStream::setPresenceStanzaReceivedEventHandler(PresenceStanzaReceivedEventHandler eventHandler)
+    {
+        presenceStanzaReceivedEventHandler = eventHandler;
+    }
+
     String XMLStream::getStreamHeader() const
     {
         return "<?xml version='1.0'?>"
@@ -168,6 +193,40 @@ namespace rambler { namespace XMPP { namespace Core {
                              " xml:lang='en'"
                              " xmlns='jabber:client'"
                              " xmlns:stream='http://etherx.jabber.org/streams'>";
+    }
+
+    void XMLStream::handleAuthenticationRequiredEvent(StrongPointer<XMLStream> stream)
+    {
+        if (authenticationRequiredEventHandler) {
+            authenticationRequiredEventHandler(stream);
+        }
+    }
+
+    void XMLStream::handleResourceBoundEvent(StrongPointer<XMLStream> stream) {
+        if (resourceBoundEventHandler) {
+            resourceBoundEventHandler(stream);
+        }
+    }
+
+    void XMLStream::handleIQStanzaReceivedEvent(StrongPointer<XMLStream> stream, StrongPointer<XML::Element> stanza)
+    {
+        if (iqStanzaReceivedEventHandler) {
+            iqStanzaReceivedEventHandler(stream, stanza);
+        }
+    }
+
+    void XMLStream::handleMessageStanzaReceivedEvent(StrongPointer<XMLStream> stream, StrongPointer<XML::Element> stanza)
+    {
+        if (messageStanzaReceivedEventHandler) {
+            messageStanzaReceivedEventHandler(stream, stanza);
+        }
+    }
+
+    void XMLStream::handlePresenceStanzaReceivedEvent(StrongPointer<XMLStream> stream, StrongPointer<XML::Element> stanza)
+    {
+        if (presenceStanzaReceivedEventHandler) {
+            presenceStanzaReceivedEventHandler(stream, stanza);
+        }
     }
 
     void XMLStream::handleReceivedXMLElementEvent(StrongPointer<XML::Element> element)
@@ -182,7 +241,16 @@ namespace rambler { namespace XMPP { namespace Core {
         }
 
         if (context->boundToResource) {
-            ;//TODO: Parse stanzas here
+            if (element->getName() == "iq") {
+                handleIQStanzaReceivedEvent(shared_from_this(), element);
+            } else if (element->getName() == "message") {
+                handleMessageStanzaReceivedEvent(shared_from_this(), element);
+            } else if (element->getName() == "presence") {
+                handlePresenceStanzaReceivedEvent(shared_from_this(), element);
+            } else {
+#warning make a decision
+                //There's some error.
+            }
         } else {
             switch (state) {
 
@@ -192,8 +260,7 @@ namespace rambler { namespace XMPP { namespace Core {
 #warning assumes that binding is available/possible.  this should be checked first.
                         context->sentBindRequest = true;
                         bind();
-                    } else if (element->getName() == "iq" /* && element->getAttribute("type").getValue() == "result" */) {
-#warning There is a bug in the above comparison
+                    } else if (element->getName() == "iq"  && element->getAttribute("type").getValue() == "result" ) {
                         auto bindElements = element->getElementsByName(Bind_Namespace, "bind");
                         if (!bindElements.empty()) {
                             auto bindElement = bindElements.front();
@@ -207,6 +274,7 @@ namespace rambler { namespace XMPP { namespace Core {
                             jid = JID::createJIDFromString(jidElement->getChildren().front()->getStringValue());
                             if (jid.isFullJIDWithLocalPart()) {
                                 context->boundToResource = true;
+                                handleResourceBoundEvent(shared_from_this());
                             }
                         }
                     }
@@ -216,9 +284,9 @@ namespace rambler { namespace XMPP { namespace Core {
                 case Stream::State::OpenAndSecured:
 #warning assumes SASL authentication is available.  should check first.
                     if (!context->sentAuth) {
-                        context->sentAuth = true;
-#warning hardcoded authentication
-                        authenticateSASL_Plain("", "omar.evans", "JAJAJA");
+                        while (!context->sentAuth) {
+                            handleAuthenticationRequiredEvent(shared_from_this());
+                        }
                     } else if (XML::equivalentByNameAndNamespace(element, SASL_Success_Element)) {
                         state = Stream::State::OpenAndSecuredAndAuthenticated;
                         restart();
@@ -295,8 +363,8 @@ namespace rambler { namespace XMPP { namespace Core {
             }
         }
 
-        if (XMLElementReceivedEventHandler != nullptr) {
-            XMLElementReceivedEventHandler(element);
+        if (xmlElementReceivedEventHandler) {
+            xmlElementReceivedEventHandler(element);
         }
     }
 
@@ -329,6 +397,8 @@ namespace rambler { namespace XMPP { namespace Core {
 
         authElement->addChild(textNode);
 
+        context->sentAuth = true;
         sendData(authElement);
     }
+
 }}}

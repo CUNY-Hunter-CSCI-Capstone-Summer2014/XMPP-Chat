@@ -37,7 +37,8 @@ namespace rambler { namespace XML {
 
     bool NamespaceableNode::operator < (NamespaceableNode const & other) const
     {
-        return (xmlnamespace < other.xmlnamespace) || (xmlnamespace == other.xmlnamespace && name < other.name);
+        return ((xmlnamespace->getName() < other.xmlnamespace->getName()) ||
+                (xmlnamespace->getName() == other.xmlnamespace->getName() && name < other.name));
     }
 
     bool NamespaceableNode::operator == (NamespaceableNode const & other) const

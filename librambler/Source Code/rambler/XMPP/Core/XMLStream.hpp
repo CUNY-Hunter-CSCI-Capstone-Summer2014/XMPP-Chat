@@ -22,7 +22,15 @@ namespace rambler { namespace XMPP { namespace Core {
     class XMLStream : public Stream::BidirectionalStream<UInt8>, public std::enable_shared_from_this<XMLStream> {
     public:
 
-        using XMLElementReceivedEvent = function<void(StrongPointer<XML::Element>)>;
+        using AuthenticationRequiredEventHandler = function<void(StrongPointer<XMLStream>)>;
+
+        using ResourceBoundEventHandler = function<void(StrongPointer<XMLStream>)>;
+
+        using IQStanzaReceivedEventHandler = function<void(StrongPointer<XMLStream>, StrongPointer<XML::Element>)>;
+        using MessageStanzaReceivedEventHandler = function<void(StrongPointer<XMLStream>, StrongPointer<XML::Element>)>;
+        using PresenceStanzaReceivedEventHandler = function<void(StrongPointer<XMLStream>, StrongPointer<XML::Element>)>;
+
+        using XMLElementReceivedEventHandler = function<void(StrongPointer<XML::Element>)>;
 
         /* Static Constants */
         static const String Stream_Namespace_String;
@@ -94,6 +102,19 @@ namespace rambler { namespace XMPP { namespace Core {
          */
         void sendData(StrongPointer<XML::Element> const & data);
 
+        void setAuthenticationRequiredEventHandler(AuthenticationRequiredEventHandler eventHandler);
+
+        void setResourceBoundEventHandler(ResourceBoundEventHandler eventHandler);
+        void setIQStanzaReceivedEventHandler(IQStanzaReceivedEventHandler eventHandler);
+        void setMessageStanzaReceivedEventHandler(MessageStanzaReceivedEventHandler eventHandler);
+        void setPresenceStanzaReceivedEventHandler(PresenceStanzaReceivedEventHandler eventHandler);
+
+        void getJID();
+
+        /* SASL */
+
+        void authenticateSASL_Plain(String authorizationID, String authenticationID, String password);
+
     private:
         struct Parser {
             static void handleElementStarted(void * ctx,
@@ -142,10 +163,6 @@ namespace rambler { namespace XMPP { namespace Core {
 
         void bind();
 
-        /* SASL */
-
-        void authenticateSASL_Plain(String authorizationID, String authenticationID, String password);
-
         /* Private Data */
 
         JID jid;
@@ -156,9 +173,29 @@ namespace rambler { namespace XMPP { namespace Core {
         StrongPointer<Context> context;
         StrongPointer<Parser> parser;
 
+        void handleAuthenticationRequiredEvent(StrongPointer<XMLStream> stream);
+
+        void handleResourceBoundEvent(StrongPointer<XMLStream> stream);
+
+        void handleIQStanzaReceivedEvent(StrongPointer<XMLStream> stream, StrongPointer<XML::Element> stanza);
+        void handleMessageStanzaReceivedEvent(StrongPointer<XMLStream> stream, StrongPointer<XML::Element> stanza);
+        void handlePresenceStanzaReceivedEvent(StrongPointer<XMLStream> stream, StrongPointer<XML::Element> stanza);
+
         void handleReceivedXMLElementEvent(StrongPointer<XML::Element> element);
 
-        XMLElementReceivedEvent XMLElementReceivedEventHandler;
+
+        /* Event Handlers */
+
+        AuthenticationRequiredEventHandler authenticationRequiredEventHandler;
+
+        ResourceBoundEventHandler resourceBoundEventHandler;
+
+        IQStanzaReceivedEventHandler iqStanzaReceivedEventHandler;
+        MessageStanzaReceivedEventHandler messageStanzaReceivedEventHandler;
+        PresenceStanzaReceivedEventHandler presenceStanzaReceivedEventHandler;
+
+
+        XMLElementReceivedEventHandler xmlElementReceivedEventHandler;
 
     };
 

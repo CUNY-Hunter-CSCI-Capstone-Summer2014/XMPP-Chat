@@ -53,6 +53,7 @@ namespace rambler { namespace XMPP { namespace Core {
             elementNamespaceURI = reinterpret_cast<CImmutableString>(URI);
         }
 
+        auto depth = parser->depth;
         parser->depth += 1;
 
         if (!elementNamespaceURI.empty() && !elementNamespacePrefix.empty()) {

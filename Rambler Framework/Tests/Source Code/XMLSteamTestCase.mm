@@ -27,13 +27,45 @@
     [super tearDown];
 }
 
-- (void)testExample {
+- (void)testStream {
     // This is an example of a functional test case.
 
     using namespace rambler;
     using namespace rambler::XMPP::Core;
 
-    StrongPointer<XMLStream> stream = std::make_shared<XMLStream>(JID::createJIDFromString("omar.evans@dampkeg.com"));
+    JID jid = JID::createJIDFromString("alpha@dampkeg.com");
+    String password = "alpha2014";
+
+    StrongPointer<XMLStream> stream = std::make_shared<XMLStream>(jid);
+
+    stream->setAuthenticationRequiredEventHandler([jid, password](StrongPointer<XMLStream> stream) {
+        stream->authenticateSASL_Plain("", jid.getBareJID().toString(), password);
+    });
+
+    stream->setResourceBoundEventHandler([](StrongPointer<XMLStream> stream) {
+        stream->sendData(std::make_shared<XML::Element>("presence"));
+    });
+
+    stream->setIQStanzaReceivedEventHandler([](StrongPointer<XMLStream> stream, StrongPointer<XML::Element> stanza) {
+        String sender = stanza->getAttribute("from").getValue();
+
+        auto pingNamespace = std::make_shared<XML::Namespace>("urn:xmpp:ping");
+
+        if (!stanza->getElementsByName(pingNamespace, "ping").empty()) {
+            std::cout << "\nRECEIVED PING\n";
+            auto response = std::make_shared<XML::Element>("iq");
+            response->addAttribute({"from", stanza->getAttribute("to").getValue()});
+            response->addAttribute({"to", stanza->getAttribute("from").getValue()});
+            response->addAttribute({"id", stanza->getAttribute("id").getValue()});
+            response->addAttribute({"type", "result"});
+
+            std::cout << "\nSENT PONG\n";
+            stream->sendData(response);
+            return;
+        }
+
+    });
+
     stream->open();
     while (stream->getState() != Stream::State::Closed) {
         [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1]];
