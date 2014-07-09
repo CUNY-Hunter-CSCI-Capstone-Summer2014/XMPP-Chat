@@ -31,7 +31,6 @@
 		07ABAA0B1960B0EF001543FB /* TextNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07ABAA0A1960B0EF001543FB /* TextNode.cpp */; };
 		07BC78371968AA9D00393657 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07BC78361968AA9D00393657 /* base64.cpp */; };
 		07BC78441968C1D400393657 /* Base64.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07BC78431968C1D400393657 /* Base64.mm */; };
-		07BF1F2A19638F0700FC8348 /* XMLStreamParser_libxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07BF1F2919638F0700FC8348 /* XMLStreamParser_libxml2.cpp */; };
 		07D1E6DB1950A833008C76CF /* Rambler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E6CF1950A833008C76CF /* Rambler.framework */; };
 		07D1E6F11950A907008C76CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E6F01950A907008C76CF /* Foundation.framework */; };
 		07D5DCCD1950B2110041A7F3 /* dns_utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D5DCC91950B2110041A7F3 /* dns_utilities.cpp */; };
@@ -43,6 +42,7 @@
 		07DECDCD196414AC007938D1 /* TCPConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07DECDCC196414AC007938D1 /* TCPConnection.cpp */; };
 		07E4F11C19634FD100D57971 /* XMLSteamTestCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */; };
 		07F92329196D0DB90010E3C4 /* libexpat.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F92328196D0DB90010E3C4 /* libexpat.dylib */; };
+		07F9232C196D12C30010E3C4 /* XMLStreamParser_expat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07F9232B196D12C30010E3C4 /* XMLStreamParser_expat.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -244,6 +244,8 @@
 		07F92317196CFA3B0010E3C4 /* XMLStreamParser_libxml2.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XMLStreamParser_libxml2.hpp; sourceTree = "<group>"; };
 		07F92325196D045F0010E3C4 /* XMLStreamParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XMLStreamParser.hpp; sourceTree = "<group>"; };
 		07F92328196D0DB90010E3C4 /* libexpat.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libexpat.dylib; path = usr/lib/libexpat.dylib; sourceTree = SDKROOT; };
+		07F9232A196D0EB90010E3C4 /* XMLStreamParser_expat.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XMLStreamParser_expat.hpp; sourceTree = "<group>"; };
+		07F9232B196D12C30010E3C4 /* XMLStreamParser_expat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLStreamParser_expat.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,8 @@
 				07DECDC61963C2F1007938D1 /* XMLStream_Constants.cpp */,
 				07333DEC196A46BD0000D8F3 /* XMLStream_Context.cpp */,
 				07F92325196D045F0010E3C4 /* XMLStreamParser.hpp */,
+				07F9232A196D0EB90010E3C4 /* XMLStreamParser_expat.hpp */,
+				07F9232B196D12C30010E3C4 /* XMLStreamParser_expat.cpp */,
 				07F92317196CFA3B0010E3C4 /* XMLStreamParser_libxml2.hpp */,
 				07BF1F2919638F0700FC8348 /* XMLStreamParser_libxml2.cpp */,
 				0715A63B19550DEE004519D9 /* JID.hpp */,
@@ -704,11 +708,11 @@
 				07DECDCD196414AC007938D1 /* TCPConnection.cpp in Sources */,
 				07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */,
 				0747F28C196088B7003A0D0C /* NameableNode.cpp in Sources */,
-				07BF1F2A19638F0700FC8348 /* XMLStreamParser_libxml2.cpp in Sources */,
 				07BC78371968AA9D00393657 /* base64.cpp in Sources */,
 				0715A63D195512A8004519D9 /* JID.cpp in Sources */,
 				0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */,
 				07333DED196A46BD0000D8F3 /* XMLStream_Context.cpp in Sources */,
+				07F9232C196D12C30010E3C4 /* XMLStreamParser_expat.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

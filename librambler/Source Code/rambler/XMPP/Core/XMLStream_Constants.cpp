@@ -13,7 +13,7 @@ namespace rambler { namespace XMPP { namespace Core {
     const auto XMLStream::Stream_Namespace = std::make_shared<XML::Namespace>(Stream_Namespace_String);
 
     const auto XMLStream::Stream_Error_Element = std::make_shared<XML::Element>("error");
-    const auto XMLStream::Stream_Features_Element = std::make_shared<XML::Element>("features");
+    const auto XMLStream::Stream_Features_Element = std::make_shared<XML::Element>("features", Stream_Namespace);
 
     const auto XMLStream::TLS_Namespace_String = String("urn:ietf:params:xml:ns:xmpp-tls");
     const auto XMLStream::TLS_Namespace = std::make_shared<XML::Namespace>(TLS_Namespace_String);

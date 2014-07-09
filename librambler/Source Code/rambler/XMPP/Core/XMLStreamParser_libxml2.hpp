@@ -19,7 +19,8 @@ namespace rambler { namespace XMPP { namespace Core {
     public:
         XMLStreamParser_libxml2(StrongPointer<XMLStream> stream);
         virtual ~XMLStreamParser_libxml2();
-        virtual void parse(String data);
+
+        virtual void parse(String data) override;
 
     private:
         static void handleElementStarted(void * ctx,
