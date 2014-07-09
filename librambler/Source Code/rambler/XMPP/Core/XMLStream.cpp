@@ -6,6 +6,7 @@
  **********************************************************************************************************************/
 
 #include "rambler/XMPP/Core/XMLStream.hpp"
+#include "rambler/XMPP/Core/XMLStreamParser.hpp"
 #include "rambler/base64.hpp"
 
 #include <cassert>
@@ -81,8 +82,7 @@ namespace rambler { namespace XMPP { namespace Core {
             std::cout << "\n\nReceived:\n" << String(data.begin(), data.end()) << std::endl;
 
             if (parser != nullptr) {
-                xmlSAXUserParseMemory(parser->saxHandler, reinterpret_cast<void *>(&parser),
-                                      reinterpret_cast<char *>(data.data()), data.size());
+                parser->parse({data.begin(), data.end()});
 
                 handleHasDataEvent(data);
             }
@@ -95,8 +95,7 @@ namespace rambler { namespace XMPP { namespace Core {
     void XMLStream::restart()
     {
         context = std::make_shared<Context>();
-        parser = std::make_shared<Parser>();
-        parser->xmlstream = shared_from_this();
+        parser = XMLStreamParser::CreateParser(shared_from_this());
 
         sendData(getStreamHeader());
     }

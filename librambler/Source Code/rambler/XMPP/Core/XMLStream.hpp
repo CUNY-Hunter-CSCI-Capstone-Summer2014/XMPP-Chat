@@ -15,13 +15,12 @@
 #include "rambler/XMPP/Core/JID.hpp"
 #include "rambler/XML/Element.hpp"
 
-#include <libxml/SAX2.h>
-
 namespace rambler { namespace XMPP { namespace Core {
+
+    class XMLStreamParser;
 
     class XMLStream : public Stream::BidirectionalStream<UInt8>, public std::enable_shared_from_this<XMLStream> {
     public:
-
         using AuthenticationRequiredEventHandler = function<void(StrongPointer<XMLStream>)>;
 
         using ResourceBoundEventHandler = function<void(StrongPointer<XMLStream>)>;
@@ -111,43 +110,14 @@ namespace rambler { namespace XMPP { namespace Core {
 
         void getJID();
 
+        void handleReceivedXMLElementEvent(StrongPointer<XML::Element> element);
+
+
         /* SASL */
 
         void authenticateSASL_Plain(String authorizationID, String authenticationID, String password);
 
     private:
-        struct Parser {
-            static void handleElementStarted(void * ctx,
-                                             const xmlChar * localname,
-                                             const xmlChar * prefix,
-                                             const xmlChar * URI,
-                                             int nb_namespaces,
-                                             const xmlChar ** namespaces, 
-                                             int nb_attributes, 
-                                             int nb_defaulted, 
-                                             const xmlChar ** attributes);
-
-            static void handleElementEnded(void * ctx,
-                                           const xmlChar * localname,
-                                           const xmlChar * prefix,
-                                           const xmlChar * URI);
-
-            static void handleText(void * ctx,
-                                   const xmlChar * ch,
-                                   int len);
-
-            Parser();
-
-            WeakPointer<XMLStream> xmlstream;
-
-            StrongPointer<XML::Element> rootElement;
-            StrongPointer<XML::Element> topElement;
-            StrongPointer<XML::Element> currentElement;
-            xmlSAXHandler *saxHandler;
-            Int depth { -1 };
-
-        };
-
         struct Context {
             bool sentStartTLS                { false };
             bool sentAuth                    { false };
@@ -171,7 +141,7 @@ namespace rambler { namespace XMPP { namespace Core {
 
         StrongPointer<Connection::TCPConnection> connection;
         StrongPointer<Context> context;
-        StrongPointer<Parser> parser;
+        StrongPointer<XMLStreamParser> parser;
 
         void handleAuthenticationRequiredEvent(StrongPointer<XMLStream> stream);
 
@@ -181,7 +151,8 @@ namespace rambler { namespace XMPP { namespace Core {
         void handleMessageStanzaReceivedEvent(StrongPointer<XMLStream> stream, StrongPointer<XML::Element> stanza);
         void handlePresenceStanzaReceivedEvent(StrongPointer<XMLStream> stream, StrongPointer<XML::Element> stanza);
 
-        void handleReceivedXMLElementEvent(StrongPointer<XML::Element> element);
+//        Temporarily making this public
+//        void handleReceivedXMLElementEvent(StrongPointer<XML::Element> element);
 
 
         /* Event Handlers */
