@@ -7,16 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		017B1A011965FB9600F3CBA7 /* XMLStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A001965FB9600F3CBA7 /* XMLStream.mm */; };
-		017B1A0419687FB700F3CBA7 /* RosterItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A0319687FB700F3CBA7 /* RosterItem.mm */; };
-		017B1A071968915900F3CBA7 /* RosterList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A061968915900F3CBA7 /* RosterList.mm */; };
-		017B1A0A1968C1E800F3CBA7 /* JID.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A091968C1E800F3CBA7 /* JID.mm */; };
-		017B1A0D1969FE3E00F3CBA7 /* Message.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A0C1969FE3E00F3CBA7 /* Message.mm */; };
-		017B1A10196A024100F3CBA7 /* Conversation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A0F196A024100F3CBA7 /* Conversation.mm */; };
-		017B1A13196A044600F3CBA7 /* ConversationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A12196A044600F3CBA7 /* ConversationController.mm */; };
 		070A852F19641B6D00798ABE /* CFNetworkBasedTCPConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 070A852E19641B6D00798ABE /* CFNetworkBasedTCPConnection.cpp */; };
-		0715A6201954D1C5004519D9 /* StreamState.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A61F1954D1C5004519D9 /* StreamState.h */; };
-		0715A62C1954D2D3004519D9 /* Connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A62B1954D267004519D9 /* Connection.h */; };
 		0715A6311954FC6C004519D9 /* XMLStream.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 0715A6301954FC6C004519D9 /* XMLStream.hpp */; settings = {ATTRIBUTES = (Public, ); }; };
 		0715A6331954FC82004519D9 /* XMLStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0715A6321954FC82004519D9 /* XMLStream.cpp */; };
 		0715A63D195512A8004519D9 /* JID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0715A63C195512A8004519D9 /* JID.cpp */; };
@@ -30,9 +21,6 @@
 		0747F28C196088B7003A0D0C /* NameableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0747F28B196088B7003A0D0C /* NameableNode.cpp */; };
 		0747F28F19608DCB003A0D0C /* NamespaceableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0747F28E19608DCB003A0D0C /* NamespaceableNode.cpp */; };
 		075F2D06195378B40072E170 /* ConnectionTestCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D1E7011950AA59008C76CF /* ConnectionTestCase.mm */; };
-		075F2D211953F2FB0072E170 /* TCPConnection.mm in Sources */ = {isa = PBXBuildFile; fileRef = 075F2D201953F2FB0072E170 /* TCPConnection.mm */; };
-		075F2D231954202A0072E170 /* TCPConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 075F2D151953F2E50072E170 /* TCPConnection.h */; };
-		075F2D251954208D0072E170 /* Rambler.h in Headers */ = {isa = PBXBuildFile; fileRef = 075F2D241954208D0072E170 /* Rambler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		079FDC321966514700F9DBC6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 079FDC311966514700F9DBC6 /* Security.framework */; };
 		07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07ABA9FD1960A8A4001543FB /* Element.cpp */; };
 		07ABAA0B1960B0EF001543FB /* TextNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07ABAA0A1960B0EF001543FB /* TextNode.cpp */; };
@@ -48,6 +36,25 @@
 		07DECDC71963C2F1007938D1 /* XMLStream_Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07DECDC61963C2F1007938D1 /* XMLStream_Constants.cpp */; };
 		07DECDCD196414AC007938D1 /* TCPConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07DECDCC196414AC007938D1 /* TCPConnection.cpp */; };
 		07E4F11C19634FD100D57971 /* XMLSteamTestCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */; };
+		07F8146B196E2AF300207EC1 /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81461196E2AF300207EC1 /* Conversation.h */; };
+		07F8146C196E2AF300207EC1 /* Conversation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81462196E2AF300207EC1 /* Conversation.mm */; };
+		07F8146D196E2AF300207EC1 /* ConversationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81463196E2AF300207EC1 /* ConversationController.h */; };
+		07F8146E196E2AF300207EC1 /* ConversationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81464196E2AF300207EC1 /* ConversationController.mm */; };
+		07F8146F196E2AF300207EC1 /* Message.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81465196E2AF300207EC1 /* Message.h */; };
+		07F81470196E2AF300207EC1 /* Message.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81466196E2AF300207EC1 /* Message.mm */; };
+		07F81471196E2AF300207EC1 /* RosterItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81467196E2AF300207EC1 /* RosterItem.h */; };
+		07F81472196E2AF300207EC1 /* RosterItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81468196E2AF300207EC1 /* RosterItem.mm */; };
+		07F81473196E2AF300207EC1 /* RosterList.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81469196E2AF300207EC1 /* RosterList.h */; };
+		07F81474196E2AF300207EC1 /* RosterList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F8146A196E2AF300207EC1 /* RosterList.mm */; };
+		07F81479196E2B0900207EC1 /* JID.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81475196E2B0900207EC1 /* JID.h */; };
+		07F8147A196E2B0900207EC1 /* JID.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81476196E2B0900207EC1 /* JID.mm */; };
+		07F8147B196E2B0900207EC1 /* XMLStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81477196E2B0900207EC1 /* XMLStream.h */; };
+		07F8147C196E2B0900207EC1 /* XMLStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81478196E2B0900207EC1 /* XMLStream.mm */; };
+		07F81481196E2B1C00207EC1 /* Connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F8147D196E2B1C00207EC1 /* Connection.h */; };
+		07F81482196E2B1C00207EC1 /* StreamState.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F8147E196E2B1C00207EC1 /* StreamState.h */; };
+		07F81483196E2B1C00207EC1 /* TCPConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F8147F196E2B1C00207EC1 /* TCPConnection.h */; };
+		07F81484196E2B1C00207EC1 /* TCPConnection.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81480196E2B1C00207EC1 /* TCPConnection.mm */; };
+		07F81486196E2B2D00207EC1 /* Rambler.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81485196E2B2D00207EC1 /* Rambler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07F92329196D0DB90010E3C4 /* libexpat.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F92328196D0DB90010E3C4 /* libexpat.dylib */; };
 		07F9232C196D12C30010E3C4 /* XMLStreamParser_expat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07F9232B196D12C30010E3C4 /* XMLStreamParser_expat.cpp */; };
 /* End PBXBuildFile section */
@@ -131,24 +138,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		017B19F51965EE8F00F3CBA7 /* XMLStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMLStream.h; path = "Source Code/XMLStream.h"; sourceTree = SOURCE_ROOT; };
-		017B1A001965FB9600F3CBA7 /* XMLStream.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = XMLStream.mm; path = "Source Code/XMLStream.mm"; sourceTree = SOURCE_ROOT; };
-		017B1A0219687FA200F3CBA7 /* RosterItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RosterItem.h; path = "Source Code/RosterItem.h"; sourceTree = SOURCE_ROOT; };
-		017B1A0319687FB700F3CBA7 /* RosterItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RosterItem.mm; path = "Source Code/RosterItem.mm"; sourceTree = SOURCE_ROOT; };
-		017B1A051968914900F3CBA7 /* RosterList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RosterList.h; path = "Source Code/RosterList.h"; sourceTree = SOURCE_ROOT; };
-		017B1A061968915900F3CBA7 /* RosterList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RosterList.mm; path = "Source Code/RosterList.mm"; sourceTree = SOURCE_ROOT; };
-		017B1A081968C1D300F3CBA7 /* JID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JID.h; path = "Source Code/JID.h"; sourceTree = SOURCE_ROOT; };
-		017B1A091968C1E800F3CBA7 /* JID.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = JID.mm; path = "Source Code/JID.mm"; sourceTree = SOURCE_ROOT; };
-		017B1A0B1969FE3000F3CBA7 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Message.h; path = "Source Code/Message.h"; sourceTree = SOURCE_ROOT; };
-		017B1A0C1969FE3E00F3CBA7 /* Message.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Message.mm; path = "Source Code/Message.mm"; sourceTree = SOURCE_ROOT; };
-		017B1A0E196A023600F3CBA7 /* Conversation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Conversation.h; path = "Source Code/Conversation.h"; sourceTree = SOURCE_ROOT; };
-		017B1A0F196A024100F3CBA7 /* Conversation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Conversation.mm; path = "Source Code/Conversation.mm"; sourceTree = SOURCE_ROOT; };
-		017B1A11196A043D00F3CBA7 /* ConversationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ConversationController.h; path = "Source Code/ConversationController.h"; sourceTree = SOURCE_ROOT; };
-		017B1A12196A044600F3CBA7 /* ConversationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConversationController.mm; path = "Source Code/ConversationController.mm"; sourceTree = SOURCE_ROOT; };
 		0700FFE319625F940001283D /* pointer_types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pointer_types.hpp; sourceTree = "<group>"; };
 		070A852E19641B6D00798ABE /* CFNetworkBasedTCPConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CFNetworkBasedTCPConnection.cpp; sourceTree = "<group>"; };
-		0715A61F1954D1C5004519D9 /* StreamState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamState.h; path = "Source Code/StreamState.h"; sourceTree = SOURCE_ROOT; };
-		0715A62B1954D267004519D9 /* Connection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Connection.h; path = "Source Code/Connection.h"; sourceTree = SOURCE_ROOT; };
 		0715A6301954FC6C004519D9 /* XMLStream.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = XMLStream.hpp; sourceTree = "<group>"; };
 		0715A6321954FC82004519D9 /* XMLStream.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLStream.cpp; sourceTree = "<group>"; };
 		0715A6341954FF8E004519D9 /* BidirectionalStream.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = BidirectionalStream.hpp; sourceTree = "<group>"; };
@@ -171,9 +162,6 @@
 		0747F28B196088B7003A0D0C /* NameableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NameableNode.cpp; sourceTree = "<group>"; };
 		0747F28D19608C3F003A0D0C /* NamespaceableNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NamespaceableNode.hpp; sourceTree = "<group>"; };
 		0747F28E19608DCB003A0D0C /* NamespaceableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NamespaceableNode.cpp; sourceTree = "<group>"; };
-		075F2D151953F2E50072E170 /* TCPConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TCPConnection.h; path = "Source Code/TCPConnection.h"; sourceTree = SOURCE_ROOT; };
-		075F2D201953F2FB0072E170 /* TCPConnection.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TCPConnection.mm; path = "Source Code/TCPConnection.mm"; sourceTree = SOURCE_ROOT; };
-		075F2D241954208D0072E170 /* Rambler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rambler.h; path = "Source Code/Rambler.h"; sourceTree = SOURCE_ROOT; };
 		079FDC311966514700F9DBC6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		07ABA9FD1960A8A4001543FB /* Element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Element.cpp; sourceTree = "<group>"; };
 		07ABAA091960B0E4001543FB /* TextNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextNode.hpp; sourceTree = "<group>"; };
@@ -198,6 +186,25 @@
 		07DECDCC196414AC007938D1 /* TCPConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TCPConnection.cpp; sourceTree = "<group>"; };
 		07DECDCE19641773007938D1 /* CFNetworkBasedTCPConnection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CFNetworkBasedTCPConnection.hpp; sourceTree = "<group>"; };
 		07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XMLSteamTestCase.mm; sourceTree = "<group>"; };
+		07F81461196E2AF300207EC1 /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Conversation.h; path = "Source Code/Rambler/XMPP/IM/Client/Conversation.h"; sourceTree = SOURCE_ROOT; };
+		07F81462196E2AF300207EC1 /* Conversation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Conversation.mm; path = "Source Code/Rambler/XMPP/IM/Client/Conversation.mm"; sourceTree = SOURCE_ROOT; };
+		07F81463196E2AF300207EC1 /* ConversationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConversationController.h; path = "Source Code/Rambler/XMPP/IM/Client/ConversationController.h"; sourceTree = SOURCE_ROOT; };
+		07F81464196E2AF300207EC1 /* ConversationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConversationController.mm; path = "Source Code/Rambler/XMPP/IM/Client/ConversationController.mm"; sourceTree = SOURCE_ROOT; };
+		07F81465196E2AF300207EC1 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = "Source Code/Rambler/XMPP/IM/Client/Message.h"; sourceTree = SOURCE_ROOT; };
+		07F81466196E2AF300207EC1 /* Message.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Message.mm; path = "Source Code/Rambler/XMPP/IM/Client/Message.mm"; sourceTree = SOURCE_ROOT; };
+		07F81467196E2AF300207EC1 /* RosterItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RosterItem.h; path = "Source Code/Rambler/XMPP/IM/Client/RosterItem.h"; sourceTree = SOURCE_ROOT; };
+		07F81468196E2AF300207EC1 /* RosterItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RosterItem.mm; path = "Source Code/Rambler/XMPP/IM/Client/RosterItem.mm"; sourceTree = SOURCE_ROOT; };
+		07F81469196E2AF300207EC1 /* RosterList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RosterList.h; path = "Source Code/Rambler/XMPP/IM/Client/RosterList.h"; sourceTree = SOURCE_ROOT; };
+		07F8146A196E2AF300207EC1 /* RosterList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RosterList.mm; path = "Source Code/Rambler/XMPP/IM/Client/RosterList.mm"; sourceTree = SOURCE_ROOT; };
+		07F81475196E2B0900207EC1 /* JID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JID.h; path = "Source Code/Rambler/XMPP/Core/JID.h"; sourceTree = SOURCE_ROOT; };
+		07F81476196E2B0900207EC1 /* JID.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = JID.mm; path = "Source Code/Rambler/XMPP/Core/JID.mm"; sourceTree = SOURCE_ROOT; };
+		07F81477196E2B0900207EC1 /* XMLStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLStream.h; path = "Source Code/Rambler/XMPP/Core/XMLStream.h"; sourceTree = SOURCE_ROOT; };
+		07F81478196E2B0900207EC1 /* XMLStream.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = XMLStream.mm; path = "Source Code/Rambler/XMPP/Core/XMLStream.mm"; sourceTree = SOURCE_ROOT; };
+		07F8147D196E2B1C00207EC1 /* Connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Connection.h; path = "Source Code/Rambler/Connection/Connection.h"; sourceTree = SOURCE_ROOT; };
+		07F8147E196E2B1C00207EC1 /* StreamState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamState.h; path = "Source Code/Rambler/Connection/StreamState.h"; sourceTree = SOURCE_ROOT; };
+		07F8147F196E2B1C00207EC1 /* TCPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TCPConnection.h; path = "Source Code/Rambler/Connection/TCPConnection.h"; sourceTree = SOURCE_ROOT; };
+		07F81480196E2B1C00207EC1 /* TCPConnection.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = TCPConnection.mm; path = "Source Code/Rambler/Connection/TCPConnection.mm"; sourceTree = SOURCE_ROOT; };
+		07F81485196E2B2D00207EC1 /* Rambler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Rambler.h; path = "Source Code/Rambler/Rambler.h"; sourceTree = SOURCE_ROOT; };
 		07F92317196CFA3B0010E3C4 /* XMLStreamParser_libxml2.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XMLStreamParser_libxml2.hpp; sourceTree = "<group>"; };
 		07F92325196D045F0010E3C4 /* XMLStreamParser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XMLStreamParser.hpp; sourceTree = "<group>"; };
 		07F92328196D0DB90010E3C4 /* libexpat.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libexpat.dylib; path = usr/lib/libexpat.dylib; sourceTree = SDKROOT; };
@@ -240,6 +247,8 @@
 		0715A62E1954F987004519D9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0715A63B19550DEE004519D9 /* JID.hpp */,
+				0715A63C195512A8004519D9 /* JID.cpp */,
 				0715A6301954FC6C004519D9 /* XMLStream.hpp */,
 				0715A6321954FC82004519D9 /* XMLStream.cpp */,
 				07DECDC61963C2F1007938D1 /* XMLStream_Constants.cpp */,
@@ -249,8 +258,6 @@
 				07F9232B196D12C30010E3C4 /* XMLStreamParser_expat.cpp */,
 				07F92317196CFA3B0010E3C4 /* XMLStreamParser_libxml2.hpp */,
 				07BF1F2919638F0700FC8348 /* XMLStreamParser_libxml2.cpp */,
-				0715A63B19550DEE004519D9 /* JID.hpp */,
-				0715A63C195512A8004519D9 /* JID.cpp */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -290,6 +297,72 @@
 				07ABAA0A1960B0EF001543FB /* TextNode.cpp */,
 			);
 			path = XML;
+			sourceTree = "<group>";
+		};
+		078D2A64196E24FF00CF208A /* XMPP */ = {
+			isa = PBXGroup;
+			children = (
+				078D2A65196E250700CF208A /* Core */,
+				078D2A66196E250C00CF208A /* IM */,
+			);
+			path = XMPP;
+			sourceTree = "<group>";
+		};
+		078D2A65196E250700CF208A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				07F81475196E2B0900207EC1 /* JID.h */,
+				07F81476196E2B0900207EC1 /* JID.mm */,
+				07F81477196E2B0900207EC1 /* XMLStream.h */,
+				07F81478196E2B0900207EC1 /* XMLStream.mm */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		078D2A66196E250C00CF208A /* IM */ = {
+			isa = PBXGroup;
+			children = (
+				078D2A67196E251000CF208A /* Client */,
+			);
+			path = IM;
+			sourceTree = "<group>";
+		};
+		078D2A67196E251000CF208A /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				07F81461196E2AF300207EC1 /* Conversation.h */,
+				07F81462196E2AF300207EC1 /* Conversation.mm */,
+				07F81463196E2AF300207EC1 /* ConversationController.h */,
+				07F81464196E2AF300207EC1 /* ConversationController.mm */,
+				07F81465196E2AF300207EC1 /* Message.h */,
+				07F81466196E2AF300207EC1 /* Message.mm */,
+				07F81467196E2AF300207EC1 /* RosterItem.h */,
+				07F81468196E2AF300207EC1 /* RosterItem.mm */,
+				07F81469196E2AF300207EC1 /* RosterList.h */,
+				07F8146A196E2AF300207EC1 /* RosterList.mm */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		078D2A68196E255000CF208A /* Rambler */ = {
+			isa = PBXGroup;
+			children = (
+				07F81485196E2B2D00207EC1 /* Rambler.h */,
+				078D2A69196E25DB00CF208A /* Connection */,
+				078D2A64196E24FF00CF208A /* XMPP */,
+			);
+			path = Rambler;
+			sourceTree = "<group>";
+		};
+		078D2A69196E25DB00CF208A /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				07F8147D196E2B1C00207EC1 /* Connection.h */,
+				07F8147E196E2B1C00207EC1 /* StreamState.h */,
+				07F8147F196E2B1C00207EC1 /* TCPConnection.h */,
+				07F81480196E2B1C00207EC1 /* TCPConnection.mm */,
+			);
+			path = Connection;
 			sourceTree = "<group>";
 		};
 		07BC78451969BF2500393657 /* rambler */ = {
@@ -360,25 +433,7 @@
 		07D1E6EB1950A8A6008C76CF /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
-				0715A62B1954D267004519D9 /* Connection.h */,
-				017B1A0E196A023600F3CBA7 /* Conversation.h */,
-				017B1A0F196A024100F3CBA7 /* Conversation.mm */,
-				017B1A11196A043D00F3CBA7 /* ConversationController.h */,
-				017B1A12196A044600F3CBA7 /* ConversationController.mm */,
-				017B1A081968C1D300F3CBA7 /* JID.h */,
-				017B1A091968C1E800F3CBA7 /* JID.mm */,
-				017B1A0B1969FE3000F3CBA7 /* Message.h */,
-				017B1A0C1969FE3E00F3CBA7 /* Message.mm */,
-				075F2D241954208D0072E170 /* Rambler.h */,
-				017B1A0219687FA200F3CBA7 /* RosterItem.h */,
-				017B1A0319687FB700F3CBA7 /* RosterItem.mm */,
-				017B1A051968914900F3CBA7 /* RosterList.h */,
-				017B1A061968915900F3CBA7 /* RosterList.mm */,
-				0715A61F1954D1C5004519D9 /* StreamState.h */,
-				075F2D151953F2E50072E170 /* TCPConnection.h */,
-				075F2D201953F2FB0072E170 /* TCPConnection.mm */,
-				017B19F51965EE8F00F3CBA7 /* XMLStream.h */,
-				017B1A001965FB9600F3CBA7 /* XMLStream.mm */,
+				078D2A68196E255000CF208A /* Rambler */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -460,14 +515,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				0715A6CA1957872E004519D9 /* JID.hpp in Headers */,
-				075F2D231954202A0072E170 /* TCPConnection.h in Headers */,
-				0715A6201954D1C5004519D9 /* StreamState.h in Headers */,
-				075F2D251954208D0072E170 /* Rambler.h in Headers */,
-				0715A62C1954D2D3004519D9 /* Connection.h in Headers */,
+				07F8147B196E2B0900207EC1 /* XMLStream.h in Headers */,
+				07F81473196E2AF300207EC1 /* RosterList.h in Headers */,
 				0739C3DA195B9D8F006A7EA8 /* types.hpp in Headers */,
+				07F81486196E2B2D00207EC1 /* Rambler.h in Headers */,
 				07D5DCCE1950B2110041A7F3 /* dns_utilities.h in Headers */,
 				0715A6311954FC6C004519D9 /* XMLStream.hpp in Headers */,
+				07F81483196E2B1C00207EC1 /* TCPConnection.h in Headers */,
+				07F8146F196E2AF300207EC1 /* Message.h in Headers */,
+				07F81471196E2AF300207EC1 /* RosterItem.h in Headers */,
 				07D5DCD01950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h in Headers */,
+				07F8146B196E2AF300207EC1 /* Conversation.h in Headers */,
+				07F81479196E2B0900207EC1 /* JID.h in Headers */,
+				07F8146D196E2AF300207EC1 /* ConversationController.h in Headers */,
+				07F81482196E2B1C00207EC1 /* StreamState.h in Headers */,
+				07F81481196E2B1C00207EC1 /* Connection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,25 +642,25 @@
 				070A852F19641B6D00798ABE /* CFNetworkBasedTCPConnection.cpp in Sources */,
 				07DECDC71963C2F1007938D1 /* XMLStream_Constants.cpp in Sources */,
 				07ABAA0B1960B0EF001543FB /* TextNode.cpp in Sources */,
-				017B1A0419687FB700F3CBA7 /* RosterItem.mm in Sources */,
-				017B1A011965FB9600F3CBA7 /* XMLStream.mm in Sources */,
+				07F8147C196E2B0900207EC1 /* XMLStream.mm in Sources */,
+				07F81474196E2AF300207EC1 /* RosterList.mm in Sources */,
 				0739C3F1195BE732006A7EA8 /* Namespace.cpp in Sources */,
-				017B1A10196A024100F3CBA7 /* Conversation.mm in Sources */,
+				07F8147A196E2B0900207EC1 /* JID.mm in Sources */,
 				07D5DCCF1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp in Sources */,
 				0747F28F19608DCB003A0D0C /* NamespaceableNode.cpp in Sources */,
-				017B1A0A1968C1E800F3CBA7 /* JID.mm in Sources */,
+				07F81470196E2AF300207EC1 /* Message.mm in Sources */,
+				07F81484196E2B1C00207EC1 /* TCPConnection.mm in Sources */,
 				0715A6331954FC82004519D9 /* XMLStream.cpp in Sources */,
 				07D5DCCD1950B2110041A7F3 /* dns_utilities.cpp in Sources */,
-				017B1A071968915900F3CBA7 /* RosterList.mm in Sources */,
 				0739C3E9195BB781006A7EA8 /* Attribute.cpp in Sources */,
-				075F2D211953F2FB0072E170 /* TCPConnection.mm in Sources */,
 				07DECDCD196414AC007938D1 /* TCPConnection.cpp in Sources */,
+				07F8146C196E2AF300207EC1 /* Conversation.mm in Sources */,
 				07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */,
 				0747F28C196088B7003A0D0C /* NameableNode.cpp in Sources */,
+				07F8146E196E2AF300207EC1 /* ConversationController.mm in Sources */,
 				07BC78371968AA9D00393657 /* base64.cpp in Sources */,
-				017B1A0D1969FE3E00F3CBA7 /* Message.mm in Sources */,
+				07F81472196E2AF300207EC1 /* RosterItem.mm in Sources */,
 				0715A63D195512A8004519D9 /* JID.cpp in Sources */,
-				017B1A13196A044600F3CBA7 /* ConversationController.mm in Sources */,
 				0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */,
 				07333DED196A46BD0000D8F3 /* XMLStream_Context.cpp in Sources */,
 				07F9232C196D12C30010E3C4 /* XMLStreamParser_expat.cpp in Sources */,
