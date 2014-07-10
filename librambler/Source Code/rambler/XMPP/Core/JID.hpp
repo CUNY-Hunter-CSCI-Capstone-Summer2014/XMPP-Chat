@@ -20,7 +20,8 @@ namespace rambler { namespace XMPP { namespace Core {
 		
         static JID const None;
 
-        JID();
+        JID() = default;
+        JID(String string);
         JID(String localPart, String domainPart);
         JID(String localPart, String domainPart, String resourcePart);
 
@@ -36,16 +37,15 @@ namespace rambler { namespace XMPP { namespace Core {
 
         JID getBareJID() const;
 
-        String getLocalPart() const;
-        String getDomainPart() const;
-        String getResourcePart() const;
+        String const & getLocalPart() const;
+        String const & getDomainPart() const;
+        String const & getResourcePart() const;
 
         String toString() const;
 
         bool operator == (JID const & other) const;
 
     private:
-
         String localPart;
         String domainPart;
         String resourcePart;

@@ -11,9 +11,10 @@ namespace rambler { namespace XMPP { namespace Core {
 
     JID const JID::None = JID();
 
-	JID::JID() {
-		/* Nothing to do here */
-	}
+    JID::JID(String string)
+    {
+        *this = createJIDFromString(string);
+    }
 
     JID::JID(String localPart, String domainPart) : localPart(localPart), domainPart(domainPart)
     {
@@ -114,17 +115,17 @@ namespace rambler { namespace XMPP { namespace Core {
         return JID(localPart, domainPart);
     }
 
-    String JID::getLocalPart() const
+    String const & JID::getLocalPart() const
     {
         return localPart;
     }
 
-    String JID::getDomainPart() const
+    String const & JID::getDomainPart() const
     {
         return domainPart;
     }
 
-    String JID::getResourcePart() const
+    String const & JID::getResourcePart() const
     {
         return resourcePart;
     }
