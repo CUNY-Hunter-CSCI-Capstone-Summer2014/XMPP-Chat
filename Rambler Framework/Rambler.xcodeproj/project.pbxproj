@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		017B1A011965FB9600F3CBA7 /* XMLStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A001965FB9600F3CBA7 /* XMLStream.mm */; };
+		017B1A0419687FB700F3CBA7 /* RosterItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A0319687FB700F3CBA7 /* RosterItem.mm */; };
+		017B1A071968915900F3CBA7 /* RosterList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A061968915900F3CBA7 /* RosterList.mm */; };
+		017B1A0A1968C1E800F3CBA7 /* JID.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A091968C1E800F3CBA7 /* JID.mm */; };
+		017B1A0D1969FE3E00F3CBA7 /* Message.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A0C1969FE3E00F3CBA7 /* Message.mm */; };
+		017B1A10196A024100F3CBA7 /* Conversation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A0F196A024100F3CBA7 /* Conversation.mm */; };
+		017B1A13196A044600F3CBA7 /* ConversationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 017B1A12196A044600F3CBA7 /* ConversationController.mm */; };
 		070A852F19641B6D00798ABE /* CFNetworkBasedTCPConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 070A852E19641B6D00798ABE /* CFNetworkBasedTCPConnection.cpp */; };
 		0715A6201954D1C5004519D9 /* StreamState.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A61F1954D1C5004519D9 /* StreamState.h */; };
 		0715A62C1954D2D3004519D9 /* Connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 0715A62B1954D267004519D9 /* Connection.h */; };
@@ -109,69 +116,6 @@
 			remoteGlobalIDString = 07D1E6CE1950A833008C76CF;
 			remoteInfo = Rambler;
 		};
-		07D5DD1C1950B6570041A7F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800C611946C97200D553BB;
-			remoteInfo = strophe;
-		};
-		07D5DD1E1950B6570041A7F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800C2F1946C02D00D553BB;
-			remoteInfo = "Check Parser";
-		};
-		07D5DD201950B6570041A7F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800C4D1946C0F800D553BB;
-			remoteInfo = "Test Base64";
-		};
-		07D5DD221950B6570041A7F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800CD21946CB6C00D553BB;
-			remoteInfo = "Test ctx";
-		};
-		07D5DD241950B6570041A7F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800CDF1946CCD700D553BB;
-			remoteInfo = "Test Hash";
-		};
-		07D5DD261950B6570041A7F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800CEB1946CD3000D553BB;
-			remoteInfo = "Test JID";
-		};
-		07D5DD281950B6570041A7F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800D071946CF0200D553BB;
-			remoteInfo = "Test Socket";
-		};
-		07D5DD2A1950B6570041A7F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07800D131946CFAC00D553BB;
-			remoteInfo = "Test SASL";
-		};
-		07D5DD2C1950B6570041A7F3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 07D5DCE41950B52C0041A7F3;
-			remoteInfo = "strophe-static";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -187,6 +131,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		017B19F51965EE8F00F3CBA7 /* XMLStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XMLStream.h; path = "Source Code/XMLStream.h"; sourceTree = SOURCE_ROOT; };
+		017B1A001965FB9600F3CBA7 /* XMLStream.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = XMLStream.mm; path = "Source Code/XMLStream.mm"; sourceTree = SOURCE_ROOT; };
+		017B1A0219687FA200F3CBA7 /* RosterItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RosterItem.h; path = "Source Code/RosterItem.h"; sourceTree = SOURCE_ROOT; };
+		017B1A0319687FB700F3CBA7 /* RosterItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RosterItem.mm; path = "Source Code/RosterItem.mm"; sourceTree = SOURCE_ROOT; };
+		017B1A051968914900F3CBA7 /* RosterList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RosterList.h; path = "Source Code/RosterList.h"; sourceTree = SOURCE_ROOT; };
+		017B1A061968915900F3CBA7 /* RosterList.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = RosterList.mm; path = "Source Code/RosterList.mm"; sourceTree = SOURCE_ROOT; };
+		017B1A081968C1D300F3CBA7 /* JID.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JID.h; path = "Source Code/JID.h"; sourceTree = SOURCE_ROOT; };
+		017B1A091968C1E800F3CBA7 /* JID.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = JID.mm; path = "Source Code/JID.mm"; sourceTree = SOURCE_ROOT; };
+		017B1A0B1969FE3000F3CBA7 /* Message.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Message.h; path = "Source Code/Message.h"; sourceTree = SOURCE_ROOT; };
+		017B1A0C1969FE3E00F3CBA7 /* Message.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Message.mm; path = "Source Code/Message.mm"; sourceTree = SOURCE_ROOT; };
+		017B1A0E196A023600F3CBA7 /* Conversation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Conversation.h; path = "Source Code/Conversation.h"; sourceTree = SOURCE_ROOT; };
+		017B1A0F196A024100F3CBA7 /* Conversation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Conversation.mm; path = "Source Code/Conversation.mm"; sourceTree = SOURCE_ROOT; };
+		017B1A11196A043D00F3CBA7 /* ConversationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ConversationController.h; path = "Source Code/ConversationController.h"; sourceTree = SOURCE_ROOT; };
+		017B1A12196A044600F3CBA7 /* ConversationController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ConversationController.mm; path = "Source Code/ConversationController.mm"; sourceTree = SOURCE_ROOT; };
 		0700FFE319625F940001283D /* pointer_types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = pointer_types.hpp; sourceTree = "<group>"; };
 		070A852E19641B6D00798ABE /* CFNetworkBasedTCPConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CFNetworkBasedTCPConnection.cpp; sourceTree = "<group>"; };
 		0715A61F1954D1C5004519D9 /* StreamState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StreamState.h; path = "Source Code/StreamState.h"; sourceTree = SOURCE_ROOT; };
@@ -234,7 +192,6 @@
 		07D5DCCA1950B2110041A7F3 /* dns_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dns_utilities.h; sourceTree = "<group>"; };
 		07D5DCCB1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SRVRecordResolver_CFNetwork.cpp; sourceTree = "<group>"; };
 		07D5DCCC1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRVRecordResolver_CFNetwork.h; sourceTree = "<group>"; };
-		07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = libstrophe.xcodeproj; path = "../External Libraries/libstrophe/libstrophe.xcodeproj"; sourceTree = "<group>"; };
 		07D5DD2F1950B6670041A7F3 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		07DECDC61963C2F1007938D1 /* XMLStream_Constants.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLStream_Constants.cpp; sourceTree = "<group>"; };
 		07DECDCB19641495007938D1 /* TCPConnection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TCPConnection.hpp; sourceTree = "<group>"; };
@@ -360,7 +317,6 @@
 				07D5DCB31950B1260041A7F3 /* librambler */,
 				07D1E6DE1950A833008C76CF /* Rambler – Tests */,
 				07D1E6F21950A913008C76CF /* Frameworks */,
-				07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */,
 				07D1E6D01950A833008C76CF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -404,11 +360,25 @@
 		07D1E6EB1950A8A6008C76CF /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
-				075F2D241954208D0072E170 /* Rambler.h */,
 				0715A62B1954D267004519D9 /* Connection.h */,
+				017B1A0E196A023600F3CBA7 /* Conversation.h */,
+				017B1A0F196A024100F3CBA7 /* Conversation.mm */,
+				017B1A11196A043D00F3CBA7 /* ConversationController.h */,
+				017B1A12196A044600F3CBA7 /* ConversationController.mm */,
+				017B1A081968C1D300F3CBA7 /* JID.h */,
+				017B1A091968C1E800F3CBA7 /* JID.mm */,
+				017B1A0B1969FE3000F3CBA7 /* Message.h */,
+				017B1A0C1969FE3E00F3CBA7 /* Message.mm */,
+				075F2D241954208D0072E170 /* Rambler.h */,
+				017B1A0219687FA200F3CBA7 /* RosterItem.h */,
+				017B1A0319687FB700F3CBA7 /* RosterItem.mm */,
+				017B1A051968914900F3CBA7 /* RosterList.h */,
+				017B1A061968915900F3CBA7 /* RosterList.mm */,
 				0715A61F1954D1C5004519D9 /* StreamState.h */,
 				075F2D151953F2E50072E170 /* TCPConnection.h */,
 				075F2D201953F2FB0072E170 /* TCPConnection.mm */,
+				017B19F51965EE8F00F3CBA7 /* XMLStream.h */,
+				017B1A001965FB9600F3CBA7 /* XMLStream.mm */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -480,22 +450,6 @@
 				07D5DCCC1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h */,
 			);
 			path = DNS;
-			sourceTree = "<group>";
-		};
-		07D5DD101950B6480041A7F3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				07D5DD1D1950B6570041A7F3 /* libstrophe.dylib */,
-				07D5DD1F1950B6570041A7F3 /* Check Parser */,
-				07D5DD211950B6570041A7F3 /* Test Base64 */,
-				07D5DD231950B6570041A7F3 /* Test ctx */,
-				07D5DD251950B6570041A7F3 /* Test Hash */,
-				07D5DD271950B6570041A7F3 /* Test JID */,
-				07D5DD291950B6570041A7F3 /* Test Socket */,
-				07D5DD2B1950B6570041A7F3 /* Test SASL */,
-				07D5DD2D1950B6570041A7F3 /* libstrophe.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -593,12 +547,6 @@
 			mainGroup = 07D1E6C51950A833008C76CF;
 			productRefGroup = 07D1E6D01950A833008C76CF /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 07D5DD101950B6480041A7F3 /* Products */;
-					ProjectRef = 07D5DD0F1950B6480041A7F3 /* libstrophe.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				07D1E6CE1950A833008C76CF /* Rambler */,
@@ -606,72 +554,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		07D5DD1D1950B6570041A7F3 /* libstrophe.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = libstrophe.dylib;
-			remoteRef = 07D5DD1C1950B6570041A7F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07D5DD1F1950B6570041A7F3 /* Check Parser */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Check Parser";
-			remoteRef = 07D5DD1E1950B6570041A7F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07D5DD211950B6570041A7F3 /* Test Base64 */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test Base64";
-			remoteRef = 07D5DD201950B6570041A7F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07D5DD231950B6570041A7F3 /* Test ctx */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test ctx";
-			remoteRef = 07D5DD221950B6570041A7F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07D5DD251950B6570041A7F3 /* Test Hash */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test Hash";
-			remoteRef = 07D5DD241950B6570041A7F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07D5DD271950B6570041A7F3 /* Test JID */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test JID";
-			remoteRef = 07D5DD261950B6570041A7F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07D5DD291950B6570041A7F3 /* Test Socket */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test Socket";
-			remoteRef = 07D5DD281950B6570041A7F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07D5DD2B1950B6570041A7F3 /* Test SASL */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = "Test SASL";
-			remoteRef = 07D5DD2A1950B6570041A7F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		07D5DD2D1950B6570041A7F3 /* libstrophe.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libstrophe.a;
-			remoteRef = 07D5DD2C1950B6570041A7F3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		07D1E6CD1950A833008C76CF /* Resources */ = {
@@ -698,18 +580,25 @@
 				070A852F19641B6D00798ABE /* CFNetworkBasedTCPConnection.cpp in Sources */,
 				07DECDC71963C2F1007938D1 /* XMLStream_Constants.cpp in Sources */,
 				07ABAA0B1960B0EF001543FB /* TextNode.cpp in Sources */,
+				017B1A0419687FB700F3CBA7 /* RosterItem.mm in Sources */,
+				017B1A011965FB9600F3CBA7 /* XMLStream.mm in Sources */,
 				0739C3F1195BE732006A7EA8 /* Namespace.cpp in Sources */,
+				017B1A10196A024100F3CBA7 /* Conversation.mm in Sources */,
 				07D5DCCF1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp in Sources */,
 				0747F28F19608DCB003A0D0C /* NamespaceableNode.cpp in Sources */,
+				017B1A0A1968C1E800F3CBA7 /* JID.mm in Sources */,
 				0715A6331954FC82004519D9 /* XMLStream.cpp in Sources */,
 				07D5DCCD1950B2110041A7F3 /* dns_utilities.cpp in Sources */,
+				017B1A071968915900F3CBA7 /* RosterList.mm in Sources */,
 				0739C3E9195BB781006A7EA8 /* Attribute.cpp in Sources */,
 				075F2D211953F2FB0072E170 /* TCPConnection.mm in Sources */,
 				07DECDCD196414AC007938D1 /* TCPConnection.cpp in Sources */,
 				07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */,
 				0747F28C196088B7003A0D0C /* NameableNode.cpp in Sources */,
 				07BC78371968AA9D00393657 /* base64.cpp in Sources */,
+				017B1A0D1969FE3E00F3CBA7 /* Message.mm in Sources */,
 				0715A63D195512A8004519D9 /* JID.cpp in Sources */,
+				017B1A13196A044600F3CBA7 /* ConversationController.mm in Sources */,
 				0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */,
 				07333DED196A46BD0000D8F3 /* XMLStream_Context.cpp in Sources */,
 				07F9232C196D12C30010E3C4 /* XMLStreamParser_expat.cpp in Sources */,

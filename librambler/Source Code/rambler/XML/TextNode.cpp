@@ -36,7 +36,11 @@ namespace rambler { namespace XML {
 
     String TextNode::getEscapedValue() const
     {
+#ifdef _MSC_VER
+#pragma message("TODO: Actually escape the value in rambler::XML::Attribute::getEscapedValue()")
+#else
 #warning TODO: Actually escape the value in rambler::XML::Attribute::getEscapedValue()
+#endif
         //TODO: Actually escape the value
         return value;
     }

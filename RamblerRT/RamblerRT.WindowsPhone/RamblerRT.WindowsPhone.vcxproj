@@ -94,9 +94,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalUsingDirectories>
-      </AdditionalUsingDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(SolutionDir)External Libraries\libxml-2.9.1-windows\include;$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XML;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
       <PreprocessorDefinitions>_WINRT_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -109,7 +108,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(SolutionDir)External Libraries\libxml-2.9.1-windows\include;$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XML;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
@@ -122,7 +121,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(SolutionDir)External Libraries\libxml-2.9.1-windows\include;$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XML;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
@@ -135,7 +134,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>true</CompileAsWinRT>
-      <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(SolutionDir)External Libraries\libxml-2.9.1-windows\include;$(SolutionDir)librambler\Source Code;$(SolutionDir)librambler\Source Code\Stream;$(SolutionDir)librambler\Source Code\Connection;$(SolutionDir)librambler\Source Code\XML;$(SolutionDir)librambler\Source Code\XMPP\Core;$(SolutionDir)librambler\Source Code\XMPP\IM;$(SolutionDir)librambler\Source Code\XMPP\Client;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalUsingDirectories>$(WindowsSDK_WindowsMetadata);%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>

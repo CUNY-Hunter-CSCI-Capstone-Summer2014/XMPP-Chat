@@ -57,7 +57,7 @@ namespace rambler { namespace Connection {
 
 		/* WindowsRuntime Specific Types */
 		HostName^ serverHost;
-		String^ serviceName;
+		Platform::String^ serviceName;
 
 		StreamSocket ^ actualSocket;
 		IAsyncAction ^ streamSocketOperation;

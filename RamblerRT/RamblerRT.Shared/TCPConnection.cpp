@@ -1,5 +1,5 @@
-#include "TCPConnection.h"
-
+#include "TCPConnection.hpp"
+#include "State.hpp"
 namespace Rambler{ namespace Connection{
 
 	TCPConnection::TCPConnection(){
@@ -11,14 +11,21 @@ namespace Rambler{ namespace Connection{
 		std::string stringHost, stringService;
 	
 		std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-		stringHost = converter.to_bytes(host->Data);
-		stringService = converter.to_bytes(service->Data);
+		stringHost = converter.to_bytes(host->Data());
+		stringService = converter.to_bytes(service->Data());
 		theConnection = new
 			rambler::Connection::WindowsRuntimeBasedConnection(stringHost, stringService);
 	}
-
+	TCPConnection::~TCPConnection(){
+		//IDK WHAT GOES HERE
+	}
 	Platform::Boolean TCPConnection::open(){
-		return theConnection->open;
+		if (theConnection->open()){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
 	void TCPConnection::close(){
@@ -30,27 +37,27 @@ namespace Rambler{ namespace Connection{
 		std::string toSend;
 
 		std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-		toSend  = converter.to_bytes(data->Data);		
+		toSend  = converter.to_bytes(data->Data());		
 		theConnection->sendData(toSend);
 	}
 
 
 
-	State TCPConnection::getState() const{
+	Stream::State TCPConnection::getState() {
 			
 		switch (theConnection->getState()){
 			case rambler::Connection::State::NotConnected:
-				return State::Closed;
+				return Stream::State::Closed;
 			case rambler::Connection::State::Connecting:
-				return State::Opening;
+				return Stream::State::Opening;
 			case rambler::Connection::State::Connected:
-					return State::Open;
+					return Stream::State::Open;
 			case rambler::Connection::State::SecurelyConnected:
-				return State::OpenAndSecured;
+				return Stream::State::OpenAndSecured;
 			}
 	}
 
-	Platform::String ^ TCPConnection::getConnectedHost() const{
+	Platform::String ^ TCPConnection::getConnectedHost() {
 		std::string connectedHost = theConnection->getConnectedHost();
 		
 		std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
@@ -61,11 +68,11 @@ namespace Rambler{ namespace Connection{
 		return pString;
 
 	}
-
-	UInt16 TCPConnection::getConnectedPort()  const{
+	
+	uint16 TCPConnection::getConnectedPort() {
 		return theConnection->getConnectedPort();
 	}
-
+	
 	
 
 
