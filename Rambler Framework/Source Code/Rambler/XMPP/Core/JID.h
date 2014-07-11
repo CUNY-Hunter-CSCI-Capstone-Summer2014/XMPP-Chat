@@ -12,7 +12,8 @@
 /**
  * An object that represents a Jabber ID (JID). It is immutable.
  * @author Omar Stefan Evans
- * @date   2014-07-09
+ * @author Peter Kamaris
+ * @date   2014-07-10
  */
 @interface JID : NSObject <NSCopying>
 
