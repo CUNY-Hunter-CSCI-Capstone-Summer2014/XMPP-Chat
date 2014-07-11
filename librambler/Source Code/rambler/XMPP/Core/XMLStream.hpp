@@ -55,11 +55,11 @@ namespace rambler { namespace XMPP { namespace Core {
         static const StrongPointer<XML::Element> SASL_Failure_Element;
 
         XMLStream() = default;
-        XMLStream(JID jid);
+        XMLStream(StrongPointer<JID> jid);
         XMLStream(String host);
-        XMLStream(String host, JID jid);
-        XMLStream(String host, String port);
-        XMLStream(String host, String port, JID jid);
+        XMLStream(String host, StrongPointer<JID> jid);
+        XMLStream(String host, UInt16 port);
+        XMLStream(String host, UInt16 port, StrongPointer<JID> jid);
 
         virtual ~XMLStream();
 
@@ -135,9 +135,9 @@ namespace rambler { namespace XMPP { namespace Core {
 
         /* Private Data */
 
-        JID jid;
+        StrongPointer<JID> jid;
         String host;
-        String port;
+        UInt16 port;
 
         StrongPointer<Connection::TCPConnection> connection;
         StrongPointer<Context> context;

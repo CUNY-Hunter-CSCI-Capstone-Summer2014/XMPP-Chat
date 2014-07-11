@@ -14,7 +14,7 @@
 
 namespace rambler { namespace XMPP { namespace Core {
 
-    XMLStream::XMLStream(JID jid) : jid(jid)
+    XMLStream::XMLStream(StrongPointer<JID> jid) : jid(jid)
     {
         /* Nothing to do here */
     }
@@ -24,17 +24,17 @@ namespace rambler { namespace XMPP { namespace Core {
         /* Nothing to do here */
     }
 
-    XMLStream::XMLStream(String host, JID jid) : host(host), jid(jid)
+    XMLStream::XMLStream(String host, StrongPointer<JID> jid) : host(host), jid(jid)
     {
         /* Nothing to do here */
     }
 
-    XMLStream::XMLStream(String host, String port) : host(host), port(port)
+    XMLStream::XMLStream(String host, UInt16 port) : host(host), port(port)
     {
         /* Nothing to do here */
     }
 
-    XMLStream::XMLStream(String host, String port, JID jid) : host(host), port(port), jid(jid)
+    XMLStream::XMLStream(String host, UInt16 port, StrongPointer<JID> jid) : host(host), port(port), jid(jid)
     {
         /* Nothing to do here */
     }
@@ -52,13 +52,13 @@ namespace rambler { namespace XMPP { namespace Core {
 
         state = Stream::State::Opening;
         if (host != "") {
-            if (port != "") {
-                connection = Connection::TCPConnection::nativeTCPConnection(host, port);
+            if (port != 0) {
+                connection = Connection::TCPConnection::nativeTCPConnection(host, std::to_string(port));
             } else {
                 connection = Connection::TCPConnection::nativeTCPConnection(host, "_xmpp-client");
             }
-        } else if (jid.isValid()) {
-            connection = Connection::TCPConnection::nativeTCPConnection(jid.getDomainPart(), "_xmpp-client");
+        } else if (jid != nullptr) {
+            connection = Connection::TCPConnection::nativeTCPConnection(jid->domainPart(), "_xmpp-client");
         } else {
             state = Stream::State::Closed;
             return false;
@@ -187,7 +187,7 @@ namespace rambler { namespace XMPP { namespace Core {
     {
         return "<?xml version='1.0'?>"
                              "<stream:stream to='" + connection->getDomainName() +
-                             (connection->getState() == Stream::State::OpenAndSecured ? "' from='" + jid.toString() : "") +
+                             (connection->getState() == Stream::State::OpenAndSecured ? "' from='" + jid->description() : "") +
                              "' version='1.0'"
                              " xml:lang='en'"
                              " xmlns='jabber:client'"
@@ -270,8 +270,8 @@ namespace rambler { namespace XMPP { namespace Core {
                             }
 
                             auto jidElement = jidElements.front();
-                            jid = JID::createJIDFromString(jidElement->getChildren().front()->getStringValue());
-                            if (jid.isFullJIDWithLocalPart()) {
+                            jid = JID::createJIDWithString(jidElement->getChildren().front()->getStringValue());
+                            if (jid->isFullJIDWithLocalPart()) {
                                 context->boundToResource = true;
                                 handleResourceBoundEvent(shared_from_this());
                             }

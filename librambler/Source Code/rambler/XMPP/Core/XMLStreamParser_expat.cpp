@@ -40,11 +40,11 @@ namespace rambler { namespace XMPP { namespace Core {
         auto self = shared_from_this();
         XML_SetUserData(parser, &self);
 
-        String::size_type bytesRemaining = data.size();
+        UInt bytesRemaining = data.size();
         char const * buffer = data.c_str();
 
         while (bytesRemaining != 0) {
-            Int bytesToParse = (Int)std::min(bytesRemaining, (String::size_type)std::numeric_limits<Int>::max());
+            Int32 bytesToParse = (Int32)std::min(bytesRemaining, (UInt)std::numeric_limits<Int32>::max());
             XML_Parse(parser, buffer, bytesToParse, false);
             bytesRemaining -= bytesToParse;
         }

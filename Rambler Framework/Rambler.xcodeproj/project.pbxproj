@@ -46,11 +46,11 @@
 		07F81472196E2AF300207EC1 /* RosterItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81468196E2AF300207EC1 /* RosterItem.mm */; };
 		07F81473196E2AF300207EC1 /* RosterList.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81469196E2AF300207EC1 /* RosterList.h */; };
 		07F81474196E2AF300207EC1 /* RosterList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F8146A196E2AF300207EC1 /* RosterList.mm */; };
-		07F81479196E2B0900207EC1 /* JID.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81475196E2B0900207EC1 /* JID.h */; };
+		07F81479196E2B0900207EC1 /* JID.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81475196E2B0900207EC1 /* JID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07F8147A196E2B0900207EC1 /* JID.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81476196E2B0900207EC1 /* JID.mm */; };
-		07F8147B196E2B0900207EC1 /* XMLStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81477196E2B0900207EC1 /* XMLStream.h */; };
+		07F8147B196E2B0900207EC1 /* XMLStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81477196E2B0900207EC1 /* XMLStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07F8147C196E2B0900207EC1 /* XMLStream.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81478196E2B0900207EC1 /* XMLStream.mm */; };
-		07F81481196E2B1C00207EC1 /* Connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F8147D196E2B1C00207EC1 /* Connection.h */; };
+		07F81481196E2B1C00207EC1 /* Connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F8147D196E2B1C00207EC1 /* Connection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07F81482196E2B1C00207EC1 /* StreamState.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F8147E196E2B1C00207EC1 /* StreamState.h */; };
 		07F81483196E2B1C00207EC1 /* TCPConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F8147F196E2B1C00207EC1 /* TCPConnection.h */; };
 		07F81484196E2B1C00207EC1 /* TCPConnection.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81480196E2B1C00207EC1 /* TCPConnection.mm */; };
@@ -285,14 +285,14 @@
 				0739C3E8195BB781006A7EA8 /* Attribute.cpp */,
 				0739C3E6195BA6D0006A7EA8 /* Element.hpp */,
 				07ABA9FD1960A8A4001543FB /* Element.cpp */,
-				0739C3EA195BC1F7006A7EA8 /* Node.hpp */,
-				0739C3EB195BC68C006A7EA8 /* Node.cpp */,
 				0747F28A1960879E003A0D0C /* NameableNode.hpp */,
 				0747F28B196088B7003A0D0C /* NameableNode.cpp */,
 				0739C3ED195BE296006A7EA8 /* Namespace.hpp */,
 				0739C3F0195BE732006A7EA8 /* Namespace.cpp */,
 				0747F28D19608C3F003A0D0C /* NamespaceableNode.hpp */,
 				0747F28E19608DCB003A0D0C /* NamespaceableNode.cpp */,
+				0739C3EA195BC1F7006A7EA8 /* Node.hpp */,
+				0739C3EB195BC68C006A7EA8 /* Node.cpp */,
 				07ABAA091960B0E4001543FB /* TextNode.hpp */,
 				07ABAA0A1960B0EF001543FB /* TextNode.cpp */,
 			);
@@ -488,10 +488,10 @@
 		07D5DCB51950B18D0041A7F3 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
-				07DECDCB19641495007938D1 /* TCPConnection.hpp */,
-				07DECDCC196414AC007938D1 /* TCPConnection.cpp */,
 				07DECDCE19641773007938D1 /* CFNetworkBasedTCPConnection.hpp */,
 				070A852E19641B6D00798ABE /* CFNetworkBasedTCPConnection.cpp */,
+				07DECDCB19641495007938D1 /* TCPConnection.hpp */,
+				07DECDCC196414AC007938D1 /* TCPConnection.cpp */,
 			);
 			path = Connection;
 			sourceTree = "<group>";

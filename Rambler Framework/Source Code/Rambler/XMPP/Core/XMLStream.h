@@ -1,24 +1,21 @@
-//
-//  XMLStream.h
-//  Rambler
-//
-//  Created by Peter Kamaris on 7/3/14.
-//  Copyright (c) 2014 DampKeg. All rights reserved.
-//
-
+/**********************************************************************************************************************
+ * @file    XMLStream.h
+ * @date    2014-07-02
+ * @brief   <# Brief Description#>
+ * @details <#Detailed Description#>
+ **********************************************************************************************************************/
 
 #import <Foundation/Foundation.h>
+#import <Rambler/JID.h>
 
 @interface XMLStream : NSObject
 
-//Class declarations
--(instancetype)initWithJID: (JID *)jid;
--(instancetype)initWithHost: (NSString *)host;
--(instancetype)initWithHost: (NSString *)host jid:(JID *)jid;
--(instancetype)initWithHost: (NSString *)host port:(NSString *)port;
--(instancetype)initWithHost: (NSString *)host port:(NSString *)port; (JID *)jid;
+- (instancetype)initWithJID:(JID *)aJID;
+- (instancetype)initWithHost:(NSString *)aHost;
+- (instancetype)initWithHost:(NSString *)aHost jid:(JID *)aJID;
+- (instancetype)initWithHost:(NSString *)aHost port:(UInt16)aPort;
+- (instancetype)initWithHost:(NSString *)aHost port:(UInt16)aPort jid:(JID *)aJID;
 
-//Functions declarations
 - (BOOL)open;
 
 - (void)close;

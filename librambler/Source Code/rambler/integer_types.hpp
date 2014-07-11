@@ -25,10 +25,13 @@ namespace rambler {
     using UInt64 = uint64_t;
     using SInt64 = int64_t;
     using Int64  = SInt64;
-#endif /* _WIN64 || __LP64__ || __LLP64__ */
 
+    using UInt   = UInt64;
+    using Int    = Int64;
+#else
     using UInt   = UInt32;
     using Int    = Int32;
+#endif /* _WIN64 || __LP64__ || __LLP64__ */
     
 }
 

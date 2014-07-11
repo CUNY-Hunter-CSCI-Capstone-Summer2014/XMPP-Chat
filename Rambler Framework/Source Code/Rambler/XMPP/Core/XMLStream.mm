@@ -1,10 +1,3 @@
-//
-//  XMLStream.m
-//  Rambler
-//
-//  Created by Peter Kamaris on 7/3/14.
-//  Copyright (c) 2014 DampKeg. All rights reserved.
-//
 /**********************************************************************************************************************
  * @file    XMLStream.m
  * @date    2014-07-02
@@ -13,53 +6,83 @@
  **********************************************************************************************************************/
 
 #import "XMLStream.h"
-#include "XMLStream.hpp"
+#include "rambler/XMPP/Core/XMLStream.hpp"
 
 using namespace rambler;
 
-@implementation XMLStream : NSObject {
-    
-    StrongPointer<XMPP::Core::XMLStream> xmlstream;
-    
+@implementation XMLStream {
+    StrongPointer<XMPP::Core::XMLStream> _cpp_XMLStream;
 }
 
 
--(instancetype)initWithJID: (JID *)jid{
-    std::make_shared<XMPP::Core::XMLStream>(/*  Convert the Objective-C JID to a C++ one and pass it here */)
+- (instancetype)initWithJID:(JID *)jid
+{
+    self = [super init];
+    if (self != nil) {
+#warning Implement this!
+        //Does nothing
+    }
+
+    return self;
 }
 
--(instancetype)initWithHost: (NSString *)host{
-    //Does nothing
+- (instancetype)initWithHost:(NSString *)host
+{
+    self = [super init];
+    if (self != nil) {
+#warning Implement this!
+        //Does nothing
+    }
+
+    return self;
 }
 
--(instancetype)initWithHost: (NSString *)host jid:(JID *)jid{
-    //Does nothing
+- (instancetype)initWithHost:(NSString *)host jid:(JID *)jid
+{
+    self = [super init];
+    if (self != nil) {
+#warning Implement this!
+        //Does nothing
+    }
+
+    return self;
 }
 
--(instancetype)initWithHost: (NSString *)host port:(NSstring *)port{
-    //Does nothing
-}
+- (instancetype)initWithHost:(NSString *)host port:(UInt16)port
+{
+    self = [super init];
+    if (self != nil) {
+#warning Implement this!
+        //Does nothing
+    }
 
--(instancetype)initWithHost: (NSString *)host port:(NSstring *)port (JID *)jid{
-    //Does nothing
+    return self;}
+
+- (instancetype)initWithHost:(NSString *)host port:(UInt16)port jid:(JID *)jid
+{
+    self = [super init];
+    if (self != nil) {
+#warning Implement this!
+        //Does nothing
+    }
+
+    return self;
 }
 
 
 - (BOOL)open{
-    
-    return xmlstream->open();
-    
+    return _cpp_XMLStream->open();
 }
 
 - (void)close{
-    
-    return xmlstream->close();
-
+    _cpp_XMLStream->close();
 }
 
-- (void)sendData:(NSData *) data{
-    //data variable needs to be converted
-    return xmlstream->sendData(data);
+- (void)sendData:(NSData *)data
+{
+    std::vector<UInt8> cpp_data{(UInt8 *)data.bytes, (UInt8 *)data.bytes + data.length};
+
+    return _cpp_XMLStream->sendData(cpp_data);
 }
 
 @end

@@ -1,32 +1,34 @@
-//
-//  JID.m
-//  Rambler
-//
-//  Created by Peter Kamaris on 7/5/14.
-//  Copyright (c) 2014 DampKeg. All rights reserved.
-//
+/**********************************************************************************************************************
+ * @file    Rambler/XMPP/Core/JID.mm
+ * @date    2014-07-10
+ * @author  Omar Stephan Evans
+ * @author  Peter Kamaris
+ * @brief   <# Brief Description#>
+ * @details <#Detailed Description#>
+ **********************************************************************************************************************/
 
-#import <Foundation/Foundation.h>
-
-#import "JID.h"
-#include "JID.hpp"
+#import  "JID.h"
+#include "rambler/XMPP/Core/JID.hpp"
 
 using namespace rambler;
 
 @implementation JID {
     StrongPointer<XMPP::Core::JID> _cpp_JID;
     JID * _bareJID;
+}
 
-    NSString * _cachedDescription;
+- (StrongPointer<XMPP::Core::JID>)nativeObject
+{
+    return _cpp_JID;
 }
 
 - (instancetype)initWithString:(NSString *)aString
 {
     self = [super init];
     if (self != nil) {
-        _cpp_JID = std::make_shared<XMPP::Core::JID>(aString.UTF8String);
+        _cpp_JID = XMPP::Core::JID::createJIDWithString(aString.UTF8String);
 
-        if (!_cpp_JID->isValid()) {
+        if (!_cpp_JID) {
             self = nil;
         }
     }
@@ -40,11 +42,11 @@ using namespace rambler;
 {
     self = [super init];
     if (self != nil) {
-        _cpp_JID = std::make_shared<XMPP::Core::JID>(aLocalPart.UTF8String,
-                                                 aDomainPart.UTF8String,
-                                                 aResourcePart.UTF8String);
-        
-        if (!_cpp_JID->isValid()) {
+        _cpp_JID = XMPP::Core::JID::createJIDWithComponents(aLocalPart.UTF8String,
+                                                            aDomainPart.UTF8String,
+                                                            aResourcePart.UTF8String);
+
+        if (!_cpp_JID) {
             self = nil;
         }
     }
@@ -69,24 +71,24 @@ using namespace rambler;
 
 - (NSString *)localPart
 {
-    return [[NSString alloc] initWithBytesNoCopy:(void *)_cpp_JID->getLocalPart().c_str()
-                                          length:_cpp_JID->getLocalPart().length()
+    return [[NSString alloc] initWithBytesNoCopy:(void *)_cpp_JID->localPart().c_str()
+                                          length:_cpp_JID->localPart().length()
                                         encoding:NSUTF8StringEncoding
                                     freeWhenDone:NO];
 }
 
 - (NSString *)domainPart
 {
-    return [[NSString alloc] initWithBytesNoCopy:(void *)_cpp_JID->getDomainPart().c_str()
-                                          length:_cpp_JID->getDomainPart().length()
+    return [[NSString alloc] initWithBytesNoCopy:(void *)_cpp_JID->domainPart().c_str()
+                                          length:_cpp_JID->domainPart().length()
                                         encoding:NSUTF8StringEncoding
                                     freeWhenDone:NO];
 }
 
 - (NSString *)resourcePart
 {
-    return [[NSString alloc] initWithBytesNoCopy:(void *)_cpp_JID->getResourcePart().c_str()
-                                          length:_cpp_JID->getResourcePart().length()
+    return [[NSString alloc] initWithBytesNoCopy:(void *)_cpp_JID->resourcePart().c_str()
+                                          length:_cpp_JID->resourcePart().length()
                                         encoding:NSUTF8StringEncoding
                                     freeWhenDone:NO];
 }
@@ -129,11 +131,6 @@ using namespace rambler;
     return _cpp_JID->isDomainJID();
 }
 
-- (BOOL)isValid
-{
-    return _cpp_JID->isValid();
-}
-
 - (id)copyWithZone:(NSZone *)zone
 {
     return self;
@@ -141,11 +138,10 @@ using namespace rambler;
 
 - (NSString *)description
 {
-    if (_cachedDescription == nil) {
-        _cachedDescription = [NSString stringWithUTF8String:_cpp_JID->toString().c_str()];
-    }
-
-    return _cachedDescription;
+    return [[NSString alloc] initWithBytesNoCopy:(void *)_cpp_JID->description().c_str()
+                                          length:_cpp_JID->description().length()
+                                        encoding:NSUTF8StringEncoding
+                                    freeWhenDone:NO];
 }
 
 - (NSUInteger)hash

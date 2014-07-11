@@ -1,6 +1,8 @@
 /**********************************************************************************************************************
  * @file    Rambler/XMPP/Core/JID.h
- * @date    2014-07-09
+ * @author  Omar Stefan Evans
+ * @author  Peter Kamaris
+ * @date    2014-07-10
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
@@ -23,8 +25,6 @@
 @property (nonatomic, assign, readonly) BOOL isFullJID;
 @property (nonatomic, assign, readonly) BOOL isFullJIDWithLocalPart;
 @property (nonatomic, assign, readonly) BOOL isDomainJID;
-@property (nonatomic, assign, readonly, getter=isValid) BOOL valid;
-
 
 /**
  * A designated initializer
