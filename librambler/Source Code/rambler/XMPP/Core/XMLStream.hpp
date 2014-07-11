@@ -108,8 +108,6 @@ namespace rambler { namespace XMPP { namespace Core {
         void setMessageStanzaReceivedEventHandler(MessageStanzaReceivedEventHandler eventHandler);
         void setPresenceStanzaReceivedEventHandler(PresenceStanzaReceivedEventHandler eventHandler);
 
-        void getJID();
-
         void handleReceivedXMLElementEvent(StrongPointer<XML::Element> element);
 
 

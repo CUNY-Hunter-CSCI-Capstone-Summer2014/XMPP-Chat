@@ -16,15 +16,86 @@
  */
 @interface JID : NSObject <NSCopying>
 
+#pragma mark Properties
+
+/**
+ * Returns a String that represents the local part of this JID as defined by RFC 6122.
+ * @author  Peter Kamaris
+ * @date    2014-07-10
+ * @return  a String representing the local part of this JID
+ */
 @property (nonatomic, strong, readonly) NSString * localPart;
+
+/**
+ * Returns a String that represents the domain part of this JID as defined by RFC 6122.
+ * @author  Peter Kamaris
+ * @date    2014-07-10
+ * @return  a String representing the domain part of this JID
+ */
 @property (nonatomic, strong, readonly) NSString * domainPart;
+
+/**
+ * Returns a String that represents the resource part of this JID as defined by RFC 6122.
+ * @author  Peter Kamaris
+ * @date    2014-07-10
+ * @return  a String representing the resource part of this JID
+ */
 @property (nonatomic, strong, readonly) NSString * resourcePart;
+
+/**
+ * Returns a "bare JID", as defined by RCF 6122, that is derived from this one.
+ * @author  Omar Stefan Evans
+ * @date    2014-07-10
+ * @return  a bare JID that is derived from this one
+ * @details the returned JID may be identical to this one
+ */
 @property (nonatomic, strong, readonly) JID * bareJID;
+
+/**
+ * Returns a Boolean value that indicates whether this JID is a "bare JID" as defined by RFC 6120.
+ * @author  Peter Kamaris
+ * @date    2014-07-10
+ * @return  YES if and only if this JID is a "bare JID"
+ */
 @property (nonatomic, assign, readonly) BOOL isBareJID;
+
+/**
+ * Returns a Boolean value that indicates whether this JID is a "bare JID" as defined by RFC 6120,
+ * which additionally has a local part, as defined by RFC 6122.
+ * @author  Peter Kamaris
+ * @date    2014-07-10
+ * @return  YES if and only if this JID is a "bare JID" which has a local part
+ */
 @property (nonatomic, assign, readonly) BOOL isBareJIDWithLocalPart;
+
+/**
+ * Returns a  Boolean value that indicates whether this JID is a "full JID" as defined by RFC 6120.
+ * @author  Peter Kamaris
+ * @date    2014-07-10
+ * @return  YES if and only if this JID is a "full JID"
+ */
 @property (nonatomic, assign, readonly) BOOL isFullJID;
+
+/**
+ * Returns a Boolean value that indicates whether this JID is a "full JID" as defined by RFC 6120,
+ * which additionally has a local part, as defined by RFC 6122.
+ * @author  Peter Kamaris
+ * @date    2014-07-10
+ * @return  YES if and only if this JID is a "full JID" which has a local part
+ */
 @property (nonatomic, assign, readonly) BOOL isFullJIDWithLocalPart;
+
+/**
+ * Returns a Boolean value that indicates whether this JID lacks a local part, as defined by RFC 6122.
+ * @author  Peter Kamaris
+ * @date    2014-07-10
+ * @return  YES if and only if this JID is a JID which lacks a local part
+ */
 @property (nonatomic, assign, readonly) BOOL isDomainJID;
+
+
+
+#pragma mark Initializers
 
 /**
  * A designated initializer
@@ -64,6 +135,10 @@
  */
 - (instancetype)initWithDomainPart:(NSString *)aDomainPart
                      resourcePart:(NSString *)aResourcePart;
+
+
+
+#pragma mark Methods
 
 /**
  * Implements the NSCopying protocol.
@@ -108,5 +183,7 @@
  * @see     description
  */
 - (BOOL)isEqualToJID:(JID *)aJID;
+
+
 
 @end

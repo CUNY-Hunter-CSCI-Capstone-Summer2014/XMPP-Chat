@@ -22,6 +22,11 @@
 		0747F28F19608DCB003A0D0C /* NamespaceableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0747F28E19608DCB003A0D0C /* NamespaceableNode.cpp */; };
 		075F2D06195378B40072E170 /* ConnectionTestCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D1E7011950AA59008C76CF /* ConnectionTestCase.mm */; };
 		079FDC321966514700F9DBC6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 079FDC311966514700F9DBC6 /* Security.framework */; };
+		07A30662196F79B000D9523E /* RosterItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A3065D196F79B000D9523E /* RosterItem.cpp */; };
+		07A30663196F79B000D9523E /* RosterItem.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 07A3065E196F79B000D9523E /* RosterItem.hpp */; };
+		07A30664196F79B000D9523E /* RosterList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A3065F196F79B000D9523E /* RosterList.cpp */; };
+		07A30665196F79B000D9523E /* RosterList.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 07A30660196F79B000D9523E /* RosterList.hpp */; };
+		07A30666196F79B000D9523E /* SubscriptionStatus.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 07A30661196F79B000D9523E /* SubscriptionStatus.hpp */; };
 		07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07ABA9FD1960A8A4001543FB /* Element.cpp */; };
 		07ABAA0B1960B0EF001543FB /* TextNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07ABAA0A1960B0EF001543FB /* TextNode.cpp */; };
 		07BC78371968AA9D00393657 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07BC78361968AA9D00393657 /* base64.cpp */; };
@@ -163,6 +168,11 @@
 		0747F28D19608C3F003A0D0C /* NamespaceableNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NamespaceableNode.hpp; sourceTree = "<group>"; };
 		0747F28E19608DCB003A0D0C /* NamespaceableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NamespaceableNode.cpp; sourceTree = "<group>"; };
 		079FDC311966514700F9DBC6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		07A3065D196F79B000D9523E /* RosterItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RosterItem.cpp; sourceTree = "<group>"; };
+		07A3065E196F79B000D9523E /* RosterItem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RosterItem.hpp; sourceTree = "<group>"; };
+		07A3065F196F79B000D9523E /* RosterList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RosterList.cpp; sourceTree = "<group>"; };
+		07A30660196F79B000D9523E /* RosterList.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RosterList.hpp; sourceTree = "<group>"; };
+		07A30661196F79B000D9523E /* SubscriptionStatus.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SubscriptionStatus.hpp; sourceTree = "<group>"; };
 		07ABA9FD1960A8A4001543FB /* Element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Element.cpp; sourceTree = "<group>"; };
 		07ABAA091960B0E4001543FB /* TextNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextNode.hpp; sourceTree = "<group>"; };
 		07ABAA0A1960B0EF001543FB /* TextNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextNode.cpp; sourceTree = "<group>"; };
@@ -265,6 +275,7 @@
 		0715A62F1954F9C8004519D9 /* IM */ = {
 			isa = PBXGroup;
 			children = (
+				07A3065C196F799200D9523E /* Client */,
 			);
 			path = IM;
 			sourceTree = "<group>";
@@ -363,6 +374,18 @@
 				07F81480196E2B1C00207EC1 /* TCPConnection.mm */,
 			);
 			path = Connection;
+			sourceTree = "<group>";
+		};
+		07A3065C196F799200D9523E /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				07A3065D196F79B000D9523E /* RosterItem.cpp */,
+				07A3065E196F79B000D9523E /* RosterItem.hpp */,
+				07A3065F196F79B000D9523E /* RosterList.cpp */,
+				07A30660196F79B000D9523E /* RosterList.hpp */,
+				07A30661196F79B000D9523E /* SubscriptionStatus.hpp */,
+			);
+			path = Client;
 			sourceTree = "<group>";
 		};
 		07BC78451969BF2500393657 /* rambler */ = {
@@ -523,13 +546,16 @@
 				0715A6311954FC6C004519D9 /* XMLStream.hpp in Headers */,
 				07F81483196E2B1C00207EC1 /* TCPConnection.h in Headers */,
 				07F8146F196E2AF300207EC1 /* Message.h in Headers */,
+				07A30663196F79B000D9523E /* RosterItem.hpp in Headers */,
 				07F81471196E2AF300207EC1 /* RosterItem.h in Headers */,
 				07D5DCD01950B2110041A7F3 /* SRVRecordResolver_CFNetwork.h in Headers */,
 				07F8146B196E2AF300207EC1 /* Conversation.h in Headers */,
+				07A30666196F79B000D9523E /* SubscriptionStatus.hpp in Headers */,
 				07F81479196E2B0900207EC1 /* JID.h in Headers */,
 				07F8146D196E2AF300207EC1 /* ConversationController.h in Headers */,
 				07F81482196E2B1C00207EC1 /* StreamState.h in Headers */,
 				07F81481196E2B1C00207EC1 /* Connection.h in Headers */,
+				07A30665196F79B000D9523E /* RosterList.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,10 +682,12 @@
 				07DECDCD196414AC007938D1 /* TCPConnection.cpp in Sources */,
 				07F8146C196E2AF300207EC1 /* Conversation.mm in Sources */,
 				07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */,
+				07A30662196F79B000D9523E /* RosterItem.cpp in Sources */,
 				0747F28C196088B7003A0D0C /* NameableNode.cpp in Sources */,
 				07F8146E196E2AF300207EC1 /* ConversationController.mm in Sources */,
 				07BC78371968AA9D00393657 /* base64.cpp in Sources */,
 				07F81472196E2AF300207EC1 /* RosterItem.mm in Sources */,
+				07A30664196F79B000D9523E /* RosterList.cpp in Sources */,
 				0715A63D195512A8004519D9 /* JID.cpp in Sources */,
 				0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */,
 				07333DED196A46BD0000D8F3 /* XMLStream_Context.cpp in Sources */,

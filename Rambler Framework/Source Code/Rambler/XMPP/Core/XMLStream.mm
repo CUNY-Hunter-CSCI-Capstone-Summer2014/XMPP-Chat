@@ -15,7 +15,7 @@ using namespace rambler;
 }
 
 
-- (instancetype)initWithJID:(JID *)jid
+- (instancetype)initWithJID:(JID *)aJID
 {
     self = [super init];
     if (self != nil) {
@@ -26,7 +26,7 @@ using namespace rambler;
     return self;
 }
 
-- (instancetype)initWithHost:(NSString *)host
+- (instancetype)initWithHostname:(NSString *)aHostname
 {
     self = [super init];
     if (self != nil) {
@@ -37,7 +37,7 @@ using namespace rambler;
     return self;
 }
 
-- (instancetype)initWithHost:(NSString *)host jid:(JID *)jid
+- (instancetype)initWithHostname:(NSString *)aHostname jid:(JID *)aJID
 {
     self = [super init];
     if (self != nil) {
@@ -48,7 +48,7 @@ using namespace rambler;
     return self;
 }
 
-- (instancetype)initWithHost:(NSString *)host port:(UInt16)port
+- (instancetype)initWithHostname:(NSString *)aHostname port:(UInt16)aPort
 {
     self = [super init];
     if (self != nil) {
@@ -58,7 +58,7 @@ using namespace rambler;
 
     return self;}
 
-- (instancetype)initWithHost:(NSString *)host port:(UInt16)port jid:(JID *)jid
+- (instancetype)initWithHostname:(NSString *)aHostname port:(UInt16)aPort jid:(JID *)aJID
 {
     self = [super init];
     if (self != nil) {
@@ -80,9 +80,12 @@ using namespace rambler;
 
 - (void)sendData:(NSData *)data
 {
-    std::vector<UInt8> cpp_data{(UInt8 *)data.bytes, (UInt8 *)data.bytes + data.length};
+    _cpp_XMLStream->sendData(std::vector<UInt8>{(UInt8 *)data.bytes, (UInt8 *)data.bytes + data.length});
+}
 
-    return _cpp_XMLStream->sendData(cpp_data);
+- (void)sendString:(NSString *)string
+{
+    _cpp_XMLStream->sendData(string.UTF8String);
 }
 
 @end
