@@ -1,7 +1,7 @@
 /**********************************************************************************************************************
  * @file    Rambler/XMPP/Core/JID.mm
  * @date    2014-07-10
- * @author  Omar Stephan Evans
+ * @author  Omar Stefan Evans
  * @author  Peter Kamaris
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
