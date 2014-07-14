@@ -19,6 +19,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\WindowsRuntimeBasedConnection.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\integer_types.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\pointer_types.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\rambler\XMPP\IM\Client\Conversation.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\rambler\XMPP\IM\Client\ConversationController.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\rambler\XMPP\IM\Client\Message.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\BidirectionalStream.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Stream\State.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\string_types.hpp" />
@@ -35,25 +38,25 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\RosterItem.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\RosterList.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\SubscriptionStatus.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Conversation.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)ConversationController.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)Message.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Connection\TCPConnection.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)RamblerRT.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)RosterItem.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)RosterList.hpp" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)State.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Stream\State.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)targetver.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)TCPConnection.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\JID.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\Utility.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\XMLStream.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Conversation.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\ConversationController.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Message.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\RosterItem.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\RosterList.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\AbstractConnection.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\Connection\WindowsRuntimeBasedConnection.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\rambler\XMPP\IM\Client\Conversation.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\rambler\XMPP\IM\Client\ConversationController.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\rambler\XMPP\IM\Client\Message.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\Attribute.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\Element.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XML\NameableNode.cpp" />
@@ -66,18 +69,15 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\Core\XMLStream_Parser.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\RosterItem.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\XMPP\IM\Client\RosterList.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Conversation.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)ConversationController.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)Message.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Connection\TCPConnection.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RamblerRT.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)RosterItem.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)RosterList.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)TCPConnection.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\Core\JID.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\Core\XMLStream.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Conversation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\ConversationController.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Message.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\RosterItem.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\RosterList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectCapability Include="SourceItemsFromImports" />
