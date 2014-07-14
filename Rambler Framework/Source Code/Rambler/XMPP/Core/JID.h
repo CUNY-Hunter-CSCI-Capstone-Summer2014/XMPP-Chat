@@ -10,10 +10,10 @@
 #import <Foundation/Foundation.h>
 
 /**
- * An object that represents a Jabber ID (JID). It is immutable.
+ * An object that represents a Jabber ID (JID). It is immutable. Thread safety is guaranteed.
  * @author Omar Stefan Evans
  * @author Peter Kamaris
- * @date   2014-07-10
+ * @date   2014-07-12
  */
 @interface JID : NSObject <NSCopying>
 
@@ -21,27 +21,27 @@
 
 /**
  * Returns a String that represents the local part of this JID as defined by RFC 6122.
- * @author  Peter Kamaris
- * @date    2014-07-10
+ * This property is automatically synthesized by the compiler.
+ * @date    2014-07-12
  * @return  a String representing the local part of this JID
  */
-@property (nonatomic, strong, readonly) NSString * localPart;
+@property (readonly, strong) NSString * localPart;
 
 /**
  * Returns a String that represents the domain part of this JID as defined by RFC 6122.
- * @author  Peter Kamaris
- * @date    2014-07-10
+ * This property is automatically synthesized by the compiler.
+ * @date    2014-07-12
  * @return  a String representing the domain part of this JID
  */
-@property (nonatomic, strong, readonly) NSString * domainPart;
+@property (readonly, strong) NSString * domainPart;
 
 /**
  * Returns a String that represents the resource part of this JID as defined by RFC 6122.
- * @author  Peter Kamaris
- * @date    2014-07-10
+ * This property is automatically synthesized by the compiler.
+ * @date    2014-07-12
  * @return  a String representing the resource part of this JID
  */
-@property (nonatomic, strong, readonly) NSString * resourcePart;
+@property (readonly, strong) NSString * resourcePart;
 
 /**
  * Returns a "bare JID", as defined by RCF 6122, that is derived from this one.
@@ -50,7 +50,17 @@
  * @return  a bare JID that is derived from this one
  * @details the returned JID may be identical to this one
  */
-@property (nonatomic, strong, readonly) JID * bareJID;
+@property (readonly, strong) JID * bareJID;
+
+/**
+ * Returns the string representation for this JID
+ * @author  Omar Stefan Evans
+ * @date    2014-07-09
+ * @return  the string representation of this JID
+ * @details A full JID is printed as localPart@domainPart/resourcePart, or as domainPart/resourcePart for domain JIDs.
+ *          A bare JID is printed as localPart@domainPart, or as domainPart for domain JIDs.
+ */
+@property (readonly, strong) NSString *description;
 
 /**
  * Returns a Boolean value that indicates whether this JID is a "bare JID" as defined by RFC 6120.
@@ -58,7 +68,7 @@
  * @date    2014-07-10
  * @return  YES if and only if this JID is a "bare JID"
  */
-@property (nonatomic, assign, readonly) BOOL isBareJID;
+@property (readonly, assign) BOOL isBareJID;
 
 /**
  * Returns a Boolean value that indicates whether this JID is a "bare JID" as defined by RFC 6120,
@@ -67,7 +77,7 @@
  * @date    2014-07-10
  * @return  YES if and only if this JID is a "bare JID" which has a local part
  */
-@property (nonatomic, assign, readonly) BOOL isBareJIDWithLocalPart;
+@property (readonly, assign) BOOL isBareJIDWithLocalPart;
 
 /**
  * Returns a  Boolean value that indicates whether this JID is a "full JID" as defined by RFC 6120.
@@ -75,7 +85,7 @@
  * @date    2014-07-10
  * @return  YES if and only if this JID is a "full JID"
  */
-@property (nonatomic, assign, readonly) BOOL isFullJID;
+@property (readonly, assign) BOOL isFullJID;
 
 /**
  * Returns a Boolean value that indicates whether this JID is a "full JID" as defined by RFC 6120,
@@ -84,7 +94,7 @@
  * @date    2014-07-10
  * @return  YES if and only if this JID is a "full JID" which has a local part
  */
-@property (nonatomic, assign, readonly) BOOL isFullJIDWithLocalPart;
+@property (readonly, assign) BOOL isFullJIDWithLocalPart;
 
 /**
  * Returns a Boolean value that indicates whether this JID lacks a local part, as defined by RFC 6122.
@@ -92,27 +102,27 @@
  * @date    2014-07-10
  * @return  YES if and only if this JID is a JID which lacks a local part
  */
-@property (nonatomic, assign, readonly) BOOL isDomainJID;
+@property (readonly, assign) BOOL isDomainJID;
 
 
 
 #pragma mark Initializers
 
 /**
- * A designated initializer
+ * A convenience initializer
  * @author  Omar Stefan Evans
  * @date    2014-07-10
  */
-- (instancetype)initWithString:(NSString *)aString NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithString:(NSString *)aString;
 
 /**
- * A designated initializer
+ * A convenience initializer
  * @author  Omar Stefan Evans
  * @date    2014-07-09
  */
 - (instancetype)initWithLocalPart:(NSString *)aLocalPart
                       domainPart:(NSString *)aDomainPart
-                    resourcePart:(NSString *)aResourcePart NS_DESIGNATED_INITIALIZER;
+                    resourcePart:(NSString *)aResourcePart;
 
 /**
  * A convenience initializer
@@ -148,15 +158,6 @@
  * @details Since this object is immutable, it simply returns self.
  */
 - (id)copyWithZone:(NSZone *)zone;
-
-/**
- * The string representation for this JID
- * @author  Omar Stefan Evans
- * @date    2014-07-09
- * @details A full JID is printed as localPart@domainPart/resourcePart, or as domainPart/resourcePart for domain JIDs.
- *          A bare JID is printed as localPart@domainPart, or as domainPart for domain JIDs.
- */
-- (NSString *)description;
 
 /**
  * The hash value for this JID

@@ -1,134 +1,143 @@
 /**********************************************************************************************************************
  * @file    Rambler/XMPP/Core/JID.mm
- * @date    2014-07-10
+ * @date    2014-07-11
  * @author  Omar Stefan Evans
  * @author  Peter Kamaris
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#import  "JID.h"
-#include "rambler/XMPP/Core/JID.hpp"
-
-using namespace rambler;
+#import  "JID.internal.h"
 
 @implementation JID {
-    StrongPointer<XMPP::Core::JID> _cpp_JID;
     JID * _bareJID;
+    NSString * _description;
 }
 
-- (StrongPointer<XMPP::Core::JID>)nativeObject
+- (instancetype)initWithNativeObject:(StrongPointer<XMPP::Core::JID>)aNativeObject
 {
-    return _cpp_JID;
+    self = [super init];
+
+    if (self == nil) {
+        return self;
+    }
+
+    /* Initialization cannot proceed unless the native object is not null.
+     */
+    if (aNativeObject == nullptr) {
+        self = nil;
+        return self;
+    }
+
+    _nativeObject = aNativeObject;
+
+    /* Domain JIDs do not have a local part.
+    */
+    if (!_nativeObject->isDomainJID()) {
+        _localPart = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->localPart().c_str()
+                                                    length:_nativeObject->localPart().length()
+                                                  encoding:NSUTF8StringEncoding
+                                              freeWhenDone:NO];
+    }
+
+    /* Only full JIDs have resource parts.
+     */
+    if (_nativeObject->isFullJID()) {
+        _resourcePart = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->resourcePart().c_str()
+                                                       length:_nativeObject->resourcePart().length()
+                                                     encoding:NSUTF8StringEncoding
+                                                 freeWhenDone:NO];
+    }
+
+    /* All JIDs have a domain part and a description
+     */
+    _domainPart = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->domainPart().c_str()
+                                                 length:_nativeObject->domainPart().length()
+                                               encoding:NSUTF8StringEncoding
+                                           freeWhenDone:NO];
+
+    _description = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->description().c_str()
+                                                  length:_nativeObject->description().length()
+                                                encoding:NSUTF8StringEncoding
+                                            freeWhenDone:NO];
+
+    if (!_nativeObject->isBareJID()) {
+        _bareJID = [[JID alloc] initWithNativeObject:XMPP::Core::JID::createBareJIDWithJID(_nativeObject)];
+    }
+
+    return self;
 }
 
 - (instancetype)initWithString:(NSString *)aString
 {
-    self = [super init];
-    if (self != nil) {
-        _cpp_JID = XMPP::Core::JID::createJIDWithString(aString.UTF8String);
+    String string = aString == nil ? String() : aString.UTF8String;
 
-        if (!_cpp_JID) {
-            self = nil;
-        }
-    }
-
-    return self;
+    return [self initWithNativeObject:XMPP::Core::JID::createJIDWithString(string)];
 }
 
 - (instancetype)initWithLocalPart:(NSString *)aLocalPart
                        domainPart:(NSString *)aDomainPart
                      resourcePart:(NSString *)aResourcePart
 {
-    self = [super init];
-    if (self != nil) {
-        _cpp_JID = XMPP::Core::JID::createJIDWithComponents(aLocalPart.UTF8String,
-                                                            aDomainPart.UTF8String,
-                                                            aResourcePart.UTF8String);
+    String localPart = aLocalPart == nil ? String() : aLocalPart.UTF8String;
+    String domainPart = aDomainPart == nil ? String() : aDomainPart.UTF8String;
+    String resourcePart = aResourcePart == nil ? String() : aResourcePart.UTF8String;
 
-        if (!_cpp_JID) {
-            self = nil;
-        }
+    return [self initWithNativeObject:XMPP::Core::JID::createJIDWithComponents(localPart, domainPart, resourcePart)];
+}
+
+- (instancetype)initWithLocalPart:(NSString *)aLocalPart domainPart:(NSString *)aDomainPart
+{
+    return [self initWithLocalPart:aLocalPart domainPart:aDomainPart resourcePart:nil];
+}
+
+- (instancetype)initWithDomainPart:(NSString *)aDomainPart resourcePart:(NSString *)aResourcePart
+{
+    return [self initWithLocalPart:nil domainPart:aDomainPart resourcePart:aResourcePart];
+}
+
+- (instancetype)initWithDomainPart:(NSString *)aDomainPart
+{
+    return [self initWithDomainPart:aDomainPart resourcePart:nil];
+}
+
+- (instancetype)bareJID
+{
+    if (_bareJID != nil) {
+        return _bareJID;
     }
 
     return self;
 }
 
-- (instancetype)initWithLocalPart:(NSString *)aLocalPart domainPart:(NSString *)aDomainPart
+- (NSString *)description
 {
-    return [self initWithLocalPart:aLocalPart domainPart:aDomainPart resourcePart:@""];
-}
-
-- (instancetype)initWithDomainPart:(NSString *)aDomainPart resourcePart:(NSString *)aResourcePart
-{
-    return [self initWithLocalPart:@"" domainPart:aDomainPart resourcePart:aResourcePart];
-}
-
-- (instancetype)initWithDomainPart:(NSString *)aDomainPart
-{
-    return [self initWithDomainPart:aDomainPart resourcePart:@""];
-}
-
-- (NSString *)localPart
-{
-    return [[NSString alloc] initWithBytesNoCopy:(void *)_cpp_JID->localPart().c_str()
-                                          length:_cpp_JID->localPart().length()
-                                        encoding:NSUTF8StringEncoding
-                                    freeWhenDone:NO];
-}
-
-- (NSString *)domainPart
-{
-    return [[NSString alloc] initWithBytesNoCopy:(void *)_cpp_JID->domainPart().c_str()
-                                          length:_cpp_JID->domainPart().length()
-                                        encoding:NSUTF8StringEncoding
-                                    freeWhenDone:NO];
-}
-
-- (NSString *)resourcePart
-{
-    return [[NSString alloc] initWithBytesNoCopy:(void *)_cpp_JID->resourcePart().c_str()
-                                          length:_cpp_JID->resourcePart().length()
-                                        encoding:NSUTF8StringEncoding
-                                    freeWhenDone:NO];
-}
-
-- (instancetype)bareJID
-{
-    if (self.isBareJID) {
-        return self;
-    }
-
-    if (_bareJID == nil) {
-        _bareJID = [[[self class] alloc] initWithLocalPart:self.localPart domainPart:self.domainPart];
-    }
-
-    return _bareJID;
+    return _description;
 }
 
 - (BOOL)isBareJID
 {
-    return _cpp_JID->isBareJID();
+    return self.nativeObject->isBareJID();
 }
 
 - (BOOL)isBareJIDWithLocalPart
 {
-    return _cpp_JID->isBareJIDWithLocalPart();
+    return self.nativeObject->isBareJIDWithLocalPart();
 }
 
 - (BOOL)isFullJID
 {
-    return _cpp_JID->isFullJID();
+    return self.nativeObject->isFullJID();
 }
 
 - (BOOL)isFullJIDWithLocalPart
 {
-    return _cpp_JID->isFullJIDWithLocalPart();
+    return self.nativeObject->isFullJIDWithLocalPart();
 }
 
 - (BOOL)isDomainJID
 {
-    return _cpp_JID->isDomainJID();
+    return self.nativeObject->isDomainJID();
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -136,17 +145,9 @@ using namespace rambler;
     return self;
 }
 
-- (NSString *)description
-{
-    return [[NSString alloc] initWithBytesNoCopy:(void *)_cpp_JID->description().c_str()
-                                          length:_cpp_JID->description().length()
-                                        encoding:NSUTF8StringEncoding
-                                    freeWhenDone:NO];
-}
-
 - (NSUInteger)hash
 {
-    return [self.description hash];
+    return XMPP::Core::JID::hash(self.nativeObject);
 }
 
 - (BOOL)isEqual:(id)object
@@ -162,7 +163,7 @@ using namespace rambler;
 
 - (BOOL)isEqualToJID:(JID *)aJID
 {
-    return [self.description isEqualToString:aJID.description];
+    return XMPP::Core::JID::equal(self.nativeObject, aJID.nativeObject);
 }
 
 @end
