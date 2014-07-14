@@ -33,13 +33,13 @@
     using namespace rambler;
     using namespace rambler::XMPP::Core;
 
-    JID jid = JID::createJIDFromString("alpha@dampkeg.com");
+    auto jid = JID::createJIDWithString("alpha@dampkeg.com");
     String password = "alpha2014";
 
     StrongPointer<XMLStream> stream = std::make_shared<XMLStream>(jid);
 
     stream->setAuthenticationRequiredEventHandler([jid, password](StrongPointer<XMLStream> stream) {
-        stream->authenticateSASL_Plain("", jid.getBareJID().toString(), password);
+        stream->authenticateSASL_Plain("", JID::createBareJIDWithJID(jid)->description, password);
     });
 
     stream->setResourceBoundEventHandler([](StrongPointer<XMLStream> stream) {

@@ -9,9 +9,9 @@
 
 namespace rambler { namespace XMPP { namespace Core {
 
-    StrongPointer<JID> JID::createJIDWithComponents(String localPart, String domainPart, String resourcePart)
+    StrongPointer<JID const> JID::createJIDWithComponents(String localPart, String domainPart, String resourcePart)
     {
-        auto aJID = StrongPointer<JID>(new JID(localPart, domainPart, resourcePart));
+        auto aJID = StrongPointer<JID const>(new JID(localPart, domainPart, resourcePart));
 
         if (!aJID->isValid()) {
             return nullptr;
@@ -20,7 +20,7 @@ namespace rambler { namespace XMPP { namespace Core {
         return aJID;
     }
 
-    StrongPointer<JID> JID::createJIDWithString(String string)
+    StrongPointer<JID const> JID::createJIDWithString(String string)
     {
         String localPart;
         String domainPart;
@@ -59,98 +59,87 @@ namespace rambler { namespace XMPP { namespace Core {
         return createJIDWithComponents(localPart, domainPart, resourcePart);
     }
 
-    StrongPointer<JID> JID::createBareJIDWithComponents(String localPart, String domainPart)
+    StrongPointer<JID const> JID::createBareJIDWithComponents(String localPart, String domainPart)
     {
         return createJIDWithComponents(localPart, domainPart, "");
     }
 
-    StrongPointer<JID> JID::createBareJIDWithJID(StrongPointer<JID> jid)
+    StrongPointer<JID const> JID::createBareJIDWithJID(StrongPointer<JID const> jid)
     {
-        return createBareJIDWithComponents(jid->localPart(), jid->domainPart());
+        return createBareJIDWithComponents(jid->localPart, jid->domainPart);
     }
 
-    UInt JID::hash(StrongPointer<JID> jid)
+    UInt JID::hash(StrongPointer<JID const> jid)
     {
-        return std::hash<String>()(jid->description());
+        return std::hash<String>()(jid->description);
     }
 
-    bool JID::equal(StrongPointer<JID> x, StrongPointer<JID> y)
+    bool JID::equal(StrongPointer<JID const> x, StrongPointer<JID const> y)
     {
         return *x == *y;
     }
 
-    String const & JID::localPart() const
+    String JID::generateDescription(String localPart, String domainPart, String resourcePart)
     {
-        return _localPart;
-    }
-
-    String const & JID::domainPart() const
-    {
-        return _domainPart;
-    }
-
-    String const & JID::resourcePart() const
-    {
-        return _resourcePart;
-    }
-
-    JID::JID(String localPart, String domainPart, String resourcePart)
-    : _localPart(localPart), _domainPart(domainPart), _resourcePart(resourcePart)
-    {
-        if (isFullJID()) {
+        String description;
+        if (!resourcePart.empty()) {
             if (!localPart.empty()) {
-                _cachedDescription.reserve(localPart.length() + domainPart.length() + resourcePart.length() + 2);
-                _cachedDescription += localPart;
-                _cachedDescription += "@";
-                _cachedDescription += domainPart;
-                _cachedDescription += "/";
-                _cachedDescription += resourcePart;
+                description.reserve(localPart.length() + domainPart.length() + resourcePart.length() + 2);
+                description += localPart;
+                description += "@";
+                description += domainPart;
+                description += "/";
+                description += resourcePart;
             } else {
-                _cachedDescription.reserve(domainPart.length() + resourcePart.length() + 1);
-                _cachedDescription += domainPart;
-                _cachedDescription += "/";
-                _cachedDescription += resourcePart;
+                description.reserve(domainPart.length() + resourcePart.length() + 1);
+                description += domainPart;
+                description += "/";
+                description += resourcePart;
             }
         } else {
             if (!localPart.empty()) {
-                _cachedDescription.reserve(localPart.length() + domainPart.length() + 1);
-                _cachedDescription += localPart;
-                _cachedDescription += "@";
-                _cachedDescription += domainPart;
+                description.reserve(localPart.length() + domainPart.length() + 1);
+                description += localPart;
+                description += "@";
+                description += domainPart;
             } else {
-                _cachedDescription = domainPart;
+                description = domainPart;
             }
         }
+
+        return description;
     }
 
-    String JID::description() const
+    JID::JID(String localPart, String domainPart, String resourcePart)
+    : localPart(localPart), domainPart(domainPart), resourcePart(resourcePart),
+      description(generateDescription(localPart, domainPart, resourcePart))
     {
-        return _cachedDescription;
+        /* Nothing to do here */
     }
 
     bool JID::isBareJID() const
     {
-        return resourcePart().empty();
+        return resourcePart.empty();
     }
 
     bool JID::isBareJIDWithLocalPart() const
     {
-        return resourcePart().empty() && !localPart().empty();
+        return resourcePart.empty() && !localPart.empty();
     }
 
     bool JID::isFullJID() const
     {
-        return !resourcePart().empty();
+        return !resourcePart.empty();
     }
 
     bool JID::isFullJIDWithLocalPart() const
     {
-        return !resourcePart().empty() && !localPart().empty();
+        return !resourcePart.empty() && !localPart.empty();
     }
 
     bool JID::isDomainJID() const
     {
-        return localPart().empty();
+        return localPart.empty();
     }
 
     /* Private Functions */
@@ -162,24 +151,24 @@ namespace rambler { namespace XMPP { namespace Core {
 
     bool JID::validateLocalPart(JID const jid)
     {
-        return jid.localPart().length() < 1024;
+        return jid.localPart.length() < 1024;
     }
 
     bool JID::validateDomainPart(JID const jid)
     {
-        return jid.domainPart().length() > 0 && jid.domainPart().length() < 1024;
+        return jid.domainPart.length() > 0 && jid.domainPart.length() < 1024;
     }
 
     bool JID::validateResourcePart(JID const jid)
     {
-        return jid.resourcePart().length() < 1024;
+        return jid.resourcePart.length() < 1024;
     }
 
     bool JID::operator == (JID const & other) const
     {
-        return (localPart() == other.localPart() &&
-                domainPart() == other.domainPart() &&
-                resourcePart() == other.resourcePart());
+        return (localPart == other.localPart &&
+                domainPart == other.domainPart &&
+                resourcePart == other.resourcePart);
     }
 
 }}}

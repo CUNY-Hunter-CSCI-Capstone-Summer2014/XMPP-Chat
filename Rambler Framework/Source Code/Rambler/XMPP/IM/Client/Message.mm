@@ -1,40 +1,66 @@
-//
-//  Message.m
-//  Rambler
-//
-//  Created by Peter Kamaris on 7/6/14.
-//  Copyright (c) 2014 DampKeg. All rights reserved.
-//
+/**********************************************************************************************************************
+ * @file    Ramber/XMPP/IM/Client/Message.mm
+ * @date    2014-07-13
+ * @author  Omar Stefan Evans
+ * @brief   <# Brief Description#>
+ * @details <#Detailed Description#>
+ **********************************************************************************************************************/
 
-#import <Foundation/Foundation.h>
-#import "Message.h"
-#include "Message.hpp"
+#import "Message.internal.h"
 
 using namespace rambler;
 
-@implementation MEssage : NSObject {
-    //Hasn't been created, but once created it will create it
-    StrongPointer<XMPP::IM::Client::Message> message;
-    
-}
--(JID)sender{
-    
+@implementation Message
+
+- (instancetype)initWithNativeObject:(StrongPointer<const XMPP::IM::Client::Message>)aNativeObject
+{
+    self = [super init];
+
+    if (self == nil) {
+        return self;
+    }
+
+    if (aNativeObject == nullptr) {
+        self = nil;
+        return self;
+    }
+
+    _nativeObject = aNativeObject;
+    _sender = [[JID alloc] initWithNativeObject:_nativeObject->sender];
+    _recipient = [[JID alloc] initWithNativeObject:_nativeObject->recipient];
+    _body = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->body.c_str()
+                                           length:_nativeObject->body.length()
+                                         encoding:NSUTF8StringEncoding
+                                     freeWhenDone:NO];
+    _timestamp = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->timestamp.c_str()
+                                                length:_nativeObject->timestamp.length()
+                                              encoding:NSUTF8StringEncoding
+                                          freeWhenDone:NO];
+    _uniqueID = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->uniqueID.c_str()
+                                               length:_nativeObject->uniqueID.length()
+                                             encoding:NSUTF8StringEncoding
+                                         freeWhenDone:NO];
+
+    return self;
 }
 
--(NSArray *)receipients{  //XMPP::Core::JID[] is the type
-}
+- (instancetype)initWithSender:(JID *)theSender
+                     recipient:(JID *)theRecipient
+                          body:(NSString *)theBody
+                     timestamp:(NSString *)theTimestamp
+                      uniqueID:(NSString *)aUniqueID
+{
+    auto sender     = theSender == nil      ? nullptr  : theSender.nativeObject;
+    auto recipient  = theRecipient == nil   ? nullptr  : theRecipient.nativeObject;
+    auto body       = theBody == nil        ? String() : theBody.UTF8String;
+    auto timestamp  = theTimestamp == nil   ? String() : theTimestamp.UTF8String;
+    auto uniqueID   = aUniqueID == nil      ? String() : aUniqueID.UTF8String;
 
--(NSString *)body{
-    
+    return [self initWithNativeObject:XMPP::IM::Client::Message::createMessage(sender,
+                                                                               recipient,
+                                                                               body,
+                                                                               timestamp,
+                                                                               uniqueID)];
 }
-
--(Datetime *)timestamp{
-    
-}
-
--(NSString *)uniqueId{
-    
-}
-
 
 @end

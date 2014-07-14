@@ -7,48 +7,43 @@
 
 #pragma once
 
-#include "types.hpp"
-
-#include "JID.hpp"
-#include "SubscriptionState.hpp"
+#include "rambler/types.hpp"
+#include "rambler/XMPP/Core/JID.hpp"
+#include "rambler/XMPP/IM/Client/SubscriptionState.hpp"
 
 namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
     using namespace XMPP::Core;
 
-    class RosterItem {
-    public:
-        static StrongPointer<RosterItem> createRosterItem(StrongPointer<JID> jid,
-                                                          SubscriptionState subscriptionState,
-                                                          String name,
-                                                          std::vector<String const> groups);
+    struct RosterItem {
 
-        static StrongPointer<RosterItem> createRosterItem(StrongPointer<JID> jid,
-                                                          SubscriptionState subscriptionState,
-                                                          String name);
+        StrongPointer<JID const>    const   jid;
+        SubscriptionState           const   subscriptionState;
+        String                      const   name;
+        std::vector<String const>   const   groups;
 
-        static StrongPointer<RosterItem> createRosterItem(StrongPointer<JID> jid,
-                                                          SubscriptionState subscriptionState,
-                                                          std::vector<String const> groups);
+        static StrongPointer<RosterItem const> createRosterItem(StrongPointer<JID const> jid,
+                                                                SubscriptionState subscriptionState,
+                                                                String name,
+                                                                std::vector<String const> groups);
 
-        static StrongPointer<RosterItem> createRosterItem(StrongPointer<JID> jid, SubscriptionState subscriptionState);
+        static StrongPointer<RosterItem const> createRosterItem(StrongPointer<JID const> jid,
+                                                                SubscriptionState subscriptionState,
+                                                                String name);
 
-        StrongPointer<JID>  jid() const;
-        SubscriptionState   subscriptionState() const;
-        String const &      name() const;
+        static StrongPointer<RosterItem const> createRosterItem(StrongPointer<JID const> jid,
+                                                                SubscriptionState subscriptionState,
+                                                                std::vector<String const> groups);
 
-        std::vector<String const> const &   groups() const;
+        static StrongPointer<RosterItem const> createRosterItem(StrongPointer<JID const> jid,
+                                                                SubscriptionState subscriptionState);
 
     private:
-        RosterItem(StrongPointer<JID> jid,
+        RosterItem(StrongPointer<JID const> jid,
                    SubscriptionState subscriptionState,
                    String name,
                    std::vector<String const> groups);
 
-        StrongPointer<JID>          const   _jid;
-        SubscriptionState           const   _subscriptionState;
-        String                      const   _name;
-        std::vector<String const>   const   _groups;
     };
 
 }}}}

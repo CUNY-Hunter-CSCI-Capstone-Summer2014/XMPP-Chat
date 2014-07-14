@@ -14,7 +14,7 @@
 
 namespace rambler { namespace XMPP { namespace Core {
 
-    XMLStream::XMLStream(StrongPointer<JID> jid) : jid(jid)
+    XMLStream::XMLStream(StrongPointer<JID const> jid) : jid(jid)
     {
         /* Nothing to do here */
     }
@@ -24,7 +24,7 @@ namespace rambler { namespace XMPP { namespace Core {
         /* Nothing to do here */
     }
 
-    XMLStream::XMLStream(String host, StrongPointer<JID> jid) : host(host), jid(jid)
+    XMLStream::XMLStream(String host, StrongPointer<JID const> jid) : host(host), jid(jid)
     {
         /* Nothing to do here */
     }
@@ -34,7 +34,7 @@ namespace rambler { namespace XMPP { namespace Core {
         /* Nothing to do here */
     }
 
-    XMLStream::XMLStream(String host, UInt16 port, StrongPointer<JID> jid) : host(host), port(port), jid(jid)
+    XMLStream::XMLStream(String host, UInt16 port, StrongPointer<JID const> jid) : host(host), port(port), jid(jid)
     {
         /* Nothing to do here */
     }
@@ -58,7 +58,7 @@ namespace rambler { namespace XMPP { namespace Core {
                 connection = Connection::TCPConnection::nativeTCPConnection(host, "_xmpp-client");
             }
         } else if (jid != nullptr) {
-            connection = Connection::TCPConnection::nativeTCPConnection(jid->domainPart(), "_xmpp-client");
+            connection = Connection::TCPConnection::nativeTCPConnection(jid->domainPart, "_xmpp-client");
         } else {
             state = Stream::State::Closed;
             return false;
@@ -187,7 +187,7 @@ namespace rambler { namespace XMPP { namespace Core {
     {
         return "<?xml version='1.0'?>"
                              "<stream:stream to='" + connection->getDomainName() +
-                             (connection->getState() == Stream::State::OpenAndSecured ? "' from='" + jid->description() : "") +
+                             (connection->getState() == Stream::State::OpenAndSecured ? "' from='" + jid->description : "") +
                              "' version='1.0'"
                              " xml:lang='en'"
                              " xmlns='jabber:client'"

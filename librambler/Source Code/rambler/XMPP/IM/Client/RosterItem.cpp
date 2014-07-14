@@ -5,14 +5,14 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#include "RosterItem.hpp"
+#include "rambler/XMPP/IM/Client/RosterItem.hpp"
 
 namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
-    StrongPointer<RosterItem> RosterItem::createRosterItem(StrongPointer<JID> jid,
-                                                           SubscriptionState subscriptionState,
-                                                           String name,
-                                                           std::vector<String const> groups)
+    StrongPointer<RosterItem const> RosterItem::createRosterItem(StrongPointer<JID const> jid,
+                                                                 SubscriptionState subscriptionState,
+                                                                 String name,
+                                                                 std::vector<String const> groups)
     {
         if (!jid) {
             return nullptr;
@@ -21,51 +21,32 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         return StrongPointer<RosterItem>(new RosterItem(jid, subscriptionState, name, groups));
     }
 
-    StrongPointer<RosterItem> RosterItem::createRosterItem(StrongPointer<JID> jid,
-                                                           SubscriptionState subscriptionState,
-                                                           String name)
+    StrongPointer<RosterItem const> RosterItem::createRosterItem(StrongPointer<JID const> jid,
+                                                                 SubscriptionState subscriptionState,
+                                                                 String name)
     {
         return createRosterItem(jid, subscriptionState, name, {});
     }
 
-    StrongPointer<RosterItem> RosterItem::createRosterItem(StrongPointer<JID> jid,
-                                                           SubscriptionState subscriptionState,
-                                                           std::vector<String const> groups)
+    StrongPointer<RosterItem const> RosterItem::createRosterItem(StrongPointer<JID const> jid,
+                                                                 SubscriptionState subscriptionState,
+                                                                 std::vector<String const> groups)
     {
         return createRosterItem(jid, subscriptionState, "", groups);
     }
 
 
-    StrongPointer<RosterItem> RosterItem::createRosterItem(StrongPointer<JID> jid, SubscriptionState subscriptionState)
+    StrongPointer<RosterItem const> RosterItem::createRosterItem(StrongPointer<JID const> jid,
+                                                                 SubscriptionState subscriptionState)
     {
         return createRosterItem(jid, subscriptionState, "", {});
     }
 
-    StrongPointer<JID> RosterItem::jid() const
-    {
-        return _jid;
-    }
-
-    SubscriptionState RosterItem::subscriptionState() const
-    {
-        return _subscriptionState;
-    }
-
-    String const & RosterItem::name() const
-    {
-        return _name;
-    }
-
-    std::vector<String const> const & RosterItem::groups() const
-    {
-        return _groups;
-    }
-
-    RosterItem::RosterItem(StrongPointer<JID> jid,
+    RosterItem::RosterItem(StrongPointer<JID const> jid,
                            SubscriptionState subscriptionState,
                            String name,
                            std::vector<String const> groups)
-    : _jid(jid), _subscriptionState(subscriptionState), _name(name), _groups(groups)
+    : jid(jid), subscriptionState(subscriptionState), name(name), groups(groups)
     {
         /* Nothing to do here */
     }

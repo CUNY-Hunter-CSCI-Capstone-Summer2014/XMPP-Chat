@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    Rambler/XMPP/IM/Client
+ * @file    Rambler/XMPP/IM/Client/RosterItem.h
  * @date    2014-07-11
  * @author  Omar Stefan Evans
  * @brief   <# Brief Description#>

@@ -20,11 +20,10 @@
 		0739C3F1195BE732006A7EA8 /* Namespace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3F0195BE732006A7EA8 /* Namespace.cpp */; };
 		0747F28C196088B7003A0D0C /* NameableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0747F28B196088B7003A0D0C /* NameableNode.cpp */; };
 		0747F28F19608DCB003A0D0C /* NamespaceableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0747F28E19608DCB003A0D0C /* NamespaceableNode.cpp */; };
-		075F2D06195378B40072E170 /* ConnectionTestCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07D1E7011950AA59008C76CF /* ConnectionTestCase.mm */; };
+		075097621973679400CBBA60 /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 075097611973679400CBBA60 /* Message.cpp */; };
 		079FDC321966514700F9DBC6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 079FDC311966514700F9DBC6 /* Security.framework */; };
 		07A30662196F79B000D9523E /* RosterItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A3065D196F79B000D9523E /* RosterItem.cpp */; };
 		07A30663196F79B000D9523E /* RosterItem.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 07A3065E196F79B000D9523E /* RosterItem.hpp */; };
-		07A30664196F79B000D9523E /* RosterList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A3065F196F79B000D9523E /* RosterList.cpp */; };
 		07A30665196F79B000D9523E /* RosterList.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 07A30660196F79B000D9523E /* RosterList.hpp */; };
 		07A30666196F79B000D9523E /* SubscriptionState.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 07A30661196F79B000D9523E /* SubscriptionState.hpp */; };
 		07A3066E1970870700D9523E /* JID.internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 07A3066B197085F500D9523E /* JID.internal.h */; };
@@ -43,15 +42,12 @@
 		07DECDCD196414AC007938D1 /* TCPConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07DECDCC196414AC007938D1 /* TCPConnection.cpp */; };
 		07E4F11C19634FD100D57971 /* XMLSteamTestCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */; };
 		07F8146B196E2AF300207EC1 /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81461196E2AF300207EC1 /* Conversation.h */; };
-		07F8146C196E2AF300207EC1 /* Conversation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81462196E2AF300207EC1 /* Conversation.mm */; };
 		07F8146D196E2AF300207EC1 /* ConversationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81463196E2AF300207EC1 /* ConversationController.h */; };
-		07F8146E196E2AF300207EC1 /* ConversationController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81464196E2AF300207EC1 /* ConversationController.mm */; };
 		07F8146F196E2AF300207EC1 /* Message.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81465196E2AF300207EC1 /* Message.h */; };
 		07F81470196E2AF300207EC1 /* Message.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81466196E2AF300207EC1 /* Message.mm */; };
 		07F81471196E2AF300207EC1 /* RosterItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81467196E2AF300207EC1 /* RosterItem.h */; };
 		07F81472196E2AF300207EC1 /* RosterItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81468196E2AF300207EC1 /* RosterItem.mm */; };
 		07F81473196E2AF300207EC1 /* RosterList.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81469196E2AF300207EC1 /* RosterList.h */; };
-		07F81474196E2AF300207EC1 /* RosterList.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F8146A196E2AF300207EC1 /* RosterList.mm */; };
 		07F81479196E2B0900207EC1 /* JID.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81475196E2B0900207EC1 /* JID.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07F8147A196E2B0900207EC1 /* JID.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81476196E2B0900207EC1 /* JID.mm */; };
 		07F8147B196E2B0900207EC1 /* XMLStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81477196E2B0900207EC1 /* XMLStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -153,6 +149,7 @@
 		0715A63B19550DEE004519D9 /* JID.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = JID.hpp; sourceTree = "<group>"; };
 		0715A63C195512A8004519D9 /* JID.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = JID.cpp; sourceTree = "<group>"; };
 		0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CreateJIDFromStringTestCase.mm; sourceTree = "<group>"; };
+		072EAA0E1973784D00B14A42 /* Message.internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Message.internal.h; path = "Source Code/Rambler/XMPP/IM/Client/Message.internal.h"; sourceTree = SOURCE_ROOT; };
 		07333DEC196A46BD0000D8F3 /* XMLStream_Context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLStream_Context.cpp; sourceTree = "<group>"; };
 		0739C3D9195B9D8F006A7EA8 /* types.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = types.hpp; sourceTree = "<group>"; };
 		0739C3E6195BA6D0006A7EA8 /* Element.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Element.hpp; sourceTree = "<group>"; };
@@ -168,6 +165,8 @@
 		0747F28B196088B7003A0D0C /* NameableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NameableNode.cpp; sourceTree = "<group>"; };
 		0747F28D19608C3F003A0D0C /* NamespaceableNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NamespaceableNode.hpp; sourceTree = "<group>"; };
 		0747F28E19608DCB003A0D0C /* NamespaceableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NamespaceableNode.cpp; sourceTree = "<group>"; };
+		075097601973678800CBBA60 /* Message.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Message.hpp; sourceTree = "<group>"; };
+		075097611973679400CBBA60 /* Message.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Message.cpp; sourceTree = "<group>"; };
 		079FDC311966514700F9DBC6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		07A3065D196F79B000D9523E /* RosterItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RosterItem.cpp; sourceTree = "<group>"; };
 		07A3065E196F79B000D9523E /* RosterItem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RosterItem.hpp; sourceTree = "<group>"; };
@@ -190,7 +189,6 @@
 		07D1E6F01950A907008C76CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		07D1E6F51950A9D5008C76CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07D1E6FF1950AA38008C76CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Resources/Info.plist; sourceTree = SOURCE_ROOT; };
-		07D1E7011950AA59008C76CF /* ConnectionTestCase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ConnectionTestCase.mm; sourceTree = "<group>"; };
 		07D5DCC91950B2110041A7F3 /* dns_utilities.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = dns_utilities.cpp; sourceTree = "<group>"; };
 		07D5DCCA1950B2110041A7F3 /* dns_utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dns_utilities.h; sourceTree = "<group>"; };
 		07D5DCCB1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SRVRecordResolver_CFNetwork.cpp; sourceTree = "<group>"; };
@@ -352,6 +350,7 @@
 				07F81463196E2AF300207EC1 /* ConversationController.h */,
 				07F81464196E2AF300207EC1 /* ConversationController.mm */,
 				07F81465196E2AF300207EC1 /* Message.h */,
+				072EAA0E1973784D00B14A42 /* Message.internal.h */,
 				07F81466196E2AF300207EC1 /* Message.mm */,
 				07F81467196E2AF300207EC1 /* RosterItem.h */,
 				07A3066F1970A13800D9523E /* RosterItem.internal.h */,
@@ -388,6 +387,8 @@
 		07A3065C196F799200D9523E /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				075097601973678800CBBA60 /* Message.hpp */,
+				075097611973679400CBBA60 /* Message.cpp */,
 				07A3065E196F79B000D9523E /* RosterItem.hpp */,
 				07A3065D196F79B000D9523E /* RosterItem.cpp */,
 				07A30660196F79B000D9523E /* RosterList.hpp */,
@@ -486,7 +487,6 @@
 			children = (
 				07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */,
 				0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */,
-				07D1E7011950AA59008C76CF /* ConnectionTestCase.mm */,
 				07BC78431968C1D400393657 /* Base64.mm */,
 			);
 			path = "Source Code";
@@ -676,10 +676,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				070A852F19641B6D00798ABE /* CFNetworkBasedTCPConnection.cpp in Sources */,
+				075097621973679400CBBA60 /* Message.cpp in Sources */,
 				07DECDC71963C2F1007938D1 /* XMLStream_Constants.cpp in Sources */,
 				07ABAA0B1960B0EF001543FB /* TextNode.cpp in Sources */,
 				07F8147C196E2B0900207EC1 /* XMLStream.mm in Sources */,
-				07F81474196E2AF300207EC1 /* RosterList.mm in Sources */,
 				0739C3F1195BE732006A7EA8 /* Namespace.cpp in Sources */,
 				07F8147A196E2B0900207EC1 /* JID.mm in Sources */,
 				07D5DCCF1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp in Sources */,
@@ -690,14 +690,11 @@
 				07D5DCCD1950B2110041A7F3 /* dns_utilities.cpp in Sources */,
 				0739C3E9195BB781006A7EA8 /* Attribute.cpp in Sources */,
 				07DECDCD196414AC007938D1 /* TCPConnection.cpp in Sources */,
-				07F8146C196E2AF300207EC1 /* Conversation.mm in Sources */,
 				07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */,
 				07A30662196F79B000D9523E /* RosterItem.cpp in Sources */,
 				0747F28C196088B7003A0D0C /* NameableNode.cpp in Sources */,
-				07F8146E196E2AF300207EC1 /* ConversationController.mm in Sources */,
 				07BC78371968AA9D00393657 /* base64.cpp in Sources */,
 				07F81472196E2AF300207EC1 /* RosterItem.mm in Sources */,
-				07A30664196F79B000D9523E /* RosterList.cpp in Sources */,
 				0715A63D195512A8004519D9 /* JID.cpp in Sources */,
 				0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */,
 				07333DED196A46BD0000D8F3 /* XMLStream_Context.cpp in Sources */,
@@ -711,7 +708,6 @@
 			files = (
 				07BC78441968C1D400393657 /* Base64.mm in Sources */,
 				0715A6CC19579204004519D9 /* CreateJIDFromStringTestCase.mm in Sources */,
-				075F2D06195378B40072E170 /* ConnectionTestCase.mm in Sources */,
 				07E4F11C19634FD100D57971 /* XMLSteamTestCase.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

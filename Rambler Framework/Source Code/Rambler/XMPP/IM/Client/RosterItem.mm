@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    RosterItem.mm
+ * @file    Ramber/XMPP/IM/Client/RosterItem.mm
  * @date    2014-07-11
  * @author  Omar Stefan Evans
  * @brief   <# Brief Description#>
@@ -8,11 +8,9 @@
 
 #import "RosterItem.internal.h"
 
-using namespace rambler;
-
 @implementation RosterItem
 
-- (instancetype)initWithNativeObject:(StrongPointer<XMPP::IM::Client::RosterItem>)aNativeObject
+- (instancetype)initWithNativeObject:(StrongPointer<XMPP::IM::Client::RosterItem const>)aNativeObject
 {
     self = [super init];
 
@@ -27,19 +25,19 @@ using namespace rambler;
 
     _nativeObject = aNativeObject;
 
-    _jid = [[JID alloc] initWithNativeObject:_nativeObject->jid()];
+    _jid = [[JID alloc] initWithNativeObject:_nativeObject->jid];
 
-    if (!_nativeObject->name().empty()) {
-        _name = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->name().c_str()
-                                               length:_nativeObject->name().length()
+    if (!_nativeObject->name.empty()) {
+        _name = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->name.c_str()
+                                               length:_nativeObject->name.length()
                                              encoding:NSUTF8StringEncoding
                                          freeWhenDone:NO];
     }
 
-    if (!_nativeObject->groups().empty()) {
-        NSMutableArray * array = [NSMutableArray arrayWithCapacity:self.nativeObject->groups().size()];
+    if (!_nativeObject->groups.empty()) {
+        NSMutableArray * array = [NSMutableArray arrayWithCapacity:self.nativeObject->groups.size()];
 
-        for (String const & group : self.nativeObject->groups()) {
+        for (String const & group : self.nativeObject->groups) {
             [array addObject:[[NSString alloc] initWithBytesNoCopy:(void *)group.c_str()
                                                             length:group.length()
                                                           encoding:NSUTF8StringEncoding
@@ -58,7 +56,7 @@ using namespace rambler;
                      groups:(NSArray *)someGroups
 {
 
-    StrongPointer<XMPP::Core::JID> jid;
+    StrongPointer<XMPP::Core::JID const> jid;
     XMPP::IM::Client::SubscriptionState state;
     String name;
     std::vector<String const> groups;
@@ -120,7 +118,7 @@ using namespace rambler;
 
 - (SubscriptionState)subscriptionState
 {
-    switch (self.nativeObject->subscriptionState()) {
+    switch (self.nativeObject->subscriptionState) {
         case XMPP::IM::Client::SubscriptionState::None:
             return None;
         case XMPP::IM::Client::SubscriptionState::To:

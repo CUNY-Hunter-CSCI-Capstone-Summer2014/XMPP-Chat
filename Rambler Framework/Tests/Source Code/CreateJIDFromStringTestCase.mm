@@ -31,113 +31,113 @@ using rambler::XMPP::Core::JID;
 /* Testing Valid JID strings */
 
 - (void)testJIDString_WithLocalPart_AndDomainPart {
-    JID jid = JID::createJIDFromString("omar@dampkeg.com");
+    auto jid = JID::createJIDWithString("omar@dampkeg.com");
 
-    XCTAssert(jid == JID("omar", "dampkeg.com", ""), @"Pass");
+    XCTAssert(jid == JID::createJIDWithComponents("omar", "dampkeg.com", ""), @"Pass");
 }
 
 - (void)testJIDString_WithLocalPart_AndDomainPart_AndResourcePart {
-    JID jid = JID::createJIDFromString("omar@dampkeg.com/wine-and-cheese");
+    auto jid = JID::createJIDWithString("omar@dampkeg.com/wine-and-cheese");
 
-    XCTAssert(jid == JID("omar", "dampkeg.com", "wine-and-cheese"), @"Pass");
+    XCTAssert(jid == JID::createJIDWithComponents("omar", "dampkeg.com", "wine-and-cheese"), @"Pass");
 }
 
 - (void)testJIDString_WithDomainPart {
-    JID jid = JID::createJIDFromString("dampkeg.com");
+    auto jid = JID::createJIDWithString("dampkeg.com");
 
-    XCTAssert(jid == JID("", "dampkeg.com", ""), @"Pass");
+    XCTAssert(jid == JID::createJIDWithComponents("", "dampkeg.com", ""), @"Pass");
 }
 
 - (void)testJIDString_WithDomainPart_AndResourcePart {
-    JID jid = JID::createJIDFromString("dampkeg.com/wine-and-cheese");
+    auto jid = JID::createJIDWithString("dampkeg.com/wine-and-cheese");
 
-    XCTAssert(jid == JID("", "dampkeg.com", "wine-and-cheese"), @"Pass");
+    XCTAssert(jid == JID::createJIDWithComponents("", "dampkeg.com", "wine-and-cheese"), @"Pass");
 }
 
 /* Testing Invalid JID strings */
 
 - (void)testEmptyJIDString {
-    JID jid = JID::createJIDFromString("");
+    auto jid = JID::createJIDWithString("");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithZeroLengthLocalPart_AndZeroLengthDomainPart {
-    JID jid = JID::createJIDFromString("@");
+    auto jid = JID::createJIDWithString("@");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithLocalPart_AndZeroLengthDomainPart {
-    JID jid = JID::createJIDFromString("omar@");
+    auto jid = JID::createJIDWithString("omar@");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithZeroLengthLocalPart_AndDomainPart {
-    JID jid = JID::createJIDFromString("@dampkeg.com");
+    auto jid = JID::createJIDWithString("@dampkeg.com");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithZeroLengthDomainPart_AndZeroLengthResourcePart {
-    JID jid = JID::createJIDFromString("/");
+    auto jid = JID::createJIDWithString("/");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithDomainPart_AndZeroLengthResourcePart {
-    JID jid = JID::createJIDFromString("dampkeg.com/");
+    auto jid = JID::createJIDWithString("dampkeg.com/");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithZeroLengthDomainPart_AndResourcePart {
-    JID jid = JID::createJIDFromString("/wine-and-cheese");
+    auto jid = JID::createJIDWithString("/wine-and-cheese");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithZeroLengthLocalPart_AndZeroLengthDomainPart_AndZeroLengthResourcePart {
-    JID jid = JID::createJIDFromString("@/");
+    auto jid = JID::createJIDWithString("@/");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithLocalPart_AndZeroLengthDomainPart_AndZeroLengthResourcePart {
-    JID jid = JID::createJIDFromString("omar@/");
+    auto jid = JID::createJIDWithString("omar@/");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithZeroLengthLocalPart_AndDomainPart_AndZeroLengthResourcePart {
-    JID jid = JID::createJIDFromString("@dampkeg.com/");
+    auto jid = JID::createJIDWithString("@dampkeg.com/");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithZeroLengthLocalPart_AndZeroLengthDomainPart_AndResourcePart {
-    JID jid = JID::createJIDFromString("@/wine-and-cheese");
+    auto jid = JID::createJIDWithString("@/wine-and-cheese");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithLocalPart_AndDomainPart_AndZeroLengthResourcePart {
-    JID jid = JID::createJIDFromString("omar@dampkeg.com/");
+    auto jid = JID::createJIDWithString("omar@dampkeg.com/");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithZeroLengthLocalPart_AndDomainPart_AndResourcePart {
-    JID jid = JID::createJIDFromString("@dampkeg.com/wine-and-cheese");
+    auto jid = JID::createJIDWithString("@dampkeg.com/wine-and-cheese");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 - (void)testJIDString_WithLocalPart_AndZeroLengthDomainPart_AndResourcePart {
-    JID jid = JID::createJIDFromString("omar@/wine-and-cheese");
+    auto jid = JID::createJIDWithString("omar@/wine-and-cheese");
 
-    XCTAssert(jid == JID::None, @"Pass");
+    XCTAssert(jid == nullptr, @"Pass");
 }
 
 //- (void)testPerformanceExample {

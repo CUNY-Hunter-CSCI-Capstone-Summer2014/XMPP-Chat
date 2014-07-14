@@ -18,8 +18,8 @@ using namespace rambler;
  */
 @interface JID ()
 
-@property (readonly, assign) StrongPointer<XMPP::Core::JID> nativeObject;
+@property (readonly, assign) StrongPointer<XMPP::Core::JID const> nativeObject;
 
-- (instancetype)initWithNativeObject:(StrongPointer<XMPP::Core::JID>)aNativeObject NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithNativeObject:(StrongPointer<XMPP::Core::JID const>)aNativeObject NS_DESIGNATED_INITIALIZER;
 
 @end

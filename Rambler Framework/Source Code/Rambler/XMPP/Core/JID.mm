@@ -14,7 +14,7 @@
     NSString * _description;
 }
 
-- (instancetype)initWithNativeObject:(StrongPointer<XMPP::Core::JID>)aNativeObject
+- (instancetype)initWithNativeObject:(StrongPointer<XMPP::Core::JID const>)aNativeObject
 {
     self = [super init];
 
@@ -34,8 +34,8 @@
     /* Domain JIDs do not have a local part.
     */
     if (!_nativeObject->isDomainJID()) {
-        _localPart = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->localPart().c_str()
-                                                    length:_nativeObject->localPart().length()
+        _localPart = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->localPart.c_str()
+                                                    length:_nativeObject->localPart.length()
                                                   encoding:NSUTF8StringEncoding
                                               freeWhenDone:NO];
     }
@@ -43,21 +43,21 @@
     /* Only full JIDs have resource parts.
      */
     if (_nativeObject->isFullJID()) {
-        _resourcePart = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->resourcePart().c_str()
-                                                       length:_nativeObject->resourcePart().length()
+        _resourcePart = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->resourcePart.c_str()
+                                                       length:_nativeObject->resourcePart.length()
                                                      encoding:NSUTF8StringEncoding
                                                  freeWhenDone:NO];
     }
 
     /* All JIDs have a domain part and a description
      */
-    _domainPart = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->domainPart().c_str()
-                                                 length:_nativeObject->domainPart().length()
+    _domainPart = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->domainPart.c_str()
+                                                 length:_nativeObject->domainPart.length()
                                                encoding:NSUTF8StringEncoding
                                            freeWhenDone:NO];
 
-    _description = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->description().c_str()
-                                                  length:_nativeObject->description().length()
+    _description = [[NSString alloc] initWithBytesNoCopy:(void *)_nativeObject->description.c_str()
+                                                  length:_nativeObject->description.length()
                                                 encoding:NSUTF8StringEncoding
                                             freeWhenDone:NO];
 
