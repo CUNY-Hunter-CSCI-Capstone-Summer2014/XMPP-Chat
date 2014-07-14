@@ -63,8 +63,8 @@
                         <font key="titleFont" metaFont="system"/>
                     </box>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kAF-Xl-5rg">
-                        <rect key="frame" x="166" y="91" width="55" height="28"/>
-                        <buttonCell key="cell" type="bevel" title="Smile" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dru-Fk-Z0e">
+                        <rect key="frame" x="166" y="91" width="84" height="28"/>
+                        <buttonCell key="cell" type="bevel" title="Stupid Faces" bezelStyle="regularSquare" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dru-Fk-Z0e">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system" size="10"/>
                         </buttonCell>

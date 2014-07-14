@@ -271,11 +271,11 @@
 		0715A62E1954F987004519D9 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				0715A63B19550DEE004519D9 /* JID.hpp */,
+				0715A63C195512A8004519D9 /* JID.cpp */,
 				0715A6301954FC6C004519D9 /* XMLStream.hpp */,
 				0715A6321954FC82004519D9 /* XMLStream.cpp */,
 				07BF1F2919638F0700FC8348 /* XMLStream_Parser.cpp */,
-				0715A63B19550DEE004519D9 /* JID.hpp */,
-				0715A63C195512A8004519D9 /* JID.cpp */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -369,9 +369,9 @@
 		07D1E6EB1950A8A6008C76CF /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
-				075F2D241954208D0072E170 /* Rambler.h */,
 				0715A62B1954D267004519D9 /* Connection.h */,
 				0715A61F1954D1C5004519D9 /* ConnectionState.h */,
+				075F2D241954208D0072E170 /* Rambler.h */,
 				017B1A0219687FA200F3CBA7 /* RosterItem.h */,
 				017B1A051968914900F3CBA7 /* RosterList.h */,
 				075F2D151953F2E50072E170 /* TCPConnection.h */,
@@ -392,9 +392,9 @@
 		07D1E6F31950A92B008C76CF /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
-				07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */,
-				0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */,
 				07D1E7011950AA59008C76CF /* ConnectionTestCase.mm */,
+				0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */,
+				07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -435,8 +435,8 @@
 		07D5DCB51950B18D0041A7F3 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
-				07D5DCB71950B1A90041A7F3 /* AbstractConnection.h */,
 				07D5DCB61950B1A90041A7F3 /* AbstractConnection.cpp */,
+				07D5DCB71950B1A90041A7F3 /* AbstractConnection.h */,
 				07D5DCB81950B1A90041A7F3 /* CFNetworkBasedConnection.cpp */,
 				07D5DCB91950B1A90041A7F3 /* CFNetworkBasedConnection.h */,
 				07D5DCBA1950B1A90041A7F3 /* State.h */,

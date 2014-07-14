@@ -5,24 +5,6 @@
 * @details <#Detailed Description#>
 ***********************************************************************************************************************/
 
-
-/*
-
-Temporary Checklist for Arnab's Sake
-    Do all the elements work on...
-        ...AddContact?      [~] (The button works, but the Roster List does not add any names.)
-        ...ChatBox?         [0]
-        ...ContactProfile   [0]
-        ...GroupChatBox     [~] (The 'Done' button closes, but Add User and Remove User won't work until Roster Items work.)
-        ...Login Window     [~] (Mostly works, but 'Remember me' does nothing.)
-        ...MainMenu         [1]
-        ...PrefWindow       [0]
-        ...ProfileUpdate    [~] (Doesn't save.)
-        ...Roster List      [~] (This hub of operations will be the last to finish.)
-
-*/
-
-
 import Cocoa
 
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -34,6 +16,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var viewProfileController: NSWindowController? = nil
     var chatWindowController: NSWindowController? = nil
     var yourProfileWindowController: NSWindowController? = nil
+    var contactProfileWindowController: NSWindowController? = nil
+    var preferencesWindowController: NSWindowController? = nil
+    //var mainMenuController: NSMenu? = nil
     
     /* *********************************** */
     
@@ -47,11 +32,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         viewProfileController = NSWindowController(windowNibName: "ContactProfile")
         chatWindowController = NSWindowController(windowNibName: "ChatBox")
         yourProfileWindowController = NSWindowController(windowNibName: "ProfileUpdate")
+        contactProfileWindowController = NSWindowController(windowNibName: "ContactProfile")
+        preferencesWindowController = NSWindowController(windowNibName: "PrefWindow")
+        //mainMenuController = NSMenu()
         
         /* ***********************************
         *********************************** */
         
-        /* The login button has a tag of 1 in the .xib file */
+        //let preferencesMenuItem: NSMenuItem = mainMenuController!
+        //gotta figure out how to refer to menu items
+        
+        /* *********************************** */
+        /* ******End Login & Open Roster****** */
+    
         let loginButton: NSButton = loginWindowController!.window.contentView.viewWithTag(1) as NSButton
 
         loginButton.target = self;
@@ -60,72 +53,66 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         loginWindowController!.showWindow(self)
         
         /* ***********************************
-         *********************************** */
+         ************Add Contact*********** */
         
         let AddContactButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(1) as NSButton
         
         AddContactButton.target = self;
         AddContactButton.action = "openAddContactScreen:";
 
-        /* ***********************************
-         *********************************** */
-        
         let DoneAddingContact: NSButton = addContactWindowController!.window.contentView.viewWithTag(1) as NSButton
         
         DoneAddingContact.target = self;
-        DoneAddingContact.action = "closeAddingContactScreen:";
+        DoneAddingContact.action = "saveAddingContactScreen:";
+
+        let CancelAddingContact: NSButton = addContactWindowController!.window.contentView.viewWithTag(2) as NSButton
+        
+        CancelAddingContact.target = self;
+        CancelAddingContact.action = "cancelAddingContactScreen:";
         
         /* ***********************************
-         *********************************** */
+         **********Group Chat Window******** */
         
         let AddToChat: NSButton = rosterListWindowController!.window.contentView.viewWithTag(2) as NSButton
         
         AddToChat.target = self;
         AddToChat.action = "openAddToChatWindow:";
-        
-        /* ***********************************
-         *********************************** */
 
         let DoneAddingToChat: NSButton = groupWindowController!.window.contentView.viewWithTag(2) as NSButton
 
         DoneAddingToChat.target = self;
         DoneAddingToChat.action = "closeAddToChatWindow:";
-        
-        /* ***********************************
-         *********************************** */
-        
+
         let CreateGroupChat: NSButton = groupWindowController!.window.contentView.viewWithTag(3) as NSButton
         
         CreateGroupChat.target = self;
         CreateGroupChat.action = "createChatBox:";
-
-        /* ***********************************
-         *********************************** */
-
+        
+        /* ************************************
+         * ******Contact Profile Window****** *
+        
         let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(3) as NSButton
         
         ContactProfileButton.target = self;
-        ContactProfileButton.action = "openProfile:";
+        ContactProfileButton.action = "openTheirProfile:";
         
+        * *********************************** */
+        /* *******Update Profile Window******* */
         
-        /* ***********************************
-        *********************************** */
+        let YourProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(4) as NSButton
         
+        YourProfileButton.target = self;
+        YourProfileButton.action = "openYourProfile:";
+
         let SaveYourProfileButton: NSButton = yourProfileWindowController!.window.contentView.viewWithTag(2) as NSButton
         
         SaveYourProfileButton.target = self;
         SaveYourProfileButton.action = "saveProfileChanges:";
-        
-        
-        
-        /* ***********************************
-        *********************************** */
-        
+
         let ExitYourProfileButton: NSButton = yourProfileWindowController!.window.contentView.viewWithTag(3) as NSButton
         
         ExitYourProfileButton.target = self;
         ExitYourProfileButton.action = "discardProfileChanges:";
-        
 
     }
     
@@ -149,12 +136,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     /* *********************************** */
-    /* ************Roster List************ */
+    /* ********Contact Prof Window******** */
+    
+    @IBAction func openTheirProfile(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.contactProfileWindowController!.showWindow(self)
+        }
+    }
     
     /* *********************************** */
     /* *******Update Profile Window******* */
     
-    @IBAction func openProfile(sender: AnyObject) {
+    @IBAction func openYourProfile(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
             self.yourProfileWindowController!.showWindow(self)
         }
@@ -181,7 +174,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    @IBAction func closeAddingContactScreen(sender: AnyObject) {
+    @IBAction func saveAddingContactScreen(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.addContactWindowController!.window.orderOut(self)
+        }
+    }
+    
+    @IBAction func cancelAddingContactScreen(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
             self.addContactWindowController!.window.orderOut(self)
         }
