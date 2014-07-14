@@ -7,8 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#include "XMLStream.hpp"
-#include "JID.hpp"
+#include "rambler/XMPP/Core/XMLStream.hpp"
+#include "rambler/XMPP/Core/JID.hpp"
 #include <iostream>
 
 @interface XMLSteamTestCase : XCTestCase
@@ -27,32 +27,58 @@
     [super tearDown];
 }
 
-- (void)testExample {
+- (void)testStream {
     // This is an example of a functional test case.
 
+    using namespace rambler;
     using namespace rambler::XMPP::Core;
 
-    XMLStream stream(JID::createJIDFromString("omar@dampkeg.com"));
-    stream.setHasDataEventHandler([](std::vector<UInt8> data){
-        std::cout << "\n\n\n";
-        for (auto datum : data) {
-            std::cout << (char) datum;
-        }
-        std::cout << "\n\n\n";
+    auto jid = JID::createJIDWithString("alpha@dampkeg.com");
+    String password = "alpha2014";
+
+    StrongPointer<XMLStream> stream = std::make_shared<XMLStream>(jid);
+
+    stream->setAuthenticationRequiredEventHandler([jid, password](StrongPointer<XMLStream> stream) {
+        stream->authenticateSASL_Plain("", JID::createBareJIDWithJID(jid)->description, password);
     });
-    stream.open();
-    while (true) {
+
+    stream->setResourceBoundEventHandler([](StrongPointer<XMLStream> stream) {
+        stream->sendData(std::make_shared<XML::Element>("presence"));
+    });
+
+    stream->setIQStanzaReceivedEventHandler([](StrongPointer<XMLStream> stream, StrongPointer<XML::Element> stanza) {
+        String sender = stanza->getAttribute("from").getValue();
+
+        auto pingNamespace = std::make_shared<XML::Namespace>("urn:xmpp:ping");
+
+        if (!stanza->getElementsByName(pingNamespace, "ping").empty()) {
+            std::cout << "\nRECEIVED PING\n";
+            auto response = std::make_shared<XML::Element>("iq");
+            response->addAttribute({"from", stanza->getAttribute("to").getValue()});
+            response->addAttribute({"to", stanza->getAttribute("from").getValue()});
+            response->addAttribute({"id", stanza->getAttribute("id").getValue()});
+            response->addAttribute({"type", "result"});
+
+            std::cout << "\nSENT PONG\n";
+            stream->sendData(response);
+            return;
+        }
+
+    });
+
+    stream->open();
+    while (stream->getState() != Stream::State::Closed) {
         [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1]];
     }
 
     XCTAssert(YES, @"Pass");
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
+//- (void)testPerformanceExample {
+//    // This is an example of a performance test case.
+//    [self measureBlock:^{
+//        // Put the code you want to measure the time of here.
+//    }];
+//}
 
 @end
