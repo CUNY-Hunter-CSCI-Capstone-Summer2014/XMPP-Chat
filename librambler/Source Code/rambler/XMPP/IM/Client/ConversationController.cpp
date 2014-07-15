@@ -16,12 +16,12 @@ namespace rambler{
 
 				void Conversation::sendMessage(Message message)
 				{
-					HeilError bob;
+//
 				}
 
 				void Conversation::removeConversation(String uniqueId)
 				{
-					CrabLEGS;
+//
 				}
 			}
 		}

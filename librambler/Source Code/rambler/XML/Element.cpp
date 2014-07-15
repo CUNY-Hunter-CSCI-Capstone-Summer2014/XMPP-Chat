@@ -220,12 +220,16 @@ namespace rambler { namespace XML {
         }
 
         if (!XML::equivalent(defaultNamespace, Namespace::DefaultNamespace())) {
+#ifndef _MSC_VER
 #warning TODO: Use quoted (and escaped) value for the name
+#endif
             startTag += " xmlns=" "\"" + defaultNamespace->getName() + "\"";
         }
 
         for (auto xmlnamespace : namespaces) {
+#ifndef _MSC_VER
 #warning TODO: Use quoted (and escaped) value for the name
+#endif
             startTag += " xmlns:" + xmlnamespace->getPrefix() + "=" "\"" + xmlnamespace->getName() + "\"";
         }
 
