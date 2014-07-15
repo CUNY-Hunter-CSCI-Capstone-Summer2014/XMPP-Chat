@@ -18,6 +18,9 @@
 		0739C3E9195BB781006A7EA8 /* Attribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3E8195BB781006A7EA8 /* Attribute.cpp */; };
 		0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3EB195BC68C006A7EA8 /* Node.cpp */; };
 		0739C3F1195BE732006A7EA8 /* Namespace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3F0195BE732006A7EA8 /* Namespace.cpp */; };
+		07461EC21974E7EC002B3DF3 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07461EC11974E7EC002B3DF3 /* main.mm */; };
+		07461EC81974E95F002B3DF3 /* Rambler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E6CF1950A833008C76CF /* Rambler.framework */; };
+		07461ECE1974EB59002B3DF3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E6F01950A907008C76CF /* Foundation.framework */; };
 		0747F28C196088B7003A0D0C /* NameableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0747F28B196088B7003A0D0C /* NameableNode.cpp */; };
 		0747F28F19608DCB003A0D0C /* NamespaceableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0747F28E19608DCB003A0D0C /* NamespaceableNode.cpp */; };
 		075097621973679400CBBA60 /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 075097611973679400CBBA60 /* Message.cpp */; };
@@ -31,6 +34,7 @@
 		07ABAA0B1960B0EF001543FB /* TextNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07ABAA0A1960B0EF001543FB /* TextNode.cpp */; };
 		07BC78371968AA9D00393657 /* base64.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07BC78361968AA9D00393657 /* base64.cpp */; };
 		07BC78441968C1D400393657 /* Base64.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07BC78431968C1D400393657 /* Base64.mm */; };
+		07C3E2E41974F7DD00FC40B9 /* XMLStreamParser_expat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07F9232B196D12C30010E3C4 /* XMLStreamParser_expat.cpp */; };
 		07D1E6DB1950A833008C76CF /* Rambler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E6CF1950A833008C76CF /* Rambler.framework */; };
 		07D1E6F11950A907008C76CF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D1E6F01950A907008C76CF /* Foundation.framework */; };
 		07D5DCCD1950B2110041A7F3 /* dns_utilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07D5DCC91950B2110041A7F3 /* dns_utilities.cpp */; };
@@ -40,7 +44,6 @@
 		07D5DD301950B6670041A7F3 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D5DD2F1950B6670041A7F3 /* libxml2.dylib */; };
 		07DECDC71963C2F1007938D1 /* XMLStream_Constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07DECDC61963C2F1007938D1 /* XMLStream_Constants.cpp */; };
 		07DECDCD196414AC007938D1 /* TCPConnection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07DECDCC196414AC007938D1 /* TCPConnection.cpp */; };
-		07E4F11C19634FD100D57971 /* XMLSteamTestCase.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */; };
 		07F8146B196E2AF300207EC1 /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81461196E2AF300207EC1 /* Conversation.h */; };
 		07F8146D196E2AF300207EC1 /* ConversationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81463196E2AF300207EC1 /* ConversationController.h */; };
 		07F8146F196E2AF300207EC1 /* Message.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81465196E2AF300207EC1 /* Message.h */; };
@@ -58,10 +61,16 @@
 		07F81484196E2B1C00207EC1 /* TCPConnection.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07F81480196E2B1C00207EC1 /* TCPConnection.mm */; };
 		07F81486196E2B2D00207EC1 /* Rambler.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81485196E2B2D00207EC1 /* Rambler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07F92329196D0DB90010E3C4 /* libexpat.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 07F92328196D0DB90010E3C4 /* libexpat.dylib */; };
-		07F9232C196D12C30010E3C4 /* XMLStreamParser_expat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07F9232B196D12C30010E3C4 /* XMLStreamParser_expat.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		07461EC61974E957002B3DF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 07D1E6C61950A833008C76CF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 07D1E6CE1950A833008C76CF;
+			remoteInfo = Rambler;
+		};
 		07D1E6DC1950A833008C76CF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 07D1E6C61950A833008C76CF /* Project object */;
@@ -128,6 +137,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		07461EBD1974E7EC002B3DF3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		07D5DCB21950B0AD0041A7F3 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -161,6 +179,8 @@
 		0739C3EE195BE40A006A7EA8 /* integer_types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = integer_types.hpp; sourceTree = "<group>"; };
 		0739C3EF195BE5D4006A7EA8 /* string_types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = string_types.hpp; sourceTree = "<group>"; };
 		0739C3F0195BE732006A7EA8 /* Namespace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Namespace.cpp; sourceTree = "<group>"; };
+		07461EBF1974E7EC002B3DF3 /* Example Client (Objective-C) */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Example Client (Objective-C)"; sourceTree = BUILT_PRODUCTS_DIR; };
+		07461EC11974E7EC002B3DF3 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		0747F28A1960879E003A0D0C /* NameableNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NameableNode.hpp; sourceTree = "<group>"; };
 		0747F28B196088B7003A0D0C /* NameableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NameableNode.cpp; sourceTree = "<group>"; };
 		0747F28D19608C3F003A0D0C /* NamespaceableNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = NamespaceableNode.hpp; sourceTree = "<group>"; };
@@ -198,7 +218,6 @@
 		07DECDCB19641495007938D1 /* TCPConnection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TCPConnection.hpp; sourceTree = "<group>"; };
 		07DECDCC196414AC007938D1 /* TCPConnection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TCPConnection.cpp; sourceTree = "<group>"; };
 		07DECDCE19641773007938D1 /* CFNetworkBasedTCPConnection.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CFNetworkBasedTCPConnection.hpp; sourceTree = "<group>"; };
-		07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XMLSteamTestCase.mm; sourceTree = "<group>"; };
 		07F81461196E2AF300207EC1 /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Conversation.h; path = "Source Code/Rambler/XMPP/IM/Client/Conversation.h"; sourceTree = SOURCE_ROOT; };
 		07F81462196E2AF300207EC1 /* Conversation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Conversation.mm; path = "Source Code/Rambler/XMPP/IM/Client/Conversation.mm"; sourceTree = SOURCE_ROOT; };
 		07F81463196E2AF300207EC1 /* ConversationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConversationController.h; path = "Source Code/Rambler/XMPP/IM/Client/ConversationController.h"; sourceTree = SOURCE_ROOT; };
@@ -226,6 +245,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		07461EBC1974E7EC002B3DF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07461ECE1974EB59002B3DF3 /* Foundation.framework in Frameworks */,
+				07461EC81974E95F002B3DF3 /* Rambler.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		07D1E6CB1950A833008C76CF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -311,6 +339,15 @@
 				07ABAA0A1960B0EF001543FB /* TextNode.cpp */,
 			);
 			path = XML;
+			sourceTree = "<group>";
+		};
+		07461EC01974E7EC002B3DF3 /* Example Client (Objective-C) */ = {
+			isa = PBXGroup;
+			children = (
+				07461EC11974E7EC002B3DF3 /* main.mm */,
+			);
+			name = "Example Client (Objective-C)";
+			path = "Examples/Example Client (Objective-C)";
 			sourceTree = "<group>";
 		};
 		078D2A64196E24FF00CF208A /* XMPP */ = {
@@ -422,6 +459,7 @@
 				07D1E6D11950A833008C76CF /* Rambler */,
 				07D5DCB31950B1260041A7F3 /* librambler */,
 				07D1E6DE1950A833008C76CF /* Rambler – Tests */,
+				07461EC01974E7EC002B3DF3 /* Example Client (Objective-C) */,
 				07D1E6F21950A913008C76CF /* Frameworks */,
 				07D1E6D01950A833008C76CF /* Products */,
 			);
@@ -432,6 +470,7 @@
 			children = (
 				07D1E6CF1950A833008C76CF /* Rambler.framework */,
 				07D1E6DA1950A833008C76CF /* Rambler – Tests.xctest */,
+				07461EBF1974E7EC002B3DF3 /* Example Client (Objective-C) */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -485,7 +524,6 @@
 		07D1E6F31950A92B008C76CF /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
-				07E4F11B19634FD100D57971 /* XMLSteamTestCase.mm */,
 				0715A6CB19579204004519D9 /* CreateJIDFromStringTestCase.mm */,
 				07BC78431968C1D400393657 /* Base64.mm */,
 			);
@@ -572,6 +610,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		07461EBE1974E7EC002B3DF3 /* Example Client (Objective-C) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07461EC51974E7EC002B3DF3 /* Build configuration list for PBXNativeTarget "Example Client (Objective-C)" */;
+			buildPhases = (
+				07461EBB1974E7EC002B3DF3 /* Sources */,
+				07461EBC1974E7EC002B3DF3 /* Frameworks */,
+				07461EBD1974E7EC002B3DF3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				07461EC71974E957002B3DF3 /* PBXTargetDependency */,
+			);
+			name = "Example Client (Objective-C)";
+			productName = "Example Client (Objective-C)";
+			productReference = 07461EBF1974E7EC002B3DF3 /* Example Client (Objective-C) */;
+			productType = "com.apple.product-type.tool";
+		};
 		07D1E6CE1950A833008C76CF /* Rambler */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07D1E6E51950A833008C76CF /* Build configuration list for PBXNativeTarget "Rambler" */;
@@ -626,6 +682,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = DampKeg;
 				TargetAttributes = {
+					07461EBE1974E7EC002B3DF3 = {
+						CreatedOnToolsVersion = 6.0;
+					};
 					07D1E6CE1950A833008C76CF = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -649,6 +708,7 @@
 			targets = (
 				07D1E6CE1950A833008C76CF /* Rambler */,
 				07D1E6D91950A833008C76CF /* Rambler – Tests */,
+				07461EBE1974E7EC002B3DF3 /* Example Client (Objective-C) */,
 			);
 		};
 /* End PBXProject section */
@@ -671,6 +731,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		07461EBB1974E7EC002B3DF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07461EC21974E7EC002B3DF3 /* main.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		07D1E6CA1950A833008C76CF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -688,6 +756,7 @@
 				07F81484196E2B1C00207EC1 /* TCPConnection.mm in Sources */,
 				0715A6331954FC82004519D9 /* XMLStream.cpp in Sources */,
 				07D5DCCD1950B2110041A7F3 /* dns_utilities.cpp in Sources */,
+				07C3E2E41974F7DD00FC40B9 /* XMLStreamParser_expat.cpp in Sources */,
 				0739C3E9195BB781006A7EA8 /* Attribute.cpp in Sources */,
 				07DECDCD196414AC007938D1 /* TCPConnection.cpp in Sources */,
 				07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */,
@@ -698,7 +767,6 @@
 				0715A63D195512A8004519D9 /* JID.cpp in Sources */,
 				0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */,
 				07333DED196A46BD0000D8F3 /* XMLStream_Context.cpp in Sources */,
-				07F9232C196D12C30010E3C4 /* XMLStreamParser_expat.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,13 +776,17 @@
 			files = (
 				07BC78441968C1D400393657 /* Base64.mm in Sources */,
 				0715A6CC19579204004519D9 /* CreateJIDFromStringTestCase.mm in Sources */,
-				07E4F11C19634FD100D57971 /* XMLSteamTestCase.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		07461EC71974E957002B3DF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 07D1E6CE1950A833008C76CF /* Rambler */;
+			targetProxy = 07461EC61974E957002B3DF3 /* PBXContainerItemProxy */;
+		};
 		07D1E6DD1950A833008C76CF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 07D1E6CE1950A833008C76CF /* Rambler */;
@@ -763,6 +835,26 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		07461EC31974E7EC002B3DF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		07461EC41974E7EC002B3DF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		07D1E6E31950A833008C76CF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -928,6 +1020,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		07461EC51974E7EC002B3DF3 /* Build configuration list for PBXNativeTarget "Example Client (Objective-C)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07461EC31974E7EC002B3DF3 /* Debug */,
+				07461EC41974E7EC002B3DF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		07D1E6C91950A833008C76CF /* Build configuration list for PBXProject "Rambler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

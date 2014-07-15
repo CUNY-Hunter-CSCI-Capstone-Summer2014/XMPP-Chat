@@ -1,37 +1,21 @@
 //
-//  XMLSteamTestCase.m
-//  Rambler
+//  main.m
+//  Example Client (Objective-C)
 //
-//  Created by Omar Stefan Evans on 7/1/14.
+//  Created by Omar Evans on 7/15/14.
 //  Copyright (c) 2014 DampKeg. All rights reserved.
 //
 
-#import <XCTest/XCTest.h>
-#include "rambler/XMPP/Core/XMLStream.hpp"
-#include "rambler/XMPP/Core/JID.hpp"
 #include <iostream>
+#include <Foundation/Foundation.h>
 
-@interface XMLSteamTestCase : XCTestCase
+#include "rambler/XMPP/Core/JID.hpp"
+#include "rambler/XMPP/Core/XMLStream.hpp"
 
-@end
+using namespace rambler;
+using namespace rambler::XMPP::Core;
 
-@implementation XMLSteamTestCase
-
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testStream {
-    // This is an example of a functional test case.
-
-    using namespace rambler;
-    using namespace rambler::XMPP::Core;
+int main(int argc, const char * argv[]) {
 
     auto jid = JID::createJIDWithString("alpha@dampkeg.com");
     String password = "alpha2014";
@@ -66,19 +50,30 @@
 
     });
 
+    stream->setMessageStanzaReceivedEventHandler([](StrongPointer<XMLStream> stream, StrongPointer<XML::Element> stanza){
+        auto temp = stanza->getElementsByName("body");
+
+        if (!temp.empty()) {
+            auto bodyElement = temp.front();
+            
+            std::cout << "\nRECEIVED MESSAGE (sent to " << stanza->getAttribute("to").getValue() << ")\n";
+            std::cout << "From: " << stanza->getAttribute("from").getValue() << std::endl;
+            std::cout << "Body: ";
+            for (auto child : bodyElement->getChildren()) {
+                if (child->getType() == XML::Node::Type::Text) {
+                    auto textNode = std::dynamic_pointer_cast<XML::TextNode>(child);
+                    std::cout << textNode->getStringValue() << std::endl;
+                }
+            }
+            std::cout << "UniqueID: " << stanza->getAttribute("id").getValue() << std::endl;
+
+        }
+    });
+
     stream->open();
     while (stream->getState() != Stream::State::Closed) {
-        [[NSRunLoop mainRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:1]];
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }
 
-    XCTAssert(YES, @"Pass");
+    return 0;
 }
-
-//- (void)testPerformanceExample {
-//    // This is an example of a performance test case.
-//    [self measureBlock:^{
-//        // Put the code you want to measure the time of here.
-//    }];
-//}
-
-@end
