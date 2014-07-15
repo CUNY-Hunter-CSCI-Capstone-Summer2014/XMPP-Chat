@@ -1,4 +1,4 @@
-#include "XMLStream.hpp"
+#include "rambler/XMPP/Core/XMLStream.hpp"
 #include "JID.hpp"
 #include "Utility.hpp"
 

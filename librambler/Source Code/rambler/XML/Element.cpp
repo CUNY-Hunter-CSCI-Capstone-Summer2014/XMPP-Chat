@@ -193,7 +193,9 @@ namespace rambler { namespace XML {
 
     void Element::setAttributes(std::set<Attribute> attributes)
     {
+#ifndef _MSC_VER
 #warning FIXME: setAttributes is broken!
+#endif
         //this->attributes = attributes;
     }
 

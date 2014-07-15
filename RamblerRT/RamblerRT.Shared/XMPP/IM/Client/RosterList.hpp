@@ -1,4 +1,4 @@
-#include "RosterList.hpp"
+#include "rambler/XMPP/IM/Client/RosterList.hpp"
 #include "RosterItem.hpp"
 #include "Utility.hpp"
 
