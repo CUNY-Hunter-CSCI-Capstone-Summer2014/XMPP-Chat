@@ -11,16 +11,16 @@ namespace Rambler{
 
 				XMLStream() = default;
 				XMLStream(JID jid);
-				XMLStream(Platform::string host);
-				XMLStream(Platform::string host, JID jid);
-				XMLStream(Platform::string host, Platform::string port);
-				XMLStream(Platform::string host, Platform::string port, JID jid);
+				XMLStream(Platform::String host);
+				XMLStream(Platform::String host, JID jid);
+				XMLStream(Platform::String host, Platform::String port);
+				XMLStream(Platform::String host, Platform::String port, JID jid);
 
 
 				bool open();
 				bool close();
 
-				void sendData(std::vector<UInt8> & data);
+				void sendData(std::vector<uint8> & data);
 
 			private:
 

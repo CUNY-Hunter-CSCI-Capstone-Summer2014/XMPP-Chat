@@ -1,6 +1,6 @@
-#include "types.hpp"
+#include "rambler/types.hpp"
 #include "Utility.hpp"
-#include "JID.hpp" //rambler::XMPP::Core::JID
+#include "rambler/XMPP/Core/JID.hpp" //rambler::XMPP::Core::JID
 
 namespace Rambler{
 	namespace XMPP{
