@@ -1,9 +1,9 @@
 #pragma once
-#include "types.hpp"
+#include "rambler/types.hpp"
 #include "Message.hpp"
 #include <map>
 #include <vector>
-#include "JID.hpp"
+#include "rambler/XMPP/Core/JID.hpp"
 
 
 namespace rambler{

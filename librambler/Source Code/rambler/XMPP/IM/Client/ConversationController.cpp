@@ -1,5 +1,5 @@
 #include "ConversationController.hpp"
-#include "types.hpp"
+#include "rambler/types.hpp"
 #include <map>
 #include "Message.hpp"
 #include "Conversation.hpp"
@@ -16,12 +16,12 @@ namespace rambler{
 
 				void Conversation::sendMessage(Message message)
 				{
-					HeilError bob;
+//
 				}
 
 				void Conversation::removeConversation(String uniqueId)
 				{
-					CrabLEGS;
+//
 				}
 			}
 		}

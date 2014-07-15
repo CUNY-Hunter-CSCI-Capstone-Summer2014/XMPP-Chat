@@ -11,7 +11,7 @@ namespace rambler { namespace Connection {
 
 
 	WindowsRuntimeBasedConnection::WindowsRuntimeBasedConnection
-	(std::string host,std::string service){
+	(std::string host,std::string service) : TCPConnection(host, service) {
 
 		//Convert from std::string to *wstring to Platform::string
 		//to host name

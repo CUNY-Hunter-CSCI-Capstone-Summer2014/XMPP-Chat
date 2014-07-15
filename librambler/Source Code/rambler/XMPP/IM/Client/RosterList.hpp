@@ -1,5 +1,5 @@
 #pragma once
-#include "types.hpp"
+#include "rambler/types.hpp"
 #include "RosterItem.hpp"
 #include "JID.hpp"
 #include <map>

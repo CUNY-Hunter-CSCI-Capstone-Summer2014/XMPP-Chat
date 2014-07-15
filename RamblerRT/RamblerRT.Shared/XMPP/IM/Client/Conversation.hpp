@@ -1,4 +1,4 @@
-#include "Conversation.hpp"
+#include "rambler/XMPP/IM/Client/Conversation.hpp"
 
 namespace Rambler {
 	namespace XMPP {

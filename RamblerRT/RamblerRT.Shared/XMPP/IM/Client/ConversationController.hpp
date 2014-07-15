@@ -1,5 +1,5 @@
 
-#include "ConversationController.hpp"
+#include "rambler/XMPP/IM/Client/ConversationController.hpp"
 
 
 namespace Rambler{

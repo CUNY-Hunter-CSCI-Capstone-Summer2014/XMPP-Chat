@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "AbstractConnection.h"
+#include "rambler/Connection/TCPConnection.hpp"
 #include <codecvt>
 using namespace Platform;
 using namespace Windows::Foundation;
@@ -22,7 +22,7 @@ namespace rambler { namespace Connection {
 	* Creates a connection using StreamSockets
 	* Supports only Windows 8.1 and later.
 	*/
-	class WindowsRuntimeBasedConnection : public AbstractConnection {
+	class WindowsRuntimeBasedConnection : public TCPConnection {
 	public:
 		WindowsRuntimeBasedConnection() = default;
 

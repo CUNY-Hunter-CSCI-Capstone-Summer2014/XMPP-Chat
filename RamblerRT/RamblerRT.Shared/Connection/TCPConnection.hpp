@@ -1,8 +1,7 @@
 #pragma once
 
-#include "WindowsRuntimeBasedConnection.h"
-#include "State.hpp"
-#include "AbstractConnection.h"
+#include "rambler/Connection/WindowsRuntimeBasedConnection.h"
+#include "rambler/Stream/State.hpp"
 #include <codecvt>
 
 using namespace Platform;

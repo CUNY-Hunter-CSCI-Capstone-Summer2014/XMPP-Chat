@@ -13,12 +13,12 @@ namespace rambler{
 
 				void Conversation::sendMessage(Message message)
 				{
-					HeilError bob;
+//					HeilError bob;
 				}
 
 				void Conversation::leave()
 				{
-					HeilError bob;
+//					HeilError bob;
 				}
 			}
 		}

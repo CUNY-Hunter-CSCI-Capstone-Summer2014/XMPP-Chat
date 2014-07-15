@@ -1,4 +1,4 @@
-#include "RosterItem.hpp"
+#include "rambler/XMPP/IM/Client/RosterItem.hpp"
 #include "SubscriptionStatus.hpp"
 namespace Rambler {
 	namespace XMPP {
