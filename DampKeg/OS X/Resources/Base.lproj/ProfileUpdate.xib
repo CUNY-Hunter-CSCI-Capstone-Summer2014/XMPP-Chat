@@ -25,8 +25,8 @@
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="J36-pN-hf1"/>
                     </imageView>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mle-ih-4iK">
-                        <rect key="frame" x="26" y="432" width="119" height="32"/>
-                        <buttonCell key="cell" type="push" title="Browse Files" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vlo-Xy-xlP">
+                        <rect key="frame" x="26" y="465" width="129" height="32"/>
+                        <buttonCell key="cell" type="push" title="Select Image" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vlo-Xy-xlP">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -75,13 +75,6 @@ Gw
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MDy-ZO-X2G">
-                        <rect key="frame" x="26" y="465" width="119" height="32"/>
-                        <buttonCell key="cell" type="push" title="Clear Current" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FYC-OO-V3L">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
                     <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wex-qf-gI5">
                         <rect key="frame" x="32" y="61" width="256" height="256"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="bAh-bX-ev0">
@@ -110,6 +103,20 @@ Gw
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AVW-YG-6Hr">
+                        <rect key="frame" x="26" y="432" width="129" height="32"/>
+                        <buttonCell key="cell" type="push" title="Upload Selected" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nPZ-XC-Dvu">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MDy-ZO-X2G">
+                        <rect key="frame" x="26" y="399" width="129" height="32"/>
+                        <buttonCell key="cell" type="push" title="Clear Image" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FYC-OO-V3L">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
                 </subviews>
             </view>
             <point key="canvasLocation" x="303" y="313.5"/>

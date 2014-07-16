@@ -41,7 +41,7 @@
                     </secureTextField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HQ6-NO-zCH">
                         <rect key="frame" x="60" y="170" width="200" height="22"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="Username@Dampkeg.com" drawsBackground="YES" id="u20-ka-mQE">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" state="on" borderStyle="bezel" placeholderString="username@dampkeg.com" drawsBackground="YES" id="u20-ka-mQE">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -69,6 +69,9 @@
                         <buttonCell key="cell" type="push" title="Login" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Spa-Fw-Gbf">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                         </buttonCell>
                         <connections>
                             <binding destination="N3D-Nq-8bj" name="enabled" keyPath="isValid" id="fXT-YT-cpi"/>

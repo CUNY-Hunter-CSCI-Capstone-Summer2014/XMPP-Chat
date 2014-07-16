@@ -14,6 +14,8 @@ AddContact:
     [X] Button - Cancel
 
 ChatBox:
+    [_] Label - Incoming Messages
+    [_] Label - Sent Messages
     [~] Textbox - User Textbox
             Element can be typed into, but saves contents when window is closed.
     [_] Button - Send Message
@@ -22,6 +24,9 @@ ChatBox:
     [_] Button - Italicize Text
     [_] Button - Underline Text
 
+    [_] Button - Change Font
+    [_] Button - Change Size
+
 ContactProfile:
     [X] Button - OK
     [_] Image Cell - Avatar
@@ -29,16 +34,36 @@ ContactProfile:
             Element exists, but should change to the selected Contact's name.
     [_] Label - Profile
 
-LoginWindow
+GroupChatBox:
+    [_] 
 
+LoginWindow:
+    [X] Textbox - Username
+    [_] Textbox - Password
+    [_] Button - Login
 
+MainMenu:
+    [_]
 
+PrefWindow:
+    [_]
 
+ProfileUpdate:
+    [_] Button - Clear Image
+    [_] Button - Browse for Images
+    [_] Button - Upload Selected Image
 
+    [_] Button - Save Changes
+    [_] Button - Discard Changes
+
+RosterList:
+    [X] Button - View Profile
+    [_] Button - Start Conversation
+    [_] Button - Add Contact
+    [_] Button - Edit Roster
+    [_] Button - Edit Profile
 
 /* *********************************** */ */
-
-
 
 import Cocoa
 
@@ -46,6 +71,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var addContactWindowController: NSWindowController? = nil
     var chatBoxWindowController: NSWindowController? = nil
+    var editProfileWindowController: NSWindowController? = nil
     var groupAddWindowController: NSWindowController? = nil
     var loginWindowController: NSWindowController? = nil
     var rosterListWindowController: NSWindowController? = nil
@@ -58,9 +84,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         addContactWindowController = NSWindowController(windowNibName: "AddContact")
         chatBoxWindowController = NSWindowController(windowNibName: "ChatBox")
+        editProfileWindowController = NSWindowController(windowNibName: "ProfileUpdate")
         groupAddWindowController = NSWindowController(windowNibName: "GroupChatBox")
         loginWindowController = NSWindowController(windowNibName: "Login Window")
-        rosterListWindowController = NSWindowController(windowNibName: "Roster List")
+        rosterListWindowController = NSWindowController(windowNibName: "RosterList")
         viewProfileController = NSWindowController(windowNibName: "ContactProfile")
 
         /* *********************************** */
@@ -96,7 +123,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(5) as NSButton
         
         ContactProfileButton.target = self;
-        ContactProfileButton.action = "openProfile:";
+        ContactProfileButton.action = "openContactProfile:";
+        
+        /* ************************************ */
+        
+        let EditProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(4) as NSButton
+        
+        EditProfileButton.target = self;
+        EditProfileButton.action = "editOwnProfile:";
+        
+        /* *********************************** */
+        /* ****** viewProfileController ****** */
+        /* *********************************** */
+        
+        let DoneViewingProfileButton: NSButton = viewProfileController!.window.contentView.viewWithTag(1) as NSButton
+        
+        DoneViewingProfileButton.target = self;
+        DoneViewingProfileButton.action = "closeContactProfile:";
+        
         
         /* ************************************ */
         /* **** addContactWindowController **** */
@@ -111,8 +155,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let CancelAddingContact: NSButton = addContactWindowController!.window.contentView.viewWithTag(2) as NSButton
         
-        DoneAddingContact.target = self;
-        DoneAddingContact.action = "closeAddingContactScreen:";
+        CancelAddingContact.target = self;
+        CancelAddingContact.action = "closeAddingContactScreen:";
         
         /* ************************************ */
         /* ***** groupAddWindowController ***** */
@@ -123,7 +167,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         CreateChatButton.target = self;
         CreateChatButton.action = "createChatBox:";
         
-
+        /* ************************************ */
+        
+        let CancelGroupAddButton: NSButton = groupAddWindowController!.window.contentView.viewWithTag(3) as NSButton
+        
+        CancelGroupAddButton.target = self;
+        CancelGroupAddButton.action = "cancelGroupAdd:";
+        
     }
     
     /* ************************************ */
@@ -135,6 +185,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true;
     }
     
+    
+    /* ************************************ */
+    /* *********** Login Window *********** */
     /* ************************************ */
     
     @IBAction func closeLoginWindowAndOpenRosterListWindow(sender: AnyObject) {
@@ -144,12 +197,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    /* ************************************ */
+    
+    
     @IBAction func createChatBox(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.chatBoxWindowController!.showWindow(self)
             self.groupAddWindowController!.window.orderOut(self)
-            
         }
     }
+    
+    @IBAction func cancelGroupAdd(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.groupAddWindowController!.window.orderOut(self)
+        }
+    }
+    
+    @IBAction func openGroupAddWindow(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.groupAddWindowController!.showWindow(self)
+        }
+    }
+    
+    /* ************************************ */
+    /* ******** Add Contact Window ******** */
+    /* ************************************ */
     
     @IBAction func openAddContactScreen(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
@@ -163,20 +235,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    @IBAction func openGroupAddWindow(sender: AnyObject)
-        {
+    /* ************************************ */
+    /* ****** Contact Profile Window ****** */
+    /* ************************************ */
+    
+    @IBAction func openContactProfile(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.chatBoxWindowController!.showWindow(self)
-            self.groupAddWindowController!.window.orderOut(self)
+            self.viewProfileController!.showWindow(self)
         }
     }
     
-//    @IBAction func closeChatBox(sender: AnyObject)
-//    {
-//        NSOperationQueue.mainQueue().addOperationWithBlock() {
-//            self.openEmptyChatController!.window.orderOut(self)
-//        }
-//    }
+    @IBAction func closeContactProfile(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.viewProfileController!.window.orderOut(self)
+        }
+    }
+    
+    /* ************************************ */
+    
+    /* ************************************ */
+    
+    @IBAction func editOwnProfile(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.editProfileWindowController!.showWindow(self)
+        }
+    }
+    
+    /* ************************************ */
+    
     
     /* *********************************** */
     
