@@ -129,9 +129,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Conversation.cpp">
       <Filter>RamblerRT\XMPP\IM\Client</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Message.cpp">
-      <Filter>RamblerRT\XMPP\IM\Client</Filter>
-    </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\ConversationController.cpp">
       <Filter>RamblerRT\XMPP\IM\Client</Filter>
     </ClCompile>

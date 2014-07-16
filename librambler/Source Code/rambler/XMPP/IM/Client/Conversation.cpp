@@ -12,13 +12,14 @@ namespace rambler{
 				}
 
 				void Conversation::sendMessage(Message message)
-				{
-//					HeilError bob;
+				{	
+					#warning("UNDEFINED METHOD")
 				}
 
 				void Conversation::leave()
 				{
-//					HeilError bob;
+					#warning("UNDEFINED METHOD")
+
 				}
 			}
 		}

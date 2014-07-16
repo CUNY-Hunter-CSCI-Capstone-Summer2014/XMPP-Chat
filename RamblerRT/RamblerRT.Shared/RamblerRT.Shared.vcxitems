@@ -80,7 +80,6 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\Core\XMLStream.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Conversation.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\ConversationController.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Message.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\RosterItem.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\RosterList.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\SubscriptionStatus.hpp" />

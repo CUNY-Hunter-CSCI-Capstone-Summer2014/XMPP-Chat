@@ -1,29 +1,22 @@
-#include "ConversationController.hpp"
-#include "rambler/types.hpp"
-#include <map>
+#include "ConversationController.hpp" //rambler
 #include "Message.hpp"
 #include "Conversation.hpp"
+#include "rambler/types.hpp"
+#include <map>
 
-namespace rambler{
-	namespace XMPP{
-		namespace IM{
-			namespace Client{
-				void ConversationController::setMessageReceivedForConversationByUniqueIdEventHandler
-					(MessageReceivedForConversationByUniqueIdEventHandler eventHandler)
-				{
-					handleMessageReceivedForConversationByUniqueId = eventHandler;
-				}
 
-				void Conversation::sendMessage(Message message)
-				{
-//
-				}
-
-				void Conversation::removeConversation(String uniqueId)
-				{
-//
-				}
-			}
-		}
+namespace rambler{ namespace XMPP { namespace IM { namespace Client{
+	void ConversationController::setMessageReceivedForConversationByUniqueIdEventHandler
+	(MessageReceivedForConversationByUniqueIdEventHandler eventHandler){
+		handleMessageReceivedForConversationByUniqueId = eventHandler;
 	}
-}
+
+	void ConversationController::sendMessage(Message message){
+		#warning("UNDEFINED METHOD")
+	}
+
+	void ConversationController::removeConversation(String uniqueId){
+		#warning("UNDEFINED METHOD")
+	}
+
+}}}}
