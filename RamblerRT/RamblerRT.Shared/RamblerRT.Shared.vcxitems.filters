@@ -204,6 +204,9 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\rambler\XMPP\IM\Client\RosterList.cpp">
       <Filter>librambler\XMPP\IM\Client</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\SubscriptionStatus.hpp">
+      <Filter>RamblerRT\XMPP\IM\Client</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RamblerRT">

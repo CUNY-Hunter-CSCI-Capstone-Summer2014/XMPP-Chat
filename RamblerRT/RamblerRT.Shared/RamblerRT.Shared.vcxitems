@@ -83,6 +83,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Message.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\RosterItem.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\RosterList.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\SubscriptionStatus.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectCapability Include="SourceItemsFromImports" />

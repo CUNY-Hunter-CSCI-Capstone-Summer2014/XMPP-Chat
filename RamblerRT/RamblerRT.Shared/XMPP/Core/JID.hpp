@@ -1,11 +1,7 @@
-#include "rambler/types.hpp"
-#include "Utility.hpp"
-#include "rambler/XMPP/Core/JID.hpp" //rambler::XMPP::Core::JID
 
-namespace Rambler{
-	namespace XMPP{
-		namespace Core{
-	ref class JID{
+
+namespace Rambler { namespace XMPP { namespace Core{
+	  partial ref class JID{
 		public:
 
 		//Validators
@@ -14,7 +10,7 @@ namespace Rambler{
 		static Platform::Boolean  validateDomainPart(JID const jid);
 		static Platform::Boolean  validateResourcePart(JID const jid);
 
-        static JID const None;
+        static JID const Nones;
 
 		//constructors
         JID();
@@ -42,7 +38,6 @@ namespace Rambler{
         
         bool operator == (JID const & other) const;
 		
-	private:
-		rambler::XMPP::Core::JID * theJID;
+	
 	};
 }}}

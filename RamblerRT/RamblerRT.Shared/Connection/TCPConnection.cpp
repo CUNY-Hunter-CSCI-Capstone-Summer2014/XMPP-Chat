@@ -1,7 +1,14 @@
 #include "TCPConnection.hpp"
-#include "State.hpp"
-namespace Rambler{ namespace Connection{
 
+#include "rambler/Connection/WindowsRuntimeBasedConnection.h"
+#include "rambler/Stream/State.hpp"
+
+
+
+namespace Rambler{ namespace Connection{
+	partial ref class TCPConnection sealed{
+	internal: std::shared_ptr<rambler::Connection::WindowsRuntimeBasedConnection> theConnection;
+	};
 	TCPConnection::TCPConnection(){
 		theConnection = new rambler::Connection::WindowsRuntimeBasedConnection();
 	}
@@ -46,31 +53,42 @@ namespace Rambler{ namespace Connection{
 	Stream::State TCPConnection::getState() {
 			
 		switch (theConnection->getState()){
-			case rambler::Connection::State::NotConnected:
-				return Stream::State::Closed;
-			case rambler::Connection::State::Connecting:
-				return Stream::State::Opening;
-			case rambler::Connection::State::Connected:
-					return Stream::State::Open;
-			case rambler::Connection::State::SecurelyConnected:
-				return Stream::State::OpenAndSecured;
+		case rambler::Stream::State::Closed:
+			return Stream::State::Closed;
+		case rambler::Stream::State::Closing:
+			return Stream::State::Closing;
+		case rambler::Stream::State::Opening:
+			return Stream::State::Opening;
+		case rambler::Stream::State::Open:
+			return Stream::State::Open;
+		case rambler::Stream::State::OpenAndSecuring:
+			return Stream::State::OpenAndSecuring;
+		case rambler::Stream::State::OpenAndSecured:
+			return Stream::State::OpenAndSecured;
+		case rambler::Stream::State::OpenAndSecuredAndAuthenticated:
+			return Stream::State::OpenAndSecuredAndAuthenticated;
+
 			}
 	}
 
 	Platform::String ^ TCPConnection::getConnectedHost() {
-		std::string connectedHost = theConnection->getConnectedHost();
-		
+
+
+		//std::string connectedHost = theConnection->getConnectedHost();
+		String ^ connectedHost = theConnection->getConnectedHost();
+
+		/*
 		std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 		std::wstring title_UTF16 = converter.from_bytes(connectedHost.c_str());
 		String^ pString = ref new String(title_UTF16.c_str());
+		*/
 
-
-		return pString;
+		return connectedHost;
 
 	}
 	
 	uint16 TCPConnection::getConnectedPort() {
-		return theConnection->getConnectedPort();
+		#warning("WTF IS A CONNECTED PORT")
 	}
 	
 	

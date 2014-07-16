@@ -1,7 +1,13 @@
 #include "JID.hpp"
-
+#include "rambler/types.hpp"
+#include "Utility.hpp"
+#include "rambler/XMPP/Core/JID.hpp" //rambler::XMPP::Core::JID
 
 namespace Rambler { namespace XMPP{ namespace Core{
+
+	partial ref class JID {
+	internal: std::shared_ptr<rambler::XMPP::Core::JID>  theJID;
+	};
 
 	static JID JID::createJIDFromString(Platform::String const jid){
 		std::string sString = Utility::PSTRING_TO_STDSTRING(jid);

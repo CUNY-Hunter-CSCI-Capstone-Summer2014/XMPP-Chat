@@ -1,15 +1,14 @@
-namespace Rambler{
-	namespace Stream{
+namespace Rambler { namespace Stream {
 
+public enum class State {
+	Closed,
+	Closing,
+	Opening,
+	Open,
+	OpenAndSecuring,
+	OpenAndSecured,
+	OpenAndSecuredAndAuthenticated
+};
 
-		public enum class State {
-					Closed,
-					Opening,
-					Open,
-					OpenAndSecured
-
-				};
-
-			}
-		}
+}	}
 	
