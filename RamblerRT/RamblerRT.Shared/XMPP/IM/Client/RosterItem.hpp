@@ -1,11 +1,7 @@
-#include "RosterItem.hpp"
 #include "SubscriptionStatus.hpp"
-namespace Rambler {
-	namespace XMPP {
-		namespace IM {
-			namespace Client {
+namespace Rambler { namespace XMPP { namespace IM { namespace Client {
 
-				ref class RosterItem sealed{
+				partial ref class RosterItem sealed{
 				public:
 					RosterItem() = default;
 					static Rambler::Core::JID  jid;
@@ -13,8 +9,7 @@ namespace Rambler {
 					static SubscriptionStatus subscriptionStatus;
 					static std::vector<Platform::String> groups;
 
-				private:
-					rambler::XMPP::IM::Client * itemProper;
+				
 				};
 
 			}

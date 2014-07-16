@@ -247,7 +247,9 @@ namespace rambler { namespace XMPP { namespace Core {
             } else if (element->getName() == "presence") {
                 handlePresenceStanzaReceivedEvent(shared_from_this(), element);
             } else {
+#ifndef _MSC_VER
 #warning make a decision
+#endif
                 //There's some error.
             }
         } else {
@@ -256,7 +258,9 @@ namespace rambler { namespace XMPP { namespace Core {
 
                 case Stream::State::OpenAndSecuredAndAuthenticated:
                     if (!context->sentBindRequest) {
+#ifndef _MSC_VER
 #warning assumes that binding is available/possible.  this should be checked first.
+#endif
                         context->sentBindRequest = true;
                         bind();
                     } else if (element->getName() == "iq"  && element->getAttribute("type").getValue() == "result" ) {
@@ -281,7 +285,9 @@ namespace rambler { namespace XMPP { namespace Core {
 
 
                 case Stream::State::OpenAndSecured:
+#ifndef _MSC_VER
 #warning assumes SASL authentication is available.  should check first.
+#endif
                     if (!context->sentAuth) {
                         while (!context->sentAuth) {
                             handleAuthenticationRequiredEvent(shared_from_this());

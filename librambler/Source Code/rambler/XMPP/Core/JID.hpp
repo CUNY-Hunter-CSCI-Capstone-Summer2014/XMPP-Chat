@@ -8,7 +8,6 @@
 #pragma once
 
 #include "rambler/types.hpp"
-#include <shared_mutex>
 
 namespace rambler { namespace XMPP { namespace Core {
 

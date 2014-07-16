@@ -1,8 +1,13 @@
 #include "ConversationController.hpp"
-namespace Rambler{
-	namespace XMPP{
-		namespace IM{
-			namespace Client{
+#include "rambler/XMPP/IM/Client/ConversationController.hpp"
+
+namespace Rambler{ namespace XMPP{ namespace IM{ namespace Client{
+
+	partial ref class ConversationController sealed{
+	internal: 	
+		std::shared_ptr<rambler::XMPP::IM::Client::ConversationController> controller;
+	};
+
 				ConversationController::setMessageReceivedForConversationByUniqueIdEventHandler
 					(MessageReceivedForConversationByUniqueIdEventHandler eventHandler)
 				{
