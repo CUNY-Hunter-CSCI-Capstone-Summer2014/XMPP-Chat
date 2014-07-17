@@ -406,4 +406,9 @@ namespace rambler { namespace XMPP { namespace Core {
         sendData(authElement);
     }
 
+
+    StrongPointer<JID const> XMLStream::getJID() const
+    {
+        return jid;
+    }
 }}}

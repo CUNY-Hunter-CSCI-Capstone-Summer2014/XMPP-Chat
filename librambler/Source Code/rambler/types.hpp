@@ -9,6 +9,7 @@
 
 #include <functional>
 
+#include <map>
 #include <list>
 #include <set>
 #include <vector>

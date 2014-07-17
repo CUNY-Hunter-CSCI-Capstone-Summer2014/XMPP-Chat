@@ -36,8 +36,21 @@ namespace rambler { namespace XML {
         std::vector<StrongPointer<Element>> getElementsByName(String const name) const;
         std::vector<StrongPointer<Element>> getElementsByName(StrongPointer<Namespace> const xmlnamespace,
                                                               String const name) const;
-        
+        std::vector<StrongPointer<Element>> getElementsByNamespace(StrongPointer<Namespace> const xmlnamespace) const;
+
+        StrongPointer<Element> getFirstElementByName(String const name) const;
+        StrongPointer<Element> getFirstElementByName(StrongPointer<Namespace> const xmlnamespace,
+                                                     String const name) const;
+        StrongPointer<Element> getFirstElementByNamespace(StrongPointer<Namespace> const xmlnamespace) const;
+
+        StrongPointer<Element> getLastElementByName(String const name) const;
+        StrongPointer<Element> getLastElementByName(StrongPointer<Namespace> const xmlnamespace,
+                                                    String const name) const;
+        StrongPointer<Element> getLastElementByNamespace(StrongPointer<Namespace> const xmlnamespace) const;
+
         StrongPointer<Element> getElementByID(String const id) const;
+
+        String getTextContent() const;
 
         virtual StrongPointer<Namespace> getNamespace() const override;
         StrongPointer<Namespace> getDefaultNamespace() const;
