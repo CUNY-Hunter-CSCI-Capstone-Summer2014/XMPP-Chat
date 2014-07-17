@@ -31,7 +31,7 @@
         <Button x:Name="Add_Person_Button" Content="Add Person" Margin="64.81,415.04,179.947,9" Height="24.96" Click="Add_Person" HorizontalAlignment="Left"/>
         <Button x:Name="Remove_Person_Button" Content="Remove Person" Margin="137.053,415.04,81.675,9" Height="24.96" Click="Remove_Person" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Button x:Name="optionsButton" Content="Opts" Margin="246.053,415.04,0,0" Height="24.96" Click="openOptions" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <ListBox x:Name="Roster_Window" Margin="10,89.48,10,38.96" SelectionMode="Multiple" Background="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}">
+        <ListBox x:Name="Roster_Window" Margin="10,89.48,10,38.96" SelectionMode="Multiple" Background="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Foreground="White">
 
             <ListBoxItem x:Name="Bob" Content="Bob"/>
         </ListBox>

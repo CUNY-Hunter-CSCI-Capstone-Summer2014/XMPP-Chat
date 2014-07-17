@@ -26,7 +26,7 @@ namespace rambler { namespace Stream {
 
         BidirectionalStream() = default;
         virtual ~BidirectionalStream() = default;
-
+		
         virtual bool open() = 0;
         virtual bool secure() = 0;
         virtual void close() = 0;

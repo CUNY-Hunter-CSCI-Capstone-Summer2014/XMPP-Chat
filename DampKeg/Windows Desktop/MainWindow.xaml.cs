@@ -37,12 +37,13 @@ namespace DampKeg
 
             username_field.Focus();
 
+            /*
             ChatBox newChatBox = new ChatBox();
             newChatBox.Show();
 
             EditContact newBox = new EditContact();
             newBox.Show();
-
+            */
         }
 
         private void Login_to_server(object sender, RoutedEventArgs e)
@@ -90,10 +91,15 @@ namespace DampKeg
 
         private void Go_To_Login(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            // TODO: Add event handler implementation here.
-            if (e.Key == Key.Enter)
-            {
-                Login_to_server(sender, e);
+            // Focus is on password 
+            // Logs in if Login_Button is enabled.
+            // Else nothing
+
+            if (Login_button.IsEnabled) {//makes sure you can login in the first place. 
+                if (e.Key == Key.Enter)
+                {
+                    Login_to_server(sender, e);
+                }
             }
         }
 

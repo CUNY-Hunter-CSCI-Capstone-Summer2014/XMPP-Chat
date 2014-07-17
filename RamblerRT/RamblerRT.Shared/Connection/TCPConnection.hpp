@@ -20,7 +20,6 @@ namespace Rambler { namespace Connection {
 
 		public:
 			/// Constructors
-			TCPConnection();
 			TCPConnection(Platform::String ^ host, Platform::String ^ service);
 			virtual ~TCPConnection();
 

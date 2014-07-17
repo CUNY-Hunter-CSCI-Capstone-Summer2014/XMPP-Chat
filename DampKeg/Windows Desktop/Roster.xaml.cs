@@ -20,10 +20,16 @@ namespace DampKeg
         public Roster()
         {
             this.InitializeComponent();
-
             // Insert code required on object creation below this point.
         }
 
+        private void RosterWindowDoubleClick(object sender, RoutedEventArgs e)
+        {
+            if (Roster_Window.SelectedItem != null)
+            {
+                MessageBox.Show(Roster_Window.SelectedItem.ToString());
+            }
+        }
         public Roster(string uname)
         {
             this.InitializeComponent();
