@@ -5,12 +5,12 @@ namespace Rambler{
 		namespace IM{
 			 namespace Client{
 
-				partial ref class Message sealed{
-				public:
-					static JID sender;
-					static std::vector<JID> recipients;
-					static Platform::String body;
-					static time_t timestamp;
+			public ref class Message sealed{
+				private:
+					static Core::JID ^ sender;
+					static Windows::Foundation::Collections::IVector<Core::JID ^> ^ recipients;
+					static Platform::String ^ body;
+					static Platform::String ^ timestamp;
 					static Platform::String uniqueID;
 				};
 

@@ -24,7 +24,6 @@ namespace rambler { namespace Connection {
 	*/
 	class WindowsRuntimeBasedConnection : public TCPConnection {
 	public:
-		WindowsRuntimeBasedConnection() = default;
 
 		/**
 		* Host is the hostname ie domain or ip address
@@ -48,9 +47,8 @@ namespace rambler { namespace Connection {
 		*/
 		virtual void close();
 
-
-
-		virtual void sendData(std::string data);
+		virtual void sendData(std::vector<UInt8> const & data);
+		virtual bool secure();
 
 
 		/// Return host of connection

@@ -2,16 +2,16 @@
 
 #include "rambler/Connection/WindowsRuntimeBasedConnection.h"
 #include "rambler/Stream/State.hpp"
-
+#include "rambler/XMPP/Core/JID.hpp"
 
 
 namespace Rambler{ namespace Connection{
 	partial ref class TCPConnection sealed{
-	internal: std::shared_ptr<rambler::Connection::WindowsRuntimeBasedConnection> theConnection;
+	internal: 
+		// Strong Pointer to C++ instance of WindowsRunttimeBasedConnection
+		std::shared_ptr<rambler::Connection::WindowsRuntimeBasedConnection> theConnection;
 	};
-	TCPConnection::TCPConnection(){
-		theConnection = new rambler::Connection::WindowsRuntimeBasedConnection();
-	}
+
 
 	TCPConnection::TCPConnection(Platform::String ^ host, Platform::String ^ service){
 
@@ -20,11 +20,12 @@ namespace Rambler{ namespace Connection{
 		std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 		stringHost = converter.to_bytes(host->Data());
 		stringService = converter.to_bytes(service->Data());
-		theConnection = new
-			rambler::Connection::WindowsRuntimeBasedConnection(stringHost, stringService);
+
+		theConnection = std::shared_ptr<rambler::Connection::WindowsRuntimeBasedConnection>
+			( new rambler::Connection::WindowsRuntimeBasedConnection(stringHost, stringService) );
 	}
 	TCPConnection::~TCPConnection(){
-		//IDK WHAT GOES HERE
+		delete theConnection;
 	}
 	Platform::Boolean TCPConnection::open(){
 		if (theConnection->open()){

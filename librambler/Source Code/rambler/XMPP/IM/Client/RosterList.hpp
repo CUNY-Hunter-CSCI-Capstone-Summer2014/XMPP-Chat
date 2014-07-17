@@ -1,7 +1,9 @@
 #pragma once
 #include "rambler/types.hpp"
+#include "rambler/XMPP/Core/JID.hpp"
+
 #include "RosterItem.hpp"
-#include "JID.hpp"
+
 #include <map>
 #include <ctime>
 
