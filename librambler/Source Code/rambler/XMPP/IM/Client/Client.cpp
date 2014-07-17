@@ -6,6 +6,7 @@
  **********************************************************************************************************************/
 
 #include "rambler/XMPP/IM/Client/Client.hpp"
+#include "rambler/XMPP/IM/Client/Message.hpp"
 
 #include "rambler/timestamp.hpp"
 #include "rambler/uuid.hpp"
@@ -34,7 +35,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         xmlStream->setResourceBoundEventHandler([this](StrongPointer<XMLStream> xmlStream) {
             String uuid = uuid::generate();
 
-            uniqueID_IQRequestType_map[uuid] = IQRequestType::RosterListRetrieval;
+            uniqueID_IQRequestType_map[uuid] = IQRequestType::RosterGet;
 
             auto IQElement = std::make_shared<XML::Element>("iq");
             IQElement->addAttribute({"from", xmlStream->getJID()->description});
@@ -72,7 +73,9 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
             } else if (IQType == "result") {
                 switch (uniqueID_IQRequestType_map[uniqueID]) {
-                    case IQRequestType::RosterListRetrieval: {
+                    case IQRequestType::RosterGet: {
+                        uniqueID_IQRequestType_map.erase(uniqueID);
+
                         std::cout << "\nReceived Roster List\n";
                         auto queryElement = stanza->getFirstElementByName(Jabber_IQ_Roster_Namespace, "query");
                         if (queryElement != nullptr) {
@@ -93,8 +96,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                                 }
                             }
                         }
-                        break;
-                    }
+                    } break;
                     default:
                         break;
                 }
@@ -115,17 +117,34 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                 auto threadElement = stanza->getFirstElementByName("thread");
 
                 if (bodyElement != nullptr) {
-                    std::cout << "\nRECEIVED MESSAGE (sent to " << stanza->getAttribute("to").getValue() << ")\n";
-                    std::cout << "From: " << stanza->getAttribute("from").getValue() << std::endl;
-                    std::cout << "Body: " << bodyElement->getTextContent() << std::endl;
-                    if (subjectElement != nullptr) {
-                        std::cout << "Subject: " << subjectElement->getTextContent() << std::endl;
-                    }
+
+                    StrongPointer<JID const> sender;
+                    StrongPointer<JID const> recipient;
+                    String thread;
+                    String subject;
+                    String body;
+                    String uniqueID;
+                    String timestamp;
+
+                    sender    = JID::createJIDWithString(stanza->getAttribute("from").getValue());
+                    recipient = JID::createJIDWithString(stanza->getAttribute("to").getValue());
+
                     if (threadElement != nullptr) {
-                        std::cout << "Thread: " << threadElement->getTextContent() << std::endl;
+                        thread = threadElement->getTextContent();
                     }
-                    std::cout << "UniqueID: " << stanza->getAttribute("id").getValue() << std::endl;
-                    std::cout << "Time: " << timestamp::now();
+
+                    if (subjectElement != nullptr) {
+                        subject = subjectElement->getTextContent();
+                    }
+                    
+                    body = bodyElement->getTextContent();
+                    timestamp = timestamp::now();
+                    uniqueID = stanza->getAttribute("id").getValue();
+
+                    auto message = Message::createMessage(sender, recipient, thread, subject, body, timestamp, uniqueID);
+
+                    std::cout << std::endl << message->description();
+
                 }
 
                 auto statusElement = stanza->getFirstElementByNamespace(ChatStates_Namesapce);
