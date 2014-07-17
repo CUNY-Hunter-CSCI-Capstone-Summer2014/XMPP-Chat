@@ -6,6 +6,7 @@
  **********************************************************************************************************************/
 
 #include "base64.hpp"
+#include <iostream>
 
 namespace rambler { namespace base64 {
 
@@ -96,10 +97,10 @@ namespace rambler { namespace base64 {
         String encodedString;
         encodedString.reserve(4);
 
-        encodedString[0] = encodeDigit(uint6[0]);
-        encodedString[1] = encodeDigit(uint6[1]);
-        encodedString[2] = encodeDigit(uint6[2]);
-        encodedString[3] = '=';
+        encodedString += encodeDigit(uint6[0]);
+        encodedString += encodeDigit(uint6[1]);
+        encodedString += encodeDigit(uint6[2]);
+        encodedString += '=';
 
         return encodedString;
     }
@@ -114,10 +115,10 @@ namespace rambler { namespace base64 {
         String encodedString;
         encodedString.reserve(4);
 
-        encodedString[0] = encodeDigit(uint6[0]);
-        encodedString[1] = encodeDigit(uint6[1]);
-        encodedString[2] = '=';
-        encodedString[3] = '=';
+        encodedString += encodeDigit(uint6[0]);
+        encodedString += encodeDigit(uint6[1]);
+        encodedString += '=';
+        encodedString += '=';
 
         return encodedString;
     }
@@ -135,26 +136,67 @@ namespace rambler { namespace base64 {
 
         encodedString.reserve(numberOfBytes * 4 / 3 + 1);
 
-        for (size_t i = 0; i < numberOfBytes; i += 3) {
-            encodedString += encodeBytes(bytes[i + 0], bytes[i + 1], bytes[i + 2]);
+        for (size_t i = 3; i < numberOfBytes; i += 3) {
+            encodedString += encodeBytes(bytes[i - 3], bytes[i - 2], bytes[i - 1]);
         }
 
-        switch (bytes.size() % 3) {
+        switch (numberOfBytes % 3) {
             case 2:
                 encodedString += encodeBytes(bytes[numberOfBytes - 2], bytes[numberOfBytes - 1]);
                 break;
             case 1:
                 encodedString += encodeByte(bytes[numberOfBytes - 1]);
-            default:
                 break;
+            case 0:
+                encodedString += encodeBytes(bytes[numberOfBytes - 3], bytes[numberOfBytes - 2], bytes[numberOfBytes - 1]);
         }
 
         return encodedString;
     }
 
     std::vector<UInt8> decode(String encodedString) {
-        //TODO: Implement this
-        return {};
+        UInt numberOfDigits = encodedString.length();
+
+        if (numberOfDigits % 4 != 0) {
+            return {};
+        }
+
+        std::vector<UInt8> bytes;
+        for (UInt i = 0; i < numberOfDigits; i += 4) {
+            UInt8 uint6[4];
+            uint6[0] = decodeDigit(encodedString[i + 0]);
+            uint6[1] = decodeDigit(encodedString[i + 1]);
+            uint6[2] = decodeDigit(encodedString[i + 2]);
+            uint6[3] = decodeDigit(encodedString[i + 3]);
+
+            UInt numberOfBytes;
+            UInt32 packed = 0;
+
+            if (uint6[2] == 64) {
+                numberOfBytes = 1;
+                packed = uint6[0] << 18 | uint6[1] << 12;
+            } else if (uint6[3] == 64) {
+                numberOfBytes = 2;
+                packed = uint6[0] << 18 | uint6[1] << 12 | uint6[2] << 6;
+            } else {
+                numberOfBytes = 3;
+                packed = uint6[0] << 18 | uint6[1] << 12 | uint6[2] << 6 | uint6[3];
+            }
+
+            for (UInt i = 0; i < numberOfBytes; ++i) {
+                UInt8 byte = (0xFF << (16 - i * 8) & packed) >> (16 - i * 8);
+                bytes.push_back(byte);
+            }
+
+        }
+
+        return bytes;
+    }
+
+    String decodeAsString(String encodedString) {
+        auto vector = decode(encodedString);
+
+        return String(vector.begin(), vector.end());
     }
 
 }}

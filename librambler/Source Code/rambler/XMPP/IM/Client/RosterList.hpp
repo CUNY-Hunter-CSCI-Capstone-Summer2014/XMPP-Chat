@@ -1,43 +1,43 @@
 #pragma once
+
 #include "rambler/types.hpp"
 #include "rambler/XMPP/Core/JID.hpp"
+#include "rambler/XMPP/IM/Client/RosterItem.hpp"
 
-#include "RosterItem.hpp"
+namespace rambler{ namespace XMPP { namespace IM { namespace Client {
 
-#include <map>
-#include <ctime>
+    using namespace XMPP::Core;
 
-
-namespace rambler{ namespace XMPP { namespace IM { namespace Client{
-	 
 	class RosterList{
 	public:
 		using RosterItemUpdatedEventHandler  = function<void(RosterItem)>;
 
-		/**
-		* Set the event handler.
-		* Takens in a RosterItemUpdatedEventHandler
-		*/
-		void setRosterItemUpdatedEventHandler
-				(RosterItemUpdatedEventHandler eventHandler);
+        static StrongPointer<RosterList> createRosterList();
 
 		/**
 		* Update the roster list.
 		* Takes in an RosterItem
 		*/
-		void updateItem(RosterItem item);
+		void updateItem(StrongPointer<RosterItem const> item);
 
 		/**
 		* Removes an item from the roster list.
 		* Takes in a JID;
 		*/
-		void removeItem(Core::JID jid);
+		void removeItem(StrongPointer<JID const> jid);
+
+        /**
+         * Set the event handler.
+         * Takens in a RosterItemUpdatedEventHandler
+         */
+        void setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler);
 	private:
-		//std::vector < RosterItem > items;
-		std::map <Core::JID, RosterItem> items;
+        RosterList() = default;
+
+		std::map <StrongPointer<JID const>, StrongPointer<RosterItem const>> items;
 
 		String version;
 		RosterItemUpdatedEventHandler handleRosterItemUpdated;
-	}; //end of class
+	};
 
-} } } }
+}}}}

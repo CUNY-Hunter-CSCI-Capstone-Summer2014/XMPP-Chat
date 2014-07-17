@@ -115,6 +115,10 @@ namespace rambler { namespace XMPP { namespace Core {
 
         void authenticateSASL_Plain(String authorizationID, String authenticationID, String password);
 
+        /* JID */
+
+        StrongPointer<JID const> getJID() const;
+
     private:
         struct Context {
             bool sentStartTLS                { false };

@@ -15,5 +15,6 @@ namespace rambler { namespace base64 {
     String encode(std::vector<UInt8> bytes);
 
     std::vector<UInt8> decode(String encodedString);
+    String decodeAsString(String encodedString);
     
 }}

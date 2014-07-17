@@ -1,29 +1,27 @@
-#pragma once
-
 #include "RosterList.hpp"
 
-namespace rambler { namespace XMPP { namespace IM { namespace Client{
+namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
-	void RosterList::setRosterItemUpdatedEventHandler
-		(RosterItemUpdatedEventHandler eventHandler)
+    StrongPointer<RosterList> RosterList::createRosterList()
+    {
+        return StrongPointer<RosterList>(new RosterList);
+    }
+
+	void RosterList::updateItem(StrongPointer<RosterItem const> item)
 	{
-		handleRosterItemUpdated = eventHandler;
-
+        items[item->jid] = item;
 	}
 
-	void RosterList::updateItem(RosterItem item)
+	void RosterList::removeItem(StrongPointer<JID const> jid)
 	{
-		//item contains JID already, insert the RosterItem using JID as the key
-		//item as the value
-		items.insert(std::pair<Core::JID, RosterItem>(item.jid, item));
-	}
-
-	void RosterList::removeItem(Core::JID jid)
-	{
-		//erases by key
 		items.erase(jid);
-
 	}
 
+    void RosterList::setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler)
+    {
+        handleRosterItemUpdated = eventHandler;
+        
+    }
 
-} } } }
+
+}}}}
