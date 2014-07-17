@@ -28,9 +28,35 @@ using namespace rambler;
     [super tearDown];
 }
 
-- (void)testExample {
-    String encodedString = base64::encode("Man");
-    XCTAssert(encodedString == "TWFu", @"Pass");
+- (void)test0encode {
+    String encodedString = base64::encode("Chocolate");
+    XCTAssert(encodedString == "Q2hvY29sYXRl", @"Pass");
+}
+
+- (void)test1encode {
+    String encodedString = base64::encode("Chocolate!");
+    XCTAssert(encodedString == "Q2hvY29sYXRlIQ==", @"Pass");
+}
+
+- (void)test2encode {
+    String encodedString = base64::encode("Chocolate<3");
+    XCTAssert(encodedString == "Q2hvY29sYXRlPDM=", @"Pass");
+}
+
+- (void)test0encodeDecode {
+    String s = "Icecream!";
+    String t = base64::decodeAsString(base64::encode(s));
+    XCTAssert(s == t, @"Pass");
+}
+
+- (void)test1encodeDecode {
+    String s = "Icecream<3";
+    XCTAssert(base64::decodeAsString(base64::encode(s)) == s, @"Pass");
+}
+
+- (void)test2encodeDecode {
+    String s = "Icecream:-)";
+    XCTAssert(base64::decodeAsString(base64::encode(s)) == s, @"Pass");
 }
 
 //- (void)testPerformanceExample {

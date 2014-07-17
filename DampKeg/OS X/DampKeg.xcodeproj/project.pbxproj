@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0735E0DC1974744500AE5136 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0DB1974744500AE5136 /* Info.plist */; };
 		0735E0EF1974747100AE5136 /* AddContact.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0DD1974747100AE5136 /* AddContact.xib */; };
 		0735E0F01974747100AE5136 /* ChatBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0DF1974747100AE5136 /* ChatBox.xib */; };
 		0735E0F11974747100AE5136 /* ContactProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0E11974747100AE5136 /* ContactProfile.xib */; };
@@ -60,6 +59,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 07D1E6DA1950A833008C76CF;
 			remoteInfo = "Rambler – Tests";
+		};
+		07461ECC1974E99D002B3DF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0735E10D197476A200AE5136 /* Rambler.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 07461EBF1974E7EC002B3DF3;
+			remoteInfo = "Example Client (Objective-C)";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -181,6 +187,7 @@
 			children = (
 				0735E113197476A200AE5136 /* Rambler.framework */,
 				0735E115197476A200AE5136 /* Rambler – Tests.xctest */,
+				07461ECD1974E99D002B3DF3 /* Example Client (Objective-C) */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -281,6 +288,13 @@
 			fileType = wrapper.cfbundle;
 			path = "Rambler – Tests.xctest";
 			remoteRef = 0735E114197476A200AE5136 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		07461ECD1974E99D002B3DF3 /* Example Client (Objective-C) */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Example Client (Objective-C)";
+			remoteRef = 07461ECC1974E99D002B3DF3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */

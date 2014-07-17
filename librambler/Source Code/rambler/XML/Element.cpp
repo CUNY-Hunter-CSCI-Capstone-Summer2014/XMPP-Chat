@@ -100,6 +100,88 @@ namespace rambler { namespace XML {
         return elements;
     }
 
+    std::vector<StrongPointer<Element>> Element::getElementsByNamespace(StrongPointer<Namespace> const xmlnamespace) const
+    {
+        std::vector<StrongPointer<Element>> elements;
+
+        for (auto child : children) {
+            if (child->getType() != Type::Element) {
+                continue;
+            }
+
+            auto element = std::dynamic_pointer_cast<Element>(child);
+
+            auto n = name;
+            auto ns = xmlnamespace;
+
+            auto en = element->getName();
+            auto ens = element->getNamespace();
+
+            if (XML::equivalent(element->getNamespace(), xmlnamespace)) {
+                elements.push_back(element);
+            }
+        }
+        
+        return elements;
+
+    }
+
+    StrongPointer<Element> Element::getFirstElementByName(String const name) const
+    {
+        return getFirstElementByName(getDefaultNamespace(), name);
+    }
+
+    StrongPointer<Element> Element::getFirstElementByName(StrongPointer<Namespace> const xmlnamespace,
+                                                 String const name) const
+    {
+        auto elements = getElementsByName(xmlnamespace, name);
+
+        if (elements.empty()) {
+            return nullptr;
+        }
+
+        return elements.front();
+    }
+
+    StrongPointer<Element> Element::getFirstElementByNamespace(StrongPointer<Namespace> const xmlnamespace) const
+    {
+        auto elements = getElementsByNamespace(xmlnamespace);
+
+        if (elements.empty()) {
+            return nullptr;
+        }
+
+        return elements.front();
+    }
+
+    StrongPointer<Element> Element::getLastElementByName(String const name) const
+    {
+        return getLastElementByName(getDefaultNamespace(), name);
+    }
+
+    StrongPointer<Element> Element::getLastElementByName(StrongPointer<Namespace> const xmlnamespace,
+                                                         String const name) const
+    {
+        auto elements = getElementsByName(xmlnamespace, name);
+
+        if (elements.empty()) {
+            return nullptr;
+        }
+
+        return elements.back();
+    }
+
+    StrongPointer<Element> Element::getLastElementByNamespace(StrongPointer<Namespace> const xmlnamespace) const
+    {
+        auto elements = getElementsByNamespace(xmlnamespace);
+
+        if (elements.empty()) {
+            return nullptr;
+        }
+        
+        return elements.back();
+    }
+
     StrongPointer<Element> Element::getElementByID(String const id) const
     {
         for (auto child : children) {
@@ -116,6 +198,25 @@ namespace rambler { namespace XML {
         }
 
         return nullptr;
+    }
+
+    String Element::getTextContent() const
+    {
+        String text;
+
+        for (auto child : children) {
+            switch (child->getType()) {
+                case Node::Type::Text:
+                    text += std::dynamic_pointer_cast<XML::TextNode>(child)->getValue();
+                    break;
+                case Node::Type::Element:
+                    text += std::dynamic_pointer_cast<XML::Element>(child)->getTextContent();
+                default:
+                    break;
+            }
+        }
+
+        return text;
     }
 
     StrongPointer<Namespace> Element::getNamespace() const
