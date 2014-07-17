@@ -18,6 +18,7 @@
 		0735E0FF197474D700AE5136 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FB197474D700AE5136 /* main.swift */; };
 		0735E100197474D700AE5136 /* PlainAuthenticationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FC197474D700AE5136 /* PlainAuthenticationCredentials.swift */; };
 		0735E1051974758900AE5136 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0735E1041974758900AE5136 /* Info.plist */; };
+		0735E101197474D700AE5136 /* PrefWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FD197474D700AE5136 /* PrefWindow.swift */; };
 		0735E1081974760000AE5136 /* Damp_KegTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E106197475A600AE5136 /* Damp_KegTests.swift */; };
 		5403B53C1975AF7300327BFA /* GroupChatBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5403B53A1975AF7300327BFA /* GroupChatBox.xib */; };
 		54C166401975CEAA000F5B9E /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C1663C1975CEAA000F5B9E /* LoginWindow.xib */; };
@@ -312,7 +313,7 @@
 				0735E0F91974748A00AE5136 /* Images.xcassets in Resources */,
 				0735E0EF1974747100AE5136 /* AddContact.xib in Resources */,
 				0735E0F51974747100AE5136 /* PrefWindow.xib in Resources */,
-				0735E1051974758900AE5136 /* Info.plist in Resources */,
+				0735E0F21974747100AE5136 /* GroupChatBox.xib in Resources */,
 				0735E0F41974747100AE5136 /* MainMenu.xib in Resources */,
 				0735E0DC1974744500AE5136 /* Info.plist in Resources */,
 				5403B53C1975AF7300327BFA /* GroupChatBox.xib in Resources */,

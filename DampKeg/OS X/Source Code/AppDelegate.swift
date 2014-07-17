@@ -183,7 +183,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         /* ************************************ */
         
-        let DiscardEditProfileButton: NSbutton = editProfileWindowController!.window.contentView.viewWithTag(2) as NSButton
+        let DiscardEditProfileButton: NSButton = editProfileWindowController!.window.contentView.viewWithTag(2) as NSButton
         
         DiscardEditProfileButton.target = self;
         DiscardEditProfileButton.action = "discardProfileChanges:";

@@ -25,12 +25,11 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="General" identifier="1" id="uoT-ZK-IGP">
-                                <view key="view" id="qdr-9j-fBf">
-                                    <rect key="frame" x="10" y="33" width="476" height="240"/>
+                                <view key="view" ambiguous="YES" id="qdr-9j-fBf">
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smW-fo-fhy">
-                                            <rect key="frame" x="20" y="206" width="72" height="31"/>
+                                            <rect key="frame" x="20" y="-34" width="72" height="31"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Startup" id="AAd-QW-01w">
                                                 <font key="font" size="18" name=".LucidaGrandeUI"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -38,7 +37,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KRR-IO-J9P">
-                                            <rect key="frame" x="20" y="113" width="72" height="29"/>
+                                            <rect key="frame" x="20" y="-127" width="72" height="29"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Status" id="dPP-9s-dBz">
                                                 <font key="font" size="18" name=".LucidaGrandeUI"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -46,27 +45,27 @@
                                             </textFieldCell>
                                         </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mO8-bV-wat">
-                                            <rect key="frame" x="15" y="182" width="253" height="18"/>
+                                            <rect key="frame" x="15" y="-58" width="253" height="18"/>
                                             <buttonCell key="cell" type="check" title="Start Dampkeg on Computer Startup" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ZV9-gK-jDp">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qco-VE-bxR">
-                                            <rect key="frame" x="15" y="89" width="167" height="18"/>
+                                            <rect key="frame" x="15" y="-151" width="167" height="18"/>
                                             <buttonCell key="cell" type="check" title="Change status after " bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qR0-K8-Ver">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="YQt-qe-6w5">
-                                            <rect key="frame" x="-3" y="153" width="482" height="5"/>
+                                            <rect key="frame" x="-3" y="-87" width="482" height="5"/>
                                             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                                             <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <font key="titleFont" metaFont="system"/>
                                         </box>
                                         <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTh-0u-ja5">
-                                            <rect key="frame" x="163" y="84" width="140" height="26"/>
+                                            <rect key="frame" x="163" y="-156" width="140" height="26"/>
                                             <popUpButtonCell key="cell" type="push" title="After 10 Minutes" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Q2o-XY-G1t" id="2m2-dT-3V2">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="menu"/>
@@ -83,7 +82,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="Chat" identifier="2" id="1Q1-Dh-P51">
-                                <view key="view" ambiguous="YES" id="9nq-N0-eWg">
+                                <view key="view" id="9nq-N0-eWg">
                                     <rect key="frame" x="10" y="33" width="476" height="240"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
