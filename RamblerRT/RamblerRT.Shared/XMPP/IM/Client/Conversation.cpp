@@ -1,25 +1,26 @@
 #include "Conversation.hpp"
 #include "rambler/XMPP/IM/Client/Conversation.hpp"
+#include "Utility.hpp"
 
 namespace Rambler{ namespace XMPP { namespace IM { namespace Client{
 	partial ref class Conversation { 
 	internal: 	
-		std::shared_ptr<Converstion> conversationProper;
+		std::shared_ptr<rambler::XMPP::IM::Client::Conversation> conversationProper;
 	};
 
-	Platform::String Conversation::uniqueID(){
+	Platform::String ^ Conversation::uniqueID(){
 
 		std::string x = conversationProper->uniqueID();
 
-		return Utility::STDSTRING_TO_PSTRING(x);
+		return Utility::STDSTRING_TO_PSTRING(x).ToString();
 	}
 
 	void Conversation::setMessageReceivedEventHandler
-		(MessageReceivedEventHandler eventHandler){
+		(MessageReceivedEventHandler ^ eventHandler){
 		conversationProper->setMessageReceivedEventHandler(eventHandler);
 	}
 
-	void Conversation::sendMessage(Message message){
+	void Conversation::sendMessage(Message ^ message){
 		conversationProper->sendMessage(message);
 	}
 

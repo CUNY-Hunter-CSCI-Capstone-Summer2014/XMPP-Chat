@@ -42,6 +42,7 @@ namespace rambler { namespace Connection {
 		delete actualSocket;
 	}
 
+	/*
 	void WindowsRuntimeBasedConnection::sendData(std::string data){
 		//First convert string to UTF-16 wstring
 		std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
@@ -53,6 +54,15 @@ namespace rambler { namespace Connection {
 
 		
 		actualSocket->OutputStream->WriteAsync(buffer);
+	}
+	*/
+
+	void WindowsRuntimeBasedConnection::sendData(std::vector<UInt8> const & data){
+	
+	}
+
+	bool WindowsRuntimeBasedConnection::secure(){
+		actualSocket->UpgradeToSslAsync();
 	}
 
 	Platform::String ^  WindowsRuntimeBasedConnection::getConnectedHost(){

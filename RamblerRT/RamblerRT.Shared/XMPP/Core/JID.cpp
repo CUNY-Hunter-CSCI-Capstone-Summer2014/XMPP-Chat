@@ -5,25 +5,36 @@
 
 namespace Rambler { namespace XMPP{ namespace Core{
 
-	partial ref class JID {
-	internal: std::shared_ptr<rambler::XMPP::Core::JID>  theJID;
+	ref class JID {
+	internal: 
+		std::shared_ptr<rambler::XMPP::Core::JID>  theJID;
 	};
+	theConnection = std::shared_ptr<rambler::Connection::WindowsRuntimeBasedConnection>
+		(new rambler::Connection::WindowsRuntimeBasedConnection());
 
-	static JID JID::createJIDFromString(Platform::String const jid){
-		std::string sString = Utility::PSTRING_TO_STDSTRING(jid);
-		theJID = new rambler::XMPP::Core::JID.createJIDFromString(sString);
+	JID::JID(Platform::String ^ localPart, Platform::String ^ domainPart,
+		Platform::String ^ resourcePart){
+		theJID =  std::shared_ptr<rambler::XMPP::Core::JID>
+			(new rambler::Connection)
 	}
 
-	static Platform::Boolean JID::validateLocalPart(JID const jid){
+
+	JID ^ JID::createJIDFromString(Platform::String ^ const jid){
+		std::string sString = Utility::PSTRING_TO_STDSTRING(jid);
+
+		JID ^ newJID = ref new JID();
+	}
+
+	Platform::Boolean JID::validateLocalPart(JID ^ const jid){
 		return (rambler::XMPP::Core::JID.validateLocalPart(*(jid->theJID) ) );
 	}
 
-	static Platform::Boolean JID::validateDomainPart(JID const jid){
+	Platform::Boolean JID::validateDomainPart(JID ^ const jid){
 		return (rambler::XMPP::Core::JID.validateDomainPart(*(jid->theJID)));
 
 	}
 
-	static Platform::Boolean  JID::validateResourcePart(JID const jid){
+	 Platform::Boolean  JID::validateResourcePart(JID ^ const jid){
 		return (rambler::XMPP::Core::JID.validateResourcePart(*(jid->theJID)));
 	}
 
@@ -31,7 +42,7 @@ namespace Rambler { namespace XMPP{ namespace Core{
 		theJID = new rambler::XMPP::Core::JID();
 	}
 
-	JID::JID(Platform::String localPart, Platform::String domainPart){
+	JID::JID(Platform::String ^ , Platform::String ^ domainPart){
 
 		std::string local = Utility::PSTRING_TO_STDSTRING(localPart);
 		std::string domain = Utility::PSTRING_TO_STDSTRING(domainPart);
@@ -39,8 +50,8 @@ namespace Rambler { namespace XMPP{ namespace Core{
 
 	}
 
-	JID::JID(Platform::String localPart, Platform::String domainPart,
-		Platform::String resourcePart)
+	JID::JID(Platform::String ^ localPart, Platform::String ^ domainPart,
+		Platform::String ^ resourcePart)
 	{
 		std::string local = Utility::PSTRING_TO_STDSTRING(localPart);
 		std::string domain = Utility::PSTRING_TO_STDSTRING(domainPart);
@@ -53,7 +64,7 @@ namespace Rambler { namespace XMPP{ namespace Core{
 		return theJid->isBareJID();
 	}
 
-	Platform::Bolean JID::isBareJIDWithLocalPart() const{
+	Platform::Boolean JID::isBareJIDWithLocalPart() const{
 		return theJID->isBareJIDWithLocalPart();
 	}
 
@@ -73,7 +84,7 @@ namespace Rambler { namespace XMPP{ namespace Core{
 		return theJID->isValid();
 	}
 
-	JID JID::getBareJID() const{
+	JID ^ JID::getBareJID() const{
 		rambler::XMPP::Core::JID tempJID= theJID->getBareJID();
 
 		Platform::String pJID = Utility::STDSTRING_TO_PSTRING(tempJID);
@@ -81,7 +92,7 @@ namespace Rambler { namespace XMPP{ namespace Core{
 		return Rambler::XMPP::Core::JID.JID(pJID);
 	}
 
-	Platform::String JID::toString(){
+	Platform::String ^ JID::toString(){
 		return (Utility::STDSTRING_TO_PSTRING(theJID->toString()));
 
 	}

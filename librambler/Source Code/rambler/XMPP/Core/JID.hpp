@@ -16,7 +16,7 @@ namespace rambler { namespace XMPP { namespace Core {
         String const localPart;
         String const domainPart;
         String const resourcePart;
-        String const description;
+		String const description;
 
         bool isBareJID() const;
         bool isBareJIDWithLocalPart() const;
@@ -24,10 +24,10 @@ namespace rambler { namespace XMPP { namespace Core {
         bool isFullJIDWithLocalPart() const;
         bool isDomainJID() const;
 
-        static StrongPointer<JID const> createJIDWithComponents(String localPart, String domainPart, String resourcePart);
         static StrongPointer<JID const> createJIDWithString(String string);
+		static StrongPointer<JID const> createBareJIDWithComponents(String localPart, String domainPart);
+		static StrongPointer<JID const> createJIDWithComponents(String localPart, String domainPart, String resourcePart);
 
-        static StrongPointer<JID const> createBareJIDWithComponents(String localPart, String domainPart);
         static StrongPointer<JID const> createBareJIDWithJID(StrongPointer<JID const> jid);
 
         static UInt hash(StrongPointer<JID const> jid);

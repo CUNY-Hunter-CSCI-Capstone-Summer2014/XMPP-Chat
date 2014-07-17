@@ -27,13 +27,13 @@ namespace DampKeg
         private void enableAwayMins(object sender, System.Windows.RoutedEventArgs e)
         {
             // TODO: Add event handler implementation here.
-            awayMinutes.IsEnabled = true;
+            //awayMinutes.IsEnabled = true;
         }
 
         private void disableAwayMinutes(object sender, System.Windows.RoutedEventArgs e)
         {
             // TODO: Add event handler implementation here
-            awayMinutes.IsEnabled = false;
+            //awayMinutes.IsEnabled = false;
         }
     }
 }

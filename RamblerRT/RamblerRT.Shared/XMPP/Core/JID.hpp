@@ -1,42 +1,42 @@
-
+#pragma once
 
 namespace Rambler { namespace XMPP { namespace Core{
-	  partial ref class JID{
+	
+	public partial ref class JID{
 		public:
 
-		//Validators
-	    static JID  createJIDFromString(Platform::String const jid);
-		static Platform::Boolean  validateLocalPart(JID const jid);
-		static Platform::Boolean  validateDomainPart(JID const jid);
-		static Platform::Boolean  validateResourcePart(JID const jid);
+		// Constructor for JID
 
-        static JID const Nones;
+		// Default Empty constructor
+		JID	();
 
-		//constructors
-        JID();
-		JID(Platform::String localPart, Platform::String domainPart);
-		JID(Platform::String localPart, Platform::String domainPart, 
-				Platform::String resourcePart);
+		// Constructor from string
+		JID			(Platform::String ^ string);
 
-		Platform::Boolean  isBareJID() const;
-		Platform::Boolean  isBareJIDWithLocalPart() const;
+		// Constructor from localPart and domainPart
+		JID			(Platform::String ^ localPart,
+					 Platform::String ^ domainPart);
 
-		Platform::Boolean  isFullJID() const;
-		Platform::Boolean  isFullJIDWithLocalPart() const;
+		// Constructor from localPart,domainpart and resourcePart
+		JID			(Platform::String ^ localPart,
+					 Platform::String ^ domainPart,
+		  			 Platform::String ^ resourcePart);
 
-		Platform::Boolean  isDomainJID() const;
+		// Public Data Members
+		Platform::String ^		const localPart;
+		Platform::String ^		const domainPart;
+		Platform::String ^		const resourcePart;
+		Platform::String ^		const description;
+		
+		// Validators
+		bool		 isBareJID() const;
+		bool		 isBareJIDWithLocalPart() const;
+		bool		 isFullJID() const;
+		bool		 isFullJIDWihLocalPart() const;
+		bool		 isDomainJID() const;
 
-		Platform::Boolean  isValid() const;
-
-        JID getBareJID() const;
-
-		Platform::String toString() const;
-
-		Platform::String const localPart;
-		Platform::String const domainPart;
-		Platform::String const resourcePart;
-        
-        bool operator == (JID const & other) const;
+		// Operator
+        bool operator == (JID const ^ other) const;
 		
 	
 	};
