@@ -1,7 +1,7 @@
 #include "rambler/types.hpp"
 #include "Message.hpp"
 #include <map>
-
+#include "Conversation.hpp"
 namespace rambler { namespace XMPP{ namespace IM { namespace Client{
 
 class ConversationController{

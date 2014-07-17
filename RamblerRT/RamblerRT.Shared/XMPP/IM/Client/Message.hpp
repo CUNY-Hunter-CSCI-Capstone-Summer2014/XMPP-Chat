@@ -11,7 +11,7 @@ namespace Rambler{
 					static Windows::Foundation::Collections::IVector<Core::JID ^> ^ recipients;
 					static Platform::String ^ body;
 					static Platform::String ^ timestamp;
-					static Platform::String uniqueID;
+					static Platform::String ^ uniqueID;
 				};
 
 			}
