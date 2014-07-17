@@ -1,26 +1,17 @@
+#pragma once
+#include "Message.hpp" //Rambler::XMPP::IM::Client::Message
+namespace Rambler{ namespace XMPP{ namespace IM{ namespace Client{
+ partial ref class ConversationController sealed{
+					//delegates
 
-#include "rambler/XMPP/IM/Client/ConversationController.hpp"
+	void setMessageReceivedForConversationByUniqueIdEventHandler
+		(MessageReceivedForConversationByUniqueIdEventHandler eventHandler);
 
+	void sendMessage(Message message);
 
-namespace Rambler{
-	namespace XMPP{
-		namespace IM{
-			namespace Client{
-				ref class ConversationController sealed{
-					//delegate 
+	void removeConversation(Platform::String uniqueId);
 
-					void setMessageReceivedForConversationByUniqueIdEventHandler
-						(MessageReceivedForConversationByUniqueIdEventHandler eventHandler);
+				
+};
 
-					void sendMessage(Message message);
-
-					void removeConversation(Platform::String uniqueId);
-
-				private:
-					rambler::XMPP::IM::Client::ConversationController
-						* controller;
-				};
-			}
-		}
-	}
-}
+}}}}

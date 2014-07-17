@@ -54,6 +54,10 @@ namespace rambler { namespace Connection {
 		
 		actualSocket->OutputStream->WriteAsync(buffer);
 	}
+
+	Platform::String ^  WindowsRuntimeBasedConnection::getConnectedHost(){
+		return serverHost->ToString();
+	}
 }}
 
 

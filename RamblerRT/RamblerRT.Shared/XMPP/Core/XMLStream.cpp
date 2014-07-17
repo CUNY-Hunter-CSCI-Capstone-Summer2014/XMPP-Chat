@@ -1,8 +1,15 @@
 #include "XMLStream.hpp"
+#include "rambler/XMPP/Core/XMLStream.hpp"
+#include "Utility.hpp"
 
-namespace Rambler{
-	namespace XMPP {
-		namespace Core {
+namespace Rambler{ namespace XMPP { namespace Core {
+
+	partial ref class XMLStream{ 
+	internal:
+		std::shared_ptr<rambler::XMPP::Core::XMLStream> streamActual; 
+	};
+
+
 			XMLStream::XMLStream(JID jid){
 				streamActual = new rambler::XMPP::Core::XMLStream(jid);
 			}

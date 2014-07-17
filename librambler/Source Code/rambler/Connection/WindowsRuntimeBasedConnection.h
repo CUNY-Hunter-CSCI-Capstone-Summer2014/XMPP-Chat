@@ -51,6 +51,11 @@ namespace rambler { namespace Connection {
 
 
 		virtual void sendData(std::string data);
+
+
+		/// Return host of connection
+		Platform::String ^ getConnectedHost();
+
 	private:
 		/* WindowsRuntime Specific Functions */
 

@@ -8,15 +8,13 @@ namespace Rambler {
 			namespace Client{
 
 
-				ref class RosterList sealed{
+				partial ref class RosterList sealed{
 				public:
 					void setRosterItemUpdatedEventHandler
 						(RosterItemUpdatedEventHandler eventHandler);
 					void updateItem(RosterItem item);
 					void removeItem(Core::JID jid);
-				private:
-					rambler::XMPP::IM::Client::RosterList *
-						listProper;
+				
 				};
 			}
 		}
