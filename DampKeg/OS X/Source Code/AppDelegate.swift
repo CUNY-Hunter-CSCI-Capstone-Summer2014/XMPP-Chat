@@ -174,6 +174,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         CancelGroupAddButton.target = self;
         CancelGroupAddButton.action = "cancelGroupAdd:";
         
+        /* ************************************ */
+        
+        let ConfirmEditProfileButton: NSButton = editProfileWindowController!.window.contentView.viewWithTag(1) as NSButton
+        
+        ConfirmEditProfileButton.target = self;
+        ConfirmEditProfileButton.action = "saveProfileChanges:";
+        
+        /* ************************************ */
+        
+        let DiscardEditProfileButton: NSbutton = editProfileWindowController!.window.contentView.viewWithTag(2) as NSButton
+        
+        DiscardEditProfileButton.target = self;
+        DiscardEditProfileButton.action = "discardProfileChanges:";
+        
     }
     
     /* ************************************ */
@@ -252,12 +266,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     /* ************************************ */
-    
+    /* ******** Edit Profile Window ******* */
     /* ************************************ */
     
     @IBAction func editOwnProfile(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
             self.editProfileWindowController!.showWindow(self)
+        }
+    }
+    
+    /* ************************************ */
+    
+    @IBAction func saveProfileChanges(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.editProfileWindowController!.window.orderOut(self)
+        }
+    }
+    
+    /* ************************************ */
+    
+    @IBAction func discardProfileChanges(sender: AnyObject) {
+        NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.editProfileWindowController!.window.orderOut(self)
         }
     }
     

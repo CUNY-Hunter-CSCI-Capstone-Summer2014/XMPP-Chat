@@ -18,7 +18,6 @@
 		0735E0FE197474D700AE5136 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FA197474D700AE5136 /* AppDelegate.swift */; };
 		0735E0FF197474D700AE5136 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FB197474D700AE5136 /* main.swift */; };
 		0735E100197474D700AE5136 /* PlainAuthenticationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FC197474D700AE5136 /* PlainAuthenticationCredentials.swift */; };
-		0735E101197474D700AE5136 /* PrefWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FD197474D700AE5136 /* PrefWindow.swift */; };
 		0735E1051974758900AE5136 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0735E1041974758900AE5136 /* Info.plist */; };
 		0735E1081974760000AE5136 /* Damp_KegTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E106197475A600AE5136 /* Damp_KegTests.swift */; };
 		5403B53C1975AF7300327BFA /* GroupChatBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5403B53A1975AF7300327BFA /* GroupChatBox.xib */; };
@@ -78,7 +77,6 @@
 		0735E0FA197474D700AE5136 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0735E0FB197474D700AE5136 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0735E0FC197474D700AE5136 /* PlainAuthenticationCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainAuthenticationCredentials.swift; sourceTree = "<group>"; };
-		0735E0FD197474D700AE5136 /* PrefWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefWindow.swift; sourceTree = "<group>"; };
 		0735E1041974758900AE5136 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0735E106197475A600AE5136 /* Damp_KegTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Damp_KegTests.swift; sourceTree = "<group>"; };
 		0735E10D197476A200AE5136 /* Rambler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rambler.xcodeproj; path = "../../Rambler Framework/Rambler.xcodeproj"; sourceTree = "<group>"; };
@@ -131,7 +129,6 @@
 				0735E0FA197474D700AE5136 /* AppDelegate.swift */,
 				0735E0FB197474D700AE5136 /* main.swift */,
 				0735E0FC197474D700AE5136 /* PlainAuthenticationCredentials.swift */,
-				0735E0FD197474D700AE5136 /* PrefWindow.swift */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -322,7 +319,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0735E101197474D700AE5136 /* PrefWindow.swift in Sources */,
 				0735E0FF197474D700AE5136 /* main.swift in Sources */,
 				0735E100197474D700AE5136 /* PlainAuthenticationCredentials.swift in Sources */,
 				0735E0FE197474D700AE5136 /* AppDelegate.swift in Sources */,
