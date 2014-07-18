@@ -10,18 +10,19 @@
 		0735E0EF1974747100AE5136 /* AddContact.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0DD1974747100AE5136 /* AddContact.xib */; };
 		0735E0F01974747100AE5136 /* ChatBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0DF1974747100AE5136 /* ChatBox.xib */; };
 		0735E0F11974747100AE5136 /* ContactProfile.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0E11974747100AE5136 /* ContactProfile.xib */; };
-		0735E0F21974747100AE5136 /* GroupChatBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0E31974747100AE5136 /* GroupChatBox.xib */; };
-		0735E0F31974747100AE5136 /* Login Window.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0E51974747100AE5136 /* Login Window.xib */; };
 		0735E0F41974747100AE5136 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0E71974747100AE5136 /* MainMenu.xib */; };
 		0735E0F51974747100AE5136 /* PrefWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0E91974747100AE5136 /* PrefWindow.xib */; };
 		0735E0F61974747100AE5136 /* ProfileUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0EB1974747100AE5136 /* ProfileUpdate.xib */; };
-		0735E0F71974747100AE5136 /* Roster List.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0ED1974747100AE5136 /* Roster List.xib */; };
 		0735E0F91974748A00AE5136 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0735E0F81974748A00AE5136 /* Images.xcassets */; };
 		0735E0FE197474D700AE5136 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FA197474D700AE5136 /* AppDelegate.swift */; };
 		0735E0FF197474D700AE5136 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FB197474D700AE5136 /* main.swift */; };
 		0735E100197474D700AE5136 /* PlainAuthenticationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FC197474D700AE5136 /* PlainAuthenticationCredentials.swift */; };
+		0735E1051974758900AE5136 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0735E1041974758900AE5136 /* Info.plist */; };
 		0735E101197474D700AE5136 /* PrefWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FD197474D700AE5136 /* PrefWindow.swift */; };
 		0735E1081974760000AE5136 /* Damp_KegTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E106197475A600AE5136 /* Damp_KegTests.swift */; };
+		5403B53C1975AF7300327BFA /* GroupChatBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5403B53A1975AF7300327BFA /* GroupChatBox.xib */; };
+		54C166401975CEAA000F5B9E /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C1663C1975CEAA000F5B9E /* LoginWindow.xib */; };
+		54C166411975CEAA000F5B9E /* RosterList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C1663E1975CEAA000F5B9E /* RosterList.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,20 +77,19 @@
 		0735E0DE1974747100AE5136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AddContact.xib; sourceTree = "<group>"; };
 		0735E0E01974747100AE5136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ChatBox.xib; sourceTree = "<group>"; };
 		0735E0E21974747100AE5136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ContactProfile.xib; sourceTree = "<group>"; };
-		0735E0E41974747100AE5136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GroupChatBox.xib; sourceTree = "<group>"; };
-		0735E0E61974747100AE5136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Login Window.xib"; sourceTree = "<group>"; };
 		0735E0E81974747100AE5136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		0735E0EA1974747100AE5136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PrefWindow.xib; sourceTree = "<group>"; };
 		0735E0EC1974747100AE5136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileUpdate.xib; sourceTree = "<group>"; };
-		0735E0EE1974747100AE5136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = "Base.lproj/Roster List.xib"; sourceTree = "<group>"; };
 		0735E0F81974748A00AE5136 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0735E0FA197474D700AE5136 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0735E0FB197474D700AE5136 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		0735E0FC197474D700AE5136 /* PlainAuthenticationCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainAuthenticationCredentials.swift; sourceTree = "<group>"; };
-		0735E0FD197474D700AE5136 /* PrefWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrefWindow.swift; sourceTree = "<group>"; };
 		0735E1041974758900AE5136 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0735E106197475A600AE5136 /* Damp_KegTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Damp_KegTests.swift; sourceTree = "<group>"; };
 		0735E10D197476A200AE5136 /* Rambler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rambler.xcodeproj; path = "../../Rambler Framework/Rambler.xcodeproj"; sourceTree = "<group>"; };
+		5403B53B1975AF7300327BFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GroupChatBox.xib; sourceTree = "<group>"; };
+		54C1663D1975CEAA000F5B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginWindow.xib; sourceTree = "<group>"; };
+		54C1663F1975CEAA000F5B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RosterList.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +136,6 @@
 				0735E0FA197474D700AE5136 /* AppDelegate.swift */,
 				0735E0FB197474D700AE5136 /* main.swift */,
 				0735E0FC197474D700AE5136 /* PlainAuthenticationCredentials.swift */,
-				0735E0FD197474D700AE5136 /* PrefWindow.swift */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -148,12 +147,12 @@
 				0735E0DD1974747100AE5136 /* AddContact.xib */,
 				0735E0DF1974747100AE5136 /* ChatBox.xib */,
 				0735E0E11974747100AE5136 /* ContactProfile.xib */,
-				0735E0E31974747100AE5136 /* GroupChatBox.xib */,
-				0735E0E51974747100AE5136 /* Login Window.xib */,
+				5403B53A1975AF7300327BFA /* GroupChatBox.xib */,
+				54C1663C1975CEAA000F5B9E /* LoginWindow.xib */,
 				0735E0E71974747100AE5136 /* MainMenu.xib */,
 				0735E0E91974747100AE5136 /* PrefWindow.xib */,
 				0735E0EB1974747100AE5136 /* ProfileUpdate.xib */,
-				0735E0ED1974747100AE5136 /* Roster List.xib */,
+				54C1663E1975CEAA000F5B9E /* RosterList.xib */,
 				0735E0DB1974744500AE5136 /* Info.plist */,
 			);
 			path = Resources;
@@ -306,16 +305,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54C166411975CEAA000F5B9E /* RosterList.xib in Resources */,
 				0735E0F11974747100AE5136 /* ContactProfile.xib in Resources */,
+				54C166401975CEAA000F5B9E /* LoginWindow.xib in Resources */,
 				0735E0F01974747100AE5136 /* ChatBox.xib in Resources */,
 				0735E0F61974747100AE5136 /* ProfileUpdate.xib in Resources */,
-				0735E0F31974747100AE5136 /* Login Window.xib in Resources */,
 				0735E0F91974748A00AE5136 /* Images.xcassets in Resources */,
 				0735E0EF1974747100AE5136 /* AddContact.xib in Resources */,
-				0735E0F71974747100AE5136 /* Roster List.xib in Resources */,
 				0735E0F51974747100AE5136 /* PrefWindow.xib in Resources */,
 				0735E0F21974747100AE5136 /* GroupChatBox.xib in Resources */,
 				0735E0F41974747100AE5136 /* MainMenu.xib in Resources */,
+				0735E0DC1974744500AE5136 /* Info.plist in Resources */,
+				5403B53C1975AF7300327BFA /* GroupChatBox.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +334,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0735E101197474D700AE5136 /* PrefWindow.swift in Sources */,
 				0735E0FF197474D700AE5136 /* main.swift in Sources */,
 				0735E100197474D700AE5136 /* PlainAuthenticationCredentials.swift in Sources */,
 				0735E0FE197474D700AE5136 /* AppDelegate.swift in Sources */,
@@ -393,22 +393,6 @@
 			name = ContactProfile.xib;
 			sourceTree = "<group>";
 		};
-		0735E0E31974747100AE5136 /* GroupChatBox.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0735E0E41974747100AE5136 /* Base */,
-			);
-			name = GroupChatBox.xib;
-			sourceTree = "<group>";
-		};
-		0735E0E51974747100AE5136 /* Login Window.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0735E0E61974747100AE5136 /* Base */,
-			);
-			name = "Login Window.xib";
-			sourceTree = "<group>";
-		};
 		0735E0E71974747100AE5136 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -433,12 +417,28 @@
 			name = ProfileUpdate.xib;
 			sourceTree = "<group>";
 		};
-		0735E0ED1974747100AE5136 /* Roster List.xib */ = {
+		5403B53A1975AF7300327BFA /* GroupChatBox.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0735E0EE1974747100AE5136 /* Base */,
+				5403B53B1975AF7300327BFA /* Base */,
 			);
-			name = "Roster List.xib";
+			name = GroupChatBox.xib;
+			sourceTree = "<group>";
+		};
+		54C1663C1975CEAA000F5B9E /* LoginWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54C1663D1975CEAA000F5B9E /* Base */,
+			);
+			name = LoginWindow.xib;
+			sourceTree = "<group>";
+		};
+		54C1663E1975CEAA000F5B9E /* RosterList.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54C1663F1975CEAA000F5B9E /* Base */,
+			);
+			name = RosterList.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
