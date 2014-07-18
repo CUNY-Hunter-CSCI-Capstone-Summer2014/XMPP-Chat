@@ -45,6 +45,7 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Stream\State.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)targetver.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)XML\Attribute.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)XML\Node.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\JID.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\Utility.hpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\XMLStream.hpp" />
@@ -78,6 +79,7 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)Connection\TCPConnection.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)RamblerRT.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XML\Attribute.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)XML\Node.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\Core\JID.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\Core\XMLStream.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)XMPP\IM\Client\Conversation.cpp" />

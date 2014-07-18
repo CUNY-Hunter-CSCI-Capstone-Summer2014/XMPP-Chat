@@ -1,7 +1,7 @@
 namespace Rambler{
 	namespace XML{
 
-		ref class Node{
+		partial ref class Node{
 		public:
 			enum class Type{
 				Invalid,
@@ -20,9 +20,9 @@ namespace Rambler{
 			Type getType();
 
 			/*VIRTUAL FUNCTIONS IMPLEMENETED*/
-			Platform::String ^ getStringValue();
+			virtual Platform::String ^ getStringValue();
 
-			bool isValid();
+			virtual bool isValid();
 
 		};
 	}

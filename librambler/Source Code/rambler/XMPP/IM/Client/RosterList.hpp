@@ -2,7 +2,8 @@
 
 #include "rambler/types.hpp"
 #include "RosterItem.hpp"
-#include "JID.hpp"
+//#include "JID.hpp"
+#include "rambler/XMPP/Core/JID.hpp"
 #include <map>
 #include <ctime>
 

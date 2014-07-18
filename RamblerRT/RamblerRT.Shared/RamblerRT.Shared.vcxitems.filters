@@ -118,6 +118,9 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)XML\Attribute.hpp">
       <Filter>RamblerRT\XML</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)XML\Node.hpp">
+      <Filter>RamblerRT\XML</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)RamblerRT.cpp">
@@ -208,6 +211,9 @@
       <Filter>librambler\Connection\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="$(MSBuildThisFileDirectory)XML\Attribute.cpp">
+      <Filter>RamblerRT\XML</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)XML\Node.cpp">
       <Filter>RamblerRT\XML</Filter>
     </ClCompile>
   </ItemGroup>
