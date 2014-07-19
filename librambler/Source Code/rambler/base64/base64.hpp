@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "types.hpp"
+#include "rambler/types.hpp"
 
 namespace rambler { namespace base64 {
 

@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include "rambler/rambler.hpp"
+
 #include "rambler/XML/Namespace.hpp"
 #include "rambler/XMPP/Core/XMLStream.hpp"
 #include "rambler/XMPP/IM/Client/IQRequestType.hpp"
@@ -18,11 +20,12 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     public:
         using ClientRunloop = function<void(void)>;
 
-        Client(String username);
-        void start();
-        void stop();
+		RAMBLER_API Client(String username);
+		RAMBLER_API ~Client() = default;
+		RAMBLER_API void start();
+		RAMBLER_API void stop();
 
-        void setRunloop(ClientRunloop runloop);
+		RAMBLER_API void setRunloop(ClientRunloop runloop);
     private:
         static String ChatStates_Namespace_String;
         static String Jabber_IQ_Roster_Namespace_String;

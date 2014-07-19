@@ -252,6 +252,23 @@ namespace rambler { namespace XML {
         return namespaces;
     }
 
+    StrongPointer<Namespace> Element::getNamespaceByPrefix(String prefix) const
+    {
+        for (auto aNamespace : namespaces) {
+            if (aNamespace->getPrefix() == prefix) {
+                return aNamespace;
+            }
+        }
+
+        auto temp = parent.lock();
+
+        if (!temp) {
+            return nullptr;
+        }
+
+        return temp->getNamespaceByPrefix(prefix);
+    }
+
     void Element::setDefaultNamespace(StrongPointer<Namespace> xmlnamespace)
     {
         if (xmlnamespace != nullptr && xmlnamespace->isValid()) {

@@ -8,20 +8,22 @@
 #include "rambler/XMPP/IM/Client/Client.hpp"
 #include "rambler/XMPP/IM/Client/Message.hpp"
 
-#include "rambler/timestamp.hpp"
-#include "rambler/uuid.hpp"
+#include "rambler/timestamp/timestamp.hpp"
+#include "rambler/uuid/uuid.hpp"
 
 #include <iostream>
 
 namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
-    auto Client::ChatStates_Namespace_String = String("http://jabber.org/protocol/chatstates");
-    auto Client::Jabber_IQ_Roster_Namespace_String = String("jabber:iq:roster");
-    auto Client::Ping_Namespace_String = String("urn:xmpp:ping");
+	// There is a compiler bug in MSVC that prevents the use of auto for static variables
 
-    auto Client::ChatStates_Namesapce = std::make_shared<XML::Namespace>(ChatStates_Namespace_String);
-    auto Client::Jabber_IQ_Roster_Namespace = std::make_shared<XML::Namespace>(Jabber_IQ_Roster_Namespace_String);
-    auto Client::Ping_Namespace = std::make_shared<XML::Namespace>(Ping_Namespace_String);
+    String Client::ChatStates_Namespace_String = "http://jabber.org/protocol/chatstates";
+    String Client::Jabber_IQ_Roster_Namespace_String = "jabber:iq:roster";
+    String Client::Ping_Namespace_String = "urn:xmpp:ping";
+
+    StrongPointer<XML::Namespace> Client::ChatStates_Namesapce = std::make_shared<XML::Namespace>(ChatStates_Namespace_String);
+	StrongPointer<XML::Namespace> Client::Jabber_IQ_Roster_Namespace = std::make_shared<XML::Namespace>(Jabber_IQ_Roster_Namespace_String);
+	StrongPointer<XML::Namespace> Client::Ping_Namespace = std::make_shared<XML::Namespace>(Ping_Namespace_String);
 
     Client::Client(String username) : jid(JID::createJIDWithString(username))
     {
@@ -180,7 +182,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         }
         running = true;
         xmlStream->open();
-        while (xmlStream->getState() != Stream::State::Closed) {
+		while (xmlStream->getState() != Stream::State::Closed && xmlStream->getState() != Stream::State::Closing) {
             runloop();
         }
     }

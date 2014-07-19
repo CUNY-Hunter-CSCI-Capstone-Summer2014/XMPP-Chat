@@ -1,5 +1,6 @@
 #include "rambler/types.hpp"
-#include "Message.hpp"
+#include "rambler/XMPP/IM/Client/Conversation.hpp"
+#include "rambler/XMPP/IM/Client/Message.hpp"
 #include <map>
 #include "rambler/XMPP/IM/Client/Conversation.hpp"
 

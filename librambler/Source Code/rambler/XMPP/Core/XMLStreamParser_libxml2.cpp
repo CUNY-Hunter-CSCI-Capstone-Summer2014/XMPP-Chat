@@ -75,6 +75,7 @@ namespace rambler { namespace XMPP { namespace Core {
         if (!elementNamespaceURI.empty() && !elementNamespacePrefix.empty()) {
             auto elementNamespace = std::make_shared<XML::Namespace>(elementNamespacePrefix, elementNamespaceURI);
             element = std::make_shared<XML::Element>(elementNamespace, elementName);
+            element->addNamespace(elementNamespace);
         } else if (!elementNamespaceURI.empty()) {
             StrongPointer<XML::Namespace> defaultNamespace;
             if (parser->currentElement != nullptr) {
@@ -87,7 +88,13 @@ namespace rambler { namespace XMPP { namespace Core {
                 defaultNamespace = std::make_shared<XML::Namespace>(elementNamespaceURI);
                 element->setDefaultNamespace(defaultNamespace);
             }
-
+        } else if (!elementNamespacePrefix.empty()) {
+            auto elementNamespace = parser->currentElement->getNamespaceByPrefix(elementNamespacePrefix);
+            if (elementNamespace) {
+                element = std::make_shared<XML::Element>(elementNamespace, elementName);
+            } else {
+                element = std::make_shared<XML::Element>(elementName);
+            }
         } else {
             element = std::make_shared<XML::Element>(elementName);
         }
@@ -98,7 +105,7 @@ namespace rambler { namespace XMPP { namespace Core {
             String namespaceURI;
 
             namespacePrefix = namespaceData[2 * i + 0] ? namespaceData[2 * i + 0] : "";
-            namespaceURI    = namespaceURI[2 * i + 1] ? namespaceData[2 * i + 1] : "";
+            namespaceURI    = namespaceData[2 * i + 1] ? namespaceData[2 * i + 1] : "";
 
             auto xmlnamespace = std::make_shared<XML::Namespace>(namespacePrefix, namespaceURI);
 
@@ -156,8 +163,9 @@ namespace rambler { namespace XMPP { namespace Core {
         if (parser->depth < 0) {
             parser->stream.lock()->close();
         } else if (parser->depth == 0) {
-            parser->stream.lock()->handleReceivedXMLElementEvent(parser->topElement);
-            parser->topElement = nullptr;
+			parser->stream.lock()->handleReceivedXMLElementEvent(parser->topElement);
+			parser->topElement = nullptr;
+			parser->currentElement = parser->currentElement->getParent();
         } else {
             parser->currentElement = parser->currentElement->getParent();
         }
