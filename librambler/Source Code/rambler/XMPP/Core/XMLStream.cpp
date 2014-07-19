@@ -7,7 +7,7 @@
 
 #include "rambler/XMPP/Core/XMLStream.hpp"
 #include "rambler/XMPP/Core/XMLStreamParser.hpp"
-#include "rambler/base64.hpp"
+#include "rambler/base64/base64.hpp"
 
 #include <cassert>
 #include <iostream>

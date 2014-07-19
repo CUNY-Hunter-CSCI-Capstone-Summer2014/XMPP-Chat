@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source Code\rambler\base64\base64.cpp" />
+    <ClCompile Include="Source Code\rambler\Connection\TCPConnection.cpp" />
+    <ClCompile Include="Source Code\rambler\Connection\Winsock2BasedTCPConnection.cpp" />
+    <ClCompile Include="Source Code\rambler\timestamp\timestamp_win32.cpp" />
+    <ClCompile Include="Source Code\rambler\uuid\uuid_win32.cpp" />
+    <ClCompile Include="Source Code\rambler\XML\Attribute.cpp" />
+    <ClCompile Include="Source Code\rambler\XML\Element.cpp" />
+    <ClCompile Include="Source Code\rambler\XML\NameableNode.cpp" />
+    <ClCompile Include="Source Code\rambler\XML\Namespace.cpp" />
+    <ClCompile Include="Source Code\rambler\XML\NamespaceableNode.cpp" />
+    <ClCompile Include="Source Code\rambler\XML\Node.cpp" />
+    <ClCompile Include="Source Code\rambler\XML\TextNode.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\Core\JID.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\Core\XMLStream.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\Core\XMLStreamParser_libxml2.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\Core\XMLStream_Constants.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\Core\XMLStream_Context.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\Client.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\Conversation.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\ConversationController.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\Message.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\RosterItem.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\RosterList.cpp" />
+    <ClCompile Include="Source Code\windows\dllmain.cpp" />
+    <ClCompile Include="Source Code\windows\librambler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source Code\rambler\base64\base64.hpp" />
+    <ClInclude Include="Source Code\rambler\Connection\TCPConnection.hpp" />
+    <ClInclude Include="Source Code\rambler\Connection\Winsock2BasedTCPConnection.hpp" />
+    <ClInclude Include="Source Code\rambler\integer_types.hpp" />
+    <ClInclude Include="Source Code\rambler\pointer_types.hpp" />
+    <ClInclude Include="Source Code\rambler\Stream\BidirectionalStream.hpp" />
+    <ClInclude Include="Source Code\rambler\Stream\State.hpp" />
+    <ClInclude Include="Source Code\rambler\string_types.hpp" />
+    <ClInclude Include="Source Code\rambler\timestamp\timestamp.hpp" />
+    <ClInclude Include="Source Code\rambler\types.hpp" />
+    <ClInclude Include="Source Code\rambler\uuid\uuid.hpp" />
+    <ClInclude Include="Source Code\rambler\XML\Attribute.hpp" />
+    <ClInclude Include="Source Code\rambler\XML\Element.hpp" />
+    <ClInclude Include="Source Code\rambler\XML\NameableNode.hpp" />
+    <ClInclude Include="Source Code\rambler\XML\Namespace.hpp" />
+    <ClInclude Include="Source Code\rambler\XML\NamespaceableNode.hpp" />
+    <ClInclude Include="Source Code\rambler\XML\Node.hpp" />
+    <ClInclude Include="Source Code\rambler\XML\TextNode.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\Core\JID.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\Core\XMLStream.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\Core\XMLStreamParser.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\Core\XMLStreamParser_libxml2.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\Client.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\Conversation.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\ConversationController.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\IQRequestType.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\Message.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\RosterItem.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\RosterList.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\SubscriptionState.hpp" />
+    <ClInclude Include="Source Code\windows\stdafx.h" />
+    <ClInclude Include="Source Code\windows\targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\External Libraries\libxml-2.9.1-windows\libxml2.vcxproj">
+      <Project>{2277975a-de58-461c-8790-41f9b3897641}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DAAE9DAE-7E90-4742-8425-636F9E3E233A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>librambler</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\Products\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</IntDir>
+    <IncludePath>$(SolutionDir)External Libraries\libxml-2.9.1-windows\include;$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)Build\Products\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</IntDir>
+    <IncludePath>$(SolutionDir)External Libraries\libxml-2.9.1-windows\include;$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Ws2_32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>Ws2_32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -125,7 +125,7 @@ namespace rambler { namespace XMPP { namespace Core {
             bool sentAuth                    { false };
             bool sentBindRequest             { false };
             bool boundToResource             { false };
-            std::list<String> saslMechanisms { "EXTERNAL", "PLAIN", "ANONYMOUS" };
+            //std::list<String> saslMechanisms { "EXTERNAL", "PLAIN", "ANONYMOUS" };
             UInt32 nextID                    { 1 };
 
             UInt32 getID();

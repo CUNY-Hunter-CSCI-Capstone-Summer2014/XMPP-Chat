@@ -13,13 +13,20 @@ namespace rambler{
 
 				void Conversation::sendMessage(Message message)
 				{	
-					#warning("UNDEFINED METHOD")
+#ifdef _MSC_VER
+#pragma message("implement this")
+#else
+#warning implement this
+#endif
 				}
 
 				void Conversation::leave()
 				{
-					#warning("UNDEFINED METHOD")
-
+#ifdef _MSC_VER
+#pragma message("implement this")
+#else
+#warning implement this
+#endif
 				}
 			}
 		}

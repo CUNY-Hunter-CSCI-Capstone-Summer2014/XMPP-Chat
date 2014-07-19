@@ -18,11 +18,12 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     public:
         using ClientRunloop = function<void(void)>;
 
-        Client(String username);
-        void start();
-        void stop();
+		__declspec(dllexport) Client(String username);
+		__declspec(dllexport) ~Client() = default;
+		__declspec(dllexport) void start();
+		__declspec(dllexport) void stop();
 
-        void setRunloop(ClientRunloop runloop);
+		__declspec(dllexport) void setRunloop(ClientRunloop runloop);
     private:
         static String ChatStates_Namespace_String;
         static String Jabber_IQ_Roster_Namespace_String;

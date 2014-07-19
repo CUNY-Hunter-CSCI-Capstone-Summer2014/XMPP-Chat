@@ -42,13 +42,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)Build\Products\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Build\Products\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)include;$(ProjectDir)include\libxml;$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)Build\Products\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</OutDir>
-    <IntDir>$(SolutionDir)Build\Products\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</IntDir>
+    <IntDir>$(SolutionDir)Build\Intermediates\$(OS)\$(Platform)\$(ProjectName)\$(Configuration)\</IntDir>
     <IncludePath>$(ProjectDir)include;$(ProjectDir)include\libxml;$(SolutionDir)External Libraries\libiconv-1.14-windows\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
