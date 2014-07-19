@@ -56,9 +56,19 @@ namespace DampKeg
 			if (Add_contact_button.IsEnabled) {//makes sure you can login in the first place. 
                 if (e.Key == Key.Enter)
                 {
-                    Add_contact_button.Focus();
+                    New_Contact(sender, e);
                 }
             }
+		}
+
+		private void New_Contact(object sender, System.Windows.RoutedEventArgs e)
+		{
+			// TODO: Add event handler implementation here.
+			string nicknameToShow = Nickname_field.Text;
+
+            //Roster the_roster_window = new Roster(usernameToShow);
+            this.Close();
+            //the_roster_window.Show();
 		}
 
 		
