@@ -1,6 +1,6 @@
 #include "Conversation.hpp"
 #include "rambler/XMPP/IM/Client/Conversation.hpp"
-#include "Utility.hpp"
+#include "XMPP/Core/Utility.hpp"
 
 namespace Rambler{ namespace XMPP { namespace IM { namespace Client{
 	partial ref class Conversation { 
