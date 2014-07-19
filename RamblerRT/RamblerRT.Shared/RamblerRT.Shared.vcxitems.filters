@@ -115,6 +115,12 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)XMPP\Core\Utility.hpp">
       <Filter>RamblerRT\XMPP\Core</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)XML\Attribute.hpp">
+      <Filter>RamblerRT\XML</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)XML\Node.hpp">
+      <Filter>RamblerRT\XML</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)RamblerRT.cpp">
@@ -204,6 +210,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\librambler\Source Code\rambler\Connection\WindowsRuntimeBasedConnection.cpp">
       <Filter>librambler\Connection\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)XML\Attribute.cpp">
+      <Filter>RamblerRT\XML</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)XML\Node.cpp">
+      <Filter>RamblerRT\XML</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RamblerRT">
@@ -282,6 +294,9 @@
     </Filter>
     <Filter Include="RamblerRT\XMPP\IM\Client">
       <UniqueIdentifier>{67093f5d-0603-4c07-83ff-8c6c742807d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RamblerRT\XML">
+      <UniqueIdentifier>{555cd3bd-0f77-4ade-9295-5643f58a5497}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

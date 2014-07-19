@@ -77,6 +77,12 @@ namespace rambler { namespace XMPP { namespace Core {
             handleOpenedEvent();
         });
 
+        connection->setOpeningFailedEventHandler([this]() {
+            state = Stream::State::Closed;
+
+            handleOpeningFailedEvent();
+        });
+
         connection->setHasDataEventHandler([this](std::vector<UInt8> data) {
 
             std::cout << "\n\nReceived:\n" << String(data.begin(), data.end()) << std::endl;

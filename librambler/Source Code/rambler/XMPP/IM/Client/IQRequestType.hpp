@@ -10,7 +10,8 @@
 namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
     enum class IQRequestType {
-        RosterListRetrieval
+        RosterGet,
+        RosterSet
     };
 
 }}}}

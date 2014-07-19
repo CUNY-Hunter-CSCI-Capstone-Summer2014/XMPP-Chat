@@ -25,7 +25,7 @@ namespace Rambler{ namespace Connection{
 			( new rambler::Connection::WindowsRuntimeBasedConnection(stringHost, stringService) );
 	}
 	TCPConnection::~TCPConnection(){
-		delete theConnection;
+		//delete theConnection;
 	}
 	Platform::Boolean TCPConnection::open(){
 		if (theConnection->open()){

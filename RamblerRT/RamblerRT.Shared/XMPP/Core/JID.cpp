@@ -1,106 +1,80 @@
-#include "JID.hpp"
+#include "JID.hpp" //Rambler::XMPP:Core::JID
 #include "rambler/types.hpp"
 #include "Utility.hpp"
 #include "rambler/XMPP/Core/JID.hpp" //rambler::XMPP::Core::JID
 
 namespace Rambler { namespace XMPP{ namespace Core{
 
-	ref class JID {
+	ref class JID sealed {
 	internal: 
-		std::shared_ptr<rambler::XMPP::Core::JID>  theJID;
+		std::shared_ptr<rambler::XMPP::Core::JID> theJID;
 	};
-	theConnection = std::shared_ptr<rambler::Connection::WindowsRuntimeBasedConnection>
-		(new rambler::Connection::WindowsRuntimeBasedConnection());
+
+	JID::JID(){};
+	JID::JID(Platform::String ^ string){
+		std::string _string = Utility::PSTRING_TO_STDSTRING(string);
+
+		theJID = rambler::XMPP::Core::JID::createJIDWithString(_string);
+	}
+	JID::JID(Platform::String ^ localPart, Platform::String ^ domainPart){
+		std::string _localPart, _domainPart;
+		_localPart = Utility::PSTRING_TO_STDSTRING(localPart);
+		_domainPart = Utility::PSTRING_TO_STDSTRING(domainPart);
+
+		theJID = rambler::XMPP::Core::JID::createBareJIDWithComponents
+			(_localPart, _domainPart);
+
+	}
 
 	JID::JID(Platform::String ^ localPart, Platform::String ^ domainPart,
 		Platform::String ^ resourcePart){
-		theJID =  std::shared_ptr<rambler::XMPP::Core::JID>
-			(new rambler::Connection)
-	}
+
+		// Convert Platform ^ String to std::string
+		std::string _localPart, _domainPart, _resourcePart;
+		_localPart = Utility::PSTRING_TO_STDSTRING(localPart);
+		_domainPart = Utility::PSTRING_TO_STDSTRING(domainPart);
+		_resourcePart = Utility::PSTRING_TO_STDSTRING(resourcePart);
 
 
-	JID ^ JID::createJIDFromString(Platform::String ^ const jid){
-		std::string sString = Utility::PSTRING_TO_STDSTRING(jid);
-
-		JID ^ newJID = ref new JID();
-	}
-
-	Platform::Boolean JID::validateLocalPart(JID ^ const jid){
-		return (rambler::XMPP::Core::JID.validateLocalPart(*(jid->theJID) ) );
-	}
-
-	Platform::Boolean JID::validateDomainPart(JID ^ const jid){
-		return (rambler::XMPP::Core::JID.validateDomainPart(*(jid->theJID)));
+		theJID = rambler::XMPP::Core::JID::createJIDWithComponents
+			(_localPart, _domainPart, _resourcePart);
 
 	}
-
-	 Platform::Boolean  JID::validateResourcePart(JID ^ const jid){
-		return (rambler::XMPP::Core::JID.validateResourcePart(*(jid->theJID)));
+	
+	bool JID::equals(JID  ^ other) {
+		return rambler::XMPP::Core::JID::equal(other->theJID, theJID);
 	}
-
-	JID::JID(){
-		theJID = new rambler::XMPP::Core::JID();
+	
+	bool JID::isBareJID(){
+		theJID->isBareJID();
 	}
-
-	JID::JID(Platform::String ^ , Platform::String ^ domainPart){
-
-		std::string local = Utility::PSTRING_TO_STDSTRING(localPart);
-		std::string domain = Utility::PSTRING_TO_STDSTRING(domainPart);
-		theJID = new rambler::XMPP::Core::JID(local, domain);
+	bool JID::isBareJIDWithLocalPart(){
+		theJID->isBareJIDWithLocalPart();
 
 	}
-
-	JID::JID(Platform::String ^ localPart, Platform::String ^ domainPart,
-		Platform::String ^ resourcePart)
-	{
-		std::string local = Utility::PSTRING_TO_STDSTRING(localPart);
-		std::string domain = Utility::PSTRING_TO_STDSTRING(domainPart);
-		std::string resource = Utility::PSTRING_TO_STDSTRING(resourcePart);
-
-		theJID = new rambler::XMPP::Core::JID(local, domain, resource);
+	bool JID::isFullJID(){
+		theJID->isFullJID();
+	}
+	bool JID::isFullJIDWihLocalPart(){
+		theJID->isFullJIDWithLocalPart();
+	}
+	bool JID::isDomainJID(){
+		theJID->isDomainJID();
 	}
 
-	Platform::Boolean JID::isBareJID() const{
-		return theJid->isBareJID();
+	Platform::String ^	 JID::localPart(){
+		return Utility::STDSTRING_TO_PSTRING(theJID->localPart);
 	}
 
-	Platform::Boolean JID::isBareJIDWithLocalPart() const{
-		return theJID->isBareJIDWithLocalPart();
+	Platform::String ^	 JID::domainPart(){
+		return Utility::STDSTRING_TO_PSTRING(theJID->domainPart);
+	}
+	Platform::String ^	 JID::resourcePart(){
+		return Utility::STDSTRING_TO_PSTRING(theJID->resourcePart);
+	}
+	Platform::String ^	 JID::description(){
+		return Utility::STDSTRING_TO_PSTRING(theJID->description);
 	}
 
-	Platform::Boolean JID::isFullJID() const{
-		return theJID->isFullJID();
-	}
-
-	Platform::Boolean JID::isFullJIDWithLocalPart() const{
-		return theJID->isFullJIDWithLocalpart();
-	}
-
-	Platform::Boolean JID::isDomainJID() const{
-		return theJID->isDomainJOD();
-	}
-
-	Platform::Boolean JID::isValid() const{
-		return theJID->isValid();
-	}
-
-	JID ^ JID::getBareJID() const{
-		rambler::XMPP::Core::JID tempJID= theJID->getBareJID();
-
-		Platform::String pJID = Utility::STDSTRING_TO_PSTRING(tempJID);
-
-		return Rambler::XMPP::Core::JID.JID(pJID);
-	}
-
-	Platform::String ^ JID::toString(){
-		return (Utility::STDSTRING_TO_PSTRING(theJID->toString()));
-
-	}
-
-	bool JID::operator == (JID const & other) const
-	{
-		return localPart == other.localPart && 
-			domainPart == other.domainPart && resourcePart == other.resourcePart;
-	}
 	
 }}}
