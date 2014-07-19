@@ -75,6 +75,7 @@ namespace rambler { namespace XMPP { namespace Core {
         if (!elementNamespaceURI.empty() && !elementNamespacePrefix.empty()) {
             auto elementNamespace = std::make_shared<XML::Namespace>(elementNamespacePrefix, elementNamespaceURI);
             element = std::make_shared<XML::Element>(elementNamespace, elementName);
+            element->addNamespace(elementNamespace);
         } else if (!elementNamespaceURI.empty()) {
             StrongPointer<XML::Namespace> defaultNamespace;
             if (parser->currentElement != nullptr) {
@@ -87,7 +88,13 @@ namespace rambler { namespace XMPP { namespace Core {
                 defaultNamespace = std::make_shared<XML::Namespace>(elementNamespaceURI);
                 element->setDefaultNamespace(defaultNamespace);
             }
-
+        } else if (!elementNamespacePrefix.empty()) {
+            auto elementNamespace = parser->currentElement->getNamespaceByPrefix(elementNamespacePrefix);
+            if (elementNamespace) {
+                element = std::make_shared<XML::Element>(elementNamespace, elementName);
+            } else {
+                element = std::make_shared<XML::Element>(elementName);
+            }
         } else {
             element = std::make_shared<XML::Element>(elementName);
         }
