@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Add Contact" Height="188.448" Width="300">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="18.664,29.086,0,0" TextWrapping="Wrap" Text="Handle@server.com" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="18.664,29.086,0,0" TextWrapping="Wrap" Text="handle@server.com" VerticalAlignment="Top"/>
         <TextBox x:Name="new_contact_field" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="145.078,29.087,0,0" TextChanged="Handle_field_TextChanged" KeyDown="Go_To_Nickname"/>
         <Button x:Name="Add_contact_button" Content="Add Contact" HorizontalAlignment="Left" Margin="108.749,115.574,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="New_Contact"/>
         <TextBlock HorizontalAlignment="Left" Margin="18.664,71.235,0,0" TextWrapping="Wrap" Text="Nickname" VerticalAlignment="Top"/>
