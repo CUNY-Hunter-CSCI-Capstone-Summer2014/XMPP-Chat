@@ -69,7 +69,11 @@ namespace DampKeg
         {
         	// TODO: Add event handler implementation here.
             AddContact add_contact = new AddContact();
-            add_contact.Show();
+            //add_contact.Show();
+			
+			if (add_contact == null){
+                add_contact.Show();
+			}
         }
     }
 }
