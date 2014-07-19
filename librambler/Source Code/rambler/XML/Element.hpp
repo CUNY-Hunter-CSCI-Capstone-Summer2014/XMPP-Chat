@@ -56,6 +56,7 @@ namespace rambler { namespace XML {
         StrongPointer<Namespace> getDefaultNamespace() const;
         void addNamespace(StrongPointer<Namespace> xmlnamespace);
         std::vector<StrongPointer<Namespace>> getNamespaces() const;
+        StrongPointer<Namespace> getNamespaceByPrefix(String prefix) const;
         void setDefaultNamespace(StrongPointer<Namespace> xmlnamespace);
 
         void addAttribute(Attribute attribute);
