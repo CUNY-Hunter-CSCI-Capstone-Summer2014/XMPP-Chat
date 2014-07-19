@@ -1,13 +1,13 @@
 ﻿<Window x:Class="DampKeg.AddContact"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Add Contact" Height="225.271" Width="300">
+        Title="Add Contact" Height="188.448" Width="300">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="42,42,0,0" TextWrapping="Wrap" Text="Handle" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="125.583,41,0,0"/>
-        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="125.583,91.05,0,0"/>
-        <TextBlock HorizontalAlignment="Left" Margin="42,92.05,0,0" TextWrapping="Wrap" Text="Server" VerticalAlignment="Top"/>
-        <Button Content="Add Contact" HorizontalAlignment="Left" Margin="102.251,140.933,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock HorizontalAlignment="Left" Margin="18.664,29.086,0,0" TextWrapping="Wrap" Text="Handle@server.com" VerticalAlignment="Top"/>
+        <TextBox x:Name="new_contact_field" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="145.078,29.087,0,0" TextChanged="Handle_field_TextChanged" KeyDown="Go_To_Nickname"/>
+        <Button x:Name="Add_contact_button" Content="Add Contact" HorizontalAlignment="Left" Margin="108.749,115.574,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" Margin="18.664,71.235,0,0" TextWrapping="Wrap" Text="Nickname" VerticalAlignment="Top"/>
+        <TextBox x:Name="Nickname_field" HorizontalAlignment="Left" Height="23" Margin="145.078,71.236,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" KeyDown="Go_To_Add_Button"/>
 
     </Grid>
 </Window>
