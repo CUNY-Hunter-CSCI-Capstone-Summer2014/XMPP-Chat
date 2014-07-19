@@ -270,5 +270,8 @@
     <ClInclude Include="Source Code\rambler\Connection\Winsock2BasedTCPConnection.hpp">
       <Filter>Source Code\rambler\Connection\Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source Code\rambler\rambler.hpp">
+      <Filter>Source Code</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

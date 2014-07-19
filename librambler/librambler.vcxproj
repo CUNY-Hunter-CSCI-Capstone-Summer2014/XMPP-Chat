@@ -43,6 +43,7 @@
     <ClInclude Include="Source Code\rambler\Connection\Winsock2BasedTCPConnection.hpp" />
     <ClInclude Include="Source Code\rambler\integer_types.hpp" />
     <ClInclude Include="Source Code\rambler\pointer_types.hpp" />
+    <ClInclude Include="Source Code\rambler\rambler.hpp" />
     <ClInclude Include="Source Code\rambler\Stream\BidirectionalStream.hpp" />
     <ClInclude Include="Source Code\rambler\Stream\State.hpp" />
     <ClInclude Include="Source Code\rambler\string_types.hpp" />
@@ -126,6 +127,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
+      <PreprocessorDefinitions>BUILDING_LIBRARY_LIBRAMBLER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -144,6 +146,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)librambler\Source Code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
+      <PreprocessorDefinitions>BUILDING_LIBRARY_LIBRAMBLER;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
