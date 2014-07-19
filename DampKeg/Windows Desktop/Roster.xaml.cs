@@ -64,5 +64,12 @@ namespace DampKeg
             Options options_box = new Options();
             options_box.Show();
         }
+
+        private void open_add_contact(object sender, System.Windows.RoutedEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+            AddContact add_contact = new AddContact();
+            add_contact.Show();
+        }
     }
 }
