@@ -12,9 +12,11 @@ int wmain(int argc, wchar_t* argv[])
 
 	Client client("alpha@dampkeg.com");
 	client.setRunloop([](){
-		std::this_thread::sleep_for(std::chrono::microseconds(10000));
+		std::this_thread::sleep_for(std::chrono::microseconds(100));
 	});
 	client.start();
+
+	system("pause");
 
 	return 0;
 }

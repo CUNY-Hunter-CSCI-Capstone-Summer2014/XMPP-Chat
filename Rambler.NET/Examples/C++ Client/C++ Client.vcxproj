@@ -64,6 +64,12 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>ROBOCOPY "$(OutDir)..\..\libiconv\$(Configuration)" "$(OutDir)." libiconv.dll
+ROBOCOPY "$(OutDir)..\..\libxml2\$(Configuration)" "$(OutDir)." libxml2.dll
+ROBOCOPY "$(OutDir)..\..\librambler\$(Configuration)" "$(OutDir)." librambler.dll
+EXIT 0</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -82,6 +88,12 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+    <PostBuildEvent>
+      <Command>ROBOCOPY "$(OutDir)..\..\libiconv\$(Configuration)" "$(OutDir)." libiconv.dll
+ROBOCOPY "$(OutDir)..\..\libxml2\$(Configuration)" "$(OutDir)." libxml2.dll
+ROBOCOPY "$(OutDir)..\..\librambler\$(Configuration)" "$(OutDir)." librambler.dll
+EXIT 0</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -89,6 +101,11 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\librambler\librambler.vcxproj">
       <Project>{daae9dae-7e90-4742-8425-636f9e3e233a}</Project>
+      <Private>true</Private>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

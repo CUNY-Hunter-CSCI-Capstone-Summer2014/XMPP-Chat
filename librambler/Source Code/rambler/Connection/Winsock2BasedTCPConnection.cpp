@@ -78,7 +78,7 @@ namespace rambler { namespace Connection {
 		}
 
 		state = Stream::State::Open;
-		readLoopThread = new std::thread(&Winsock2BasedTCPConnection::readLoopFunction, this);
+		readLoopThread = std::thread(&Winsock2BasedTCPConnection::readLoopFunction, this);
 		handleOpenedEvent();
 		return true;
 	}
@@ -114,7 +114,8 @@ namespace rambler { namespace Connection {
 		while (bytesRemaining != 0) {
 			Int32 bytesToSend = (Int32)min(bytesRemaining, 0x7FFFFFFF);
 			int iResult = send(theSocket, buffer, bytesToSend, 0);
-			if (iResult != 0) {
+			if (iResult == SOCKET_ERROR) {
+				std::cout << "Send closed." << std::endl;
 				close();
 				return;
 			}
@@ -129,31 +130,30 @@ namespace rambler { namespace Connection {
 		char buffer[1024];
 		std::vector<UInt8> data;
 
-		std::cout << "Starting readloop\n";
 		while (state != Stream::State::Closing && state != Stream::State::Closed) {
-			std::cout << "ping\n";
+			data.clear();
 			bool hasBytesAvailable = false;
 
 			do {
 				memset(buffer, 0, sizeof(buffer));
 				int iResult = recv(theSocket, buffer, sizeof(buffer), 0);
 				if (iResult == 0) {
-					std::cout << "Closed" << std::endl;
+					std::cout << "Receive Closed" << std::endl;
+					close();
+					return;
+				} else if (iResult < 0) {
+					std::cout << "Error: " << iResult << std::endl;
+					std::cout << "Receive Closed" << std::endl;
 					close();
 					return;
 				}
-				else if (iResult < 0) {
-					std::cout << "Error: " << iResult << std::endl;
-					break;
-				}
 
 				data.reserve(data.size() + iResult);
-				data.insert(data.end(), reinterpret_cast<UInt8>(buffer), reinterpret_cast<UInt8>(buffer + iResult));
+				data.insert(data.end(), reinterpret_cast<UInt8 *>(buffer), reinterpret_cast<UInt8 *>(buffer) + iResult);
 
 			} while (hasBytesAvailable);
 
 			handleHasDataEvent(data);
 		}
-		std::cout << "Ending readloop\n";
 	}
 }}

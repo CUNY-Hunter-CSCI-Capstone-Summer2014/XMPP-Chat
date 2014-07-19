@@ -78,7 +78,7 @@ namespace rambler { namespace Connection {
 		WSADATA wsaData;
 		SOCKET theSocket { INVALID_SOCKET };
 
-		std::thread *readLoopThread;
+		std::thread readLoopThread;
 	};
 
 }}
