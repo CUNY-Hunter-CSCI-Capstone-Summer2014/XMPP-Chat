@@ -37,10 +37,9 @@
             <ComboBoxItem Content="Busy" HorizontalAlignment="Left" Width="118"/>
         </ComboBox>
         <TextBlock x:Name="Roster_Username" HorizontalAlignment="Left" Margin="10,27,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="155.313,53.28,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120" FontSize="13.333"/>
+        <TextBox x:Name="Search_box" HorizontalAlignment="Left" Height="23" Margin="155.313,53.28,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120" FontSize="13.333"/>
         <Button x:Name="Chat_Box_Button" Content="Chat_Box" Margin="274.19,0,10,420.72" Click="open_chat_window" VerticalAlignment="Bottom" Height="25.0" HorizontalAlignment="Center"/>
         <Button x:Name="Add_Person_Button" Content="+" Margin="10,0,301.516,8.96" Height="25" Click="open_add_contact" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold" Width="20.484"/>
-        <Button x:Name="Remove_Person_Button" Content="Delete Contact" Margin="155.313,0,94.15,8.96" Height="25" Click="Remove_Person" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
-        <Button Content="Edit Contact" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="55,435.04,0,0" Height="23.96"/>
+        <Button x:Name="Remove_Person_Button" Content="Delete Contact" Margin="47.463,0,202,8.96" Height="25" Click="Remove_Person" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>
