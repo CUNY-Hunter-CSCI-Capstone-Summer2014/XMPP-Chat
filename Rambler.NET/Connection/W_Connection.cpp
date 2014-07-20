@@ -1,9 +1,14 @@
 #include "W_Connection.hpp"
 #include <rambler/Connection/Winsock2BasedTCPConnection.hpp>
+#include "../Utility.hpp"
 
-W_Connection::W_Connection(std::string domainName, std::string serviceName){
+W_Connection::W_Connection(System::String ^ domainName, System::String ^ serviceName){
+
+	std::string nativeDomain = Utility::DotNetToNative(domainName);
+	std::string nativeService = Utility::DotNetToNative(domainName);
+
 	_nativePtr = new rambler::Connection::Winsock2BasedTCPConnection
-		(domainName, serviceName);
+		(nativeDomain, nativeService);
 }
 
 W_Connection::~W_Connection(){

@@ -1,13 +1,17 @@
 #pragma once 
 #include "W_TextNode.hpp"
 #include "rambler/XMl/TextNode.hpp"
+#include "../Utility.hpp"
 
 W_TextNode::W_TextNode(){
 	_nativePtr = new rambler::XML::TextNode();
 }
 
-W_TextNode::W_TextNode(std::string value){
-	_nativePtr = new rambler::XML::TextNode(value);
+W_TextNode::W_TextNode(System::String ^ value){
+
+	Utility::DotNetToNative(value);
+	_nativePtr = new rambler::XML::TextNode(Utility::DotNetToNative(value));
+
 }
 
 W_TextNode::~W_TextNode(){
@@ -22,24 +26,32 @@ void W_TextNode::setParent(W_Element ^ parent){
 	_parent = parent;
 }
 
-std::string W_TextNode::getValue(){
-	return _nativePtr->getValue();
+System::String^ W_TextNode::getValue(){
+	return Utility::NativeToDotNet(_nativePtr->getValue());
 }
 
-std::string W_TextNode::getEscapedValue(){
-	return _nativePtr->getEscapedValue();
+System::String^ W_TextNode::getEscapedValue(){
+	return Utility::NativeToDotNet(_nativePtr->getEscapedValue());
 }
 
-std::string W_TextNode::getStringValue(){
-	return _nativePtr->getStringValue();
+System::String^ W_TextNode::getStringValue(){
+	return Utility::NativeToDotNet(_nativePtr->getStringValue());
 }
 
 bool W_TextNode::isValid(){
-	return _nativePtr->isValid();
+
+	if (_nativePtr->isValid()){
+		return true;
+	}
+	else{
+		return false;
+	}
 }
 
-bool W_TextNode::operator == (W_TextNode ^ other){
-	if (_nativePtr->getValue().compare(other->getValue()) == 0){
+bool W_TextNode::operator == (W_TextNode^ other){
+
+	std::string otherString = Utility::DotNetToNative(other->getValue());
+	if (_nativePtr->getValue().compare(otherString) == 0){
 		return true;
 	}
 	else{
@@ -48,32 +60,34 @@ bool W_TextNode::operator == (W_TextNode ^ other){
 }
 
 bool W_TextNode::operator != (W_TextNode ^ other){
-	if (_nativePtr->getValue().compare(other->getValue()) == 0){
-		return false;
+	std::string otherString = Utility::DotNetToNative(other->getValue());
+
+	if (_nativePtr->getValue().compare(otherString) != 0){
+		return true;
 	}
 	else{
-		return true;
+		return false;
 	}
 }
 
-Type W_TextNode::getType(){
+Managed::Type W_TextNode::getType(){
 	rambler::XML::Node::Type nativeType =
 		_nativePtr->getType();
 
 	switch (nativeType){
 
 	case rambler::XML::Node::Type::Invalid:
-		return Type::Invalid;
+		return Managed::Type::Invalid;
 	case rambler::XML::Node::Type::Document:
-		return Type::Document;
+		return Managed::Type::Document;
 	case rambler::XML::Node::Type::Element:
-		return Type::Element;
+		return Managed::Type::Element;
 	case rambler::XML::Node::Type::Attribute:
-		return Type::Attribute;
+		return Managed::Type::Attribute;
 	case rambler::XML::Node::Type::Text:
-		return Type::Text;
+		return Managed::Type::Text;
 	case rambler::XML::Node::Type::Namespace:
-		return Type::Namespace;
+		return Managed::Type::Namespace;
 
 	}
 	

@@ -11,27 +11,27 @@ namespace rambler {
 
 ref class W_Element;
 
-ref class W_TextNode : INode {
+ref class W_TextNode : INode  {
 public:
 	/* Constructors */
 	W_TextNode();
-	W_TextNode(std::string value);
+	W_TextNode(System::String  ^ value);
 	~W_TextNode();
 
 	W_Element ^ getParent();
 	void setParent(W_Element ^ parent);
 
-	std::string getValue();
-	std::string getEscapedValue();
+	System::String^ getValue();
+	System::String^ getEscapedValue();
 
-	virtual std::string getStringValue();
+	virtual System::String ^ getStringValue();
 
 	virtual bool isValid();
 
 	virtual bool operator == (W_TextNode ^ other);
 	virtual bool operator != (W_TextNode ^ other);
 	
-	virtual Type getType();
+	virtual Managed::Type getType();
 
 
 

@@ -12,7 +12,7 @@ namespace rambler {
 ref class W_Connection{
 public:
 	/* Constructor */
-	W_Connection(std::string domainName, std::string serviceName);
+	W_Connection(System::String ^ domainName, System::String ^ serviceName);
 
 	/* Destructor */
 	virtual ~W_Connection();

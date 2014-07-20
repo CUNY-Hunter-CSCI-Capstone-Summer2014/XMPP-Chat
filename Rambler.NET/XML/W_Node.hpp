@@ -3,9 +3,9 @@
 
 interface class INode{
 public:
-	virtual Type getType();
+	virtual Managed::Type getType();
 
-	virtual std::string getStringValue() = 0;
+	virtual System::String ^ getStringValue() = 0;
 
 	virtual bool isValid() = 0;
 	

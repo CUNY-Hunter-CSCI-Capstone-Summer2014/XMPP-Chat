@@ -3,6 +3,5 @@
 
 interface class INameableNode : INode{
 public:
-	System::String^ getName();
-
+	virtual System::String^ getName();
 };
