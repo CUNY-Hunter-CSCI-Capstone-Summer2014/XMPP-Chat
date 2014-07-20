@@ -19,6 +19,9 @@ public:
 	W_Namespace();
 	W_Namespace(System::String^ name);
 	W_Namespace(System::String^ prefix, System::String^ name);
+	
+	std::shared_ptr<rambler::XML::Namespace> getStrPtr();
+
 
 private:
 	rambler::XML::Namespace * _nativePtr;

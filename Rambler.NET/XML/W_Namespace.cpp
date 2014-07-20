@@ -58,3 +58,8 @@
 
 	 _nativePtr = new rambler::XML::Namespace(nativePrefix, nativeName);
  }
+
+ std::shared_ptr<rambler::XML::Namespace>  W_Namespace::getStrPtr(){
+return std::shared_ptr<rambler::XML::Namespace> (_nativePtr);
+
+ }

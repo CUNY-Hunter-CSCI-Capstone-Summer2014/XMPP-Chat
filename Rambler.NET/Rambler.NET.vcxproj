@@ -85,8 +85,10 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
     <ClInclude Include="Utility.hpp" />
+    <ClInclude Include="XML\W_Attribute.hpp" />
     <ClInclude Include="XML\W_NameableNode.hpp" />
     <ClInclude Include="XML\W_Namespace.hpp" />
+    <ClInclude Include="XML\W_NamespaceableNode.hpp" />
     <ClInclude Include="XML\W_Node.hpp" />
     <ClInclude Include="XML\NodeType.hpp" />
     <ClInclude Include="XML\W_TextNode.hpp" />
@@ -99,6 +101,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="XML\W_Attribute.cpp" />
     <ClCompile Include="XML\W_Namespace.cpp" />
     <ClCompile Include="XML\W_TextNode.cpp" />
   </ItemGroup>

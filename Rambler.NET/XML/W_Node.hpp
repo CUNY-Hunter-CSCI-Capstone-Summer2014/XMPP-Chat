@@ -7,6 +7,5 @@ public:
 
 	virtual System::String ^ getStringValue() = 0;
 
-	virtual bool isValid() = 0;
 	
 };
