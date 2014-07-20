@@ -5,9 +5,9 @@
 
 namespace Rambler { namespace XMPP{ namespace Core{
 
-	ref class JID sealed {
-	internal: 
-		std::shared_ptr<rambler::XMPP::Core::JID> theJID;
+	ref class JID {
+		internal: 
+			std::shared_ptr<rambler::XMPP::Core::JID> theJID;
 	};
 
 	JID::JID(){};

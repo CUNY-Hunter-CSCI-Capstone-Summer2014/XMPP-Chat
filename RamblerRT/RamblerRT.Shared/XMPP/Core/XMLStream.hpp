@@ -21,6 +21,5 @@ namespace Rambler{ namespace XMPP { namespace Core {
 		void restart();
 		void sendData(std::vector<uint8> & data);
 		void sendData(Platform::String ^ data);
-		void 
 	};
 }}}
