@@ -27,12 +27,6 @@ namespace rambler { namespace XML {
                                                                  StrongPointer<Namespace const> xmlnamespace,
                                                                  StrongPointer<Namespace const> defaultNamespace);
 
-        Element();
-        [[deprecated]] Element(String name);
-        [[deprecated]] Element(String name, StrongPointer<Namespace const> defaultNamespace);
-        [[deprecated]] Element(StrongPointer<Namespace const> xmlnamespace, String name);
-        [[deprecated]] Element(StrongPointer<Namespace const> xmlnamespace, String name, StrongPointer<Namespace const> defaultNamespace);
-
         StrongPointer<Element> getPtr();
         StrongPointer<Element> getParent() const;
 
@@ -87,6 +81,7 @@ namespace rambler { namespace XML {
         bool operator == (Element const & other);
         bool operator != (Element const & other);
     private:
+        Element();
         Element(String name, StrongPointer<Namespace const> xmlnamespace, StrongPointer<Namespace const> defaultNamespace);
 
         StrongPointer<Namespace const> defaultNamespace = Namespace::DefaultNamespace();

@@ -51,30 +51,6 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    Element::Element(String name) : NamespaceableNode(name, Type::Element)
-    {
-        /* Nothing to do here */
-    }
-
-    Element::Element(String name, StrongPointer<Namespace const> defaultNamespace)
-    : defaultNamespace(defaultNamespace == nullptr ? Namespace::DefaultNamespace() : defaultNamespace),
-    NamespaceableNode(name, Type::Element)
-    {
-        /* Nothing to do here */
-    }
-
-    Element::Element(StrongPointer<Namespace const> xmlnamespace, String name) : NamespaceableNode(name, xmlnamespace, Type::Element)
-    {
-        /* Nothing to do here */
-    }
-
-    Element::Element(StrongPointer<Namespace const> xmlnamespace, String name, StrongPointer<Namespace const> defaultNamespace)
-    : defaultNamespace(defaultNamespace == nullptr ? Namespace::DefaultNamespace() : defaultNamespace),
-    NamespaceableNode(name, xmlnamespace,Type::Element)
-    {
-        /* Nothing to do here */
-    }
-
     StrongPointer<Element> Element::getPtr()
     {
         return shared_from_this();

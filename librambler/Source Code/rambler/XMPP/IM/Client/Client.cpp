@@ -44,15 +44,15 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
             uniqueID_IQRequestType_map[uuid] = IQRequestType::RosterGet;
 
-            auto IQElement = std::make_shared<XML::Element>("iq");
+            auto IQElement = XML::Element::createWithName("iq");
             IQElement->addAttribute({"from", xmlStream->getJID()->description});
             IQElement->addAttribute({"type", "get"});
             IQElement->addAttribute({"id", uuid});
-            IQElement->addChild(std::make_shared<XML::Element>("query", Jabber_IQ_Roster_Namespace));
+            IQElement->addChild(XML::Element::createWithName("query", Jabber_IQ_Roster_Namespace));
 
             xmlStream->sendData(IQElement);
 
-            xmlStream->sendData(std::make_shared<XML::Element>("presence"));
+            xmlStream->sendData(XML::Element::createWithName("presence"));
         });
 
         xmlStream->setIQStanzaReceivedEventHandler([this](StrongPointer<XMLStream> xmlStream, StrongPointer<XML::Element> stanza) {
@@ -67,7 +67,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                     std::cout << "\nRECEIVED PING (sent to " << stanza->getAttribute("to").getValue() << ")\n";
                     std::cout << "From: " << stanza->getAttribute("from").getValue() << std::endl;
 
-                    auto response = std::make_shared<XML::Element>("iq");
+                    auto response = XML::Element::createWithName("iq");
                     response->addAttribute({"from", stanza->getAttribute("to").getValue()});
                     response->addAttribute({"to", stanza->getAttribute("from").getValue()});
                     response->addAttribute({"id", stanza->getAttribute("id").getValue()});
