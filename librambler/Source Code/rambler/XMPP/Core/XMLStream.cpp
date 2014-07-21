@@ -7,7 +7,7 @@
 
 #include "rambler/XMPP/Core/XMLStream.hpp"
 #include "rambler/XMPP/Core/XMLStreamParser.hpp"
-#include "rambler/base64.hpp"
+#include "rambler/base64/base64.hpp"
 
 #include <cassert>
 #include <iostream>
@@ -75,6 +75,12 @@ namespace rambler { namespace XMPP { namespace Core {
             restart();
 
             handleOpenedEvent();
+        });
+
+        connection->setOpeningFailedEventHandler([this]() {
+            state = Stream::State::Closed;
+
+            handleOpeningFailedEvent();
         });
 
         connection->setHasDataEventHandler([this](std::vector<UInt8> data) {

@@ -1,13 +1,16 @@
 #pragma once
 
 #include "rambler/types.hpp"
+#include "RosterItem.hpp"
+//#include "JID.hpp"
 #include "rambler/XMPP/Core/JID.hpp"
-#include "rambler/XMPP/IM/Client/RosterItem.hpp"
+#include <map>
+#include <ctime>
 
 namespace rambler{ namespace XMPP { namespace IM { namespace Client {
 
     using namespace XMPP::Core;
-
+	 
 	class RosterList{
 	public:
 		using RosterItemUpdatedEventHandler  = function<void(RosterItem)>;

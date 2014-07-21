@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Code">
+      <UniqueIdentifier>{5b31f033-85b3-4f43-9fd7-df94fe670781}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\rambler">
+      <UniqueIdentifier>{03063f39-c21d-4019-bf30-f68cc8a6ca42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\windows">
+      <UniqueIdentifier>{bdeb0208-3819-42da-b6f6-9f2984c71bb8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\windows\Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Code\windows\Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{cad4467c-c5af-4900-9611-36e6addca282}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Code\rambler\Stream">
+      <UniqueIdentifier>{5b3203ff-238e-4f0f-9f5d-7e279bd1969b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\rambler\Stream\Header Files">
+      <UniqueIdentifier>{564195d2-783b-47bf-9302-d15b736e8bab}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Code\rambler\Stream\Source Files">
+      <UniqueIdentifier>{c9d02d31-1876-42cc-8800-7c12e00e6e75}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Code\rambler\XML">
+      <UniqueIdentifier>{ae9b66e5-88d0-4b98-985d-4d6172f06948}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\rambler\XML\Header Files">
+      <UniqueIdentifier>{24304e73-fddd-4476-988b-1237bca3f111}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Code\rambler\XML\Source Files">
+      <UniqueIdentifier>{0371fef3-18aa-4da9-a70f-279fc2bbac27}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Code\rambler\XMPP">
+      <UniqueIdentifier>{47fe9146-e358-4e26-a64a-9cc3c44bb443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\rambler\XMPP\Core">
+      <UniqueIdentifier>{90f8cdc6-7ee5-4ebf-91e4-5eb7b2b3b5b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\rambler\XMPP\Core\Header Files">
+      <UniqueIdentifier>{46f6f576-bf2a-4016-b095-884a0f8ce441}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Code\rambler\XMPP\Core\Source Files">
+      <UniqueIdentifier>{534da309-3c26-4994-b3c6-d33b296f6063}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Code\rambler\XMPP\IM">
+      <UniqueIdentifier>{737f9a7a-5cdf-4c65-b132-d23714b31b13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\rambler\XMPP\IM\Client">
+      <UniqueIdentifier>{7c3c172e-9bc3-4bb3-a2e9-01add86883bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\rambler\XMPP\IM\Client\Header Files">
+      <UniqueIdentifier>{828e2f07-65f0-4f04-9e03-fd554b286e76}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Code\rambler\XMPP\IM\Client\Source Files">
+      <UniqueIdentifier>{2547cc77-f066-4955-8e77-7a4be556dd46}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Code\rambler\Connection">
+      <UniqueIdentifier>{c5fae295-e44d-4f88-8d6f-de4e77c97615}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\rambler\Connection\Source Files">
+      <UniqueIdentifier>{0963642e-c376-4fdc-a4de-b81edcc88844}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Code\rambler\Connection\Header Files">
+      <UniqueIdentifier>{c51762d1-5b42-4b99-9ea9-f033abf03dd2}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Source Code\rambler\base64">
+      <UniqueIdentifier>{fdb69eab-0750-4e73-95f8-f3a21c44a968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\rambler\timestamp">
+      <UniqueIdentifier>{5b47c5d5-a289-4ba1-9614-7528375c7030}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Code\rambler\uuid">
+      <UniqueIdentifier>{fc7ca6f9-1e48-4598-be0a-804400240a58}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source Code\windows\librambler.cpp">
+      <Filter>Source Code\windows\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\Connection\TCPConnection.cpp">
+      <Filter>Source Code\rambler\Connection\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XMPP\Core\JID.cpp">
+      <Filter>Source Code\rambler\XMPP\Core\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XMPP\Core\XMLStream.cpp">
+      <Filter>Source Code\rambler\XMPP\Core\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XMPP\Core\XMLStream_Constants.cpp">
+      <Filter>Source Code\rambler\XMPP\Core\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XMPP\Core\XMLStream_Context.cpp">
+      <Filter>Source Code\rambler\XMPP\Core\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\Client.cpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\Conversation.cpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\ConversationController.cpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\Message.cpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\RosterItem.cpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\RosterList.cpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XML\Attribute.cpp">
+      <Filter>Source Code\rambler\XML\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XML\Element.cpp">
+      <Filter>Source Code\rambler\XML\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XML\NameableNode.cpp">
+      <Filter>Source Code\rambler\XML\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XML\Namespace.cpp">
+      <Filter>Source Code\rambler\XML\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XML\NamespaceableNode.cpp">
+      <Filter>Source Code\rambler\XML\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XML\Node.cpp">
+      <Filter>Source Code\rambler\XML\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XML\TextNode.cpp">
+      <Filter>Source Code\rambler\XML\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\base64\base64.cpp">
+      <Filter>Source Code\rambler\base64</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\windows\dllmain.cpp">
+      <Filter>Source Code\windows\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\uuid\uuid_win32.cpp">
+      <Filter>Source Code\rambler\uuid</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\timestamp\timestamp_win32.cpp">
+      <Filter>Source Code\rambler\timestamp</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\XMPP\Core\XMLStreamParser_libxml2.cpp">
+      <Filter>Source Code\rambler\XMPP\Core\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Source Code\rambler\Connection\Winsock2BasedTCPConnection.cpp">
+      <Filter>Source Code\rambler\Connection\Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source Code\windows\stdafx.h">
+      <Filter>Source Code\windows\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\windows\targetver.h">
+      <Filter>Source Code\windows\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\Connection\TCPConnection.hpp">
+      <Filter>Source Code\rambler\Connection\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\Core\JID.hpp">
+      <Filter>Source Code\rambler\XMPP\Core\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\Core\XMLStream.hpp">
+      <Filter>Source Code\rambler\XMPP\Core\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\Core\XMLStreamParser.hpp">
+      <Filter>Source Code\rambler\XMPP\Core\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\Client.hpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\Conversation.hpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\ConversationController.hpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\IQRequestType.hpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\Message.hpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\RosterItem.hpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\RosterList.hpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\SubscriptionState.hpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XML\Attribute.hpp">
+      <Filter>Source Code\rambler\XML\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XML\Element.hpp">
+      <Filter>Source Code\rambler\XML\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XML\NameableNode.hpp">
+      <Filter>Source Code\rambler\XML\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XML\Namespace.hpp">
+      <Filter>Source Code\rambler\XML\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XML\NamespaceableNode.hpp">
+      <Filter>Source Code\rambler\XML\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XML\Node.hpp">
+      <Filter>Source Code\rambler\XML\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XML\TextNode.hpp">
+      <Filter>Source Code\rambler\XML\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\Stream\BidirectionalStream.hpp">
+      <Filter>Source Code\rambler\Stream\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\Stream\State.hpp">
+      <Filter>Source Code\rambler\Stream\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\base64\base64.hpp">
+      <Filter>Source Code\rambler\base64</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\timestamp\timestamp.hpp">
+      <Filter>Source Code\rambler\timestamp</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\uuid\uuid.hpp">
+      <Filter>Source Code\rambler\uuid</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\integer_types.hpp">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\pointer_types.hpp">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\string_types.hpp">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\types.hpp">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\Core\XMLStreamParser_libxml2.hpp">
+      <Filter>Source Code\rambler\XMPP\Core\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\Connection\Winsock2BasedTCPConnection.hpp">
+      <Filter>Source Code\rambler\Connection\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\rambler.hpp">
+      <Filter>Source Code</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -6,34 +6,28 @@
 #include "rambler/XMPP/Core/JID.hpp"
 
 
-namespace rambler{
-	namespace XMPP{
-		namespace IM {
-			namespace Client {
-				class Conversation{
+namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
-				public:
-					using  MessageReceievedEventHandler
-						= function < void(Message) > ;
+    class Conversation {
 
-					const String uniqueID;
+    public:
+        using  MessageReceievedEventHandler = function <void(Message)> ;
 
-					void setMessageReceivedEventHandler
-						(MessageReceievedEventHandler eventHandler);
+        const String uniqueID;
 
-					void sendMessage(Message message);
+        void setMessageReceivedEventHandler
+            (MessageReceievedEventHandler eventHandler);
 
-					void leave();
-					
-				private:
-					std::vector<XMPP::Core::JID> participants;
-					std::vector<Message> messages;
-					std::pair <String, Message> uniqueId_message;
-					MessageReceievedEventHandler handleMessageReceived;
+        void sendMessage(Message message);
 
-					
-				};
-			}
-		}
-	}
-}
+        void leave();
+        
+    private:
+        std::vector<XMPP::Core::JID> participants;
+        std::vector<Message> messages;
+        std::pair <String, Message> uniqueId_message;
+        MessageReceievedEventHandler handleMessageReceived;
+
+    };
+
+}}}}

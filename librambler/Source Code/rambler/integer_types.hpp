@@ -31,7 +31,7 @@ namespace rambler {
     using Int    = Int64;
 #else
     using UInt   = UInt32;
-    using SInt   = SInt32
+	using SInt   = SInt32;
     using Int    = Int32;
 #endif /* _WIN64 || __LP64__ || __LLP64__ */
     

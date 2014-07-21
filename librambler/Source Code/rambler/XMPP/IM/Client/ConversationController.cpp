@@ -4,7 +4,6 @@
 #include "rambler/types.hpp"
 #include <map>
 
-
 namespace rambler{ namespace XMPP { namespace IM { namespace Client{
 	void ConversationController::setMessageReceivedForConversationByUniqueIdEventHandler
 	(MessageReceivedForConversationByUniqueIdEventHandler eventHandler){
@@ -12,11 +11,19 @@ namespace rambler{ namespace XMPP { namespace IM { namespace Client{
 	}
 
 	void ConversationController::sendMessage(Message message){
-		#warning("UNDEFINED METHOD")
+#ifdef _MSC_VER
+#pragma message("implement this")
+#else
+#warning implement this
+#endif
 	}
 
 	void ConversationController::removeConversation(String uniqueId){
-		#warning("UNDEFINED METHOD")
+#ifdef _MSC_VER
+#pragma message("implement this")
+#else
+#warning implement this
+#endif
 	}
 
 }}}}

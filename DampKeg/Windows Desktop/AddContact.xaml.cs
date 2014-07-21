@@ -22,6 +22,56 @@ namespace DampKeg
         public AddContact()
         {
             InitializeComponent();
+			new_contact_field.Focus();
         }
-    }
+
+		private void Handle_field_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string u = new_contact_field.Text;
+            //username_textfield.Text = u;
+
+            if (Utility.valid_email_address(u) == true)
+            {
+                Add_contact_button.IsEnabled = true;
+            }
+            else
+            {
+                Add_contact_button.IsEnabled = false;
+            }
+
+        }
+
+		private void Go_To_Nickname(object sender, System.Windows.Input.KeyEventArgs e)
+		{
+			// TODO: Add event handler implementation here.
+			if (e.Key == Key.Enter)
+            {
+                Nickname_field.Focus();
+            }
+		}
+
+		private void Go_To_Add_Button(object sender, System.Windows.Input.KeyEventArgs e)
+		{
+			// TODO: Add event handler implementation here.
+			if (Add_contact_button.IsEnabled) {//makes sure you can login in the first place. 
+                if (e.Key == Key.Enter)
+                {
+                    New_Contact(sender, e);
+                }
+            }
+		}
+
+		private void New_Contact(object sender, System.Windows.RoutedEventArgs e)
+		{
+			// TODO: Add event handler implementation here.
+			string nicknameToShow = Nickname_field.Text;
+
+            //Roster the_roster_window = new Roster(usernameToShow);
+            this.Close();
+            //the_roster_window.Show();
+		}
+
+		
+	}
+
 }

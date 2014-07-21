@@ -87,7 +87,13 @@ namespace rambler { namespace XMPP { namespace Core {
             } else {
                 element = XML::Element::createWithName(elementName);
             }
-
+        } else if (!elementNamespacePrefix.empty()) {
+            auto elementNamespace = parser->currentElement->getNamespaceByPrefix(elementNamespacePrefix);
+            if (elementNamespace) {
+                element = std::make_shared<XML::Element>(elementNamespace, elementName);
+            } else {
+                element = std::make_shared<XML::Element>(elementName);
+            }
         } else {
             element = XML::Element::createWithName(elementName);
         }
@@ -98,7 +104,7 @@ namespace rambler { namespace XMPP { namespace Core {
             String namespaceURI;
 
             namespacePrefix = namespaceData[2 * i + 0] ? namespaceData[2 * i + 0] : "";
-            namespaceURI    = namespaceURI[2 * i + 1] ? namespaceData[2 * i + 1] : "";
+            namespaceURI    = namespaceData[2 * i + 1] ? namespaceData[2 * i + 1] : "";
 
             auto xmlnamespace = XML::Namespace::createWithNameAndPrefix(namespaceURI, namespacePrefix);
 
@@ -156,8 +162,9 @@ namespace rambler { namespace XMPP { namespace Core {
         if (parser->depth < 0) {
             parser->stream.lock()->close();
         } else if (parser->depth == 0) {
-            parser->stream.lock()->handleReceivedXMLElementEvent(parser->topElement);
-            parser->topElement = nullptr;
+			parser->stream.lock()->handleReceivedXMLElementEvent(parser->topElement);
+			parser->topElement = nullptr;
+			parser->currentElement = parser->currentElement->getParent();
         } else {
             parser->currentElement = parser->currentElement->getParent();
         }

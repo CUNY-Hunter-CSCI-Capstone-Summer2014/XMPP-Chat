@@ -58,7 +58,7 @@ namespace rambler { namespace Connection {
 	*/
 
 	void WindowsRuntimeBasedConnection::sendData(std::vector<UInt8> const & data){
-	
+		#warning("NOT DEFINED");
 	}
 
 	bool WindowsRuntimeBasedConnection::secure(){
