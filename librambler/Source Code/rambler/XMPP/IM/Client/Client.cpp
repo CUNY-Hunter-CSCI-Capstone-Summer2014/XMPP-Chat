@@ -17,9 +17,18 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
 	// There is a compiler bug in MSVC that prevents the use of auto for static variables
 
-    auto Client::ChatStates_Namesapce = XML::Namespace::createWithName(ChatStates_Namespace_String);
-    auto Client::Jabber_IQ_Roster_Namespace = XML::Namespace::createWithName(Jabber_IQ_Roster_Namespace_String);
-    auto Client::Ping_Namespace = XML::Namespace::createWithName(Ping_Namespace_String);
+    String Client::ChatStates_Namespace_String = "http://jabber.org/protocol/chatstates";
+    String Client::Jabber_IQ_Roster_Namespace_String = "jabber:iq:roster";
+    String Client::Ping_Namespace_String = "urn:xmpp:ping";
+
+    StrongPointer<XML::Namespace const>
+    Client::ChatStates_Namesapce = XML::Namespace::createWithName(ChatStates_Namespace_String);
+
+    StrongPointer<XML::Namespace const>
+    Client::Jabber_IQ_Roster_Namespace = XML::Namespace::createWithName(Jabber_IQ_Roster_Namespace_String);
+
+    StrongPointer<XML::Namespace const>
+    Client::Ping_Namespace = XML::Namespace::createWithName(Ping_Namespace_String);
 
     Client::Client(String username) : jid(JID::createJIDWithString(username))
     {

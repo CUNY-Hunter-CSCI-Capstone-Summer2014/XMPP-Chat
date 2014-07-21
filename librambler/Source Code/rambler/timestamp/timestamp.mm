@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 DampKeg. All rights reserved.
 //
 
-#include "rambler/timestamp.hpp"
+#include "rambler/timestamp/timestamp.hpp"
 
 #import <Foundation/Foundation.h>
 

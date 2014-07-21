@@ -285,6 +285,23 @@ namespace rambler { namespace XML {
         return namespaces;
     }
 
+    StrongPointer<Namespace const> Element::getNamespaceByPrefix(String prefix) const
+    {
+        for (auto aNamespace : namespaces) {
+            if (aNamespace->getPrefix() == prefix) {
+                return aNamespace;
+            }
+        }
+
+        auto temp = parent.lock();
+
+        if (!temp) {
+            return nullptr;
+        }
+
+        return temp->getNamespaceByPrefix(prefix);
+    }
+
     void Element::addAttribute(Attribute attribute)
     {
         attributes.insert(attribute);

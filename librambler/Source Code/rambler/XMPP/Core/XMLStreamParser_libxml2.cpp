@@ -75,6 +75,7 @@ namespace rambler { namespace XMPP { namespace Core {
         if (!elementNamespaceURI.empty() && !elementNamespacePrefix.empty()) {
             auto elementNamespace = XML::Namespace::createWithNameAndPrefix(elementNamespaceURI, elementNamespacePrefix);
             element = XML::Element::createWithNameAndNamespace(elementName, elementNamespace);
+            element->addNamespace(elementNamespace);
         } else if (!elementNamespaceURI.empty()) {
             StrongPointer<XML::Namespace const> defaultNamespace;
             if (parser->currentElement != nullptr) {

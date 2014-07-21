@@ -18,6 +18,7 @@
 		0739C3E9195BB781006A7EA8 /* Attribute.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3E8195BB781006A7EA8 /* Attribute.cpp */; };
 		0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3EB195BC68C006A7EA8 /* Node.cpp */; };
 		0739C3F1195BE732006A7EA8 /* Namespace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3F0195BE732006A7EA8 /* Namespace.cpp */; };
+		073A3FFB197CE6DE00DC670F /* XMLStreamParser_expat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07F9232B196D12C30010E3C4 /* XMLStreamParser_expat.cpp */; };
 		073B7D05197877D200B3BF89 /* Conversation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073B7D01197877D200B3BF89 /* Conversation.cpp */; };
 		073B7D06197877D200B3BF89 /* Conversation.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 073B7D02197877D200B3BF89 /* Conversation.hpp */; };
 		073B7D07197877D200B3BF89 /* ConversationController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073B7D03197877D200B3BF89 /* ConversationController.cpp */; };
@@ -29,7 +30,6 @@
 		0747F28F19608DCB003A0D0C /* NamespaceableNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0747F28E19608DCB003A0D0C /* NamespaceableNode.cpp */; };
 		075097621973679400CBBA60 /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 075097611973679400CBBA60 /* Message.cpp */; };
 		076FC726197789F90046A227 /* timestamp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 076FC725197789F90046A227 /* timestamp.mm */; };
-		07750822197AF4940008F545 /* XMLStreamParser_expat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07F9232B196D12C30010E3C4 /* XMLStreamParser_expat.cpp */; };
 		079FDC321966514700F9DBC6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 079FDC311966514700F9DBC6 /* Security.framework */; };
 		07A30662196F79B000D9523E /* RosterItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A3065D196F79B000D9523E /* RosterItem.cpp */; };
 		07A30663196F79B000D9523E /* RosterItem.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 07A3065E196F79B000D9523E /* RosterItem.hpp */; };
@@ -59,7 +59,6 @@
 		07E76204197C6E2400CD1BDE /* XMLElement.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07E76203197C6E2400CD1BDE /* XMLElement.mm */; };
 		07E76205197C6EBC00CD1BDE /* XMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 07E76201197C6E0100CD1BDE /* XMLElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07E76206197C6EC500CD1BDE /* XMLNamespaceableNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 07E76200197B959D00CD1BDE /* XMLNamespaceableNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		07E76207197CE01000CD1BDE /* XMLStreamParser_libxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07BF1F2919638F0700FC8348 /* XMLStreamParser_libxml2.cpp */; };
 		07F1F14019777110005C3966 /* RosterList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A3065F196F79B000D9523E /* RosterList.cpp */; };
 		07F36FE0197744E1001A00A0 /* Client.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07F36FDF197744E1001A00A0 /* Client.cpp */; };
 		07F8146B196E2AF300207EC1 /* Conversation.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F81461196E2AF300207EC1 /* Conversation.h */; };
@@ -382,6 +381,33 @@
 			path = XML;
 			sourceTree = "<group>";
 		};
+		073A3FF8197CE4F100DC670F /* base64 */ = {
+			isa = PBXGroup;
+			children = (
+				07BC78421968AAFE00393657 /* base64.hpp */,
+				07BC78361968AA9D00393657 /* base64.cpp */,
+			);
+			path = base64;
+			sourceTree = "<group>";
+		};
+		073A3FF9197CE50500DC670F /* timestamp */ = {
+			isa = PBXGroup;
+			children = (
+				076FC724197789EB0046A227 /* timestamp.hpp */,
+				076FC725197789F90046A227 /* timestamp.mm */,
+			);
+			path = timestamp;
+			sourceTree = "<group>";
+		};
+		073A3FFA197CE51900DC670F /* uuid */ = {
+			isa = PBXGroup;
+			children = (
+				07D9D966197817D10017D850 /* uuid.hpp */,
+				07D9D967197817DF0017D850 /* uuid.cpp */,
+			);
+			path = uuid;
+			sourceTree = "<group>";
+		};
 		07461EC01974E7EC002B3DF3 /* Example Client (Objective-C) */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,16 +513,13 @@
 		07BC78451969BF2500393657 /* rambler */ = {
 			isa = PBXGroup;
 			children = (
-				07BC78421968AAFE00393657 /* base64.hpp */,
-				07BC78361968AA9D00393657 /* base64.cpp */,
 				0739C3EE195BE40A006A7EA8 /* integer_types.hpp */,
 				0700FFE319625F940001283D /* pointer_types.hpp */,
 				0739C3EF195BE5D4006A7EA8 /* string_types.hpp */,
-				076FC724197789EB0046A227 /* timestamp.hpp */,
-				076FC725197789F90046A227 /* timestamp.mm */,
 				0739C3D9195B9D8F006A7EA8 /* types.hpp */,
-				07D9D966197817D10017D850 /* uuid.hpp */,
-				07D9D967197817DF0017D850 /* uuid.cpp */,
+				073A3FF8197CE4F100DC670F /* base64 */,
+				073A3FF9197CE50500DC670F /* timestamp */,
+				073A3FFA197CE51900DC670F /* uuid */,
 				07D5DCB51950B18D0041A7F3 /* Connection */,
 				07D5DCC81950B1F00041A7F3 /* DNS */,
 				0715A6351955021F004519D9 /* Stream */,
@@ -826,6 +849,7 @@
 				07D9D968197817DF0017D850 /* uuid.cpp in Sources */,
 				07E761FC197B852500CD1BDE /* XMLNamespace.mm in Sources */,
 				076FC726197789F90046A227 /* timestamp.mm in Sources */,
+				073A3FFB197CE6DE00DC670F /* XMLStreamParser_expat.cpp in Sources */,
 				070A852F19641B6D00798ABE /* CFNetworkBasedTCPConnection.cpp in Sources */,
 				075097621973679400CBBA60 /* Message.cpp in Sources */,
 				07DECDC71963C2F1007938D1 /* XMLStream_Constants.cpp in Sources */,
@@ -836,15 +860,14 @@
 				07D5DCCF1950B2110041A7F3 /* SRVRecordResolver_CFNetwork.cpp in Sources */,
 				07F1F14019777110005C3966 /* RosterList.cpp in Sources */,
 				07E76204197C6E2400CD1BDE /* XMLElement.mm in Sources */,
+				073B7D05197877D200B3BF89 /* Conversation.cpp in Sources */,
 				0747F28F19608DCB003A0D0C /* NamespaceableNode.cpp in Sources */,
 				07F81470196E2AF300207EC1 /* Message.mm in Sources */,
-				07E76207197CE01000CD1BDE /* XMLStreamParser_libxml2.cpp in Sources */,
 				07F81484196E2B1C00207EC1 /* TCPConnection.mm in Sources */,
 				0715A6331954FC82004519D9 /* XMLStream.cpp in Sources */,
 				07D5DCCD1950B2110041A7F3 /* dns_utilities.cpp in Sources */,
 				0739C3E9195BB781006A7EA8 /* Attribute.cpp in Sources */,
 				07DECDCD196414AC007938D1 /* TCPConnection.cpp in Sources */,
-				07750822197AF4940008F545 /* XMLStreamParser_expat.cpp in Sources */,
 				073B7D07197877D200B3BF89 /* ConversationController.cpp in Sources */,
 				07ABA9FE1960A8A4001543FB /* Element.cpp in Sources */,
 				07A30662196F79B000D9523E /* RosterItem.cpp in Sources */,
