@@ -5,7 +5,7 @@
  * @details <# Detailed Description #>
  **********************************************************************************************************************/
 
-#include "rambler/uuid.hpp"
+#include "rambler/uuid/uuid.hpp"
 
 #include <CoreFoundation/CoreFoundation.h>
 

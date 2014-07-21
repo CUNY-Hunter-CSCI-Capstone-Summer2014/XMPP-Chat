@@ -199,8 +199,8 @@
 		0747F28E19608DCB003A0D0C /* NamespaceableNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NamespaceableNode.cpp; sourceTree = "<group>"; };
 		075097601973678800CBBA60 /* Message.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Message.hpp; sourceTree = "<group>"; };
 		075097611973679400CBBA60 /* Message.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Message.cpp; sourceTree = "<group>"; };
-		076FC724197789EB0046A227 /* timestamp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = timestamp.hpp; sourceTree = "<group>"; };
-		076FC725197789F90046A227 /* timestamp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = timestamp.mm; sourceTree = "<group>"; };
+		076FC724197789EB0046A227 /* timestamp.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = timestamp.hpp; path = "/Users/omar/Desktop/XMPP-Chat/librambler/Source Code/rambler/timestamp/timestamp.hpp"; sourceTree = "<absolute>"; };
+		076FC725197789F90046A227 /* timestamp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = timestamp.mm; path = "/Users/omar/Desktop/XMPP-Chat/librambler/Source Code/rambler/timestamp/timestamp.mm"; sourceTree = "<absolute>"; };
 		079FDC311966514700F9DBC6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		07A3065D196F79B000D9523E /* RosterItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RosterItem.cpp; sourceTree = "<group>"; };
 		07A3065E196F79B000D9523E /* RosterItem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RosterItem.hpp; sourceTree = "<group>"; };
@@ -214,8 +214,8 @@
 		07ABA9FD1960A8A4001543FB /* Element.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Element.cpp; sourceTree = "<group>"; };
 		07ABAA091960B0E4001543FB /* TextNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextNode.hpp; sourceTree = "<group>"; };
 		07ABAA0A1960B0EF001543FB /* TextNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TextNode.cpp; sourceTree = "<group>"; };
-		07BC78361968AA9D00393657 /* base64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = base64.cpp; sourceTree = "<group>"; };
-		07BC78421968AAFE00393657 /* base64.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = base64.hpp; sourceTree = "<group>"; };
+		07BC78361968AA9D00393657 /* base64.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = base64.cpp; path = "/Users/omar/Desktop/XMPP-Chat/librambler/Source Code/rambler/base64/base64.cpp"; sourceTree = "<absolute>"; };
+		07BC78421968AAFE00393657 /* base64.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = base64.hpp; path = "/Users/omar/Desktop/XMPP-Chat/librambler/Source Code/rambler/base64/base64.hpp"; sourceTree = "<absolute>"; };
 		07BC78431968C1D400393657 /* Base64.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Base64.mm; sourceTree = "<group>"; };
 		07BF1F2919638F0700FC8348 /* XMLStreamParser_libxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XMLStreamParser_libxml2.cpp; sourceTree = "<group>"; };
 		07D1E6CF1950A833008C76CF /* Rambler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rambler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -369,6 +369,15 @@
 			path = "Examples/Example Client (Objective-C)";
 			sourceTree = "<group>";
 		};
+		07750823197AFB420008F545 /* base64 */ = {
+			isa = PBXGroup;
+			children = (
+				07BC78421968AAFE00393657 /* base64.hpp */,
+				07BC78361968AA9D00393657 /* base64.cpp */,
+			);
+			path = base64;
+			sourceTree = "<group>";
+		};
 		078D2A64196E24FF00CF208A /* XMPP */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,16 +473,13 @@
 		07BC78451969BF2500393657 /* rambler */ = {
 			isa = PBXGroup;
 			children = (
-				07BC78421968AAFE00393657 /* base64.hpp */,
-				07BC78361968AA9D00393657 /* base64.cpp */,
+				07750823197AFB420008F545 /* base64 */,
+				07D11A9A197AFCFF00D384AA /* uuid */,
+				07D11A99197AFCDF00D384AA /* timestamp */,
 				0739C3EE195BE40A006A7EA8 /* integer_types.hpp */,
 				0700FFE319625F940001283D /* pointer_types.hpp */,
 				0739C3EF195BE5D4006A7EA8 /* string_types.hpp */,
-				076FC724197789EB0046A227 /* timestamp.hpp */,
-				076FC725197789F90046A227 /* timestamp.mm */,
 				0739C3D9195B9D8F006A7EA8 /* types.hpp */,
-				07D9D966197817D10017D850 /* uuid.hpp */,
-				07D9D967197817DF0017D850 /* uuid.cpp */,
 				07D5DCB51950B18D0041A7F3 /* Connection */,
 				07D5DCC81950B1F00041A7F3 /* DNS */,
 				0715A6351955021F004519D9 /* Stream */,
@@ -481,6 +487,24 @@
 				0715A62D1954F97E004519D9 /* XMPP */,
 			);
 			path = rambler;
+			sourceTree = "<group>";
+		};
+		07D11A99197AFCDF00D384AA /* timestamp */ = {
+			isa = PBXGroup;
+			children = (
+				076FC724197789EB0046A227 /* timestamp.hpp */,
+				076FC725197789F90046A227 /* timestamp.mm */,
+			);
+			path = timestamp;
+			sourceTree = "<group>";
+		};
+		07D11A9A197AFCFF00D384AA /* uuid */ = {
+			isa = PBXGroup;
+			children = (
+				07D9D966197817D10017D850 /* uuid.hpp */,
+				07D9D967197817DF0017D850 /* uuid.cpp */,
+			);
+			path = uuid;
 			sourceTree = "<group>";
 		};
 		07D1E6C51950A833008C76CF = {

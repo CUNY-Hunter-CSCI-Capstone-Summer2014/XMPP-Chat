@@ -74,7 +74,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var editProfileWindowController: NSWindowController? = nil
     var groupAddWindowController: NSWindowController? = nil
     var loginWindowController: NSWindowController? = nil
-    var rosterListWindowController: NSWindowController? = nil
+    var rosterListWindowController: RosterListWindowController? = nil
     var viewProfileController: NSWindowController? = nil
     
     /* *********************************** */
@@ -87,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         editProfileWindowController = NSWindowController(windowNibName: "ProfileUpdate")
         groupAddWindowController = NSWindowController(windowNibName: "GroupChatBox")
         loginWindowController = NSWindowController(windowNibName: "Login Window")
-        rosterListWindowController = NSWindowController(windowNibName: "RosterList")
+        rosterListWindowController = RosterListWindowController(windowNibName: "RosterList")
         viewProfileController = NSWindowController(windowNibName: "ContactProfile")
 
         /* *********************************** */
