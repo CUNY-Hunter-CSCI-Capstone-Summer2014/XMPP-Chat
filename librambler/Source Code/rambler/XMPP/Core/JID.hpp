@@ -11,7 +11,7 @@
 
 namespace rambler { namespace XMPP { namespace Core {
 
-    struct RAMBLER_API JID {
+    struct JID {
         
         String const localPart;
         String const domainPart;

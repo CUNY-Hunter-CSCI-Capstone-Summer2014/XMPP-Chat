@@ -91,9 +91,9 @@ namespace rambler { namespace XMPP { namespace Core {
         } else if (!elementNamespacePrefix.empty()) {
             auto elementNamespace = parser->currentElement->getNamespaceByPrefix(elementNamespacePrefix);
             if (elementNamespace) {
-                element = std::make_shared<XML::Element>(elementNamespace, elementName);
+                element = XML::Element::createWithNameAndNamespace(elementName, elementNamespace);
             } else {
-                element = std::make_shared<XML::Element>(elementName);
+                element = XML::Element::createWithName(elementName);
             }
         } else {
             element = XML::Element::createWithName(elementName);
