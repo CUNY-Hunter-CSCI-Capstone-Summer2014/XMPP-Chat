@@ -420,15 +420,6 @@
 			path = "Examples/Example Client (Objective-C)";
 			sourceTree = "<group>";
 		};
-		07750823197AFB420008F545 /* base64 */ = {
-			isa = PBXGroup;
-			children = (
-				07BC78421968AAFE00393657 /* base64.hpp */,
-				07BC78361968AA9D00393657 /* base64.cpp */,
-			);
-			path = base64;
-			sourceTree = "<group>";
-		};
 		078D2A64196E24FF00CF208A /* XMPP */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,13 +517,13 @@
 		07BC78451969BF2500393657 /* rambler */ = {
 			isa = PBXGroup;
 			children = (
-				07750823197AFB420008F545 /* base64 */,
-				07D11A9A197AFCFF00D384AA /* uuid */,
-				07D11A99197AFCDF00D384AA /* timestamp */,
 				0739C3EE195BE40A006A7EA8 /* integer_types.hpp */,
 				0700FFE319625F940001283D /* pointer_types.hpp */,
 				0739C3EF195BE5D4006A7EA8 /* string_types.hpp */,
 				0739C3D9195B9D8F006A7EA8 /* types.hpp */,
+				073A3FF8197CE4F100DC670F /* base64 */,
+				073A3FF9197CE50500DC670F /* timestamp */,
+				073A3FFA197CE51900DC670F /* uuid */,
 				07D5DCB51950B18D0041A7F3 /* Connection */,
 				07D5DCC81950B1F00041A7F3 /* DNS */,
 				0715A6351955021F004519D9 /* Stream */,
@@ -540,24 +531,6 @@
 				0715A62D1954F97E004519D9 /* XMPP */,
 			);
 			path = rambler;
-			sourceTree = "<group>";
-		};
-		07D11A99197AFCDF00D384AA /* timestamp */ = {
-			isa = PBXGroup;
-			children = (
-				076FC724197789EB0046A227 /* timestamp.hpp */,
-				076FC725197789F90046A227 /* timestamp.mm */,
-			);
-			path = timestamp;
-			sourceTree = "<group>";
-		};
-		07D11A9A197AFCFF00D384AA /* uuid */ = {
-			isa = PBXGroup;
-			children = (
-				07D9D966197817D10017D850 /* uuid.hpp */,
-				07D9D967197817DF0017D850 /* uuid.cpp */,
-			);
-			path = uuid;
 			sourceTree = "<group>";
 		};
 		07D1E6C51950A833008C76CF = {

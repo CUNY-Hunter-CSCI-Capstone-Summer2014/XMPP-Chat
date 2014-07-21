@@ -18,6 +18,7 @@
 		0735E0FF197474D700AE5136 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FB197474D700AE5136 /* main.swift */; };
 		0735E100197474D700AE5136 /* PlainAuthenticationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FC197474D700AE5136 /* PlainAuthenticationCredentials.swift */; };
 		0735E1081974760000AE5136 /* Damp_KegTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E106197475A600AE5136 /* Damp_KegTests.swift */; };
+		079FD901197DB95B00FF783B /* Rambler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0735E113197476A200AE5136 /* Rambler.framework */; };
 		07D11A9C197B03DB00D384AA /* RosterItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D11A9B197B03DB00D384AA /* RosterItemView.swift */; };
 		07D11AA3197B0B3400D384AA /* RosterListWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D11AA2197B0B3400D384AA /* RosterListWindowController.swift */; };
 		07D11AA5197B2D7D00D384AA /* RosterListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07D11AA4197B2D7D00D384AA /* RosterListController.swift */; };
@@ -69,6 +70,13 @@
 			remoteGlobalIDString = 07461EBF1974E7EC002B3DF3;
 			remoteInfo = "Example Client (Objective-C)";
 		};
+		079FD8FC197DB95500FF783B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0735E10D197476A200AE5136 /* Rambler.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 07D1E6CE1950A833008C76CF;
+			remoteInfo = Rambler;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079FD901197DB95B00FF783B /* Rambler.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +223,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				079FD8FD197DB95500FF783B /* PBXTargetDependency */,
 			);
 			name = DampKeg;
 			productName = DampKeg;
@@ -373,6 +383,11 @@
 			isa = PBXTargetDependency;
 			target = 0735E0B51974732000AE5136 /* DampKeg */;
 			targetProxy = 0735E10B1974760500AE5136 /* PBXContainerItemProxy */;
+		};
+		079FD8FD197DB95500FF783B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Rambler;
+			targetProxy = 079FD8FC197DB95500FF783B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
