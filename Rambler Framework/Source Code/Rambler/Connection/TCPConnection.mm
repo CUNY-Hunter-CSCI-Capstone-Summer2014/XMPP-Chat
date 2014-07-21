@@ -5,35 +5,44 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#import "TCPConnection.h"
-#include "rambler/Connection/CFNetworkBasedTCPConnection.hpp"
+#import "TCPConnection.internal.h"
 
 using namespace rambler;
 
 @implementation TCPConnection {
-    StrongPointer<Connection::CFNetworkBasedTCPConnection> theConnection;
     NSOperationQueue *queue;
 }
 
-- (instancetype)initWithHost:(NSString *)host service:(NSString *)service
+- (instancetype)initWithNativeObject:(StrongPointer<Connection::CFNetworkBasedTCPConnection>)aNativeObject
 {
-    if (self = [super init]) {
-        theConnection = std::make_shared<Connection::CFNetworkBasedTCPConnection>(host.UTF8String, service.UTF8String);
-        queue = [[NSOperationQueue alloc] init];
+    self = [super init];
+
+    if (self == nil) {
         return self;
     }
 
-    return nil;
+    if (aNativeObject == nullptr) {
+        self = nil;
+        return self;
+    }
+
+    _nativeObject = aNativeObject;
+
+    queue = [[NSOperationQueue alloc] init];
+
+    return self;
 }
 
-- (void)dealloc
+- (instancetype)initWithDomainName:(NSString *)aDomainName serviceName:(NSString *)aServiceName
 {
-    theConnection = nullptr;
+
+    return [self initWithNativeObject:std::make_shared<Connection::CFNetworkBasedTCPConnection>(aDomainName.UTF8String,
+                                                                                                aServiceName.UTF8String)];
 }
 
 - (StreamState)state
 {
-    switch (theConnection->getState()) {
+    switch (self.nativeObject->getState()) {
         case Stream::State::Closed:
             return Closed;
         case Stream::State::Closing:
@@ -51,17 +60,37 @@ using namespace rambler;
     }
 }
 
-- (void)setConnectedEventHandler:(ConnectedEventHandler)connectedEventHandler
+- (void)setOpenedEventHandler:(OpenedEventHandler)openedEventHandler
 {
-    theConnection->setOpenedEventHandler(connectedEventHandler);
+    self.nativeObject->setOpenedEventHandler(openedEventHandler);
 }
 
-- (void)setDataReceivedEventHandler:(DataReceivedEventHandler)dataReceivedEventHandler
+- (void)setSecuredEventHandler:(SecuredEventHandler)securedEventHandler
 {
-    theConnection->setHasDataEventHandler(^(std::vector<UInt8> data) {
-        dataReceivedEventHandler([NSData dataWithBytes:reinterpret_cast<const void *>(data.data())
-                                                length:data.size()]);
+    self.nativeObject->setSecuredEventHandler(securedEventHandler);
+}
+
+- (void)setClosedEventHandler:(ClosedEventHandler)closedEventHandler
+{
+    self.nativeObject->setClosedEventHandler(closedEventHandler);
+}
+
+- (void)setHasDataEventHandler:(HasDataEventHandler)hasDataEventHandler
+{
+    self.nativeObject->setHasDataEventHandler(^(std::vector<UInt8> data) {
+        hasDataEventHandler([NSData dataWithBytes:reinterpret_cast<const void *>(data.data())
+                                           length:data.size()]);
     });
+}
+
+- (void)setFailedToOpenEventHandler:(FailedToOpenEventHandler)failedToOpenEventHandler
+{
+    self.nativeObject->setOpeningFailedEventHandler(failedToOpenEventHandler);
+}
+
+- (void)setFailedToSecureEventHandler:(FailedToSecureEventHandler)failedToSecureEventHandler
+{
+    self.nativeObject->setSecuringFailedEventHandler(failedToSecureEventHandler);
 }
 
 - (NSOperation *)asynchronouslyOpen
@@ -77,6 +106,27 @@ using namespace rambler;
             return;
         }
         [self open];
+    }];
+
+    operation.completionBlock = task;
+    [queue addOperation:operation];
+
+    return operation;
+}
+
+- (NSOperation *)asynchronouslySecure
+{
+    return [self asynchronouslySecureThenExecuteTask:^{}];
+}
+
+- (NSOperation *)asynchronouslySecureThenExecuteTask:(Task)task
+{
+    NSOperation *operation = nullptr;
+    operation = [NSBlockOperation blockOperationWithBlock:^{
+        if (operation.isCancelled) {
+            return;
+        }
+        [self secure];
     }];
 
     operation.completionBlock = task;
@@ -129,12 +179,17 @@ using namespace rambler;
 
 - (void)open
 {
-    theConnection->open();
+    self.nativeObject->open();
+}
+
+- (void)secure
+{
+    self.nativeObject->secure();
 }
 
 - (void)close
 {
-    theConnection->close();
+    self.nativeObject->close();
 }
 
 - (void)sendData:(NSData *)data
@@ -143,7 +198,7 @@ using namespace rambler;
     auto data_end = data_start + data.length;
 
     const std::vector<UInt8> bytes(data_start, data_end);
-    theConnection->sendData(bytes);
+    self.nativeObject->sendData(bytes);
 }
 
 @end

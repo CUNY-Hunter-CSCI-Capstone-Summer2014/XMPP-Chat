@@ -7,11 +7,11 @@
 
 #pragma once
 
-#include "rambler/types.hpp"
+#include "rambler/rambler.hpp"
 
 namespace rambler { namespace XMPP { namespace Core {
 
-    struct JID {
+    struct RAMBLER_API JID {
         
         String const localPart;
         String const domainPart;

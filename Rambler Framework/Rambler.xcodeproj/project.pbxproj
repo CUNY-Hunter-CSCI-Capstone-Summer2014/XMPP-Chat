@@ -19,6 +19,7 @@
 		0739C3EC195BC68C006A7EA8 /* Node.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3EB195BC68C006A7EA8 /* Node.cpp */; };
 		0739C3F1195BE732006A7EA8 /* Namespace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0739C3F0195BE732006A7EA8 /* Namespace.cpp */; };
 		073A3FFB197CE6DE00DC670F /* XMLStreamParser_expat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07F9232B196D12C30010E3C4 /* XMLStreamParser_expat.cpp */; };
+		073A3FFD197CFC0600DC670F /* rambler.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 073A3FFC197CFC0600DC670F /* rambler.hpp */; };
 		073B7D05197877D200B3BF89 /* Conversation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073B7D01197877D200B3BF89 /* Conversation.cpp */; };
 		073B7D06197877D200B3BF89 /* Conversation.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 073B7D02197877D200B3BF89 /* Conversation.hpp */; };
 		073B7D07197877D200B3BF89 /* ConversationController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 073B7D03197877D200B3BF89 /* ConversationController.cpp */; };
@@ -196,6 +197,8 @@
 		0739C3EE195BE40A006A7EA8 /* integer_types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = integer_types.hpp; sourceTree = "<group>"; };
 		0739C3EF195BE5D4006A7EA8 /* string_types.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = string_types.hpp; sourceTree = "<group>"; };
 		0739C3F0195BE732006A7EA8 /* Namespace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Namespace.cpp; sourceTree = "<group>"; };
+		073A3FFC197CFC0600DC670F /* rambler.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rambler.hpp; sourceTree = "<group>"; };
+		073A3FFE197CFD7A00DC670F /* TCPConnection.internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TCPConnection.internal.h; path = "Source Code/Rambler/Connection/TCPConnection.internal.h"; sourceTree = SOURCE_ROOT; };
 		073B7D01197877D200B3BF89 /* Conversation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Conversation.cpp; sourceTree = "<group>"; };
 		073B7D02197877D200B3BF89 /* Conversation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Conversation.hpp; sourceTree = "<group>"; };
 		073B7D03197877D200B3BF89 /* ConversationController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConversationController.cpp; sourceTree = "<group>"; };
@@ -484,6 +487,7 @@
 				07F8147D196E2B1C00207EC1 /* Connection.h */,
 				07F8147E196E2B1C00207EC1 /* StreamState.h */,
 				07F8147F196E2B1C00207EC1 /* TCPConnection.h */,
+				073A3FFE197CFD7A00DC670F /* TCPConnection.internal.h */,
 				07F81480196E2B1C00207EC1 /* TCPConnection.mm */,
 			);
 			path = Connection;
@@ -513,6 +517,7 @@
 		07BC78451969BF2500393657 /* rambler */ = {
 			isa = PBXGroup;
 			children = (
+				073A3FFC197CFC0600DC670F /* rambler.hpp */,
 				0739C3EE195BE40A006A7EA8 /* integer_types.hpp */,
 				0700FFE319625F940001283D /* pointer_types.hpp */,
 				0739C3EF195BE5D4006A7EA8 /* string_types.hpp */,
@@ -687,6 +692,7 @@
 				07A3066E1970870700D9523E /* JID.internal.h in Headers */,
 				0739C3DA195B9D8F006A7EA8 /* types.hpp in Headers */,
 				07F81486196E2B2D00207EC1 /* Rambler.h in Headers */,
+				073A3FFD197CFC0600DC670F /* rambler.hpp in Headers */,
 				07D5DCCE1950B2110041A7F3 /* dns_utilities.h in Headers */,
 				07E761FE197B8A5700CD1BDE /* XMLNamespace.h in Headers */,
 				0715A6311954FC6C004519D9 /* XMLStream.hpp in Headers */,
