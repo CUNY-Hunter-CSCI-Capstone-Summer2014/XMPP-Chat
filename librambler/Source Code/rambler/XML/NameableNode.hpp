@@ -1,4 +1,4 @@
-/**********************************************************************************************************************
+ /**********************************************************************************************************************
  * @file    NamedNode.hpp
  * @date    2014-06-29
  * @brief   <# Brief Description#>
@@ -18,7 +18,7 @@ namespace rambler { namespace XML {
         NameableNode(Type type);
         NameableNode(String name, Type type);
         
-        String getName() const;
+		String getName() const;
 
         virtual bool operator < (NameableNode const & other) const;
         virtual bool operator == (NameableNode const & other) const;

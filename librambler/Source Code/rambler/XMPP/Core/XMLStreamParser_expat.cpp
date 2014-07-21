@@ -98,23 +98,23 @@ namespace rambler { namespace XMPP { namespace Core {
         }
 
         if (!elementNamespaceURI.empty() && !elementNamespacePrefix.empty()) {
-            auto elementNamespace = std::make_shared<XML::Namespace>(elementNamespacePrefix, elementNamespaceURI);
-            element = std::make_shared<XML::Element>(elementNamespace, elementName);
+            auto elementNamespace = XML::Namespace::createWithNameAndPrefix(elementNamespaceURI, elementNamespacePrefix);
+            element = XML::Element::createWithNameAndNamespace(elementName, elementNamespace);
         } else if (!elementNamespaceURI.empty()) {
-            StrongPointer<XML::Namespace> defaultNamespace;
+            StrongPointer<XML::Namespace const> defaultNamespace;
             if (parser->currentElement != nullptr) {
                 defaultNamespace = parser->currentElement->getDefaultNamespace();
             }
 
-            element = std::make_shared<XML::Element>(elementName);
-
             if (defaultNamespace != nullptr && defaultNamespace->getName() != elementNamespaceURI) {
-                defaultNamespace = std::make_shared<XML::Namespace>(elementNamespaceURI);
-                element->setDefaultNamespace(defaultNamespace);
+                defaultNamespace = XML::Namespace::createWithName(elementNamespaceURI);
+                element = XML::Element::createWithName(elementName, defaultNamespace);
+            } else {
+                element = XML::Element::createWithName(elementName);
             }
 
         } else {
-            element = std::make_shared<XML::Element>(elementName);
+            element = XML::Element::createWithName(elementName);
         }
 
         while (*attributeData != nullptr) {

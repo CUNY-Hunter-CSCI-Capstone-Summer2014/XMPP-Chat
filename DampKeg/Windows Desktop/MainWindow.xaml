@@ -1,7 +1,7 @@
 ﻿<Window x:Name="Main_window" x:Class="DampKeg.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="DampKeg " HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="320" MinHeight="480" HorizontalContentAlignment="Center" MaxWidth="320" MaxHeight="480" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="Log In" HorizontalAlignment="Center" VerticalAlignment="Center" Width="320" Height="480" ScrollViewer.VerticalScrollBarVisibility="Disabled" MinWidth="320" MinHeight="480" HorizontalContentAlignment="Center" MaxWidth="320" MaxHeight="480" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Grid HorizontalAlignment="Center" VerticalAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled">
         <Grid.RowDefinitions>
             <RowDefinition Height="135*"/>

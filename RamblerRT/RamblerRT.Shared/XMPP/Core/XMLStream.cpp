@@ -38,31 +38,30 @@ namespace Rambler{ namespace XMPP { namespace Core {
 		streamActual = new rambler::XMPP:Core::XMLStream(hostX, portX);
 	}
 
-			XMLStream::XMLStream(Platform::String ^ host, Platform::String ^ port, JID ^ jid){
-				std::string hostX = Utility::PSTRING_TO_STDSTRING(host);
-				std::string portX = Utility::PSTRING_TO_STDSTRING(port);
+	XMLStream::XMLStream(Platform::String ^ host, Platform::String ^ port, JID ^ jid){
+		std::string hostX = Utility::PSTRING_TO_STDSTRING(host);
+		std::string portX = Utility::PSTRING_TO_STDSTRING(port);
 
-				std::string JIDX = Utility::PSTRING_TO_STDSTRING(JID.toString());
-				rambler::XMPP::Core JID lowJID(JIDX);
+		std::string JIDX = Utility::PSTRING_TO_STDSTRING(JID.toString());
+		rambler::XMPP::Core::JID lowJID(JIDX);
 
-				streamActual = new rambler::XMPP:Core::XMLStream(hostX, portX, lowJID);
+		streamActual = new rambler::XMPP:Core::XMLStream(hostX, portX, lowJID);
 
-			}
-
-
-			bool XMLStream::open(){
-				return streamActual->open();
-			}
-
-			bool XMLStream::close(){
-				return streamActual->close();
-			}
-
-			void XMLStream::sendData(std::vector<UInt8> & data){
-				streamActual->sendData(data);
-			}
+	}
 
 
-		}
+	bool XMLStream::open(){
+		return streamActual->open();
+	}
+
+	bool XMLStream::close(){
+		return streamActual->close();
 	}
 }
+
+	void XMLStream::sendData(std::vector<UInt8> & data){
+		streamActual->sendData(data);
+	}
+
+
+}}}

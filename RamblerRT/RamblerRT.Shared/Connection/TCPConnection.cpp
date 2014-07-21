@@ -6,7 +6,7 @@
 
 
 namespace Rambler{ namespace Connection{
-	partial ref class TCPConnection sealed{
+	ref class TCPConnection {
 	internal: 
 		// Strong Pointer to C++ instance of WindowsRunttimeBasedConnection
 		std::shared_ptr<rambler::Connection::WindowsRuntimeBasedConnection> theConnection;
@@ -89,7 +89,7 @@ namespace Rambler{ namespace Connection{
 	}
 	
 	uint16 TCPConnection::getConnectedPort() {
-		#warning("WTF IS A CONNECTED PORT")
+		#warning("WTF IS A CONNECTED PORT");
 	}
 	
 	

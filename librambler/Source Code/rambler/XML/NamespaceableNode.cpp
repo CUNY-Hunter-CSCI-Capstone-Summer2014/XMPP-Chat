@@ -8,7 +8,7 @@
 #include "NamespaceableNode.hpp"
 
 namespace rambler { namespace XML {
-    
+
     NamespaceableNode::NamespaceableNode(Type type) : NameableNode(type)
     {
         /* Nothing to do here */
@@ -19,13 +19,13 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    NamespaceableNode::NamespaceableNode(StrongPointer<Namespace> xmlnamespace, String name, Type type)
+    NamespaceableNode::NamespaceableNode(String name, StrongPointer<Namespace const> xmlnamespace, Type type)
     : xmlnamespace(xmlnamespace == nullptr ? Namespace::DefaultNamespace() : xmlnamespace), NameableNode(name, type)
     {
         /* Nothing to do here */
     }
 
-    StrongPointer<Namespace> NamespaceableNode::getNamespace() const
+    StrongPointer<Namespace const> NamespaceableNode::getNamespace() const
     {
         return xmlnamespace;
     }

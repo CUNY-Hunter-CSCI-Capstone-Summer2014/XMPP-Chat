@@ -31,9 +31,9 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         static String Jabber_IQ_Roster_Namespace_String;
         static String Ping_Namespace_String;
 
-        static StrongPointer<XML::Namespace> ChatStates_Namesapce;
-        static StrongPointer<XML::Namespace> Jabber_IQ_Roster_Namespace;
-        static StrongPointer<XML::Namespace> Ping_Namespace;
+        static StrongPointer<XML::Namespace const> ChatStates_Namesapce;
+        static StrongPointer<XML::Namespace const> Jabber_IQ_Roster_Namespace;
+        static StrongPointer<XML::Namespace const> Ping_Namespace;
 
         bool running { false };
 

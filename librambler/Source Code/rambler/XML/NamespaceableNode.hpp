@@ -14,19 +14,18 @@ namespace rambler { namespace XML {
 
     class NamespaceableNode : public NameableNode {
     public:
-        NamespaceableNode() = default;
-        NamespaceableNode(Type type);
-        NamespaceableNode(String name, Type type);
-        NamespaceableNode(StrongPointer<Namespace> xmlnamespace, String name, Type type);
-
-        virtual StrongPointer<Namespace> getNamespace() const;
+        virtual StrongPointer<Namespace const> getNamespace() const;
         String getQualifiedName() const;
 
         virtual bool operator < (NamespaceableNode const & other) const;
         virtual bool operator == (NamespaceableNode const & other) const;
         virtual bool operator != (NamespaceableNode const & other) const;
     protected:
-        StrongPointer<Namespace> const xmlnamespace = Namespace::DefaultNamespace();
+        NamespaceableNode(Type type);
+        NamespaceableNode(String name, Type type);
+        NamespaceableNode(String name, StrongPointer<Namespace const> xmlnamespace, Type type);
+
+        StrongPointer<Namespace const> const xmlnamespace = Namespace::DefaultNamespace();
     };
     
 }}

@@ -270,7 +270,7 @@ namespace rambler { namespace XMPP { namespace Core {
                         context->sentBindRequest = true;
                         bind();
                     } else if (element->getName() == "iq"  && element->getAttribute("type").getValue() == "result" ) {
-                        auto bindElements = element->getElementsByName(Bind_Namespace, "bind");
+                        auto bindElements = element->getElementsByName("bind", Bind_Namespace);
                         if (!bindElements.empty()) {
                             auto bindElement = bindElements.front();
                             auto jidElements = bindElement->getElementsByName("jid");
@@ -326,7 +326,7 @@ namespace rambler { namespace XMPP { namespace Core {
                              */
                             bool supportsTLS = false;
 
-                            if (!element->getElementsByName(TLS_Namespace, "starttls").empty()) {
+                            if (!element->getElementsByName("starttls", TLS_Namespace).empty()) {
                                 supportsTLS = true;
                             }
 
@@ -381,11 +381,11 @@ namespace rambler { namespace XMPP { namespace Core {
 
     void XMLStream::bind()
     {
-        StrongPointer<XML::Element> iqElement = std::make_shared<XML::Element>("iq");
+        StrongPointer<XML::Element> iqElement = XML::Element::createWithName("iq");
         iqElement->addAttribute({"id", std::to_string(context->getID())});
         iqElement->addAttribute({"type", "set"});
 
-        StrongPointer<XML::Element> bindElement = std::make_shared<XML::Element>("bind", Bind_Namespace);
+        StrongPointer<XML::Element> bindElement = XML::Element::createWithName("bind", Bind_Namespace);
         iqElement->addChild(bindElement);
 
         sendData(iqElement);
@@ -393,7 +393,7 @@ namespace rambler { namespace XMPP { namespace Core {
 
     void XMLStream::authenticateSASL_Plain(String authorizationID, String authenticationID, String password)
     {
-        StrongPointer<XML::Element> authElement = std::make_shared<XML::Element>("auth", SASL_Namespace);
+        StrongPointer<XML::Element> authElement = XML::Element::createWithName("auth", SASL_Namespace);
         authElement->addAttribute({"mechanism", "PLAIN"});
 
         String payload;

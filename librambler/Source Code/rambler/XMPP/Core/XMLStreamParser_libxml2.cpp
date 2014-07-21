@@ -73,30 +73,30 @@ namespace rambler { namespace XMPP { namespace Core {
         parser->depth += 1;
 
         if (!elementNamespaceURI.empty() && !elementNamespacePrefix.empty()) {
-            auto elementNamespace = std::make_shared<XML::Namespace>(elementNamespacePrefix, elementNamespaceURI);
-            element = std::make_shared<XML::Element>(elementNamespace, elementName);
+            auto elementNamespace = XML::Namespace::createWithNameAndPrefix(elementNamespaceURI, elementNamespacePrefix);
+            element = XML::Element::createWithNameAndNamespace(elementName, elementNamespace);
             element->addNamespace(elementNamespace);
         } else if (!elementNamespaceURI.empty()) {
-            StrongPointer<XML::Namespace> defaultNamespace;
+            StrongPointer<XML::Namespace const> defaultNamespace;
             if (parser->currentElement != nullptr) {
                 defaultNamespace = parser->currentElement->getDefaultNamespace();
             }
 
-            element = std::make_shared<XML::Element>(elementName);
-
             if (defaultNamespace != nullptr && defaultNamespace->getName() != elementNamespaceURI) {
-                defaultNamespace = std::make_shared<XML::Namespace>(elementNamespaceURI);
-                element->setDefaultNamespace(defaultNamespace);
+                defaultNamespace = XML::Namespace::createWithName(elementNamespaceURI);
+                element = XML::Element::createWithName(elementName, defaultNamespace);
+            } else {
+                element = XML::Element::createWithName(elementName);
             }
         } else if (!elementNamespacePrefix.empty()) {
             auto elementNamespace = parser->currentElement->getNamespaceByPrefix(elementNamespacePrefix);
             if (elementNamespace) {
-                element = std::make_shared<XML::Element>(elementNamespace, elementName);
+                element = XML::Element::createWithNameAndNamespace(elementName, elementNamespace);
             } else {
-                element = std::make_shared<XML::Element>(elementName);
+                element = XML::Element::createWithName(elementName);
             }
         } else {
-            element = std::make_shared<XML::Element>(elementName);
+            element = XML::Element::createWithName(elementName);
         }
 
         CImmutableString *namespaceData = reinterpret_cast<CImmutableString *>(namespaces);
@@ -107,7 +107,7 @@ namespace rambler { namespace XMPP { namespace Core {
             namespacePrefix = namespaceData[2 * i + 0] ? namespaceData[2 * i + 0] : "";
             namespaceURI    = namespaceData[2 * i + 1] ? namespaceData[2 * i + 1] : "";
 
-            auto xmlnamespace = std::make_shared<XML::Namespace>(namespacePrefix, namespaceURI);
+            auto xmlnamespace = XML::Namespace::createWithNameAndPrefix(namespaceURI, namespacePrefix);
 
             if (!XML::equivalent(xmlnamespace, element->getNamespace())) {
                 element->addNamespace(xmlnamespace);
@@ -125,8 +125,8 @@ namespace rambler { namespace XMPP { namespace Core {
             attributeNamespaceURI    = attributeData[5 * i + 2] ? attributeData[5 * i + 2] : "";
 
             if (!attributeNamespaceURI.empty()) {
-                auto attributeNamespace = std::make_shared<XML::Namespace>(attributeNamespacePrefix,
-                                                                           attributeNamespaceURI);
+                auto attributeNamespace = XML::Namespace::createWithNameAndPrefix(attributeNamespaceURI,
+                                                                                  attributeNamespacePrefix);
 
                 element->addAttribute({ attributeNamespace, attributeName, attributeValue });
             } else {
