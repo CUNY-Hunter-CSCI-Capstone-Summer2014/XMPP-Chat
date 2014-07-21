@@ -15,7 +15,8 @@ W_Attribute::W_Attribute(System::String^ name, System::String ^ value){
 W_Attribute::W_Attribute(W_Namespace^ xmlnamespace, System::String^ Name, System::String^ Value){
 	std::string nativeName = Utility::DotNetToNative(Name);
 	std::string nativeValue = Utility::DotNetToNative(Value);
-	std::shared_ptr<rambler::XML::Namespace> ptr = xmlnamespace->getStrPtr();
+	std::shared_ptr<rambler::XML::Namespace> ptr = 
+		std::shared_ptr<rambler::XML::Namespace> ( xmlnamespace->getPtr() );
 
 	_nativePtr = new rambler::XML::Attribute(ptr,nativeName,nativeValue);
 }
@@ -49,7 +50,7 @@ rambler::XML::Attribute * W_Attribute::getNativePtr(){
 }
 
 bool W_Attribute::operator==(W_Attribute^ other){
-	if (_nativePtr->operator==(*(other->getNativePtr))){
+	if (_nativePtr->operator==(*(other->getNativePtr()))){
 		return true;
 	}
 	else{
@@ -58,7 +59,7 @@ bool W_Attribute::operator==(W_Attribute^ other){
 }
 
 bool W_Attribute::operator!=(W_Attribute^ other){
-	if (_nativePtr->operator==(*(other->getNativePtr))){
+	if (_nativePtr->operator==(*(other->getNativePtr()))){
 		return false;
 	}
 	else{

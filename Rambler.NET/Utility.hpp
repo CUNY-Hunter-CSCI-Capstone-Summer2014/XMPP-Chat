@@ -15,11 +15,16 @@ namespace Utility{
 		return MyString;
 	}
 
-	std::string DotNetToNative(const System::String^ managedString){
+	std::string DotNetToNative(System::String^ managedString){
+		std::string os;
+		using namespace System;
+		using namespace Runtime::InteropServices;
+		const char* chars =
+			(const char*)(Marshal::StringToHGlobalAnsi(managedString)).ToPointer();
+		os = chars;
+		Marshal::FreeHGlobal(IntPtr((void*)chars));
 
-		std::string standardString = marshal_as<std::string>(managedString);
-
-
-		return standardString;
+		return chars;
+	
 	}
 }
