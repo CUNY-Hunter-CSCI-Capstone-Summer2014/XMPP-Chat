@@ -17,7 +17,7 @@ namespace rambler { namespace XML {
 
         Attribute();
         Attribute(String name, String value);
-        Attribute(StrongPointer<Namespace> xmlnamespace, String name, String value);
+        Attribute(StrongPointer<Namespace const> xmlnamespace, String name, String value);
 
         String getValue() const;
         String getEscapedValue() const;

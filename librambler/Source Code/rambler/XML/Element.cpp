@@ -13,6 +13,39 @@ namespace rambler { namespace XML {
 
     Element Element::NoElement = Element();
 
+    StrongPointer<Element> Element::createWithName(String name)
+    {
+        return StrongPointer<Element>(new Element(name, nullptr, nullptr));
+    }
+
+    StrongPointer<Element> Element::createWithName(String name, StrongPointer<Namespace const> defaultNamespace)
+    {
+        return StrongPointer<Element>(new Element(name, nullptr, defaultNamespace));
+    }
+
+    StrongPointer<Element> Element::createWithNameAndNamespace(String name,
+                                                            StrongPointer<Namespace const> xmlnamespace)
+    {
+        return StrongPointer<Element>(new Element(name, xmlnamespace, nullptr));
+    }
+
+    StrongPointer<Element> Element::createWithNameAndNamespace(String name,
+                                                               StrongPointer<Namespace const> xmlnamespace,
+                                                               StrongPointer<Namespace const> defaultNamespace)
+    {
+        return StrongPointer<Element>(new Element(name, xmlnamespace, defaultNamespace));
+    }
+
+    Element::Element(String name,
+                     StrongPointer<Namespace const> xmlnamespace,
+                     StrongPointer<Namespace const> defaultNamespace)
+    : defaultNamespace(defaultNamespace == nullptr ? Namespace::DefaultNamespace() : defaultNamespace),
+      NamespaceableNode(name, xmlnamespace, Type::Element)
+    {
+        /* Nothing to do here */
+    }
+
+
     Element::Element() : NamespaceableNode(Type::Element)
     {
         /* Nothing to do here */
@@ -23,21 +56,21 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    Element::Element(String name, StrongPointer<Namespace> defaultNamespace)
+    Element::Element(String name, StrongPointer<Namespace const> defaultNamespace)
     : defaultNamespace(defaultNamespace == nullptr ? Namespace::DefaultNamespace() : defaultNamespace),
     NamespaceableNode(name, Type::Element)
     {
         /* Nothing to do here */
     }
 
-    Element::Element(StrongPointer<Namespace> xmlnamespace, String name) : NamespaceableNode(xmlnamespace, name, Type::Element)
+    Element::Element(StrongPointer<Namespace const> xmlnamespace, String name) : NamespaceableNode(name, xmlnamespace, Type::Element)
     {
         /* Nothing to do here */
     }
 
-    Element::Element(StrongPointer<Namespace> xmlnamespace, String name, StrongPointer<Namespace> defaultNamespace)
+    Element::Element(StrongPointer<Namespace const> xmlnamespace, String name, StrongPointer<Namespace const> defaultNamespace)
     : defaultNamespace(defaultNamespace == nullptr ? Namespace::DefaultNamespace() : defaultNamespace),
-    NamespaceableNode(xmlnamespace, name, Type::Element)
+    NamespaceableNode(name, xmlnamespace,Type::Element)
     {
         /* Nothing to do here */
     }
@@ -71,11 +104,11 @@ namespace rambler { namespace XML {
 
     std::vector<StrongPointer<Element>> Element::getElementsByName(String const name) const
     {
-        return getElementsByName(getDefaultNamespace(), name);
+        return getElementsByName(name, getDefaultNamespace());
     }
 
-    std::vector<StrongPointer<Element>> Element::getElementsByName(StrongPointer<Namespace> const xmlnamespace,
-                                                                   String const name) const
+    std::vector<StrongPointer<Element>> Element::getElementsByName(String const name,
+                                                                   StrongPointer<Namespace const> const xmlnamespace) const
     {
         std::vector<StrongPointer<Element>> elements;
 
@@ -100,7 +133,7 @@ namespace rambler { namespace XML {
         return elements;
     }
 
-    std::vector<StrongPointer<Element>> Element::getElementsByNamespace(StrongPointer<Namespace> const xmlnamespace) const
+    std::vector<StrongPointer<Element>> Element::getElementsByNamespace(StrongPointer<Namespace const> const xmlnamespace) const
     {
         std::vector<StrongPointer<Element>> elements;
 
@@ -128,13 +161,13 @@ namespace rambler { namespace XML {
 
     StrongPointer<Element> Element::getFirstElementByName(String const name) const
     {
-        return getFirstElementByName(getDefaultNamespace(), name);
+        return getFirstElementByName(name, getDefaultNamespace());
     }
 
-    StrongPointer<Element> Element::getFirstElementByName(StrongPointer<Namespace> const xmlnamespace,
-                                                 String const name) const
+    StrongPointer<Element> Element::getFirstElementByName(String const name,
+                                                          StrongPointer<Namespace const> const xmlnamespace) const
     {
-        auto elements = getElementsByName(xmlnamespace, name);
+        auto elements = getElementsByName(name, xmlnamespace);
 
         if (elements.empty()) {
             return nullptr;
@@ -143,7 +176,7 @@ namespace rambler { namespace XML {
         return elements.front();
     }
 
-    StrongPointer<Element> Element::getFirstElementByNamespace(StrongPointer<Namespace> const xmlnamespace) const
+    StrongPointer<Element> Element::getFirstElementByNamespace(StrongPointer<Namespace const> const xmlnamespace) const
     {
         auto elements = getElementsByNamespace(xmlnamespace);
 
@@ -156,13 +189,13 @@ namespace rambler { namespace XML {
 
     StrongPointer<Element> Element::getLastElementByName(String const name) const
     {
-        return getLastElementByName(getDefaultNamespace(), name);
+        return getLastElementByName(name, getDefaultNamespace());
     }
 
-    StrongPointer<Element> Element::getLastElementByName(StrongPointer<Namespace> const xmlnamespace,
-                                                         String const name) const
+    StrongPointer<Element> Element::getLastElementByName(String const name,
+                                                         StrongPointer<Namespace const> const xmlnamespace) const
     {
-        auto elements = getElementsByName(xmlnamespace, name);
+        auto elements = getElementsByName(name, xmlnamespace);
 
         if (elements.empty()) {
             return nullptr;
@@ -171,7 +204,7 @@ namespace rambler { namespace XML {
         return elements.back();
     }
 
-    StrongPointer<Element> Element::getLastElementByNamespace(StrongPointer<Namespace> const xmlnamespace) const
+    StrongPointer<Element> Element::getLastElementByNamespace(StrongPointer<Namespace const> const xmlnamespace) const
     {
         auto elements = getElementsByNamespace(xmlnamespace);
 
@@ -219,7 +252,7 @@ namespace rambler { namespace XML {
         return text;
     }
 
-    StrongPointer<Namespace> Element::getNamespace() const
+    StrongPointer<Namespace const> Element::getNamespace() const
     {
         if (!XML::equivalent(NamespaceableNode::getNamespace(), Namespace::DefaultNamespace())) {
             return NamespaceableNode::getNamespace();
@@ -228,7 +261,7 @@ namespace rambler { namespace XML {
 
     }
 
-    StrongPointer<Namespace> Element::getDefaultNamespace() const
+    StrongPointer<Namespace const> Element::getDefaultNamespace() const
     {
         if (getParent() == nullptr) {
             return defaultNamespace;
@@ -241,22 +274,15 @@ namespace rambler { namespace XML {
         return defaultNamespace;
     }
 
-    void Element::addNamespace(StrongPointer<Namespace> xmlnamespace)
+    void Element::addNamespace(StrongPointer<Namespace const> xmlnamespace)
     {
         namespaces.push_back(xmlnamespace);
     }
 
 
-    std::vector<StrongPointer<Namespace>> Element::getNamespaces() const
+    std::vector<StrongPointer<Namespace const>> Element::getNamespaces() const
     {
         return namespaces;
-    }
-
-    void Element::setDefaultNamespace(StrongPointer<Namespace> xmlnamespace)
-    {
-        if (xmlnamespace != nullptr && xmlnamespace->isValid()) {
-            defaultNamespace = xmlnamespace;
-        }
     }
 
     void Element::addAttribute(Attribute attribute)
@@ -276,7 +302,7 @@ namespace rambler { namespace XML {
         return getAttribute(Namespace::DefaultNamespace(), name);
     }
 
-    Attribute Element::getAttribute(StrongPointer<Namespace> xmlnamespace, String name) const
+    Attribute Element::getAttribute(StrongPointer<Namespace const> xmlnamespace, String name) const
     {
         auto result = attributes.find(Attribute(xmlnamespace, name, "" /* Value doesn't matter */));
 
@@ -305,7 +331,7 @@ namespace rambler { namespace XML {
         removeAttribute(Namespace::DefaultNamespace(), name);
     }
 
-    void Element::removeAttribute(StrongPointer<Namespace> xmlnamespace, String name)
+    void Element::removeAttribute(StrongPointer<Namespace const> xmlnamespace, String name)
     {
         attributes.erase(Attribute(xmlnamespace, name, "" /* Value doesn't matter */));
     }

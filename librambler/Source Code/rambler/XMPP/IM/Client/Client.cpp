@@ -18,9 +18,9 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     auto Client::Jabber_IQ_Roster_Namespace_String = String("jabber:iq:roster");
     auto Client::Ping_Namespace_String = String("urn:xmpp:ping");
 
-    auto Client::ChatStates_Namesapce = std::make_shared<XML::Namespace>(ChatStates_Namespace_String);
-    auto Client::Jabber_IQ_Roster_Namespace = std::make_shared<XML::Namespace>(Jabber_IQ_Roster_Namespace_String);
-    auto Client::Ping_Namespace = std::make_shared<XML::Namespace>(Ping_Namespace_String);
+    auto Client::ChatStates_Namesapce = XML::Namespace::createWithName(ChatStates_Namespace_String);
+    auto Client::Jabber_IQ_Roster_Namespace = XML::Namespace::createWithName(Jabber_IQ_Roster_Namespace_String);
+    auto Client::Ping_Namespace = XML::Namespace::createWithName(Ping_Namespace_String);
 
     Client::Client(String username) : jid(JID::createJIDWithString(username))
     {
@@ -54,7 +54,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
             if (IQType == "get") {
 
-                auto pingElement = stanza->getFirstElementByName(Ping_Namespace, "ping");
+                auto pingElement = stanza->getFirstElementByName("ping", Ping_Namespace);
                 if (pingElement != nullptr) {
                     std::cout << "\nRECEIVED PING (sent to " << stanza->getAttribute("to").getValue() << ")\n";
                     std::cout << "From: " << stanza->getAttribute("from").getValue() << std::endl;
@@ -74,7 +74,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                 switch (uniqueID_IQRequestType_map[uniqueID]) {
                     case IQRequestType::RosterListRetrieval: {
                         std::cout << "\nReceived Roster List\n";
-                        auto queryElement = stanza->getFirstElementByName(Jabber_IQ_Roster_Namespace, "query");
+                        auto queryElement = stanza->getFirstElementByName("query", Jabber_IQ_Roster_Namespace);
                         if (queryElement != nullptr) {
                             auto itemElements = queryElement->getElementsByName("item");
                             for (auto itemElement : itemElements) {

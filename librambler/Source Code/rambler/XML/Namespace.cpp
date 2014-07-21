@@ -9,9 +9,19 @@
 
 namespace rambler { namespace XML {
 
-    StrongPointer<Namespace> Namespace::DefaultNamespace()
+    StrongPointer<Namespace const> Namespace::DefaultNamespace()
     {
-        return std::make_shared<Namespace>();
+        return StrongPointer<Namespace const>(new Namespace);
+    }
+
+    StrongPointer<Namespace const> Namespace::createWithName(String name)
+    {
+        return createWithNameAndPrefix(name, String());
+    }
+
+    StrongPointer<Namespace const> Namespace::createWithNameAndPrefix(String name, String prefix)
+    {
+        return StrongPointer<Namespace const>(new Namespace(name, prefix));
     }
 
     Namespace::Namespace() : NameableNode(Type::Namespace)
@@ -19,12 +29,7 @@ namespace rambler { namespace XML {
         /* Nothing to do here */
     }
 
-    Namespace::Namespace(String name) : NameableNode(name, Type::Namespace)
-    {
-        /* Nothing to do here */
-    }
-
-    Namespace::Namespace(String prefix, String name) : prefix(prefix), NameableNode(name, Type::Namespace)
+    Namespace::Namespace(String name, String prefix) : prefix(prefix), NameableNode(name, Type::Namespace)
     {
         /* Nothing to do here */
     }
@@ -44,7 +49,7 @@ namespace rambler { namespace XML {
         return (prefix.empty() && name.empty()) || (!name.empty());
     }
 
-    bool equivalent(StrongPointer<Namespace> const x, StrongPointer<Namespace> const y)
+    bool equivalent(StrongPointer<Namespace const> const x, StrongPointer<Namespace const> const y)
     {
         return x->getName() == y->getName();
     }

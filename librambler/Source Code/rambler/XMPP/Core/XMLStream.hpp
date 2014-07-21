@@ -37,10 +37,10 @@ namespace rambler { namespace XMPP { namespace Core {
         static const String SASL_Namespace_String;
         static const String Bind_Namespace_String;
 
-        static const StrongPointer<XML::Namespace> Stream_Namespace;
-        static const StrongPointer<XML::Namespace> TLS_Namespace;
-        static const StrongPointer<XML::Namespace> SASL_Namespace;
-        static const StrongPointer<XML::Namespace> Bind_Namespace;
+        static const StrongPointer<XML::Namespace const> Stream_Namespace;
+        static const StrongPointer<XML::Namespace const> TLS_Namespace;
+        static const StrongPointer<XML::Namespace const> SASL_Namespace;
+        static const StrongPointer<XML::Namespace const> Bind_Namespace;
 
         static const StrongPointer<XML::Element> Stream_Error_Element;
         static const StrongPointer<XML::Element> Stream_Features_Element;

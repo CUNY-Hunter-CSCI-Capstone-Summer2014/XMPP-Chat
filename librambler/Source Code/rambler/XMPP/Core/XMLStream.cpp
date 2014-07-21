@@ -264,7 +264,7 @@ namespace rambler { namespace XMPP { namespace Core {
                         context->sentBindRequest = true;
                         bind();
                     } else if (element->getName() == "iq"  && element->getAttribute("type").getValue() == "result" ) {
-                        auto bindElements = element->getElementsByName(Bind_Namespace, "bind");
+                        auto bindElements = element->getElementsByName("bind", Bind_Namespace);
                         if (!bindElements.empty()) {
                             auto bindElement = bindElements.front();
                             auto jidElements = bindElement->getElementsByName("jid");
@@ -320,7 +320,7 @@ namespace rambler { namespace XMPP { namespace Core {
                              */
                             bool supportsTLS = false;
 
-                            if (!element->getElementsByName(TLS_Namespace, "starttls").empty()) {
+                            if (!element->getElementsByName("starttls", TLS_Namespace).empty()) {
                                 supportsTLS = true;
                             }
 

@@ -19,11 +19,19 @@ namespace rambler { namespace XML {
     public:
         static Element NoElement;
 
+        static StrongPointer<Element> createWithName(String name);
+        static StrongPointer<Element> createWithName(String name, StrongPointer<Namespace const> defaultNamespace);
+        static StrongPointer<Element> createWithNameAndNamespace(String name,
+                                                                 StrongPointer<Namespace const> xmlnamespace);
+        static StrongPointer<Element> createWithNameAndNamespace(String name,
+                                                                 StrongPointer<Namespace const> xmlnamespace,
+                                                                 StrongPointer<Namespace const> defaultNamespace);
+
         Element();
-        Element(String name);
-        Element(String name, StrongPointer<Namespace> defaultNamespace);
-        Element(StrongPointer<Namespace> xmlnamespace, String name);
-        Element(StrongPointer<Namespace> xmlnamespace, String name, StrongPointer<Namespace> defaultNamespace);
+        [[deprecated]] Element(String name);
+        [[deprecated]] Element(String name, StrongPointer<Namespace const> defaultNamespace);
+        [[deprecated]] Element(StrongPointer<Namespace const> xmlnamespace, String name);
+        [[deprecated]] Element(StrongPointer<Namespace const> xmlnamespace, String name, StrongPointer<Namespace const> defaultNamespace);
 
         StrongPointer<Element> getPtr();
         StrongPointer<Element> getParent() const;
@@ -34,41 +42,41 @@ namespace rambler { namespace XML {
         std::vector<StrongPointer<Node>> getChildren() const;
 
         std::vector<StrongPointer<Element>> getElementsByName(String const name) const;
-        std::vector<StrongPointer<Element>> getElementsByName(StrongPointer<Namespace> const xmlnamespace,
-                                                              String const name) const;
-        std::vector<StrongPointer<Element>> getElementsByNamespace(StrongPointer<Namespace> const xmlnamespace) const;
+        std::vector<StrongPointer<Element>> getElementsByName(String const name,
+                                                              StrongPointer<Namespace const> const xmlnamespace) const;
+        std::vector<StrongPointer<Element>> getElementsByNamespace(StrongPointer<Namespace const> const xmlnamespace) const;
 
         StrongPointer<Element> getFirstElementByName(String const name) const;
-        StrongPointer<Element> getFirstElementByName(StrongPointer<Namespace> const xmlnamespace,
-                                                     String const name) const;
-        StrongPointer<Element> getFirstElementByNamespace(StrongPointer<Namespace> const xmlnamespace) const;
+        StrongPointer<Element> getFirstElementByName(String const name,
+                                                     StrongPointer<Namespace const> const xmlnamespace) const;
+        StrongPointer<Element> getFirstElementByNamespace(StrongPointer<Namespace const> const xmlnamespace) const;
 
         StrongPointer<Element> getLastElementByName(String const name) const;
-        StrongPointer<Element> getLastElementByName(StrongPointer<Namespace> const xmlnamespace,
-                                                    String const name) const;
-        StrongPointer<Element> getLastElementByNamespace(StrongPointer<Namespace> const xmlnamespace) const;
+        StrongPointer<Element> getLastElementByName(String const name,
+                                                    StrongPointer<Namespace const> const xmlnamespace) const;
+        StrongPointer<Element> getLastElementByNamespace(StrongPointer<Namespace const> const xmlnamespace) const;
 
         StrongPointer<Element> getElementByID(String const id) const;
 
         String getTextContent() const;
 
-        virtual StrongPointer<Namespace> getNamespace() const override;
-        StrongPointer<Namespace> getDefaultNamespace() const;
-        void addNamespace(StrongPointer<Namespace> xmlnamespace);
-        std::vector<StrongPointer<Namespace>> getNamespaces() const;
-        void setDefaultNamespace(StrongPointer<Namespace> xmlnamespace);
+        virtual StrongPointer<Namespace const> getNamespace() const override;
+        StrongPointer<Namespace const> getDefaultNamespace() const;
+
+        void addNamespace(StrongPointer<Namespace const> xmlnamespace);
+        std::vector<StrongPointer<Namespace const>> getNamespaces() const;
 
         void addAttribute(Attribute attribute);
         void addAttributes(std::set<Attribute> attributes);
 
         Attribute getAttribute(String name) const;
-        Attribute getAttribute(StrongPointer<Namespace> xmlnamespace, String name) const;
+        Attribute getAttribute(StrongPointer<Namespace const> xmlnamespace, String name) const;
         std::set<Attribute> getAttributes() const;
 
         void setAttributes(std::set<Attribute> attributes);
 
         void removeAttribute(String name);
-        void removeAttribute(StrongPointer<Namespace> xmlnamespace, String name);
+        void removeAttribute(StrongPointer<Namespace const> xmlnamespace, String name);
 
         virtual String getStringValue() const override;
 
@@ -77,8 +85,10 @@ namespace rambler { namespace XML {
         bool operator == (Element const & other);
         bool operator != (Element const & other);
     private:
-        StrongPointer<Namespace> defaultNamespace = Namespace::DefaultNamespace();
-        std::vector<StrongPointer<Namespace>> namespaces;
+        Element(String name, StrongPointer<Namespace const> xmlnamespace, StrongPointer<Namespace const> defaultNamespace);
+
+        StrongPointer<Namespace const> defaultNamespace = Namespace::DefaultNamespace();
+        std::vector<StrongPointer<Namespace const>> namespaces;
         std::set<Attribute> attributes;
 
         WeakPointer<Element> parent;
