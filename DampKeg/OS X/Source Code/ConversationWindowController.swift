@@ -10,4 +10,6 @@ import Cocoa
 
 class ConversationWindowController : NSWindowController {
 
+    var windowTitle: String?
+
 }

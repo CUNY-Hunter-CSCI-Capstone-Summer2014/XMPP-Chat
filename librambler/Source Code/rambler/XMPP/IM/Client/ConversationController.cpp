@@ -5,12 +5,21 @@
 #include <map>
 
 namespace rambler{ namespace XMPP { namespace IM { namespace Client{
-	void ConversationController::setMessageReceivedForConversationByUniqueIdEventHandler
-	(MessageReceivedForConversationByUniqueIdEventHandler eventHandler){
-		handleMessageReceivedForConversationByUniqueId = eventHandler;
+	void ConversationController::setMessageReceivedForConversationByJIDEventHandler
+	(MessageReceivedForConversationByJIDEventHandler eventHandler)
+    {
+		messageReceivedForConversationByJIDEventHandler = eventHandler;
 	}
 
-	void ConversationController::sendMessage(Message message){
+    void ConversationController::handleMessageReceivedForConversationByJIDEvent(StrongPointer<Message const> message,
+                                                                                StrongPointer<JID const> jid)
+    {
+        if (messageReceivedForConversationByJIDEventHandler) {
+            return messageReceivedForConversationByJIDEventHandler(message, jid);
+        }
+    }
+
+	void ConversationController::sendMessage(StrongPointer<Message const> message){
 #ifdef _MSC_VER
 #pragma message("implement this")
 #else

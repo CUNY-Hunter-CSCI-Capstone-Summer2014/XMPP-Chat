@@ -55,5 +55,13 @@
 
 }
 
+- (void)setPasswordRequiredEventHandler:(PasswordRequiredEventHandler)passwordRequiredEventHandler
+{
+    self.nativeObject->setPasswordRequiredEventHandler(^(String username) {
+        NSString * temp = passwordRequiredEventHandler([[NSString alloc] initWithUTF8String:username.c_str()]);
+        return temp.UTF8String;
+    });
+}
+
 @end
 

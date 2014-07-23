@@ -223,7 +223,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 var dummy: AnyObject
                 self.rosterListWindowController?.rosterListView?.reloadData()
             }
-            
+
+            self.client!.passwordRequiredEventHandler = { (String username) in
+                var dummy: AnyObject
+                return self.loginWindowController!.plainAuthenticationCredentials.password
+            }
+
             self.client!.start();
 
             self.loginWindowController!.window.orderOut(self)
@@ -257,7 +262,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let possibleSelectedObjects = rosterListWindowController?.rosterListController?.selectedObjects
         if let theSelectedObjects = possibleSelectedObjects {
             for selectedObject in theSelectedObjects {
-                selectedObject.description
+                if let item = selectedObject as? RosterListViewItem {
+                    var conversationWindowController: ConversationWindowController
+                    if conversationWindowControllers![item.jid] {
+                        conversationWindowController =
+                            conversationWindowControllers![item.jid] as ConversationWindowController
+                    } else {
+                        conversationWindowController = ConversationWindowController(windowNibName: "ChatBox")
+                        conversationWindowController.windowTitle = "Conversation with \(item.name)"
+                        conversationWindowControllers![item.jid] = conversationWindowController
+                    }
+
+                    conversationWindowController.showWindow(self)
+                }
             }
             NSLog("ping")
         }

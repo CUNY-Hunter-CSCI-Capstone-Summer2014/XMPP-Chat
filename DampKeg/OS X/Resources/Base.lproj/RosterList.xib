@@ -36,7 +36,7 @@
                             <rect key="frame" x="1" y="1" width="148" height="398"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="systemDefault" viewBased="YES" indentationPerLevel="16" outlineTableColumn="LSr-R9-O9U" id="kQO-BC-gh2">
+                                <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="systemDefault" viewBased="YES" indentationPerLevel="16" outlineTableColumn="LSr-R9-O9U" id="kQO-BC-gh2">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -67,9 +67,9 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <binding destination="dOX-9H-TJg" name="textColor" keyPath="objectValue.textColor" id="ZeH-gm-9RS"/>
                                                                 <binding destination="dOX-9H-TJg" name="toolTip" keyPath="objectValue.jid" id="au6-Bl-Uzv"/>
                                                                 <binding destination="dOX-9H-TJg" name="value" keyPath="objectValue.name" id="gYQ-q0-6xw"/>
+                                                                <binding destination="dOX-9H-TJg" name="textColor" keyPath="objectValue.textColor" id="ZeH-gm-9RS"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -82,6 +82,7 @@
                                     </tableColumns>
                                     <connections>
                                         <binding destination="Cea-FU-wGH" name="content" keyPath="arrangedObjects" id="wgX-BL-FGX"/>
+                                        <binding destination="Cea-FU-wGH" name="selectionIndexPaths" keyPath="selectionIndexPaths" previousBinding="wgX-BL-FGX" id="5Rq-Yk-52e"/>
                                     </connections>
                                 </outlineView>
                             </subviews>
@@ -173,11 +174,11 @@
                     <toolbarItem implicitItemIdentifier="5E82F79E-90B4-45D8-AF50-226C54905002" label="Your Name" paletteLabel="Your Name" id="JTi-Ay-ZRx">
                         <nil key="toolTip"/>
                         <size key="minSize" width="38" height="17"/>
-                        <size key="maxSize" width="139" height="17"/>
+                        <size key="maxSize" width="144" height="17"/>
                         <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="RyK-ak-pkK">
-                            <rect key="frame" x="0.0" y="14" width="139" height="17"/>
+                            <rect key="frame" x="0.0" y="14" width="144" height="17"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="username@server..." id="ykE-yL-yGh">
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="alpha@dampkeg.com" id="ykE-yL-yGh">
                                 <font key="font" metaFont="system"/>
                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

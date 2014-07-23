@@ -174,6 +174,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
                     auto message = Message::createMessage(sender, recipient, thread, subject, body, timestamp, uniqueID);
 
+//                    conversationController->addMessage(message);
+
                     std::cout << std::endl << message->description();
 
                 }
@@ -212,9 +214,9 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         });
     }
 
-    String Client::getPasswordForJID(StrongPointer<JID const> jid) const
+    String Client::getPasswordForJID(StrongPointer<JID const> jid)
     {
-        return "alpha2014";
+        return handlePasswordRequiredEvent(jid->description);
     }
 
     void Client::start() {
@@ -258,6 +260,11 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         rosterItemUpdatedEventHandler = eventHandler;
     }
 
+    void Client::setPasswordRequiredEventHandler(PasswordRequiredEventHandler eventHandler)
+    {
+        passwordRequiredEventHandler = eventHandler;
+    }
+
     void Client::handleRosterItemReceivedEvent(StrongPointer<RosterItem> const rosterItem)
     {
         if (rosterItemReceivedEventHandler) {
@@ -270,6 +277,15 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         if (rosterItemUpdatedEventHandler) {
             rosterItemUpdatedEventHandler(rosterItem);
         }
+    }
+
+    String Client::handlePasswordRequiredEvent(String username)
+    {
+        if (passwordRequiredEventHandler) {
+            return passwordRequiredEventHandler(username);
+        }
+
+        return "";
     }
 
 }}}}

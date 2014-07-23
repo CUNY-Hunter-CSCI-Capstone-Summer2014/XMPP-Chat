@@ -69,13 +69,13 @@ class RosterListViewItem : NSObject {
                     return NSColor.controlTextColor()
                 }
                 if presence == "away" {
-                    return NSColor.redColor()
+                    return NSColor(calibratedRed:0.858, green:0.175, blue:0.159, alpha:1.000)
                 }
                 if presence == "dnd" {
-                    return NSColor.blueColor()
+                    return NSColor(calibratedRed: 0.240, green:0.393, blue:0.641, alpha:1.000)
                 }
                 if presence == "xa" {
-                    return NSColor.yellowColor()
+                    return NSColor(calibratedRed:0.525, green:0.138, blue:0.153, alpha:1.000)
                 }
 
                 return NSColor.controlTextColor()

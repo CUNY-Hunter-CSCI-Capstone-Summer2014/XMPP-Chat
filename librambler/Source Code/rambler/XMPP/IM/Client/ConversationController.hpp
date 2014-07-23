@@ -1,29 +1,33 @@
 #include "rambler/types.hpp"
+#include "rambler/XMPP/Core/JID.hpp"
 #include "rambler/XMPP/IM/Client/Conversation.hpp"
 #include "rambler/XMPP/IM/Client/Message.hpp"
 #include <map>
 #include "rambler/XMPP/IM/Client/Conversation.hpp"
 
-namespace rambler { namespace XMPP{ namespace IM { namespace Client{
+namespace rambler { namespace XMPP{ namespace IM { namespace Client {
 
-class ConversationController{
-	public:
-		using MessageReceivedForConversationByUniqueIdEventHandler = 
-			function< void(Message, String) >;
+    using namespace Core;
 
-		void setMessageReceivedForConversationByUniqueIdEventHandler
-			(MessageReceivedForConversationByUniqueIdEventHandler eventHandler);
+    class ConversationController{
+    public:
+        using MessageReceivedForConversationByJIDEventHandler = function< void(StrongPointer<Message const> message, StrongPointer<JID const>) >;
 
-		void sendMessage(Message message);
-		void removeConversation(String uniqueId);
-		
-	private:
-		std::map < String, Conversation > uniqueId_conversations;
 
-		MessageReceivedForConversationByUniqueIdEventHandler
-			handleMessageReceivedForConversationByUniqueId;
+        void handleMessageReceivedForConversationByJIDEvent(StrongPointer<Message const> message, StrongPointer<JID const> jid);
 
-				};
+        void setMessageReceivedForConversationByJIDEventHandler(MessageReceivedForConversationByJIDEventHandler eventHandler);
+
+//        void addMessage(StrongPointer<Message const> message);
+        void sendMessage(StrongPointer<Message const> message);
+        void removeConversation(String uniqueId);
+        
+    private:
+    std::map <StrongPointer<Core::JID const>, Conversation> jid_conversations;
+
+        MessageReceivedForConversationByJIDEventHandler messageReceivedForConversationByJIDEventHandler;
+
+    };
 
 }}}}
 

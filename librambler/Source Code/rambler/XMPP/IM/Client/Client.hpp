@@ -12,6 +12,7 @@
 #include "rambler/XML/Namespace.hpp"
 #include "rambler/XMPP/Core/XMLStream.hpp"
 #include "rambler/XMPP/IM/Client/IQRequestType.hpp"
+#include "rambler/XMPP/IM/Client/ConversationController.hpp"
 #include "rambler/XMPP/IM/Client/RosterList.hpp"
 
 namespace rambler { namespace XMPP { namespace IM { namespace Client {
@@ -21,6 +22,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         using ClientRunloop = function<void(void)>;
         using RosterItemReceivedEventHandler = function<void(StrongPointer<RosterItem> const)>;
         using RosterItemUpdatedEventHandler = function<void(StrongPointer<RosterItem> const)>;
+        using PasswordRequiredEventHandler = function<String(String)>;
+
 
 
 		RAMBLER_API Client(String username);
@@ -33,8 +36,10 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         RAMBLER_API void setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler);
         RAMBLER_API void setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler);
-        void handleRosterItemReceivedEvent(StrongPointer<RosterItem> const);
-        void handleRosterItemUpdatedEvent(StrongPointer<RosterItem> const);
+        RAMBLER_API void setPasswordRequiredEventHandler(PasswordRequiredEventHandler eventHandler);
+        void handleRosterItemReceivedEvent(StrongPointer<RosterItem> const rosterItem);
+        void handleRosterItemUpdatedEvent(StrongPointer<RosterItem> const rosterItem);
+        String handlePasswordRequiredEvent(String username);
 
 
     private:
@@ -53,15 +58,17 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         StrongPointer<JID const> jid;
 
         StrongPointer<RosterList> rosterList;
+        StrongPointer<ConversationController> conversationController;
         StrongPointer<XMLStream> xmlStream;
 
         std::map<String, IQRequestType> uniqueID_IQRequestType_map;
 
-        String getPasswordForJID(StrongPointer<JID const> jid) const;
+        String getPasswordForJID(StrongPointer<JID const> jid);
         void run();
 
         RosterItemReceivedEventHandler rosterItemReceivedEventHandler;
         RosterItemUpdatedEventHandler rosterItemUpdatedEventHandler;
+        PasswordRequiredEventHandler passwordRequiredEventHandler;
     };
 
 }}}}
