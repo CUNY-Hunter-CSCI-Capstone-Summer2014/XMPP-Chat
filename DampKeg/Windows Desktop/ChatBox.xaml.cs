@@ -19,9 +19,38 @@ namespace DampKeg
     /// </summary>
     public partial class ChatBox : Window
     {
+        private string ContactName;
+        //public StackPanel myStackPanel;
         public ChatBox()
         {
             InitializeComponent();
         }
+        public ChatBox(string name)
+        {
+            ContactName = name;
+            this.Focus();
+            InputBox.Focus();
+            //myStackPanel = new StackPanel();
+            InitializeComponent();
+
+        }
+       
+        private void SendText(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+        	// TODO: Add event handler implementation here.
+            if (e.Key == Key.Enter)
+            {
+                //string temp = ;
+                TextBlock temp = new TextBlock();
+                temp.Text = "ME: ";
+                temp.Text += InputBox.Text;
+                InputBox.Clear();
+                ListBoxItem NewEntity = new ListBoxItem();
+                NewEntity.Content = temp;
+                TextView.Items.Add(NewEntity);            
+            }
+        }
+        
+       
     }
 }

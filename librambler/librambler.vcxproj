@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source Code\rambler\base64\base64.hpp" />
+    <ClInclude Include="Source Code\rambler\Connection\SecureUtilities.hpp" />
     <ClInclude Include="Source Code\rambler\Connection\TCPConnection.hpp" />
     <ClInclude Include="Source Code\rambler\Connection\Winsock2BasedTCPConnection.hpp" />
     <ClInclude Include="Source Code\rambler\integer_types.hpp" />

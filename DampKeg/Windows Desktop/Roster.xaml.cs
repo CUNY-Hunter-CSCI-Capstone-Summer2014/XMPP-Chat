@@ -38,6 +38,7 @@ namespace DampKeg
 
         private void open_chat_window(object sender, RoutedEventArgs e)
         {
+
             ChatBox chat_box = new ChatBox();
             chat_box.Show();
         }
@@ -71,6 +72,13 @@ namespace DampKeg
             AddContact add_contact = new AddContact();
             add_contact.ShowDialog();
 
+        }
+
+        private void open_chat_window(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+			ChatBox chat_box = new ChatBox();
+            chat_box.Show();
+        	// TODO: Add event handler implementation here.
         }
     }
 }

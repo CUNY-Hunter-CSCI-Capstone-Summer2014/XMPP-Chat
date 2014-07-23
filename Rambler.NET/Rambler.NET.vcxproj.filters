@@ -19,6 +19,12 @@
     <Filter Include="XML">
       <UniqueIdentifier>{fa166343-85ff-4bad-9df2-0efc6edd8e48}</UniqueIdentifier>
     </Filter>
+    <Filter Include="XMPP">
+      <UniqueIdentifier>{f33ce378-77e7-4341-953e-239f5c1e59fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XMPP\Core">
+      <UniqueIdentifier>{17e11830-7645-428a-bad0-3b184a5cc29d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Rambler.NET.h">
@@ -60,6 +66,9 @@
     <ClInclude Include="XML\W_Element.hpp">
       <Filter>XML</Filter>
     </ClInclude>
+    <ClInclude Include="XMPP\Core\W_JID.hpp">
+      <Filter>XMPP\Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Rambler.NET.cpp">
@@ -85,6 +94,9 @@
     </ClCompile>
     <ClCompile Include="XML\W_Element.cpp">
       <Filter>XML</Filter>
+    </ClCompile>
+    <ClCompile Include="XMPP\Core\W_JID.cpp">
+      <Filter>XMPP\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

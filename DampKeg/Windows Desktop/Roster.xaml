@@ -5,6 +5,12 @@
 	x:Class="DampKeg.Roster"
 	x:Name="Window"
 	Title="Roster" Height="480" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterOwner" ToolTip="DampKeg - Roster" Width="320" MinWidth="340" MinHeight="500" SizeToContent="WidthAndHeight">
+	<Window.BorderBrush>
+		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+			<GradientStop Color="Black" Offset="0"/>
+			<GradientStop Color="#FF225593" Offset="1"/>
+		</LinearGradientBrush>
+	</Window.BorderBrush>
 
     <Grid x:Name="LayoutRoot">
         <Menu VerticalAlignment="Top">
@@ -27,9 +33,22 @@
                 <MenuItem Header="About" HorizontalAlignment="Left" Width="139.506666666667"/>
             </MenuItem>
         </Menu>
-        <ListBox x:Name="Roster_Window" Margin="10,89.48,10,38.96" SelectionMode="Multiple" Background="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Foreground="White">
+        <ListBox x:Name="Roster_Window" Margin="10,89.48,10,38.96" SelectionMode="Multiple" Foreground="White" FontSize="16" FontFamily="Arial" BorderBrush="#FFC37A59">
+        	<ListBox.Background>
+        		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+        			<GradientStop Color="Black" Offset="0"/>
+        			<GradientStop Color="#FFC37A59" Offset="1"/>
+        		</LinearGradientBrush>
+        	</ListBox.Background>
 
-            <ListBoxItem x:Name="Bob" Content="Bob"/>
+            <ListBoxItem x:Name="Friends" Content="-- Friends -- " FontStyle="Italic" IsEnabled="False"/>
+			<ListBoxItem x:Name="geoffrey_dampkeg_com" Content="Geoffrey@dampkeg.com" DragLeave="open_chat_window" MouseDoubleClick="open_chat_window" FontFamily="Calibri"/>
+			<ListBoxItem x:Name="Offline" Content="-- Offline -- " FontStyle="Italic" IsEnabled="False"/>
+			<ListBoxItem x:Name="Arnab" Content="Peter@facebook.com" FontFamily="Calibri" IsEnabled="False"/>
+			<ListBoxItem x:Name="Peter" Content="Arnab@yahoo.com" FontFamily="Calibri" IsEnabled="False"/>
+
+
+
         </ListBox>
         <ComboBox HorizontalAlignment="Left" Margin="10,53.28,0,0" VerticalAlignment="Top" Width="120" FontSize="13.333">
             <ComboBoxItem Content="Online" HorizontalAlignment="Left" Width="118" IsSelected="True"/>
@@ -38,7 +57,6 @@
         </ComboBox>
         <TextBlock x:Name="Roster_Username" HorizontalAlignment="Left" Margin="10,27,0,0" TextWrapping="Wrap" Text="Username" VerticalAlignment="Top" FontSize="16"/>
         <TextBox x:Name="Search_box" HorizontalAlignment="Left" Height="23" Margin="155.313,53.28,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="120" FontSize="13.333"/>
-        <Button x:Name="Chat_Box_Button" Content="Chat_Box" Margin="274.19,0,10,420.72" Click="open_chat_window" VerticalAlignment="Bottom" Height="25.0" HorizontalAlignment="Center"/>
         <Button x:Name="Add_Person_Button" Content="+" Margin="10,0,301.516,8.96" Height="25" Click="open_add_contact" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold" Width="20.484"/>
         <Button x:Name="Remove_Person_Button" Content="Delete Contact" Margin="47.463,0,202,8.96" Height="25" Click="Remove_Person" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
     </Grid>

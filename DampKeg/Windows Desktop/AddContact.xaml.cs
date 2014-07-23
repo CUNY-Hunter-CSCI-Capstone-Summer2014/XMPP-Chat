@@ -46,7 +46,7 @@ namespace DampKeg
 			// TODO: Add event handler implementation here.
 			if (e.Key == Key.Enter)
             {
-                Nickname_field.Focus();
+                nickname_field.Focus();
             }
 		}
 
@@ -64,7 +64,7 @@ namespace DampKeg
 		private void New_Contact(object sender, System.Windows.RoutedEventArgs e)
 		{
 			// TODO: Add event handler implementation here.
-			string nicknameToShow = Nickname_field.Text;
+			string nicknameToShow = nickname_field.Text;
 
             //Roster the_roster_window = new Roster(usernameToShow);
             this.Close();

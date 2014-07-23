@@ -93,6 +93,7 @@
     <ClInclude Include="XML\W_Node.hpp" />
     <ClInclude Include="XML\NodeType.hpp" />
     <ClInclude Include="XML\W_TextNode.hpp" />
+    <ClInclude Include="XMPP\Core\W_JID.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
@@ -106,6 +107,7 @@
     <ClCompile Include="XML\W_Element.cpp" />
     <ClCompile Include="XML\W_Namespace.cpp" />
     <ClCompile Include="XML\W_TextNode.cpp" />
+    <ClCompile Include="XMPP\Core\W_JID.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />

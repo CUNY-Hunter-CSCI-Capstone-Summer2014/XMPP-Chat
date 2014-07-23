@@ -22,19 +22,7 @@ namespace DampKeg
         {
             InitializeComponent();
 
-            Random Random_1 = new Random();
-            int Test = Random_1.Next(0, 2);
-            if ((Test & 1) == 0)
-            {
-                Title_Head.FontFamily = new FontFamily("Arial");
-
-            }
-            else
-            {
-                Title_Head.FontFamily = new FontFamily("Wingdings");
-
-            }
-
+            
             username_field.Focus();
 
             /*
