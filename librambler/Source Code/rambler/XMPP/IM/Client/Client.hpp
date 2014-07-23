@@ -19,6 +19,9 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     class Client {
     public:
         using ClientRunloop = function<void(void)>;
+        using RosterItemReceivedEventHandler = function<void(StrongPointer<RosterItem> const)>;
+        using RosterItemUpdatedEventHandler = function<void(StrongPointer<RosterItem> const)>;
+
 
 		RAMBLER_API Client(String username);
 		RAMBLER_API ~Client() = default;
@@ -26,6 +29,14 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 		RAMBLER_API void stop();
 
 		RAMBLER_API void setRunloop(ClientRunloop runloop);
+
+
+        RAMBLER_API void setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler);
+        RAMBLER_API void setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler);
+        void handleRosterItemReceivedEvent(StrongPointer<RosterItem> const);
+        void handleRosterItemUpdatedEvent(StrongPointer<RosterItem> const);
+
+
     private:
         static String ChatStates_Namespace_String;
         static String Jabber_IQ_Roster_Namespace_String;
@@ -48,6 +59,9 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         String getPasswordForJID(StrongPointer<JID const> jid) const;
         void run();
+
+        RosterItemReceivedEventHandler rosterItemReceivedEventHandler;
+        RosterItemUpdatedEventHandler rosterItemUpdatedEventHandler;
     };
 
 }}}}

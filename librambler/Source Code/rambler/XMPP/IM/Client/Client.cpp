@@ -55,6 +55,10 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
             xmlStream->sendData(XML::Element::createWithName("presence"));
         });
 
+        rosterList->setRosterItemUpdatedEventHandler([this](StrongPointer<RosterItem> item){
+            this->handleRosterItemUpdatedEvent(item);
+        });
+
         xmlStream->setIQStanzaReceivedEventHandler([this](StrongPointer<XMLStream> xmlStream, StrongPointer<XML::Element> stanza) {
             auto typeAttribute = stanza->getAttribute("type");
             auto IQType = typeAttribute.getValue();
@@ -93,14 +97,34 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                                 auto nameAttribute = itemElement->getAttribute("name");
                                 auto groupElements = itemElement->getElementsByName("group");
 
-                                std::cout << std::endl;
-                                std::cout << "JID: " << jidAttribute.getValue() << std::endl;
-                                std::cout << "SubscriptionState: " << subscriptionAttribute.getValue() << std::endl;
-                                std::cout << "Name: " << nameAttribute.getValue() << std::endl;
-                                std::cout << "Groups:\n";
-                                for (auto groupElement : groupElements) {
-                                    std::cout << "\t" << groupElement->getTextContent() << std::endl;
+                                auto jid = JID::createJIDWithString(jidAttribute.getValue());
+                                SubscriptionState subscription;
+                                if (subscriptionAttribute.getValue() == "none") {
+                                    subscription = SubscriptionState::None;
+                                } else if (subscriptionAttribute.getValue() == "to") {
+                                    subscription = SubscriptionState::To;
+                                } else if (subscriptionAttribute.getValue() == "from") {
+                                    subscription = SubscriptionState::From;
+                                } else if (subscriptionAttribute.getValue() == "both") {
+                                    subscription = SubscriptionState::Both;
+                                } else {
+                                    //error
+                                    std::cout << "RosterItemError!\n";
+                                    continue;
                                 }
+
+                                auto name = nameAttribute.getValue();
+
+                                std::vector<String const> groups;
+                                for (auto groupElement : groupElements) {
+                                    groups.push_back(groupElement->getTextContent());
+                                }
+
+                                auto rosterItem = RosterItem::createRosterItem(jid, subscription, name, groups);
+
+                                rosterList->addItem(rosterItem);
+                                handleRosterItemReceivedEvent(rosterItem);
+                                std::cout << rosterItem->description();
                             }
                         }
                     } break;
@@ -164,9 +188,28 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                     std::cout << "Time: " << timestamp::now();
                 }
             }
-
         });
 
+        xmlStream->setPresenceStanzaReceivedEventHandler([this](StrongPointer<XMLStream> xmlStream,
+                                                                StrongPointer<XML::Element> stanza) {
+            auto jid = JID::createBareJIDWithJID(JID::createJIDWithString(stanza->getAttribute("from").getValue()));
+            auto type = stanza->getAttribute("type").getValue();
+
+
+            if (type.empty()) {
+                String presence;
+                presence = "available";
+                auto showElement = stanza->getFirstElementByName("show");
+                if (showElement) {
+                    presence = showElement->getTextContent();
+                }
+                rosterList->updatePresenceForItem(jid, presence);
+            } else if (type == "unavailable") {
+                rosterList->updatePresenceForItem(jid, type);
+            }
+
+
+        });
     }
 
     String Client::getPasswordForJID(StrongPointer<JID const> jid) const
@@ -182,13 +225,12 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     }
 
     void Client::run() {
-        if (!runloop) {
-            return;
-        }
         running = true;
         xmlStream->open();
-		while (xmlStream->getState() != Stream::State::Closed && xmlStream->getState() != Stream::State::Closing) {
-            runloop();
+        if (runloop) {
+            while (xmlStream->getState() != Stream::State::Closed && xmlStream->getState() != Stream::State::Closing) {
+                runloop();
+            }
         }
     }
 
@@ -205,5 +247,29 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
             this->runloop = runloop;
         }
     }
-    
+
+    void Client::setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler)
+    {
+        rosterItemReceivedEventHandler = eventHandler;
+    }
+
+    void Client::setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler)
+    {
+        rosterItemUpdatedEventHandler = eventHandler;
+    }
+
+    void Client::handleRosterItemReceivedEvent(StrongPointer<RosterItem> const rosterItem)
+    {
+        if (rosterItemReceivedEventHandler) {
+            rosterItemReceivedEventHandler(rosterItem);
+        }
+    }
+
+    void Client::handleRosterItemUpdatedEvent(StrongPointer<RosterItem> const rosterItem)
+    {
+        if (rosterItemUpdatedEventHandler) {
+            rosterItemUpdatedEventHandler(rosterItem);
+        }
+    }
+
 }}}}

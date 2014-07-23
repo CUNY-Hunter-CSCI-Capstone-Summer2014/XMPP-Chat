@@ -19,3 +19,5 @@ FOUNDATION_EXPORT const unsigned char RamblerVersionString[];
 #import <Rambler/Connection.h>
 #import <Rambler/JID.h>
 #import <Rambler/XMLStream.h>
+#import <Rambler/Client.h>
+#import <Rambler/RosterItem.h>

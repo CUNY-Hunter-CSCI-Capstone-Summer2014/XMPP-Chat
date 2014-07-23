@@ -13,7 +13,7 @@ namespace rambler{ namespace XMPP { namespace IM { namespace Client {
 	 
 	class RosterList{
 	public:
-		using RosterItemUpdatedEventHandler  = function<void(RosterItem)>;
+		using RosterItemUpdatedEventHandler  = function<void(StrongPointer<RosterItem>)>;
 
         static StrongPointer<RosterList> createRosterList();
 
@@ -21,13 +21,21 @@ namespace rambler{ namespace XMPP { namespace IM { namespace Client {
 		* Update the roster list.
 		* Takes in an RosterItem
 		*/
-		void updateItem(StrongPointer<RosterItem const> item);
+		void addItem(StrongPointer<RosterItem> item);
+
+        std::vector<StrongPointer<RosterItem const> const> getItems();
+
+        void updateSubscriptionStateForItem(StrongPointer<JID const> jid, SubscriptionState const subscriptionState);
+        void updateNameForItem(StrongPointer<JID const> jid, String const name);
+        void updatePresenceForItem(StrongPointer<JID const> jid, String const presence);
 
 		/**
 		* Removes an item from the roster list.
 		* Takes in a JID;
 		*/
 		void removeItem(StrongPointer<JID const> jid);
+
+        void handleRosterItemUpdated(StrongPointer<RosterItem> item);
 
         /**
          * Set the event handler.
@@ -37,10 +45,10 @@ namespace rambler{ namespace XMPP { namespace IM { namespace Client {
 	private:
         RosterList() = default;
 
-		std::map <StrongPointer<JID const>, StrongPointer<RosterItem const>> items;
+		std::map <StrongPointer<JID const>, StrongPointer<RosterItem>> items;
 
 		String version;
-		RosterItemUpdatedEventHandler handleRosterItemUpdated;
+		RosterItemUpdatedEventHandler rosterItemUpdatedEventHandler;
 	};
 
 }}}}

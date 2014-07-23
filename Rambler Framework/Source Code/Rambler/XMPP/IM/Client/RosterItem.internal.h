@@ -15,8 +15,8 @@ using namespace rambler;
 
 @interface RosterItem ()
 
-@property (readonly, assign) StrongPointer<XMPP::IM::Client::RosterItem const> nativeObject;
+@property (readonly, assign) StrongPointer<XMPP::IM::Client::RosterItem> nativeObject;
 
-- (instancetype)initWithNativeObject:(StrongPointer<XMPP::IM::Client::RosterItem const>)aNativeObject NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithNativeObject:(StrongPointer<XMPP::IM::Client::RosterItem>)aNativeObject NS_DESIGNATED_INITIALIZER;
 
 @end

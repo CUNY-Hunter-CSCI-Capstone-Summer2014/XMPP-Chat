@@ -66,29 +66,36 @@ RosterList:
 /* *********************************** */ */
 
 import Cocoa
+import Rambler
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    var addContactWindowController: NSWindowController? = nil
-    var chatBoxWindowController: NSWindowController? = nil
-    var editProfileWindowController: NSWindowController? = nil
-    var groupAddWindowController: NSWindowController? = nil
-    var loginWindowController: NSWindowController? = nil
-    var rosterListWindowController: NSWindowController? = nil
-    var viewProfileController: NSWindowController? = nil
+    var addContactWindowController:  NSWindowController?
+    var chatBoxWindowController:     NSWindowController?
+    var editProfileWindowController: NSWindowController?
+    var groupAddWindowController:    NSWindowController?
+    var loginWindowController:       LoginWindowController?
+    var rosterListWindowController:  RosterListWindowController?
+    var viewProfileController:       NSWindowController?
+
+    var conversationWindowControllers: NSMutableDictionary?
+
+    var client: Client?;
     
     /* *********************************** */
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
         
-        addContactWindowController = NSWindowController(windowNibName: "AddContact")
-        chatBoxWindowController = NSWindowController(windowNibName: "ChatBox")
+        addContactWindowController  = NSWindowController(windowNibName: "AddContact")
+        chatBoxWindowController     = ConversationWindowController(windowNibName: "ChatBox")
         editProfileWindowController = NSWindowController(windowNibName: "ProfileUpdate")
-        groupAddWindowController = NSWindowController(windowNibName: "GroupChatBox")
-        loginWindowController = NSWindowController(windowNibName: "Login Window")
-        rosterListWindowController = NSWindowController(windowNibName: "RosterList")
-        viewProfileController = NSWindowController(windowNibName: "ContactProfile")
+        groupAddWindowController    = NSWindowController(windowNibName: "GroupChatBox")
+        loginWindowController       = LoginWindowController(windowNibName: "LoginWindow")
+        rosterListWindowController  = RosterListWindowController(windowNibName: "RosterList")
+        viewProfileController       = NSWindowController(windowNibName: "ContactProfile")
+
+        conversationWindowControllers = NSMutableDictionary()
 
         /* *********************************** */
         /* ****** loginWindowController ****** */
@@ -109,15 +116,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let AddContactButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(1) as NSButton
         
         AddContactButton.target = self;
-        AddContactButton.action = "openAddContactScreen:";
+        AddContactButton.action = "set:";
         
         /* ************************************ */
         
-        let StartConversationButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(2) as NSButton
+        let startConversationButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(2) as NSButton
         
-        StartConversationButton.target = self;
-        StartConversationButton.action = "openGroupAddWindow:";
-        
+        startConversationButton.target = self;
+        startConversationButton.action = "startConversationWithSelectedContact:";
+
         /* ************************************ */
         
         let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(5) as NSButton
@@ -206,6 +213,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func closeLoginWindowAndOpenRosterListWindow(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
+            self.client = Client(JIDString: self.loginWindowController!.plainAuthenticationCredentials.username);
+            self.client!.rosterItemReceivedEventHandler = {
+                var dummy: AnyObject
+                self.rosterListWindowController?.addRosterItem($0)
+            }
+
+            self.client!.rosterItemUpdatedEventHandler = { (RosterItem item) in
+                var dummy: AnyObject
+                self.rosterListWindowController?.rosterListView?.reloadData()
+            }
+            
+            self.client!.start();
+
             self.loginWindowController!.window.orderOut(self)
             self.rosterListWindowController!.showWindow(self)
         }
@@ -230,6 +250,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func openGroupAddWindow(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
             self.groupAddWindowController!.showWindow(self)
+        }
+    }
+
+    @IBAction func startConversationWithSelectedContact(sender: AnyObject) {
+        let possibleSelectedObjects = rosterListWindowController?.rosterListController?.selectedObjects
+        if let theSelectedObjects = possibleSelectedObjects {
+            for selectedObject in theSelectedObjects {
+                selectedObject.description
+            }
+            NSLog("ping")
         }
     }
     

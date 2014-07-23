@@ -79,6 +79,16 @@ namespace rambler { namespace XMPP { namespace Core {
         return *x == *y;
     }
 
+    bool JID::lessThan(StrongPointer<JID const> x, StrongPointer<JID const> y)
+    {
+        return *x < *y;
+    }
+
+    bool JID::greaterThan(StrongPointer<JID const> x, StrongPointer<JID const> y)
+    {
+        return *y < *x;
+    }
+
     String JID::generateDescription(String localPart, String domainPart, String resourcePart)
     {
         String description;
@@ -169,6 +179,11 @@ namespace rambler { namespace XMPP { namespace Core {
         return (localPart == other.localPart &&
                 domainPart == other.domainPart &&
                 resourcePart == other.resourcePart);
+    }
+
+    bool JID::operator < (JID const & other) const
+    {
+        return (description < other.description);
     }
 
 }}}

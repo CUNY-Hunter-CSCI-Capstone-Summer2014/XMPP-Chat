@@ -32,6 +32,8 @@ namespace rambler { namespace XMPP { namespace Core {
 
         static UInt hash(StrongPointer<JID const> jid);
         static bool equal(StrongPointer<JID const> x, StrongPointer<JID const> y);
+        static bool lessThan(StrongPointer<JID const> x, StrongPointer<JID const> y);
+        static bool greaterThan(StrongPointer<JID const> x, StrongPointer<JID const> y);
 
     private:
         static String generateDescription(String localPart, String domainPart, String resourcePart);
@@ -45,7 +47,7 @@ namespace rambler { namespace XMPP { namespace Core {
         bool isValid() const;
 
         bool operator == (JID const & other) const;
-
+        bool operator < (JID const & other) const;
     };
 
     inline bool operator == (StrongPointer<JID const> const & x, StrongPointer<JID const> const & y)
@@ -56,6 +58,16 @@ namespace rambler { namespace XMPP { namespace Core {
     inline bool operator != (StrongPointer<JID const> const & x, StrongPointer<JID const> const & y)
     {
         return !JID::equal(x, y);
+    }
+
+    inline bool operator < (StrongPointer<JID const> const & x, StrongPointer<JID const> const & y)
+    {
+        return JID::lessThan(x, y);
+    }
+
+    inline bool operator > (StrongPointer<JID const> const & x, StrongPointer<JID const> const & y)
+    {
+        return JID::greaterThan(x, y);
     }
 
 }}}
