@@ -180,9 +180,6 @@
     <ClInclude Include="Source Code\windows\targetver.h">
       <Filter>Source Code\windows\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Source Code\rambler\Connection\TCPConnection.hpp">
-      <Filter>Source Code\rambler\Connection\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Source Code\rambler\XMPP\Core\JID.hpp">
       <Filter>Source Code\rambler\XMPP\Core\Header Files</Filter>
     </ClInclude>
@@ -272,6 +269,12 @@
     </ClInclude>
     <ClInclude Include="Source Code\rambler\rambler.hpp">
       <Filter>Source Code</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\Connection\SecureUtilities.hpp">
+      <Filter>Source Code\rambler\Connection\Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\Connection\TCPConnection.hpp">
+      <Filter>Source Code\rambler\Connection\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
