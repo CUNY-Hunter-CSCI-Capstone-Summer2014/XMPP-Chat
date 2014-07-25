@@ -64,6 +64,7 @@ namespace rambler{ namespace XMPP { namespace IM { namespace Client{
 
             jid_conversations[message->sender] = _newConvo; //.insert( std::make_pair(message->sender, _newConvo) );
             
+            jid_conversations[message->sender]->addMessageToConvo(message);
             
         } else {
             //if has conversation place message with conversation
