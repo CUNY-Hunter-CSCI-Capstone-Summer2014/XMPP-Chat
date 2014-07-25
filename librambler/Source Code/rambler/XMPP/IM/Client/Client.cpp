@@ -135,7 +135,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         });
 
-        xmlStream->setMessageStanzaReceivedEventHandler([](StrongPointer<XMLStream> xmlStream, StrongPointer<XML::Element> stanza){
+        xmlStream->setMessageStanzaReceivedEventHandler([this](StrongPointer<XMLStream> xmlStream, StrongPointer<XML::Element> stanza){
             std::vector<StrongPointer<XML::Element>> temp;
 
             auto typeAttribute = stanza->getAttribute("type");
