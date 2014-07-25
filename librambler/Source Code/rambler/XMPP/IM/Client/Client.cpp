@@ -287,5 +287,31 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         return "";
     }
-
+    
+    void Client::sendMessage(StrongPointer<const rambler::XMPP::IM::Client::Message> message)
+    {
+        //send message via the wire
+        
+        //turn message into XML message
+        StrongPointer<XML::Element> _message = XML::Element::createWithName ("message");
+        XML::Attribute _from = XML::Attribute("from", message->sender->description);
+        XML::Attribute _to = XML::Attribute("to", message->recipient->description);
+        XML::Attribute _type = XML::Attribute("type", "chat");
+        StrongPointer<XML::Element> _bodyElement = XML::Element::createWithName("body");
+        StrongPointer<XML::TextNode> _body =  XML::TextNode::createWithContent(message->body);
+        
+        _bodyElement->addChild(_body);
+        
+        _message->addAttribute(_to);
+        _message->addAttribute(_from);
+        _message->addAttribute(_type);
+        _message->addChild(_bodyElement);
+        
+        xmlStream->sendData(_message);
+        
+        
+        //call sendMessage on conversation controller
+    
+        conversationController->sendMessage(message);
+    }
 }}}}
