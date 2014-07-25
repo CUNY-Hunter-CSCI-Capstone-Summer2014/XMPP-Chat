@@ -10,8 +10,15 @@ namespace rambler{
 				{
 					handleMessageReceived = eventHandler;
 				}
-
-				void Conversation::sendMessage(Message message)
+                
+                
+                Conversation::Conversation(std::shared_ptr<XMPP::Core::JID const> x) : partner(x)
+                {
+                 /*DO NOTHING*/
+                }
+                
+                
+                void Conversation::sendMessage(Message message)
 				{	
 #ifdef _MSC_VER
 #pragma message("implement this")
@@ -28,6 +35,11 @@ namespace rambler{
 #warning implement this
 #endif
 				}
+                
+                void Conversation::addMessageToConvo(std::shared_ptr<Message const> message)
+                {
+                    messages.push_back(message);
+                }
 			}
 		}
 	}

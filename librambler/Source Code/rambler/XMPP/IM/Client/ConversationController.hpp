@@ -18,14 +18,16 @@ namespace rambler { namespace XMPP{ namespace IM { namespace Client {
 
         void setMessageReceivedForConversationByJIDEventHandler(MessageReceivedForConversationByJIDEventHandler eventHandler);
 
-//        void addMessage(StrongPointer<Message const> message);
+        void addMessage(StrongPointer<Message const> message);
         void sendMessage(StrongPointer<Message const> message);
         void removeConversation(String uniqueId);
         
     private:
-    std::map <StrongPointer<Core::JID const>, Conversation> jid_conversations;
+    // map of all conversations
+    // shared_ptr, Conversation
+    std::map <StrongPointer<Core::JID const>, StrongPointer<Conversation>> jid_conversations;
 
-        MessageReceivedForConversationByJIDEventHandler messageReceivedForConversationByJIDEventHandler;
+    MessageReceivedForConversationByJIDEventHandler messageReceivedForConversationByJIDEventHandler;
 
     };
 

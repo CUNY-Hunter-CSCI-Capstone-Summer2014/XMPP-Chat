@@ -174,7 +174,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
                     auto message = Message::createMessage(sender, recipient, thread, subject, body, timestamp, uniqueID);
 
-//                    conversationController->addMessage(message);
+                    conversationController->addMessage(message);
 
                     std::cout << std::endl << message->description();
 
