@@ -40,8 +40,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         xmlStream->setResourceBoundEventHandler([this](StrongPointer<XMLStream> xmlStream) {
             requestRoster();
-
-            xmlStream->sendData(XML::Element::createWithName("presence"));
+            sendPresence(Presence::createWithState(Presence::State::Available));
         });
 
         xmlStream->setIQStanzaReceivedEventHandler([this](StrongPointer<XMLStream> xmlStream, StrongPointer<XML::Element> stanza) {
@@ -189,12 +188,12 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                 }
 
                 if (presence) {
-                    handlePresenceUpdatedEvent(presence, jid);
+                    handlePresenceReceivedEvent(presence, jid);
                 }
             } else if (type == "unavailable") {
                 presence = Presence::createWithState(Presence::State::Unavailable);
 
-                handlePresenceUpdatedEvent(presence, jid);
+                handlePresenceReceivedEvent(presence, jid);
             }
 
 
@@ -280,21 +279,55 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
 #pragma mark Presence Management
 
-    void Client::updatePresence(StrongPointer<Presence const> const presence)
+    void Client::sendPresence(StrongPointer<Presence const> const presence, StrongPointer<JID const> const jid)
     {
-#warning TODO: implement this
+        StrongPointer<XML::Element> presenceElement = XML::Element::createWithName("presence");
+        StrongPointer<XML::Element> showElement;
+        StrongPointer<XML::TextNode> textContent;
+
+        if (jid) {
+            presenceElement->addAttribute({"to", jid->description});
+        }
+
+        switch (presence->state) {
+            case Presence::State::Unavailable:
+                presenceElement->addAttribute({"type", "unavailable"});
+                break;
+            case Presence::State::Available:
+                break;
+            case Presence::State::WantsToChat:
+                textContent = XML::TextNode::createWithContent("chat");
+                break;
+            case Presence::State::DoNotDisturb:
+                textContent = XML::TextNode::createWithContent("dnd");
+                break;
+            case Presence::State::Away:
+                textContent = XML::TextNode::createWithContent("away");
+                break;
+            case Presence::State::ExtendedAway:
+                textContent = XML::TextNode::createWithContent("xa");
+                break;
+        }
+
+        if (textContent) {
+            showElement = XML::Element::createWithName("show");
+            showElement->addChild(textContent);
+            presenceElement->addChild(showElement);
+        }
+
+        xmlStream->sendData(presenceElement);
     }
 
-    void Client::setPresenceUpdatedEventHandler(PresenceUpdatedEventHandler eventHandler)
+    void Client::setPresenceReceivedEventHandler(PresenceReceivedEventHandler eventHandler)
     {
-        presenceUpdatedEventHandler = eventHandler;
+        presenceReceivedEventHandler = eventHandler;
     }
 
-    void Client::handlePresenceUpdatedEvent(StrongPointer<Presence const> const presence,
+    void Client::handlePresenceReceivedEvent(StrongPointer<Presence const> const presence,
                                     StrongPointer<JID const> const jid)
     {
-        if (presenceUpdatedEventHandler) {
-            presenceUpdatedEventHandler(presence, jid);
+        if (presenceReceivedEventHandler) {
+            presenceReceivedEventHandler(presence, jid);
         }
     }
 

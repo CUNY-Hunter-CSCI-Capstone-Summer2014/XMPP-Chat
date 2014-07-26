@@ -23,7 +23,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     public:
         using ClientRunloop = function<void(void)>;
 
-        using PresenceUpdatedEventHandler = function<void(StrongPointer<Presence const> const,
+        using PresenceReceivedEventHandler = function<void(StrongPointer<Presence const> const,
                                                           StrongPointer<JID const> const)>;
 
         using RosterItemReceivedEventHandler = function<void(StrongPointer<RosterItem const> const)>;
@@ -42,10 +42,19 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         RAMBLER_API void setPasswordRequiredEventHandler(PasswordRequiredEventHandler eventHandler);
         String handlePasswordRequiredEvent(String username);
-        
-        void sendMessage(StrongPointer<Message const> message);
 
         /* User facing functionality */
+
+#pragma mark Message Exchanging
+
+        RAMBLER_API void sendMessage(StrongPointer<Message const> message);
+
+#pragma mark Presence Exchanging
+
+        RAMBLER_API void sendPresence(StrongPointer<Presence const> const presence,
+                                      StrongPointer<JID const> const jid = nullptr);
+
+        RAMBLER_API void setPresenceReceivedEventHandler(PresenceReceivedEventHandler eventHandler);
 
 #pragma mark Roster Management
 
@@ -56,18 +65,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         RAMBLER_API void setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler);
         RAMBLER_API void setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler);
 
-        void handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem);
-        void handleRosterItemUpdatedEvent(StrongPointer<RosterItem const> const rosterItem);
-
-#pragma mark Presence Management
-
-        RAMBLER_API void updatePresence(StrongPointer<Presence const> const presence);
-
-        RAMBLER_API void setPresenceUpdatedEventHandler(PresenceUpdatedEventHandler eventHandler);
-
-        void handlePresenceUpdatedEvent(StrongPointer<Presence const> const presence,
-                                        StrongPointer<JID const> const jid);
-
+#pragma mark Private
     private:
         static String ChatStates_Namespace_String;
         static String Jabber_IQ_Roster_Namespace_String;
@@ -90,16 +88,25 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         String getPasswordForJID(StrongPointer<JID const> jid);
         void run();
 
-        PresenceUpdatedEventHandler presenceUpdatedEventHandler;
+        PasswordRequiredEventHandler passwordRequiredEventHandler;
+
+        PresenceReceivedEventHandler presenceReceivedEventHandler;
         RosterItemReceivedEventHandler rosterItemReceivedEventHandler;
         RosterItemUpdatedEventHandler rosterItemUpdatedEventHandler;
-        PasswordRequiredEventHandler passwordRequiredEventHandler;
 
 
         /* Event Handling */
 
 #pragma mark Stanza Handling
         void handleIQStanzaReceivedEvent_ping(StrongPointer<XML::Element> const stanza);
+
+#pragma mark Presence Handling
+        void handlePresenceReceivedEvent(StrongPointer<Presence const> const presence,
+                                         StrongPointer<JID const> const jid);
+
+#pragma mark RosterItem Handling
+        void handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem);
+        void handleRosterItemUpdatedEvent(StrongPointer<RosterItem const> const rosterItem);
 
     };
 
