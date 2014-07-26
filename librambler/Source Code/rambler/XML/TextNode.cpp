@@ -69,4 +69,9 @@ namespace rambler { namespace XML {
     {
         return x->getValue() == y->getValue();
     }
+    
+    StrongPointer<TextNode> TextNode::createWithContent(std::string content)
+    {
+        return StrongPointer<TextNode> (new TextNode(content));
+    }
 }}

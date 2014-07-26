@@ -40,7 +40,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         void handleRosterItemReceivedEvent(StrongPointer<RosterItem> const rosterItem);
         void handleRosterItemUpdatedEvent(StrongPointer<RosterItem> const rosterItem);
         String handlePasswordRequiredEvent(String username);
-
+        
+        void sendMessage(StrongPointer<Message const> message);
 
         /* User facing functionality */
 

@@ -17,6 +17,8 @@ namespace rambler { namespace XML {
 
     class TextNode : public Node {
     public:
+        
+        static StrongPointer<TextNode> createWithContent(std::string content);
         TextNode();
         TextNode(String value);
 
