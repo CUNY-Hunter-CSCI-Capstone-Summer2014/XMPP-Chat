@@ -34,19 +34,24 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 		RAMBLER_API void setRunloop(ClientRunloop runloop);
 
 
-        RAMBLER_API void setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler);
-        RAMBLER_API void setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler);
         RAMBLER_API void setPasswordRequiredEventHandler(PasswordRequiredEventHandler eventHandler);
-        void handleRosterItemReceivedEvent(StrongPointer<RosterItem> const rosterItem);
-        void handleRosterItemUpdatedEvent(StrongPointer<RosterItem> const rosterItem);
         String handlePasswordRequiredEvent(String username);
         
         void sendMessage(StrongPointer<Message const> message);
 
         /* User facing functionality */
 
+#pragma mark Roster Management
+
         RAMBLER_API void requestRoster();
-        RAMBLER_API void updateRosterWithItem(StrongPointer<RosterItem> const rosterItem);
+        RAMBLER_API void updateRosterWithItem(StrongPointer<RosterItem> const item);
+        RAMBLER_API void removeItemFromRoster(StrongPointer<RosterItem> const item);
+
+        RAMBLER_API void setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler);
+        RAMBLER_API void setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler);
+
+        void handleRosterItemReceivedEvent(StrongPointer<RosterItem> const rosterItem);
+        void handleRosterItemUpdatedEvent(StrongPointer<RosterItem> const rosterItem);
 
 
     private:
@@ -76,6 +81,13 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         RosterItemReceivedEventHandler rosterItemReceivedEventHandler;
         RosterItemUpdatedEventHandler rosterItemUpdatedEventHandler;
         PasswordRequiredEventHandler passwordRequiredEventHandler;
+
+
+        /* Event Handling */
+
+#pragma mark Stanza Handling
+        void handleIQStanzaReceivedEvent_ping(StrongPointer<XML::Element> const stanza);
+
     };
 
 }}}}

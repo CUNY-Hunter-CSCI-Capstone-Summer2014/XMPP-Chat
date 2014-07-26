@@ -50,6 +50,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         });
 
         xmlStream->setIQStanzaReceivedEventHandler([this](StrongPointer<XMLStream> xmlStream, StrongPointer<XML::Element> stanza) {
+#warning TODO: modularize this
+#warning TODO: handle roster pushes
             auto typeAttribute = stanza->getAttribute("type");
             auto IQType = typeAttribute.getValue();
             auto uniqueID = typeAttribute.getValue();
@@ -57,19 +59,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
             if (IQType == "get") {
 
                 auto pingElement = stanza->getFirstElementByName("ping", Ping_Namespace);
-                if (pingElement != nullptr) {
-                    std::cout << "\nRECEIVED PING (sent to " << stanza->getAttribute("to").getValue() << ")\n";
-                    std::cout << "From: " << stanza->getAttribute("from").getValue() << std::endl;
-
-                    auto response = XML::Element::createWithName("iq");
-                    response->addAttribute({"from", stanza->getAttribute("to").getValue()});
-                    response->addAttribute({"to", stanza->getAttribute("from").getValue()});
-                    response->addAttribute({"id", stanza->getAttribute("id").getValue()});
-                    response->addAttribute({"type", "result"});
-
-                    std::cout << "\nSENT PONG\n";
-                    xmlStream->sendData(response);
-                    return;
+                if (pingElement) {
+                    return handleIQStanzaReceivedEvent_ping(stanza);
                 }
 
             } else if (IQType == "result") {
@@ -279,7 +270,9 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     }
 
 
-#pragma mark User Facing Functionality
+    /* User facing functionality */
+
+#pragma mark Roster Management
 
     void Client::requestRoster()
     {
@@ -300,7 +293,36 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     {
         String uuid = uuid::generate();
 
+        auto iqElement = XML::Element::createWithName("iq");
+        auto queryElement = XML::Element::createWithName("query", Jabber_IQ_Roster_Namespace);
+        auto itemElement = XML::Element::createWithName("item");
+
+        iqElement->addChild(queryElement);
+        queryElement->addChild(itemElement);
+
+        iqElement->addAttribute({"from", xmlStream->getJID()->description});
+        iqElement->addAttribute({"type", "set"});
+        iqElement->addAttribute({"id", uuid});
+
+        itemElement->addAttribute({"jid", item->jid->description});
+
+        if (!item->name.empty()) {
+            itemElement->addAttribute({"name", item->name});
+        }
+
+        for (auto group : item->groups) {
+            auto groupElement = XML::Element::createWithName(group);
+            auto textNode = XML::TextNode::createWithContent(group);
+            itemElement->addChild(groupElement);
+        }
+
         uniqueID_IQRequestType_map[uuid] = IQRequestType::RosterSet;
+        xmlStream->sendData(iqElement);
+    }
+
+    void Client::removeItemFromRoster(StrongPointer<RosterItem> const item)
+    {
+        String uuid = uuid::generate();
 
         auto iqElement = XML::Element::createWithName("iq");
         auto queryElement = XML::Element::createWithName("query", Jabber_IQ_Roster_Namespace);
@@ -314,14 +336,62 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         iqElement->addAttribute({"id", uuid});
 
         itemElement->addAttribute({"jid", item->jid->description});
-        if (!item->name.empty()) {
-            itemElement->addAttribute({"name", item->name});
-        }
-        for (auto group : item->groups) {
-            auto groupElement = XML::Element::createWithName(group);
-            auto textNode = XML::TextNode::
-            itemElement->addChild(<#StrongPointer<rambler::XML::Element> child#>)
-        }
+        itemElement->addAttribute({"subscription", "remove"});
+
+        uniqueID_IQRequestType_map[uuid] = IQRequestType::RosterSet;
+        xmlStream->sendData(iqElement);
     }
+
+#pragma mark Message Exchange
+
+    void Client::sendMessage(StrongPointer<const rambler::XMPP::IM::Client::Message> message)
+    {
+        //send message via the wire
+
+        //turn message into XML message
+        StrongPointer<XML::Element> _message = XML::Element::createWithName ("message");
+        XML::Attribute _from = XML::Attribute("from", message->sender->description);
+        XML::Attribute _to = XML::Attribute("to", message->recipient->description);
+        XML::Attribute _type = XML::Attribute("type", "chat");
+        StrongPointer<XML::Element> _bodyElement = XML::Element::createWithName("body");
+        StrongPointer<XML::TextNode> _body =  XML::TextNode::createWithContent(message->body);
+
+        _bodyElement->addChild(_body);
+
+        _message->addAttribute(_to);
+        _message->addAttribute(_from);
+        _message->addAttribute(_type);
+        _message->addChild(_bodyElement);
+
+        xmlStream->sendData(_message);
+
+
+        //call sendMessage on conversation controller
+
+        conversationController->sendMessage(message);
+    }
+
+
+
+    /* Event Handling */
+
+#pragma mark Stanza Handling
+
+    void Client::handleIQStanzaReceivedEvent_ping(StrongPointer<XML::Element> const stanza)
+    {
+        std::cout << "\n[PING]\n";
+        std::cout << "From: " << stanza->getAttribute("from").getValue() << std::endl;
+        std::cout << "To: " << stanza->getAttribute("to").getValue() << std::endl;
+
+        auto response = XML::Element::createWithName("iq");
+        response->addAttribute({"from", stanza->getAttribute("to").getValue()});
+        response->addAttribute({"to", stanza->getAttribute("from").getValue()});
+        response->addAttribute({"id", stanza->getAttribute("id").getValue()});
+        response->addAttribute({"type", "result"});
+
+        std::cout << "\n[PONG]\n";
+        xmlStream->sendData(response);
+    }
+
 
 }}}}
