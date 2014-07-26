@@ -170,6 +170,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
             auto jid = JID::createBareJIDWithJID(JID::createJIDWithString(stanza->getAttribute("from").getValue()));
             auto type = stanza->getAttribute("type").getValue();
 
+#warning TODO: Get status message
+
             if (type.empty()) {
                 auto showElement = stanza->getFirstElementByName("show");
                 if (showElement) {
@@ -283,6 +285,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     {
         StrongPointer<XML::Element> presenceElement = XML::Element::createWithName("presence");
         StrongPointer<XML::Element> showElement;
+        StrongPointer<XML::Element> statusElement;
         StrongPointer<XML::TextNode> textContent;
 
         if (jid) {
@@ -313,6 +316,13 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
             showElement = XML::Element::createWithName("show");
             showElement->addChild(textContent);
             presenceElement->addChild(showElement);
+        }
+
+        if (!presence->message.empty()) {
+            textContent = XML::TextNode::createWithContent(presence->message);
+            statusElement = XML::Element::createWithName("status");
+            statusElement->addChild(textContent);
+            presenceElement->addChild(statusElement);
         }
 
         xmlStream->sendData(presenceElement);
