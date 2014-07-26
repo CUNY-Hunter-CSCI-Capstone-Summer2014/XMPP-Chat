@@ -14,10 +14,9 @@
 @interface RosterItem : NSObject
 
 @property (readonly, strong) JID * jid;
-@property (readwrite, strong, nonatomic) NSString * name;
-@property (readwrite, assign, nonatomic) SubscriptionState subscriptionState;
-@property (readonly, strong, nonatomic) NSArray * groups;
-@property (readwrite, strong, nonatomic) NSString * presence;
+@property (readonly, strong) NSString * name;
+@property (readonly, assign) SubscriptionState subscriptionState;
+@property (readonly, strong) NSArray * groups;
 
 - (instancetype)initWithJID:(JID *)aJID
           subscriptionState:(SubscriptionState)aState

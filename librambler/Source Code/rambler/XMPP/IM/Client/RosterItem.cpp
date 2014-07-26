@@ -9,7 +9,7 @@
 
 namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
-    StrongPointer<RosterItem> RosterItem::createRosterItem(StrongPointer<JID const> jid,
+    StrongPointer<RosterItem const> RosterItem::createRosterItem(StrongPointer<JID const> jid,
                                                                  SubscriptionState subscriptionState,
                                                                  String name,
                                                                  std::vector<String const> groups)
@@ -21,14 +21,14 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         return StrongPointer<RosterItem>(new RosterItem(jid, subscriptionState, name, groups));
     }
 
-    StrongPointer<RosterItem> RosterItem::createRosterItem(StrongPointer<JID const> jid,
+    StrongPointer<RosterItem const> RosterItem::createRosterItem(StrongPointer<JID const> jid,
                                                                  SubscriptionState subscriptionState,
                                                                  String name)
     {
         return createRosterItem(jid, subscriptionState, name, {});
     }
 
-    StrongPointer<RosterItem> RosterItem::createRosterItem(StrongPointer<JID const> jid,
+    StrongPointer<RosterItem const> RosterItem::createRosterItem(StrongPointer<JID const> jid,
                                                                  SubscriptionState subscriptionState,
                                                                  std::vector<String const> groups)
     {
@@ -36,7 +36,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     }
 
 
-    StrongPointer<RosterItem> RosterItem::createRosterItem(StrongPointer<JID const> jid,
+    StrongPointer<RosterItem const> RosterItem::createRosterItem(StrongPointer<JID const> jid,
                                                                  SubscriptionState subscriptionState)
     {
         return createRosterItem(jid, subscriptionState, "", {});
@@ -51,7 +51,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         /* Nothing to do here */
     }
 
-    String RosterItem::description()
+    String RosterItem::description() const
     {
         String description;
 

@@ -21,8 +21,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     class Client {
     public:
         using ClientRunloop = function<void(void)>;
-        using RosterItemReceivedEventHandler = function<void(StrongPointer<RosterItem> const)>;
-        using RosterItemUpdatedEventHandler = function<void(StrongPointer<RosterItem> const)>;
+        using RosterItemReceivedEventHandler = function<void(StrongPointer<RosterItem const> const)>;
+        using RosterItemUpdatedEventHandler = function<void(StrongPointer<RosterItem const> const)>;
         using PasswordRequiredEventHandler = function<String(String)>;
 
 
@@ -45,14 +45,14 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 #pragma mark Roster Management
 
         RAMBLER_API void requestRoster();
-        RAMBLER_API void updateRosterWithItem(StrongPointer<RosterItem> const item);
-        RAMBLER_API void removeItemFromRoster(StrongPointer<RosterItem> const item);
+        RAMBLER_API void updateRosterWithItem(StrongPointer<RosterItem const> const item);
+        RAMBLER_API void removeItemFromRoster(StrongPointer<RosterItem const> const item);
 
         RAMBLER_API void setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler);
         RAMBLER_API void setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler);
 
-        void handleRosterItemReceivedEvent(StrongPointer<RosterItem> const rosterItem);
-        void handleRosterItemUpdatedEvent(StrongPointer<RosterItem> const rosterItem);
+        void handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem);
+        void handleRosterItemUpdatedEvent(StrongPointer<RosterItem const> const rosterItem);
 
 
     private:

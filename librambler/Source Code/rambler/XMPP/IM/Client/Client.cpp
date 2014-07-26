@@ -240,14 +240,14 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         passwordRequiredEventHandler = eventHandler;
     }
 
-    void Client::handleRosterItemReceivedEvent(StrongPointer<RosterItem> const rosterItem)
+    void Client::handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem)
     {
         if (rosterItemReceivedEventHandler) {
             rosterItemReceivedEventHandler(rosterItem);
         }
     }
 
-    void Client::handleRosterItemUpdatedEvent(StrongPointer<RosterItem> const rosterItem)
+    void Client::handleRosterItemUpdatedEvent(StrongPointer<RosterItem const> const rosterItem)
     {
         if (rosterItemUpdatedEventHandler) {
             rosterItemUpdatedEventHandler(rosterItem);
@@ -283,7 +283,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         xmlStream->sendData(iqElement);
     }
 
-    void Client::updateRosterWithItem(StrongPointer<RosterItem> const item)
+    void Client::updateRosterWithItem(StrongPointer<RosterItem const> const item)
     {
         String uuid = uuid::generate();
 
@@ -314,7 +314,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         xmlStream->sendData(iqElement);
     }
 
-    void Client::removeItemFromRoster(StrongPointer<RosterItem> const item)
+    void Client::removeItemFromRoster(StrongPointer<RosterItem const> const item)
     {
         String uuid = uuid::generate();
 

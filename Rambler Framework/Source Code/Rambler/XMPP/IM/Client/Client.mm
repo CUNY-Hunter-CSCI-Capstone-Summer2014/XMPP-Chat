@@ -42,14 +42,14 @@
 
 - (void)setRosterItemReceivedEventHandler:(RosterItemReceivedEventHandler)rosterItemReceivedEventHandler
 {
-    self.nativeObject->setRosterItemReceivedEventHandler(^(StrongPointer<XMPP::IM::Client::RosterItem> const item) {
+    self.nativeObject->setRosterItemReceivedEventHandler(^(StrongPointer<XMPP::IM::Client::RosterItem const> const item) {
         rosterItemReceivedEventHandler([[RosterItem alloc] initWithNativeObject:item]);
     });
 }
 
 - (void)setRosterItemUpdatedEventHandler:(RosterItemUpdatedEventHandler)rosterItemUpdatedEventHandler
 {
-    self.nativeObject->setRosterItemUpdatedEventHandler(^(StrongPointer<XMPP::IM::Client::RosterItem> const item) {
+    self.nativeObject->setRosterItemUpdatedEventHandler(^(StrongPointer<XMPP::IM::Client::RosterItem const> const item) {
         rosterItemUpdatedEventHandler([[RosterItem alloc] initWithNativeObject:item]);
     });
 

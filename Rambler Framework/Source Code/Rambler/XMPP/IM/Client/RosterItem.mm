@@ -130,38 +130,6 @@
     }
 }
 
-- (void)setSubscriptionState:(SubscriptionState)subscriptionState
-{
-    switch (subscriptionState) {
-        case None:
-            self.nativeObject->subscriptionState = XMPP::IM::Client::SubscriptionState::None;
-            break;
-        case To:
-            self.nativeObject->subscriptionState = XMPP::IM::Client::SubscriptionState::To;
-            break;
-        case From:
-            self.nativeObject->subscriptionState = XMPP::IM::Client::SubscriptionState::From;
-            break;
-        case Both:
-            self.nativeObject->subscriptionState = XMPP::IM::Client::SubscriptionState::Both;
-            break;
-
-    }
-}
-
-- (NSString *)presence
-{
-    if (self.nativeObject->presence.empty()) {
-        return nil;
-    }
-    return [[NSString alloc] initWithUTF8String:self.nativeObject->presence.c_str()];
-}
-
-- (void)setPresence:(NSString *)presence
-{
-    self.nativeObject->presence = presence.UTF8String;
-}
-
 - (NSString *)description
 {
     return [[NSString alloc] initWithUTF8String:self.nativeObject->description().c_str()];
