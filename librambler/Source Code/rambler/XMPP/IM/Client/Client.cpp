@@ -33,7 +33,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     Client::Client(String username) : jid(JID::createJIDWithString(username))
     {
         xmlStream = std::make_shared<XMLStream>(jid);
-        rosterList = RosterList::createRosterList();
 
         xmlStream->setAuthenticationRequiredEventHandler([this](StrongPointer<XMLStream> xmlStream) {
             xmlStream->authenticateSASL_Plain("", JID::createBareJIDWithJID(this->jid)->description, getPasswordForJID(jid));
@@ -43,10 +42,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
             requestRoster();
 
             xmlStream->sendData(XML::Element::createWithName("presence"));
-        });
-
-        rosterList->setRosterItemUpdatedEventHandler([this](StrongPointer<RosterItem> item){
-            this->handleRosterItemUpdatedEvent(item);
         });
 
         xmlStream->setIQStanzaReceivedEventHandler([this](StrongPointer<XMLStream> xmlStream, StrongPointer<XML::Element> stanza) {
@@ -103,7 +98,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
                                 auto rosterItem = RosterItem::createRosterItem(jid, subscription, name, groups);
 
-                                rosterList->addItem(rosterItem);
                                 handleRosterItemReceivedEvent(rosterItem);
                                 std::cout << rosterItem->description();
                             }
@@ -155,8 +149,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
                     auto message = Message::createMessage(sender, recipient, thread, subject, body, timestamp, uniqueID);
 
-                    conversationController->addMessage(message);
-
                     std::cout << std::endl << message->description();
 
                 }
@@ -186,9 +178,11 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                 if (showElement) {
                     presence = showElement->getTextContent();
                 }
-                rosterList->updatePresenceForItem(jid, presence);
+#warning replace this with a new event handler
+//                rosterList->updatePresenceForItem(jid, presence);
             } else if (type == "unavailable") {
-                rosterList->updatePresenceForItem(jid, type);
+#warning replace this with a new event handler
+//                rosterList->updatePresenceForItem(jid, type);
             }
 
 
@@ -364,11 +358,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         _message->addChild(_bodyElement);
 
         xmlStream->sendData(_message);
-
-
-        //call sendMessage on conversation controller
-
-        conversationController->sendMessage(message);
     }
 
 

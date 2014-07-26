@@ -12,8 +12,9 @@
 #include "rambler/XML/Namespace.hpp"
 #include "rambler/XMPP/Core/XMLStream.hpp"
 #include "rambler/XMPP/IM/Client/IQRequestType.hpp"
-#include "rambler/XMPP/IM/Client/ConversationController.hpp"
-#include "rambler/XMPP/IM/Client/RosterList.hpp"
+
+#include "rambler/XMPP/IM/Client/Message.hpp"
+#include "rambler/XMPP/IM/Client/RosterItem.hpp"
 
 namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
@@ -69,8 +70,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         StrongPointer<JID const> jid;
 
-        StrongPointer<RosterList> rosterList;
-        StrongPointer<ConversationController> conversationController;
         StrongPointer<XMLStream> xmlStream;
 
         std::map<String, IQRequestType> uniqueID_IQRequestType_map;
