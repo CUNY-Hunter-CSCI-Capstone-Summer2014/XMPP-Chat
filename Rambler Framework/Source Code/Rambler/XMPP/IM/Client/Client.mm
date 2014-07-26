@@ -1,5 +1,6 @@
 #import "Client.internal.h"
 #import "RosterItem.internal.h"
+#import "Message.internal.h"
 
 @implementation Client
 
@@ -62,6 +63,14 @@
         return temp.UTF8String;
     });
 }
+
+- (void)setMessageReceivedEventHandler:(MessageReceivedEventHandler)messageReceivedEventHandler
+{
+    self.nativeObject->setMessageReceivedEventHandler(^(StrongPointer<XMPP::IM::Client::Message const> const message){
+        messageReceivedEventHandler([[Message alloc] initWithNativeObject:message]);
+    });
+}
+
 
 @end
 

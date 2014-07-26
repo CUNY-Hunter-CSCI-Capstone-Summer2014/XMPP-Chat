@@ -34,6 +34,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     {
         xmlStream = std::make_shared<XMLStream>(jid);
         rosterList = RosterList::createRosterList();
+        conversationController = StrongPointer<ConversationController> (new ConversationController());
 
         xmlStream->setAuthenticationRequiredEventHandler([this](StrongPointer<XMLStream> xmlStream) {
             xmlStream->authenticateSASL_Plain("", JID::createBareJIDWithJID(this->jid)->description, getPasswordForJID(jid));
@@ -250,6 +251,10 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         }
     }
 
+    void Client::setMessageReceivedEventHandler(MessageReceivedEventHandler eventHandler)
+    {
+        messageReceivedEventHandler = eventHandler;
+    }
     void Client::setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler)
     {
         rosterItemReceivedEventHandler = eventHandler;
@@ -288,6 +293,12 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         return "";
     }
     
+    void Client::handleMessageReceivedEvent(const StrongPointer<const rambler::XMPP::IM::Client::Message> message)
+    {
+        if(messageReceivedEventHandler){
+            messageReceivedEventHandler(message);
+        }
+    }
     void Client::sendMessage(StrongPointer<const rambler::XMPP::IM::Client::Message> message)
     {
         //send message via the wire

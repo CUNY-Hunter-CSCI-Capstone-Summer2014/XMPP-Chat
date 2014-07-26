@@ -58,7 +58,7 @@ namespace rambler{ namespace XMPP { namespace IM { namespace Client{
 	}
     void ConversationController::addMessage(StrongPointer<Message const> message){
         //check if message owner has a conversation
-        if ( jid_conversations.find(message->sender) == jid_conversations.end() ) {
+        if ( jid_conversations.count(message->sender) == 0 ) {
             //if not create new conversation and place message into conversation
             std::shared_ptr<Conversation> _newConvo ( new Conversation(message->sender) );
 

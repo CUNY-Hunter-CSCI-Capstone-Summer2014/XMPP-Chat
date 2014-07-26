@@ -22,6 +22,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         using ClientRunloop = function<void(void)>;
         using RosterItemReceivedEventHandler = function<void(StrongPointer<RosterItem> const)>;
         using RosterItemUpdatedEventHandler = function<void(StrongPointer<RosterItem> const)>;
+        using MessageReceivedEventHandler = function<void (StrongPointer<Message const> const)>;
         using PasswordRequiredEventHandler = function<String(String)>;
 
 
@@ -37,8 +38,11 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         RAMBLER_API void setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler);
         RAMBLER_API void setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler);
         RAMBLER_API void setPasswordRequiredEventHandler(PasswordRequiredEventHandler eventHandler);
+        RAMBLER_API void setMessageReceivedEventHandler(MessageReceivedEventHandler eventHandler);
+        
         void handleRosterItemReceivedEvent(StrongPointer<RosterItem> const rosterItem);
         void handleRosterItemUpdatedEvent(StrongPointer<RosterItem> const rosterItem);
+        void handleMessageReceivedEvent(StrongPointer<Message const> const message);
         String handlePasswordRequiredEvent(String username);
         
         void sendMessage(StrongPointer<Message const> message);
@@ -66,7 +70,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         String getPasswordForJID(StrongPointer<JID const> jid);
         void run();
-
+        
+        MessageReceivedEventHandler messageReceivedEventHandler;
         RosterItemReceivedEventHandler rosterItemReceivedEventHandler;
         RosterItemUpdatedEventHandler rosterItemUpdatedEventHandler;
         PasswordRequiredEventHandler passwordRequiredEventHandler;
