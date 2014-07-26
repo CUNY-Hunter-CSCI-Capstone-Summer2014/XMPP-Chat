@@ -42,6 +42,12 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         String handlePasswordRequiredEvent(String username);
 
 
+        /* User facing functionality */
+
+        RAMBLER_API void requestRoster();
+        RAMBLER_API void updateRosterWithItem(StrongPointer<RosterItem> const rosterItem);
+
+
     private:
         static String ChatStates_Namespace_String;
         static String Jabber_IQ_Roster_Namespace_String;

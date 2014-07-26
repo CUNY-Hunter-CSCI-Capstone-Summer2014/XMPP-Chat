@@ -40,17 +40,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         });
 
         xmlStream->setResourceBoundEventHandler([this](StrongPointer<XMLStream> xmlStream) {
-            String uuid = uuid::generate();
-
-            uniqueID_IQRequestType_map[uuid] = IQRequestType::RosterGet;
-
-            auto IQElement = XML::Element::createWithName("iq");
-            IQElement->addAttribute({"from", xmlStream->getJID()->description});
-            IQElement->addAttribute({"type", "get"});
-            IQElement->addAttribute({"id", uuid});
-            IQElement->addChild(XML::Element::createWithName("query", Jabber_IQ_Roster_Namespace));
-
-            xmlStream->sendData(IQElement);
+            requestRoster();
 
             xmlStream->sendData(XML::Element::createWithName("presence"));
         });
@@ -286,6 +276,52 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         }
 
         return "";
+    }
+
+
+#pragma mark User Facing Functionality
+
+    void Client::requestRoster()
+    {
+        String uuid = uuid::generate();
+
+        uniqueID_IQRequestType_map[uuid] = IQRequestType::RosterGet;
+
+        auto iqElement = XML::Element::createWithName("iq");
+        iqElement->addAttribute({"from", xmlStream->getJID()->description});
+        iqElement->addAttribute({"type", "get"});
+        iqElement->addAttribute({"id", uuid});
+        iqElement->addChild(XML::Element::createWithName("query", Jabber_IQ_Roster_Namespace));
+
+        xmlStream->sendData(iqElement);
+    }
+
+    void Client::updateRosterWithItem(StrongPointer<RosterItem> const item)
+    {
+        String uuid = uuid::generate();
+
+        uniqueID_IQRequestType_map[uuid] = IQRequestType::RosterSet;
+
+        auto iqElement = XML::Element::createWithName("iq");
+        auto queryElement = XML::Element::createWithName("query", Jabber_IQ_Roster_Namespace);
+        auto itemElement = XML::Element::createWithName("item");
+
+        iqElement->addChild(queryElement);
+        queryElement->addChild(itemElement);
+
+        iqElement->addAttribute({"from", xmlStream->getJID()->description});
+        iqElement->addAttribute({"type", "set"});
+        iqElement->addAttribute({"id", uuid});
+
+        itemElement->addAttribute({"jid", item->jid->description});
+        if (!item->name.empty()) {
+            itemElement->addAttribute({"name", item->name});
+        }
+        for (auto group : item->groups) {
+            auto groupElement = XML::Element::createWithName(group);
+            auto textNode = XML::TextNode::
+            itemElement->addChild(<#StrongPointer<rambler::XML::Element> child#>)
+        }
     }
 
 }}}}
