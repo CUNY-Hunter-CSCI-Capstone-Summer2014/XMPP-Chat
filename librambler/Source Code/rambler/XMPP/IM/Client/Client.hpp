@@ -14,6 +14,7 @@
 #include "rambler/XMPP/IM/Client/IQRequestType.hpp"
 
 #include "rambler/XMPP/IM/Client/Message.hpp"
+#include "rambler/XMPP/IM/Client/Presence.hpp"
 #include "rambler/XMPP/IM/Client/RosterItem.hpp"
 
 namespace rambler { namespace XMPP { namespace IM { namespace Client {
@@ -21,6 +22,10 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     class Client {
     public:
         using ClientRunloop = function<void(void)>;
+
+        using PresenceUpdatedEventHandler = function<void(StrongPointer<Presence const> const,
+                                                          StrongPointer<JID const> const)>;
+
         using RosterItemReceivedEventHandler = function<void(StrongPointer<RosterItem const> const)>;
         using RosterItemUpdatedEventHandler = function<void(StrongPointer<RosterItem const> const)>;
         using PasswordRequiredEventHandler = function<String(String)>;
@@ -54,6 +59,14 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         void handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem);
         void handleRosterItemUpdatedEvent(StrongPointer<RosterItem const> const rosterItem);
 
+#pragma mark Presence Management
+
+        RAMBLER_API void updatePresence(StrongPointer<Presence const> const presence);
+
+        RAMBLER_API void setPresenceUpdatedEventHandler(PresenceUpdatedEventHandler eventHandler);
+
+        void handlePresenceUpdatedEvent(StrongPointer<Presence const> const presence,
+                                        StrongPointer<JID const> const jid);
 
     private:
         static String ChatStates_Namespace_String;
@@ -77,6 +90,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         String getPasswordForJID(StrongPointer<JID const> jid);
         void run();
 
+        PresenceUpdatedEventHandler presenceUpdatedEventHandler;
         RosterItemReceivedEventHandler rosterItemReceivedEventHandler;
         RosterItemUpdatedEventHandler rosterItemUpdatedEventHandler;
         PasswordRequiredEventHandler passwordRequiredEventHandler;

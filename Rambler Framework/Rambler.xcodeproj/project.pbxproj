@@ -484,11 +484,11 @@
 				07D9D969197830D50017D850 /* IQRequestType.hpp */,
 				075097601973678800CBBA60 /* Message.hpp */,
 				075097611973679400CBBA60 /* Message.cpp */,
+				0772D5E91983770200AC399F /* Presence.hpp */,
+				0772D5EA19837AA900AC399F /* Presence.cpp */,
 				07A3065E196F79B000D9523E /* RosterItem.hpp */,
 				07A3065D196F79B000D9523E /* RosterItem.cpp */,
 				07A30661196F79B000D9523E /* SubscriptionState.hpp */,
-				0772D5E91983770200AC399F /* Presence.hpp */,
-				0772D5EA19837AA900AC399F /* Presence.cpp */,
 			);
 			path = Client;
 			sourceTree = "<group>";

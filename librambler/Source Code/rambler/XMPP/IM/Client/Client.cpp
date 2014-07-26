@@ -167,22 +167,34 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         xmlStream->setPresenceStanzaReceivedEventHandler([this](StrongPointer<XMLStream> xmlStream,
                                                                 StrongPointer<XML::Element> stanza) {
+            StrongPointer<Presence const> presence;
             auto jid = JID::createBareJIDWithJID(JID::createJIDWithString(stanza->getAttribute("from").getValue()));
             auto type = stanza->getAttribute("type").getValue();
 
-
             if (type.empty()) {
-                String presence;
-                presence = "available";
                 auto showElement = stanza->getFirstElementByName("show");
                 if (showElement) {
-                    presence = showElement->getTextContent();
+                    auto value = showElement->getTextContent();
+                    if (value == "chat") {
+                        presence = Presence::createWithState(Presence::State::WantsToChat);
+                    } else if (value == "dnd") {
+                        presence = Presence::createWithState(Presence::State::DoNotDisturb);
+                    } else if (value == "away") {
+                        presence = Presence::createWithState(Presence::State::Away);
+                    } else if (value == "xa") {
+                        presence = Presence::createWithState(Presence::State::ExtendedAway);
+                    }
+                } else {
+                    presence = Presence::createWithState(Presence::State::Available);
                 }
-#warning replace this with a new event handler
-//                rosterList->updatePresenceForItem(jid, presence);
+
+                if (presence) {
+                    handlePresenceUpdatedEvent(presence, jid);
+                }
             } else if (type == "unavailable") {
-#warning replace this with a new event handler
-//                rosterList->updatePresenceForItem(jid, type);
+                presence = Presence::createWithState(Presence::State::Unavailable);
+
+                handlePresenceUpdatedEvent(presence, jid);
             }
 
 
@@ -265,6 +277,26 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
 
     /* User facing functionality */
+
+#pragma mark Presence Management
+
+    void Client::updatePresence(StrongPointer<Presence const> const presence)
+    {
+#warning TODO: implement this
+    }
+
+    void Client::setPresenceUpdatedEventHandler(PresenceUpdatedEventHandler eventHandler)
+    {
+        presenceUpdatedEventHandler = eventHandler;
+    }
+
+    void Client::handlePresenceUpdatedEvent(StrongPointer<Presence const> const presence,
+                                    StrongPointer<JID const> const jid)
+    {
+        if (presenceUpdatedEventHandler) {
+            presenceUpdatedEventHandler(presence, jid);
+        }
+    }
 
 #pragma mark Roster Management
 
