@@ -23,11 +23,17 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     public:
         using ClientRunloop = function<void(void)>;
 
+        using MessageReceivedEventHandler = function<void (StrongPointer<Message const> const)>;
         using PresenceReceivedEventHandler = function<void(StrongPointer<Presence const> const,
                                                           StrongPointer<JID const> const)>;
 
         using RosterItemReceivedEventHandler = function<void(StrongPointer<RosterItem const> const)>;
         using RosterItemUpdatedEventHandler = function<void(StrongPointer<RosterItem const> const)>;
+
+        using SubscriptionAcceptedEventHandler = function<void(StrongPointer<JID const> const)>;
+        using SubscriptionRejectedEventHandler = function<void(StrongPointer<JID const> const)>;
+        using SubscriptionRequestReceivedEventHandler = function<void(StrongPointer<JID const> const,
+                                                                      String const message)>;
         using PasswordRequiredEventHandler = function<String(String)>;
 
 
@@ -49,6 +55,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         RAMBLER_API void sendMessage(StrongPointer<Message const> message);
 
+        RAMBLER_API void setMessageReceivedEventHandler(MessageReceivedEventHandler eventHandler);
+
 #pragma mark Presence Exchanging
 
         RAMBLER_API void sendPresence(StrongPointer<Presence const> const presence,
@@ -64,6 +72,16 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         RAMBLER_API void setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler);
         RAMBLER_API void setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler);
+
+#pragma mark Subscription Management
+
+        RAMBLER_API void acceptSubscriptionRequest(StrongPointer<JID const> const jid);
+        RAMBLER_API void rejectSubscriptionRequest(StrongPointer<JID const> const jid);
+        RAMBLER_API void requestSubscription(StrongPointer<JID const> const jid, String const message);
+
+        RAMBLER_API void setSubscriptionAcceptedEventHandler(SubscriptionAcceptedEventHandler eventHandler);
+        RAMBLER_API void setSubscriptionRejectedEventHandler(SubscriptionRejectedEventHandler eventHandler);
+        RAMBLER_API void setSubscriptionRequestReceivedEventHandler(SubscriptionRequestReceivedEventHandler eventHandler);
 
 #pragma mark Private
     private:
@@ -88,17 +106,21 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         String getPasswordForJID(StrongPointer<JID const> jid);
         void run();
 
-        PasswordRequiredEventHandler passwordRequiredEventHandler;
+        PasswordRequiredEventHandler                passwordRequiredEventHandler;
 
-        PresenceReceivedEventHandler presenceReceivedEventHandler;
-        RosterItemReceivedEventHandler rosterItemReceivedEventHandler;
-        RosterItemUpdatedEventHandler rosterItemUpdatedEventHandler;
+        MessageReceivedEventHandler                 messageReceivedEventHandler;
+        PresenceReceivedEventHandler                presenceReceivedEventHandler;
+        RosterItemReceivedEventHandler              rosterItemReceivedEventHandler;
+        RosterItemUpdatedEventHandler               rosterItemUpdatedEventHandler;
+        SubscriptionAcceptedEventHandler            subscriptionAcceptedEventHandler;
+        SubscriptionRejectedEventHandler            subscriptionRejectedEventHandler;
+        SubscriptionRequestReceivedEventHandler     subscriptionRequestReceivedEventHandler;
 
 
         /* Event Handling */
 
-#pragma mark Stanza Handling
-        void handleIQStanzaReceivedEvent_ping(StrongPointer<XML::Element> const stanza);
+#pragma mark Message Handling
+        void handleMessageReceivedEvent(StrongPointer<Message const> const message);
 
 #pragma mark Presence Handling
         void handlePresenceReceivedEvent(StrongPointer<Presence const> const presence,
@@ -107,6 +129,16 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 #pragma mark RosterItem Handling
         void handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem);
         void handleRosterItemUpdatedEvent(StrongPointer<RosterItem const> const rosterItem);
+
+#pragma mark Subscription Handling
+
+        void handleSubscriptionAcceptedEvent(StrongPointer<JID const> const jid);
+        void handleSubscriptionRejectedEvent(StrongPointer<JID const> const jid);
+        void handleSubscriptionRequestReceivedEvent(StrongPointer<JID const> const jid, String const message);
+
+#pragma mark Stanza Handling
+        void handleIQStanzaReceivedEvent_ping(StrongPointer<XML::Element> const stanza);
+
 
     };
 
