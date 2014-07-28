@@ -35,7 +35,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                                                           StrongPointer<JID const> const)>;
 
         using RosterItemReceivedEventHandler = function<void(StrongPointer<RosterItem const> const)>;
-        using RosterItemUpdatedEventHandler = function<void(StrongPointer<RosterItem const> const)>;
 
         using JIDAcceptedSubscriptionRequestEventHandler = function<void(StrongPointer<JID const> const)>;
         using JIDCanceledSubscriptionEventHandler = function<void(StrongPointer<JID const> const)>;
@@ -78,7 +77,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         RAMBLER_API void removeItemFromRoster(StrongPointer<RosterItem const> const item);
 
         RAMBLER_API void setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler);
-        RAMBLER_API void setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler);
 
 #pragma mark Subscription Management
 
@@ -122,7 +120,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         PresenceReceivedEventHandler                presenceReceivedEventHandler;
 
         RosterItemReceivedEventHandler              rosterItemReceivedEventHandler;
-        RosterItemUpdatedEventHandler               rosterItemUpdatedEventHandler;
 
         JIDAcceptedSubscriptionRequestEventHandler  jidAcceptedSubscriptionRequestEventHandler;
         JIDCanceledSubscriptionEventHandler         jidCanceledSubscriptionEventHandler;
@@ -154,7 +151,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 #pragma mark RosterItem Handling
 
         void handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem);
-        void handleRosterItemUpdatedEvent(StrongPointer<RosterItem const> const rosterItem);
 
 #pragma mark Subscription Handling
 
@@ -167,6 +163,12 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 #pragma mark Stanza Handling
 
         void handleIQStanzaReceivedEvent_ping(StrongPointer<XML::Element> const stanza);
+
+        void handleIQStanzaReceivedEvent_rosterPush(StrongPointer<XML::Element> const stanza);
+
+#pragma mark XML Element handling
+
+        StrongPointer<RosterItem const> createRosterItemFromItemElement(StrongPointer<XML::Element> const itemElement);
 
 #pragma mark Subject for deprecation
     public:

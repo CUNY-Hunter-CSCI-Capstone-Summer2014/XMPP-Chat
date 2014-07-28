@@ -153,18 +153,6 @@
     });
 }
 
-- (void)setRosterItemUpdatedEventHandler:(RosterItemUpdatedEventHandler)rosterItemUpdatedEventHandler
-{
-    if (!rosterItemUpdatedEventHandler) {
-        return self.nativeObject->setRosterItemUpdatedEventHandler(nullptr);
-    }
-
-    self.nativeObject->setRosterItemUpdatedEventHandler(^(StrongPointer<XMPP::IM::RosterItem const> const item) {
-        rosterItemUpdatedEventHandler([[RosterItem alloc] initWithNativeObject:item]);
-    });
-
-}
-
 
 #pragma mark Subscription Management
 

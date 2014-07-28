@@ -231,11 +231,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 self.rosterListWindowController?.addRosterItem($0)
             }
 
-            self.client!.rosterItemUpdatedEventHandler = { (RosterItem item) in
-                var dummy: AnyObject
-                self.rosterListWindowController?.rosterListView?.reloadData()
-            }
-
             self.client!.passwordRequiredEventHandler = { (String username) in
                 var dummy: AnyObject
                 return self.loginWindowController!.plainAuthenticationCredentials.password

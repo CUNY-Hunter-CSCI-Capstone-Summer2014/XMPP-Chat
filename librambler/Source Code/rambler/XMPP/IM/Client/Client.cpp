@@ -11,6 +11,7 @@
 #include "rambler/uuid/uuid.hpp"
 
 #include <iostream>
+#include <cassert>
 
 namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
@@ -45,7 +46,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         });
 
         xmlStream->setIQStanzaReceivedEventHandler([this](StrongPointer<XMLStream> xmlStream, StrongPointer<XML::Element> stanza) {
-#warning TODO: modularize this
 #warning TODO: handle roster pushes
             auto typeAttribute = stanza->getAttribute("type");
             auto IQType = typeAttribute.getValue();
@@ -58,6 +58,11 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                     return handleIQStanzaReceivedEvent_ping(stanza);
                 }
 
+            } else if (IQType == "set") {
+                auto queryElement = stanza->getFirstElementByName("query", Jabber_IQ_Roster_Namespace);
+                if (queryElement != nullptr) {
+                    return handleIQStanzaReceivedEvent_rosterPush(stanza);
+                }
             } else if (IQType == "result") {
                 switch (uniqueID_IQRequestType_map[uniqueID]) {
                     case IQRequestType::RosterGet: {
@@ -68,35 +73,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                         if (queryElement != nullptr) {
                             auto itemElements = queryElement->getElementsByName("item");
                             for (auto itemElement : itemElements) {
-                                auto jidAttribute = itemElement->getAttribute("jid");
-                                auto subscriptionAttribute = itemElement->getAttribute("subscription");
-                                auto nameAttribute = itemElement->getAttribute("name");
-                                auto groupElements = itemElement->getElementsByName("group");
 
-                                auto jid = JID::createJIDWithString(jidAttribute.getValue());
-                                SubscriptionState subscription;
-                                if (subscriptionAttribute.getValue() == "none") {
-                                    subscription = SubscriptionState::None;
-                                } else if (subscriptionAttribute.getValue() == "to") {
-                                    subscription = SubscriptionState::To;
-                                } else if (subscriptionAttribute.getValue() == "from") {
-                                    subscription = SubscriptionState::From;
-                                } else if (subscriptionAttribute.getValue() == "both") {
-                                    subscription = SubscriptionState::Both;
-                                } else {
-                                    //error
-                                    std::cout << "RosterItemError!\n";
-                                    continue;
-                                }
-
-                                auto name = nameAttribute.getValue();
-
-                                std::vector<String const> groups;
-                                for (auto groupElement : groupElements) {
-                                    groups.push_back(groupElement->getTextContent());
-                                }
-
-                                auto rosterItem = RosterItem::createRosterItem(jid, subscription, name, groups);
+                                auto rosterItem = createRosterItemFromItemElement(itemElement);
 
                                 handleRosterItemReceivedEvent(rosterItem);
                                 std::cout << rosterItem->description();
@@ -494,14 +472,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     /**
      * @author Omar Stefan Evans
      */
-    void Client::setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler)
-    {
-        rosterItemUpdatedEventHandler = eventHandler;
-    }
-
-    /**
-     * @author Omar Stefan Evans
-     */
     void Client::handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem)
     {
         if (!rosterItemReceivedEventHandler) {
@@ -509,18 +479,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         }
 
         return rosterItemReceivedEventHandler(rosterItem);
-    }
-
-    /**
-     * @author Omar Stefan Evans
-     */
-    void Client::handleRosterItemUpdatedEvent(StrongPointer<RosterItem const> const rosterItem)
-    {
-        if (!rosterItemUpdatedEventHandler) {
-            return;
-        }
-
-        return rosterItemUpdatedEventHandler(rosterItem);
     }
 
 #pragma mark Subscription Management
@@ -799,5 +757,68 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         xmlStream->sendData(response);
     }
 
+    void Client::handleIQStanzaReceivedEvent_rosterPush(StrongPointer<XML::Element> const stanza)
+    {
+        auto jid = JID::createJIDWithString(stanza->getAttribute("from").getValue());
+        /* From RFC 6121, 2.1.6.
+         * A receiving client MUST ignore the stanza unless it has no 'from' attribute (i.e., implicitly from
+         * the bare JID of the user's account) or it has a 'from' attribute whose value matches the user's
+         * bare JID <user@domainpart>.
+         */
+        if (!jid || jid != JID::createBareJIDWithJID(xmlStream->getJID())) {
+            return;
+        }
+
+        auto queryElement = stanza->getFirstElementByName("query", Jabber_IQ_Roster_Namespace);
+
+        assert(queryElement != nullptr);
+
+        auto itemElement = queryElement->getFirstElementByName("item");
+
+        if (!itemElement) {
+            //error
+        }
+
+        auto rosterItem = createRosterItemFromItemElement(itemElement);
+
+        std::cout << rosterItem->description();
+
+        handleRosterItemReceivedEvent(rosterItem);
+    }
+
+    StrongPointer<RosterItem const> Client::createRosterItemFromItemElement(StrongPointer<XML::Element> const itemElement)
+    {
+        assert(itemElement != nullptr);
+        assert(itemElement->getName() == "item");
+
+        auto jidAttribute = itemElement->getAttribute("jid");
+        auto subscriptionAttribute = itemElement->getAttribute("subscription");
+        auto nameAttribute = itemElement->getAttribute("name");
+        auto groupElements = itemElement->getElementsByName("group");
+
+        auto jid = JID::createJIDWithString(jidAttribute.getValue());
+        SubscriptionState subscription;
+        if (subscriptionAttribute.getValue() == "none") {
+            subscription = SubscriptionState::None;
+        } else if (subscriptionAttribute.getValue() == "to") {
+            subscription = SubscriptionState::To;
+        } else if (subscriptionAttribute.getValue() == "from") {
+            subscription = SubscriptionState::From;
+        } else if (subscriptionAttribute.getValue() == "both") {
+            subscription = SubscriptionState::Both;
+        } else {
+            //error
+            return nullptr;
+        }
+
+        auto name = nameAttribute.getValue();
+
+        std::vector<String const> groups;
+        for (auto groupElement : groupElements) {
+            groups.push_back(groupElement->getTextContent());
+        }
+
+        return RosterItem::createRosterItem(jid, subscription, name, groups);
+    }
 
 }}}}
