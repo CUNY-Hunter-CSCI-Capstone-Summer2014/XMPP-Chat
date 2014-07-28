@@ -21,7 +21,10 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
     class Client {
     public:
-        using ClientRunloop = function<void(void)>;
+        using InitiatedSessionEventHandler = function<void(void)>;
+        using FailedToInitiateSessionEventHandler = function<void(void)>;
+
+        using PasswordRequiredEventHandler = function<String(String)>;
 
         using MessageReceivedEventHandler = function<void (StrongPointer<Message const> const)>;
         using PresenceReceivedEventHandler = function<void(StrongPointer<Presence const> const,
@@ -36,22 +39,20 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         using JIDUnsubscribedEventHandler = function<void(StrongPointer<JID const> const)>;
         using SubscriptionRequestReceivedEventHandler = function<void(StrongPointer<JID const> const,
                                                                       String const message)>;
-        using PasswordRequiredEventHandler = function<String(String)>;
-
-
 
 		RAMBLER_API Client(String username);
 		RAMBLER_API ~Client() = default;
-		RAMBLER_API void start();
-		RAMBLER_API void stop();
 
-		RAMBLER_API void setRunloop(ClientRunloop runloop);
+#pragma mark Session Management
 
+        RAMBLER_API void initiateSessionForUser(String username); //Not Implemented Yet
+
+        RAMBLER_API void setInitiatedSessionEventHandler(InitiatedSessionEventHandler eventHandler);
+        RAMBLER_API void setFailedToInitiateSessionEventHandler(FailedToInitiateSessionEventHandler eventHandler);
+
+#pragma mark Authentication
 
         RAMBLER_API void setPasswordRequiredEventHandler(PasswordRequiredEventHandler eventHandler);
-        String handlePasswordRequiredEvent(String username);
-
-        /* User facing functionality */
 
 #pragma mark Message Exchanging
 
@@ -100,26 +101,25 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         static StrongPointer<XML::Namespace const> Jabber_IQ_Roster_Namespace;
         static StrongPointer<XML::Namespace const> Ping_Namespace;
 
-        bool running { false };
-
-        ClientRunloop runloop;
-
-        StrongPointer<JID const> jid;
-
         StrongPointer<XMLStream> xmlStream;
 
         std::map<String, IQRequestType> uniqueID_IQRequestType_map;
         std::set<StrongPointer<JID const>> pendingSubscriptions;
 
         String getPasswordForJID(StrongPointer<JID const> jid);
-        void run();
+
+        InitiatedSessionEventHandler                initiatedSessionEventHandler;
+        FailedToInitiateSessionEventHandler         failedToInitiateSessionEventHandler;
 
         PasswordRequiredEventHandler                passwordRequiredEventHandler;
 
         MessageReceivedEventHandler                 messageReceivedEventHandler;
+
         PresenceReceivedEventHandler                presenceReceivedEventHandler;
+
         RosterItemReceivedEventHandler              rosterItemReceivedEventHandler;
         RosterItemUpdatedEventHandler               rosterItemUpdatedEventHandler;
+
         JIDAcceptedSubscriptionRequestEventHandler  jidAcceptedSubscriptionRequestEventHandler;
         JIDCanceledSubscriptionEventHandler         jidCanceledSubscriptionEventHandler;
         JIDRejectedSubscriptionRequestEventHandler  jidRejectedSubscriptionRequestEventHandler;
@@ -128,6 +128,15 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
 
         /* Event Handling */
+
+#pragma mark Session Handling
+
+        void handleInitiatedSessionEvent();
+        void handleFailedToInitiateSessionEvent();
+
+#pragma mark Authentication Handling
+
+        String handlePasswordRequiredEvent(String username);
 
 #pragma mark Message Handling
 
@@ -155,6 +164,21 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         void handleIQStanzaReceivedEvent_ping(StrongPointer<XML::Element> const stanza);
 
+#pragma mark Subject for deprecation
+    public:
+        /* Subject for deprecation */
+        using ClientRunloop = function<void(void)>;
+
+        RAMBLER_API void start();
+        RAMBLER_API void stop();
+
+        RAMBLER_API void setRunloop(ClientRunloop runloop);
+    private:
+        ClientRunloop runloop;
+
+        bool running { false };
+
+        void run();
 
     };
 

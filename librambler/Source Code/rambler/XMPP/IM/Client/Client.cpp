@@ -30,12 +30,14 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     StrongPointer<XML::Namespace const>
     Client::Ping_Namespace = XML::Namespace::createWithName(Ping_Namespace_String);
 
-    Client::Client(String username) : jid(JID::createJIDWithString(username))
+    Client::Client(String username)
     {
+        auto jid = JID::createJIDWithString(username);
+
         xmlStream = std::make_shared<XMLStream>(jid);
 
-        xmlStream->setAuthenticationRequiredEventHandler([this](StrongPointer<XMLStream> xmlStream) {
-            xmlStream->authenticateSASL_Plain("", JID::createBareJIDWithJID(this->jid)->description, getPasswordForJID(jid));
+        xmlStream->setAuthenticationRequiredEventHandler([this, jid](StrongPointer<XMLStream> xmlStream) {
+            xmlStream->authenticateSASL_Plain("", JID::createBareJIDWithJID(jid)->description, getPasswordForJID(jid));
         });
 
         xmlStream->setResourceBoundEventHandler([this](StrongPointer<XMLStream> xmlStream) {
@@ -282,6 +284,53 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
 
     /* User facing functionality */
+
+#pragma mark Session Management
+
+    void Client::initiateSessionForUser(String username)
+    {
+#warning TODO
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setInitiatedSessionEventHandler(InitiatedSessionEventHandler eventHandler)
+    {
+        initiatedSessionEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setFailedToInitiateSessionEventHandler(FailedToInitiateSessionEventHandler eventHandler)
+    {
+        failedToInitiateSessionEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleInitiatedSessionEvent()
+    {
+        if (!initiatedSessionEventHandler) {
+            return;
+        }
+
+        return initiatedSessionEventHandler();
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleFailedToInitiateSessionEvent()
+    {
+        if (!failedToInitiateSessionEventHandler) {
+            return;
+        }
+
+        return failedToInitiateSessionEventHandler();
+    }
 
 #pragma mark Presence Management
 
