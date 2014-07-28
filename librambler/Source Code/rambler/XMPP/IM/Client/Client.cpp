@@ -170,47 +170,58 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
             StrongPointer<Presence const> presence;
 
             auto jid = JID::createBareJIDWithJID(JID::createJIDWithString(stanza->getAttribute("from").getValue()));
+            auto bareJID = JID::createBareJIDWithJID(jid);
             auto type = stanza->getAttribute("type").getValue();
             auto statusElement = stanza->getFirstElementByName("status");
 
-
-#warning TODO: Get status message
+            String message;
+            if (statusElement) {
+                message = statusElement->getTextContent();
+            }
 
             if (type.empty()) {
                 auto showElement = stanza->getFirstElementByName("show");
                 if (showElement) {
                     auto value = showElement->getTextContent();
                     if (value == "chat") {
-                        presence = Presence::createWithState(Presence::State::WantsToChat);
+                        presence = Presence::createWithStateAndMessage(Presence::State::WantsToChat, message);
                     } else if (value == "dnd") {
-                        presence = Presence::createWithState(Presence::State::DoNotDisturb);
+                        presence = Presence::createWithStateAndMessage(Presence::State::DoNotDisturb, message);
                     } else if (value == "away") {
-                        presence = Presence::createWithState(Presence::State::Away);
+                        presence = Presence::createWithStateAndMessage(Presence::State::Away, message);
                     } else if (value == "xa") {
-                        presence = Presence::createWithState(Presence::State::ExtendedAway);
+                        presence = Presence::createWithStateAndMessage(Presence::State::ExtendedAway, message);
                     }
                 } else {
-                    presence = Presence::createWithState(Presence::State::Available);
+                    presence = Presence::createWithStateAndMessage(Presence::State::Available, message);
                 }
 
                 if (presence) {
                     handlePresenceReceivedEvent(presence, jid);
                 }
             } else if (type == "unavailable") {
-                presence = Presence::createWithState(Presence::State::Unavailable);
+                presence = Presence::createWithStateAndMessage(Presence::State::Unavailable, message);
 
                 handlePresenceReceivedEvent(presence, jid);
             } else if (type == "subscribe") {
-                String message;
-                if (statusElement) {
-                    message = statusElement->getTextContent();
-                }
-
-                handleSubscriptionRequestReceivedEvent(jid, message);
+                handleSubscriptionRequestReceivedEvent(bareJID, message);
             } else if (type == "subscribed") {
-                this->handleSubscriptionAcceptedEvent(jid);
+                if (pendingSubscriptions.count(bareJID) > 0) {
+                    pendingSubscriptions.erase(bareJID);
+                }
+                handleJIDAcceptedSubscriptionRequestEvent(jid);
             } else if (type == "unsubscribed") {
-                this->handleSubscriptionRejectedEvent(jid);
+                if (pendingSubscriptions.count(bareJID) > 0) {
+                    pendingSubscriptions.erase(bareJID);
+
+                    handleJIDRejectedSubscriptionRequestEvent(bareJID);
+                } else {
+                    handleJIDCanceledSubscriptionEvent(bareJID);
+                }
+            } else if (type == "unsubscribe") {
+                handleJIDUnsubscribedEvent(bareJID);
+            } else {
+                //error
             }
 
 
@@ -469,7 +480,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     /**
      * @author Omar Stefan Evans
      */
-    void Client::acceptSubscriptionRequest(StrongPointer<JID const> const jid)
+    void Client::acceptSubscriptionRequestFromJID(StrongPointer<JID const> const jid)
     {
         if (!jid) {
             return;
@@ -488,7 +499,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     /**
      * @author Omar Stefan Evans
      */
-    void Client::rejectSubscriptionRequest(StrongPointer<JID const> const jid)
+    void Client::cancelSubscriptionFromJID(StrongPointer<JID const> const jid)
     {
         if (!jid) {
             return;
@@ -507,7 +518,26 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     /**
      * @author Omar Stefan Evans
      */
-    void Client::requestSubscription(StrongPointer<JID const> const jid, const String message)
+    void Client::rejectSubscriptionRequestFromJID(StrongPointer<JID const> const jid)
+    {
+        if (!jid) {
+            return;
+        }
+
+        auto bareJID = JID::createBareJIDWithJID(jid);
+        auto uuid = uuid::generate();
+        auto presenceElement = XML::Element::createWithName("presence");
+        presenceElement->addAttribute({"id", uuid});
+        presenceElement->addAttribute({"to", bareJID->description});
+        presenceElement->addAttribute({"type", "unsubscribed"});
+
+        xmlStream->sendData(presenceElement);
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::requestSubscriptionToJID(StrongPointer<JID const> const jid, const String message)
     {
         if (!jid) {
             return;
@@ -526,23 +556,59 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
             presenceElement->addChild(statusElement);
         }
 
+        pendingSubscriptions.insert(bareJID);
         xmlStream->sendData(presenceElement);
     }
 
     /**
      * @author Omar Stefan Evans
      */
-    void Client::setSubscriptionAcceptedEventHandler(SubscriptionAcceptedEventHandler eventHandler)
+    void Client::unsubscribeFromJID(StrongPointer<JID const> const jid)
     {
-        subscriptionAcceptedEventHandler = eventHandler;
+        if (!jid) {
+            return;
+        }
+
+        auto bareJID = JID::createBareJIDWithJID(jid);
+        auto uuid = uuid::generate();
+        auto presenceElement = XML::Element::createWithName("presence");
+        presenceElement->addAttribute({"id", uuid});
+        presenceElement->addAttribute({"to", bareJID->description});
+        presenceElement->addAttribute({"type", "unsubscribe"});
+
+        xmlStream->sendData(presenceElement);
     }
 
     /**
      * @author Omar Stefan Evans
      */
-    void Client::setSubscriptionRejectedEventHandler(SubscriptionAcceptedEventHandler eventHandler)
+    void Client::setJIDAcceptedSubscriptionRequestEventHandler(JIDAcceptedSubscriptionRequestEventHandler eventHandler)
     {
-        subscriptionRejectedEventHandler = eventHandler;
+        jidAcceptedSubscriptionRequestEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setJIDCanceledSubscriptionEventHandler(JIDCanceledSubscriptionEventHandler eventHandler)
+    {
+        jidCanceledSubscriptionEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setJIDRejectedSubscriptionRequestEventHandler(JIDRejectedSubscriptionRequestEventHandler eventHandler)
+    {
+        jidRejectedSubscriptionRequestEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setJIDUnsubscribedEventHandler(JIDUnsubscribedEventHandler eventHandler)
+    {
+        jidUnsubscribedEventHandler = eventHandler;
     }
 
     /**
@@ -556,25 +622,50 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     /**
      * @author Omar Stefan Evans
      */
-    void Client::handleSubscriptionAcceptedEvent(StrongPointer<JID const> const jid)
+    void Client::handleJIDAcceptedSubscriptionRequestEvent(StrongPointer<JID const> const jid)
     {
-        if (!subscriptionAcceptedEventHandler) {
+        if (!jidAcceptedSubscriptionRequestEventHandler) {
             return;
         }
 
-        return subscriptionAcceptedEventHandler(jid);
+        return jidAcceptedSubscriptionRequestEventHandler(jid);
     }
 
     /**
      * @author Omar Stefan Evans
      */
-    void Client::handleSubscriptionRejectedEvent(StrongPointer<JID const> const jid)
+    void Client::handleJIDCanceledSubscriptionEvent(StrongPointer<JID const> const jid)
     {
-        if (!subscriptionRejectedEventHandler) {
+        if (!jidCanceledSubscriptionEventHandler) {
             return;
         }
 
-        return subscriptionRejectedEventHandler(jid);
+        return jidCanceledSubscriptionEventHandler(jid);
+    }
+
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleJIDRejectedSubscriptionRequestEvent(StrongPointer<JID const> const jid)
+    {
+        if (!jidRejectedSubscriptionRequestEventHandler) {
+            return;
+        }
+
+        return jidRejectedSubscriptionRequestEventHandler(jid);
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleJIDUnsubscribedEvent(StrongPointer<JID const> const jid)
+    {
+        if (!jidUnsubscribedEventHandler) {
+            return;
+        }
+
+        return jidUnsubscribedEventHandler(jid);
     }
 
     /**

@@ -30,8 +30,10 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         using RosterItemReceivedEventHandler = function<void(StrongPointer<RosterItem const> const)>;
         using RosterItemUpdatedEventHandler = function<void(StrongPointer<RosterItem const> const)>;
 
-        using SubscriptionAcceptedEventHandler = function<void(StrongPointer<JID const> const)>;
-        using SubscriptionRejectedEventHandler = function<void(StrongPointer<JID const> const)>;
+        using JIDAcceptedSubscriptionRequestEventHandler = function<void(StrongPointer<JID const> const)>;
+        using JIDCanceledSubscriptionEventHandler = function<void(StrongPointer<JID const> const)>;
+        using JIDRejectedSubscriptionRequestEventHandler = function<void(StrongPointer<JID const> const)>;
+        using JIDUnsubscribedEventHandler = function<void(StrongPointer<JID const> const)>;
         using SubscriptionRequestReceivedEventHandler = function<void(StrongPointer<JID const> const,
                                                                       String const message)>;
         using PasswordRequiredEventHandler = function<String(String)>;
@@ -75,12 +77,17 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
 #pragma mark Subscription Management
 
-        RAMBLER_API void acceptSubscriptionRequest(StrongPointer<JID const> const jid);
-        RAMBLER_API void rejectSubscriptionRequest(StrongPointer<JID const> const jid);
-        RAMBLER_API void requestSubscription(StrongPointer<JID const> const jid, String const message);
+        RAMBLER_API void acceptSubscriptionRequestFromJID(StrongPointer<JID const> const jid);
+        RAMBLER_API void cancelSubscriptionFromJID(StrongPointer<JID const> const jid);
+        RAMBLER_API void rejectSubscriptionRequestFromJID(StrongPointer<JID const> const jid);
+        RAMBLER_API void requestSubscriptionToJID(StrongPointer<JID const> const jid, String const message);
+        RAMBLER_API void unsubscribeFromJID(StrongPointer<JID const> const jid);
 
-        RAMBLER_API void setSubscriptionAcceptedEventHandler(SubscriptionAcceptedEventHandler eventHandler);
-        RAMBLER_API void setSubscriptionRejectedEventHandler(SubscriptionRejectedEventHandler eventHandler);
+
+        RAMBLER_API void setJIDAcceptedSubscriptionRequestEventHandler(JIDAcceptedSubscriptionRequestEventHandler eventHandler);
+        RAMBLER_API void setJIDCanceledSubscriptionEventHandler(JIDCanceledSubscriptionEventHandler eventHandler);
+        RAMBLER_API void setJIDRejectedSubscriptionRequestEventHandler(JIDRejectedSubscriptionRequestEventHandler eventHandler);
+        RAMBLER_API void setJIDUnsubscribedEventHandler(JIDUnsubscribedEventHandler eventHandler);
         RAMBLER_API void setSubscriptionRequestReceivedEventHandler(SubscriptionRequestReceivedEventHandler eventHandler);
 
 #pragma mark Private
@@ -102,6 +109,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         StrongPointer<XMLStream> xmlStream;
 
         std::map<String, IQRequestType> uniqueID_IQRequestType_map;
+        std::set<StrongPointer<JID const>> pendingSubscriptions;
 
         String getPasswordForJID(StrongPointer<JID const> jid);
         void run();
@@ -112,31 +120,39 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         PresenceReceivedEventHandler                presenceReceivedEventHandler;
         RosterItemReceivedEventHandler              rosterItemReceivedEventHandler;
         RosterItemUpdatedEventHandler               rosterItemUpdatedEventHandler;
-        SubscriptionAcceptedEventHandler            subscriptionAcceptedEventHandler;
-        SubscriptionRejectedEventHandler            subscriptionRejectedEventHandler;
+        JIDAcceptedSubscriptionRequestEventHandler  jidAcceptedSubscriptionRequestEventHandler;
+        JIDCanceledSubscriptionEventHandler         jidCanceledSubscriptionEventHandler;
+        JIDRejectedSubscriptionRequestEventHandler  jidRejectedSubscriptionRequestEventHandler;
+        JIDUnsubscribedEventHandler                 jidUnsubscribedEventHandler;
         SubscriptionRequestReceivedEventHandler     subscriptionRequestReceivedEventHandler;
 
 
         /* Event Handling */
 
 #pragma mark Message Handling
+
         void handleMessageReceivedEvent(StrongPointer<Message const> const message);
 
 #pragma mark Presence Handling
+
         void handlePresenceReceivedEvent(StrongPointer<Presence const> const presence,
                                          StrongPointer<JID const> const jid);
 
 #pragma mark RosterItem Handling
+
         void handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem);
         void handleRosterItemUpdatedEvent(StrongPointer<RosterItem const> const rosterItem);
 
 #pragma mark Subscription Handling
 
-        void handleSubscriptionAcceptedEvent(StrongPointer<JID const> const jid);
-        void handleSubscriptionRejectedEvent(StrongPointer<JID const> const jid);
+        void handleJIDAcceptedSubscriptionRequestEvent(StrongPointer<JID const> const jid);
+        void handleJIDCanceledSubscriptionEvent(StrongPointer<JID const> const jid);
+        void handleJIDRejectedSubscriptionRequestEvent(StrongPointer<JID const> const jid);
+        void handleJIDUnsubscribedEvent(StrongPointer<JID const> const jid);
         void handleSubscriptionRequestReceivedEvent(StrongPointer<JID const> const jid, String const message);
 
 #pragma mark Stanza Handling
+
         void handleIQStanzaReceivedEvent_ping(StrongPointer<XML::Element> const stanza);
 
 
