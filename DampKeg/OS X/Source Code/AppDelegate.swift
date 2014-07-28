@@ -5,65 +5,7 @@
 * @details <#Detailed Description#>
 ***********************************************************************************************************************/
 
-//Element Checklist
-/* /* *********************************** */
 
-AddContact:
-    [~] Button - Create Contact
-            Element closes window, but does not add anything to the Roster.
-    [X] Button - Cancel
-
-ChatBox:
-    [_] Label - Incoming Messages
-    [_] Label - Sent Messages
-    [~] Textbox - User Textbox
-            Element can be typed into, but saves contents when window is closed.
-    [_] Button - Send Message
-
-    [_] Button - Embolden Text
-    [_] Button - Italicize Text
-    [_] Button - Underline Text
-
-    [_] Button - Change Font
-    [_] Button - Change Size
-
-ContactProfile:
-    [X] Button - OK
-    [_] Image Cell - Avatar
-    [~] Label - Contact
-            Element exists, but should change to the selected Contact's name.
-    [_] Label - Profile
-
-GroupChatBox:
-    [_] 
-
-LoginWindow:
-    [X] Textbox - Username
-    [_] Textbox - Password
-    [_] Button - Login
-
-MainMenu:
-    [_]
-
-PrefWindow:
-    [_]
-
-ProfileUpdate:
-    [_] Button - Clear Image
-    [_] Button - Browse for Images
-    [_] Button - Upload Selected Image
-
-    [_] Button - Save Changes
-    [_] Button - Discard Changes
-
-RosterList:
-    [X] Button - View Profile
-    [_] Button - Start Conversation
-    [_] Button - Add Contact
-    [_] Button - Edit Roster
-    [_] Button - Edit Profile
-
-/* *********************************** */ */
 
 import Cocoa
 import Rambler
@@ -116,7 +58,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let AddContactButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(1) as NSButton
         
         AddContactButton.target = self;
-        AddContactButton.action = "set:";
+        AddContactButton.action = "openAddContactScreen:";
         
         /* ************************************ */
         
@@ -124,8 +66,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         startConversationButton.target = self;
         startConversationButton.action = "startConversationWithSelectedContact:";
-
-        /* ************************************ */
         
 //        let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(5) as NSButton
 //        
@@ -180,7 +120,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         /* ********** DeleteContact *********** */
         /* ************************************ */
         
-        let DeleteContact: NSButton = rosterListWindowController!.window.contentView.viewWithTag(2) as NSButton
+        let DeleteContact: NSButton = rosterListWindowController!.window.contentView.viewWithTag(3) as NSButton
         
         DeleteContact.target = "self"
         DeleteContact.action = "DeletingContact";

@@ -12,12 +12,24 @@ import Rambler
 class RosterListWindowController : NSWindowController {
 
     var rosterItems = NSMutableArray()
+    var rosterItemPositions = Dictionary<JID, Int>()
 
     @IBOutlet var rosterListView: NSOutlineView?
     @IBOutlet var rosterListController: NSTreeController?
 
+    
     func addRosterItem(item: RosterItem) {
-        rosterListController?.addObject(RosterListViewItem(rosterItem: item));
+        var potentialPosition: Int? = rosterItemPositions[item.jid]
+        var viewItem = RosterListViewItem(rosterItem: item);
+
+        if let position = potentialPosition {
+            let indexPath = NSIndexPath(index: position);
+            rosterListController?.removeObjectAtArrangedObjectIndexPath(indexPath)
+            rosterListController?.insertObject(viewItem, atArrangedObjectIndexPath: indexPath)
+        } else {
+            rosterItemPositions[item.jid] = rosterItems.count
+            rosterListController?.addObject(viewItem)
+        }
 
         NSLog("%@", item.description)
     }
