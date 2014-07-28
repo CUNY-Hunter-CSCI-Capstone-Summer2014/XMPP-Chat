@@ -1,22 +1,22 @@
 /**********************************************************************************************************************
- * @file    Ramber/XMPP/IM/Client/Message.internal.h
- * @date    2014-07-13
+ * @file    Ramber/XMPP/IM/Client/RosterItem.internal.h
+ * @date    2014-07-11
  * @author  Omar Stefan Evans
  * @brief   <# Brief Description#>
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#import "Message.h"
+#import "RosterItem.h"
 #import "JID.internal.h"
 
-#include "rambler/XMPP/IM/Client/Message.hpp"
+#include "rambler/XMPP/IM/RosterItem.hpp"
 
 using namespace rambler;
 
-@interface Message ()
+@interface RosterItem ()
 
-@property (readonly, assign) StrongPointer<XMPP::IM::Client::Message const> nativeObject;
+@property (readonly, assign) StrongPointer<XMPP::IM::RosterItem const> nativeObject;
 
-- (instancetype)initWithNativeObject:(StrongPointer<XMPP::IM::Client::Message const>)aNativeObject NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithNativeObject:(StrongPointer<XMPP::IM::RosterItem const>)aNativeObject NS_DESIGNATED_INITIALIZER;
 
 @end

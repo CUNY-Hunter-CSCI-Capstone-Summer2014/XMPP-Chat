@@ -1,12 +1,11 @@
 /**********************************************************************************************************************
- * @file    ramler/XMPP/IM/Client/Client.hpp
+ * @file    ramler/XMPP/IM/Client/Client.cpp
  * @date    2014-07-16
  * @brief   <# Brief Description #>
  * @details <# Detailed Description #>
  **********************************************************************************************************************/
 
 #include "rambler/XMPP/IM/Client/Client.hpp"
-#include "rambler/XMPP/IM/Client/Message.hpp"
 
 #include "rambler/timestamp/timestamp.hpp"
 #include "rambler/uuid/uuid.hpp"
@@ -734,7 +733,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     /**
      * @author Mark Dologuin
      */
-    void Client::sendMessage(StrongPointer<const rambler::XMPP::IM::Client::Message> message)
+    void Client::sendMessage(StrongPointer<const rambler::XMPP::IM::Message> message)
     {
         //send message via the wire
 

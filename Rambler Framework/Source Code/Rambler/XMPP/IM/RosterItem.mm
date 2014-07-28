@@ -10,7 +10,7 @@
 
 @implementation RosterItem
 
-- (instancetype)initWithNativeObject:(StrongPointer<XMPP::IM::Client::RosterItem>)aNativeObject
+- (instancetype)initWithNativeObject:(StrongPointer<XMPP::IM::RosterItem const>)aNativeObject
 {
     self = [super init];
 
@@ -57,7 +57,7 @@
 {
 
     StrongPointer<XMPP::Core::JID const> jid;
-    XMPP::IM::Client::SubscriptionState state;
+    XMPP::IM::SubscriptionState state;
     String name;
     std::vector<String const> groups;
 
@@ -67,16 +67,16 @@
 
     switch (aState) {
         case None:
-            state = XMPP::IM::Client::SubscriptionState::None;
+            state = XMPP::IM::SubscriptionState::None;
             break;
         case To:
-            state = XMPP::IM::Client::SubscriptionState::To;
+            state = XMPP::IM::SubscriptionState::To;
             break;
         case From:
-            state = XMPP::IM::Client::SubscriptionState::From;
+            state = XMPP::IM::SubscriptionState::From;
             break;
         case Both:
-            state = XMPP::IM::Client::SubscriptionState::Both;
+            state = XMPP::IM::SubscriptionState::Both;
             break;
     }
 
@@ -97,7 +97,7 @@
         }
     }
 
-    return [self initWithNativeObject:XMPP::IM::Client::RosterItem::createRosterItem(jid, state, name, groups)];
+    return [self initWithNativeObject:XMPP::IM::RosterItem::createRosterItem(jid, state, name, groups)];
 
 }
 
@@ -119,13 +119,13 @@
 - (SubscriptionState)subscriptionState
 {
     switch (self.nativeObject->subscriptionState) {
-        case XMPP::IM::Client::SubscriptionState::None:
+        case XMPP::IM::SubscriptionState::None:
             return None;
-        case XMPP::IM::Client::SubscriptionState::To:
+        case XMPP::IM::SubscriptionState::To:
             return To;
-        case XMPP::IM::Client::SubscriptionState::From:
+        case XMPP::IM::SubscriptionState::From:
             return From;
-        case XMPP::IM::Client::SubscriptionState::Both:
+        case XMPP::IM::SubscriptionState::Both:
             return Both;
     }
 }

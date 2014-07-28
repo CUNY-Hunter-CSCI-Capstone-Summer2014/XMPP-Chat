@@ -9,7 +9,7 @@
 
 #include "rambler/rambler.hpp"
 
-namespace rambler { namespace XMPP { namespace IM { namespace Client {
+namespace rambler { namespace XMPP { namespace IM {
 
     struct Presence {
         enum class State {
@@ -31,4 +31,4 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         Presence(State const state, String const message);
     };
 
-}}}}
+}}}

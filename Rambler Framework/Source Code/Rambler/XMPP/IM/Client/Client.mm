@@ -74,7 +74,7 @@
         self.nativeObject->setMessageReceivedEventHandler(nullptr);
     }
 
-    self.nativeObject->setMessageReceivedEventHandler(^(StrongPointer<XMPP::IM::Client::Message const> const message) {
+    self.nativeObject->setMessageReceivedEventHandler(^(StrongPointer<XMPP::IM::Message const> const message) {
         messageReceivedEventHandler([[Message alloc] initWithNativeObject:message]);
     });
 }
@@ -116,7 +116,7 @@
         self.nativeObject->setRosterItemReceivedEventHandler(nullptr);
     }
 
-    self.nativeObject->setRosterItemReceivedEventHandler(^(StrongPointer<XMPP::IM::Client::RosterItem const> const item) {
+    self.nativeObject->setRosterItemReceivedEventHandler(^(StrongPointer<XMPP::IM::RosterItem const> const item) {
         rosterItemReceivedEventHandler([[RosterItem alloc] initWithNativeObject:item]);
     });
 }
@@ -127,7 +127,7 @@
         self.nativeObject->setRosterItemUpdatedEventHandler(nullptr);
     }
 
-    self.nativeObject->setRosterItemUpdatedEventHandler(^(StrongPointer<XMPP::IM::Client::RosterItem const> const item) {
+    self.nativeObject->setRosterItemUpdatedEventHandler(^(StrongPointer<XMPP::IM::RosterItem const> const item) {
         rosterItemUpdatedEventHandler([[RosterItem alloc] initWithNativeObject:item]);
     });
 
@@ -189,7 +189,7 @@
         self.nativeObject->setJIDAcceptedSubscriptionRequestEventHandler(nullptr);
     }
 
-    self.nativeObject->setJIDAcceptedSubscriptionRequestEventHandler(^(StrongPointer<XMPP::IM::Client::JID const> const jid) {
+    self.nativeObject->setJIDAcceptedSubscriptionRequestEventHandler(^(StrongPointer<XMPP::Core::JID const> const jid) {
         jidAcceptedSubscriptionRequestEventHandler([[JID alloc] initWithNativeObject:jid]);
     });
 }
@@ -200,7 +200,7 @@
         self.nativeObject->setJIDRejectedSubscriptionRequestEventHandler(nullptr);
     }
 
-    self.nativeObject->setJIDRejectedSubscriptionRequestEventHandler(^(StrongPointer<XMPP::IM::Client::JID const> const jid) {
+    self.nativeObject->setJIDRejectedSubscriptionRequestEventHandler(^(StrongPointer<XMPP::Core::JID const> const jid) {
         jidRejectedSubscriptionRequestEventHandler([[JID alloc] initWithNativeObject:jid]);
     });
 }
@@ -211,7 +211,7 @@
         self.nativeObject->setJIDCanceledSubscriptionEventHandler(nullptr);
     }
 
-    self.nativeObject->setJIDCanceledSubscriptionEventHandler(^(StrongPointer<XMPP::IM::Client::JID const> const jid) {
+    self.nativeObject->setJIDCanceledSubscriptionEventHandler(^(StrongPointer<XMPP::Core::JID const> const jid) {
         jidCanceledSubscriptionEventHandler([[JID alloc] initWithNativeObject:jid]);
     });
 }
@@ -222,7 +222,7 @@
         self.nativeObject->setJIDUnsubscribedEventHandler(nullptr);
     }
 
-    self.nativeObject->setJIDUnsubscribedEventHandler(^(StrongPointer<XMPP::IM::Client::JID const> const jid) {
+    self.nativeObject->setJIDUnsubscribedEventHandler(^(StrongPointer<XMPP::Core::JID const> const jid) {
         jidUnsubscribedEventHandler([[JID alloc] initWithNativeObject:jid]);
     });
 }

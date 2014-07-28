@@ -10,12 +10,16 @@
 #include "rambler/rambler.hpp"
 
 #include "rambler/XML/Namespace.hpp"
+
 #include "rambler/XMPP/Core/XMLStream.hpp"
+
+#include "rambler/XMPP/IM/Message.hpp"
+#include "rambler/XMPP/IM/Presence.hpp"
+#include "rambler/XMPP/IM/RosterItem.hpp"
+
 #include "rambler/XMPP/IM/Client/IQRequestType.hpp"
 
-#include "rambler/XMPP/IM/Client/Message.hpp"
-#include "rambler/XMPP/IM/Client/Presence.hpp"
-#include "rambler/XMPP/IM/Client/RosterItem.hpp"
+
 
 namespace rambler { namespace XMPP { namespace IM { namespace Client {
 

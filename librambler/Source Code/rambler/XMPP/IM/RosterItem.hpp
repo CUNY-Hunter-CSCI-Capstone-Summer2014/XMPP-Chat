@@ -9,9 +9,9 @@
 
 #include "rambler/types.hpp"
 #include "rambler/XMPP/Core/JID.hpp"
-#include "rambler/XMPP/IM/Client/SubscriptionState.hpp"
+#include "rambler/XMPP/IM/SubscriptionState.hpp"
 
-namespace rambler { namespace XMPP { namespace IM { namespace Client {
+namespace rambler { namespace XMPP { namespace IM {
 
     using namespace XMPP::Core;
 
@@ -49,4 +49,4 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
     };
 
-}}}}
+}}}

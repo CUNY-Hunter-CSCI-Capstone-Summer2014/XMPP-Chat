@@ -7,7 +7,7 @@
 
 #pragma once
 
-namespace rambler { namespace XMPP{ namespace IM { namespace Client{
+namespace rambler { namespace XMPP{ namespace IM {
 
     enum class SubscriptionState {
         None,
@@ -16,4 +16,4 @@ namespace rambler { namespace XMPP{ namespace IM { namespace Client{
         Both
     };
 
-}}}}
+}}}

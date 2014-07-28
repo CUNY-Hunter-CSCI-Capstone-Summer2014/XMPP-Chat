@@ -12,7 +12,7 @@ using namespace rambler;
 
 @implementation Message
 
-- (instancetype)initWithNativeObject:(StrongPointer<const XMPP::IM::Client::Message>)aNativeObject
+- (instancetype)initWithNativeObject:(StrongPointer<const XMPP::IM::Message>)aNativeObject
 {
     self = [super init];
 
@@ -77,13 +77,13 @@ using namespace rambler;
     auto timestamp  = theTimestamp == nil   ? String() : theTimestamp.UTF8String;
     auto uniqueID   = aUniqueID == nil      ? String() : aUniqueID.UTF8String;
 
-    return [self initWithNativeObject:XMPP::IM::Client::Message::createMessage(sender,
-                                                                               recipient,
-                                                                               thread,
-                                                                               subject,
-                                                                               body,
-                                                                               timestamp,
-                                                                               uniqueID)];
+    return [self initWithNativeObject:XMPP::IM::Message::createMessage(sender,
+                                                                       recipient,
+                                                                       thread,
+                                                                       subject,
+                                                                       body,
+                                                                       timestamp,
+                                                                       uniqueID)];
 }
 
 @end
