@@ -29,11 +29,8 @@
     <ClCompile Include="Source Code\rambler\XMPP\Core\XMLStream_Constants.cpp" />
     <ClCompile Include="Source Code\rambler\XMPP\Core\XMLStream_Context.cpp" />
     <ClCompile Include="Source Code\rambler\XMPP\IM\Client\Client.cpp" />
-    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\Conversation.cpp" />
-    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\ConversationController.cpp" />
-    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\Message.cpp" />
-    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\RosterItem.cpp" />
-    <ClCompile Include="Source Code\rambler\XMPP\IM\Client\RosterList.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Message.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\IM\RosterItem.cpp" />
     <ClCompile Include="Source Code\windows\dllmain.cpp" />
     <ClCompile Include="Source Code\windows\librambler.cpp" />
   </ItemGroup>
@@ -63,13 +60,10 @@
     <ClInclude Include="Source Code\rambler\XMPP\Core\XMLStreamParser.hpp" />
     <ClInclude Include="Source Code\rambler\XMPP\Core\XMLStreamParser_libxml2.hpp" />
     <ClInclude Include="Source Code\rambler\XMPP\IM\Client\Client.hpp" />
-    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\Conversation.hpp" />
-    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\ConversationController.hpp" />
     <ClInclude Include="Source Code\rambler\XMPP\IM\Client\IQRequestType.hpp" />
-    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\Message.hpp" />
-    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\RosterItem.hpp" />
-    <ClInclude Include="Source Code\rambler\XMPP\IM\Client\RosterList.hpp" />
     <ClInclude Include="Source Code\rambler\XMPP\IM\Client\SubscriptionState.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Message.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\IM\RosterItem.hpp" />
     <ClInclude Include="Source Code\windows\stdafx.h" />
     <ClInclude Include="Source Code\windows\targetver.h" />
   </ItemGroup>

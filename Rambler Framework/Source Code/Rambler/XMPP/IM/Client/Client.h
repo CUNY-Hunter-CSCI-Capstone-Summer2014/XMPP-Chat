@@ -4,6 +4,7 @@
 @class Message;
 @class Presence;
 @class RosterItem;
+@class Message;
 
 @interface Client : NSObject
 

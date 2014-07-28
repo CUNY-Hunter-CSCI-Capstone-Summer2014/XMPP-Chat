@@ -35,6 +35,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         auto jid = JID::createJIDWithString(username);
 
         xmlStream = std::make_shared<XMLStream>(jid);
+        rosterList = RosterList::createRosterList();
+        conversationController = StrongPointer<ConversationController> (new ConversationController());
 
         xmlStream->setAuthenticationRequiredEventHandler([this, jid](StrongPointer<XMLStream> xmlStream) {
             xmlStream->authenticateSASL_Plain("", JID::createBareJIDWithJID(jid)->description, getPasswordForJID(jid));

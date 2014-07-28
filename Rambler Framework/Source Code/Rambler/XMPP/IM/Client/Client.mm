@@ -3,6 +3,7 @@
 #import "Message.internal.h"
 #import "Presence.internal.h"
 #import "RosterItem.internal.h"
+#import "Message.internal.h"
 
 @implementation Client
 
