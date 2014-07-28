@@ -765,7 +765,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
          * the bare JID of the user's account) or it has a 'from' attribute whose value matches the user's
          * bare JID <user@domainpart>.
          */
-        if (!jid || jid != JID::createBareJIDWithJID(xmlStream->getJID())) {
+        if (jid && jid != JID::createBareJIDWithJID(xmlStream->getJID())) {
             return;
         }
 

@@ -126,7 +126,6 @@
 		54C1663F1975CEAA000F5B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RosterList.xib; sourceTree = "<group>"; };
 		54D0FD4F1986D0DF002B0A7E /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		54D0FD501986D0DF002B0A7E /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
-		54D0FD511986D0DF002B0A7E /* SkinnableApp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkinnableApp_Prefix.pch; sourceTree = "<group>"; };
 		54D0FD531986D0DF002B0A7E /* Default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Default.css; sourceTree = "<group>"; };
 		54D0FD541986D0DF002B0A7E /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -245,7 +244,6 @@
 			children = (
 				54D0FD4F1986D0DF002B0A7E /* AppController.h */,
 				54D0FD501986D0DF002B0A7E /* AppController.m */,
-				54D0FD511986D0DF002B0A7E /* SkinnableApp_Prefix.pch */,
 			);
 			name = Classes;
 			path = Resources/Classes;

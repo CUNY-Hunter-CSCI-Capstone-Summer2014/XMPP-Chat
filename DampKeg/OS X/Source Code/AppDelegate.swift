@@ -128,18 +128,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         /* ************************************ */
         
-        //let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(5) as NSButton
-        
-        //ContactProfileButton.target = self;
-        //ContactProfileButton.action = "openContactProfile:";
-        
+//        let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(5) as NSButton
+//        
+//        ContactProfileButton.target = self;
+//        ContactProfileButton.action = "openContactProfile:";
+
         /* ************************************ */
         
-        let EditProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(4) as NSButton
-        
-        EditProfileButton.target = self;
-        EditProfileButton.action = "editOwnProfile:";
-        
+//        let EditProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(4) as NSButton
+//        
+//        EditProfileButton.target = self;
+//        EditProfileButton.action = "editOwnProfile:";
+
         /* ************************************ */
 
         let StatusChange: NSPopUpButton? = rosterListWindowController!.window.contentView.viewWithTag(99) as? NSPopUpButton
