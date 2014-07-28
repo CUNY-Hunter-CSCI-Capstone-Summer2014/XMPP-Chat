@@ -21,6 +21,7 @@
 		0735E0FF197474D700AE5136 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FB197474D700AE5136 /* main.swift */; };
 		0735E100197474D700AE5136 /* PlainAuthenticationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FC197474D700AE5136 /* PlainAuthenticationCredentials.swift */; };
 		0735E1081974760000AE5136 /* Damp_KegTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E106197475A600AE5136 /* Damp_KegTests.swift */; };
+		07746CE119870D2F00B27FFA /* AddContactWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07746CE019870D2F00B27FFA /* AddContactWindowController.swift */; };
 		07BC4324197FE02900FFFAFB /* RosterListWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC4323197FE02900FFFAFB /* RosterListWindowController.swift */; };
 		07BC4328197FECCC00FFFAFB /* RosterListViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC4327197FECCC00FFFAFB /* RosterListViewItem.swift */; };
 		07BC432A198015F500FFFAFB /* ConversationWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC4329198015F500FFFAFB /* ConversationWindowController.swift */; };
@@ -117,6 +118,7 @@
 		0735E1041974758900AE5136 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0735E106197475A600AE5136 /* Damp_KegTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Damp_KegTests.swift; sourceTree = "<group>"; };
 		0735E10D197476A200AE5136 /* Rambler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rambler.xcodeproj; path = "../../Rambler Framework/Rambler.xcodeproj"; sourceTree = "<group>"; };
+		07746CE019870D2F00B27FFA /* AddContactWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactWindowController.swift; sourceTree = "<group>"; };
 		07BC4323197FE02900FFFAFB /* RosterListWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterListWindowController.swift; sourceTree = "<group>"; };
 		07BC4327197FECCC00FFFAFB /* RosterListViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterListViewItem.swift; sourceTree = "<group>"; };
 		07BC4329198015F500FFFAFB /* ConversationWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationWindowController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				0735E0FA197474D700AE5136 /* AppDelegate.swift */,
+				07746CE019870D2F00B27FFA /* AddContactWindowController.swift */,
 				07BC4323197FE02900FFFAFB /* RosterListWindowController.swift */,
 				0735E0FB197474D700AE5136 /* main.swift */,
 				0735E0FC197474D700AE5136 /* PlainAuthenticationCredentials.swift */,
@@ -410,6 +413,7 @@
 				07BC4324197FE02900FFFAFB /* RosterListWindowController.swift in Sources */,
 				070B9760197F6B5800873940 /* LoginWindowController.swift in Sources */,
 				07BC4328197FECCC00FFFAFB /* RosterListViewItem.swift in Sources */,
+				07746CE119870D2F00B27FFA /* AddContactWindowController.swift in Sources */,
 				54D0FD551986D0DF002B0A7E /* AppController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

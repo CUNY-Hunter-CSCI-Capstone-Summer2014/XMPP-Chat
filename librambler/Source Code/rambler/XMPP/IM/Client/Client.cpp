@@ -472,6 +472,14 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     /**
      * @author Omar Stefan Evans
      */
+    void Client::setRosterItemRemovedEventHandler(RosterItemRemovedEventHandler eventHandler)
+    {
+        rosterItemRemovedEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
     void Client::handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem)
     {
         if (!rosterItemReceivedEventHandler) {
@@ -479,6 +487,18 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         }
 
         return rosterItemReceivedEventHandler(rosterItem);
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleRosterItemRemovedEvent(StrongPointer<JID const> const jid)
+    {
+        if (!rosterItemRemovedEventHandler) {
+            return;
+        }
+
+        return rosterItemRemovedEventHandler(jid);
     }
 
 #pragma mark Subscription Management
@@ -781,9 +801,13 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
         auto rosterItem = createRosterItemFromItemElement(itemElement);
 
-        std::cout << rosterItem->description();
+        if (rosterItem) {
+            std::cout << rosterItem->description();
+            handleRosterItemReceivedEvent(rosterItem);
+        } else {
+            handleRosterItemRemovedEvent(JID::createJIDWithString(itemElement->getTextContent()));
+        }
 
-        handleRosterItemReceivedEvent(rosterItem);
     }
 
     StrongPointer<RosterItem const> Client::createRosterItemFromItemElement(StrongPointer<XML::Element> const itemElement)

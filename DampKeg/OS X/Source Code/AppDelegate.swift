@@ -12,7 +12,7 @@ import Rambler
 
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    var addContactWindowController:  NSWindowController?
+    var addContactWindowController:  AddContacttWindowController?
     var chatBoxWindowController:     NSWindowController?
     var editProfileWindowController: NSWindowController?
     var groupAddWindowController:    NSWindowController?
@@ -29,7 +29,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
         // Insert code here to initialize your application
         
-        addContactWindowController  = NSWindowController(windowNibName: "AddContact")
+        addContactWindowController  = AddContacttWindowController(windowNibName: "AddContact")
         chatBoxWindowController     = ConversationWindowController(windowNibName: "ChatBox")
         editProfileWindowController = NSWindowController(windowNibName: "ProfileUpdate")
         groupAddWindowController    = NSWindowController(windowNibName: "GroupChatBox")
@@ -54,50 +54,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         /* ************************************ */
         /* **** rosterListWindowController **** */
         /* ************************************ */
+
+        /* Add Contact Button */
+        let addContactButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(1) as NSButton
         
-        let AddContactButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(1) as NSButton
-        
-        AddContactButton.target = self;
-        AddContactButton.action = "openAddContactScreen:";
-        
-        /* ************************************ */
-        
+        addContactButton.target = self;
+        addContactButton.action = "openAddContactWindow:";
+
+        /* Start Conversation Button */
         let startConversationButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(2) as NSButton
         
         startConversationButton.target = self;
         startConversationButton.action = "startConversationWithSelectedContact:";
-        
-//        let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(5) as NSButton
-//        
-//        ContactProfileButton.target = self;
-//        ContactProfileButton.action = "openContactProfile:";
 
-        /* ************************************ */
+        /* Change Status PopUp Button */
+        let statusChangePopUpButton: NSPopUpButton? = rosterListWindowController!.window.contentView.viewWithTag(99) as? NSPopUpButton
         
-//        let EditProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(4) as NSButton
-//        
-//        EditProfileButton.target = self;
-//        EditProfileButton.action = "editOwnProfile:";
-
-        /* ************************************ */
-
-        let StatusChange: NSPopUpButton? = rosterListWindowController!.window.contentView.viewWithTag(99) as? NSPopUpButton
-        
-        for item in StatusChange!.itemArray {
+        for item in statusChangePopUpButton!.itemArray {
             if let menuItem = item as? NSMenuItem {
                 menuItem.target = self
                 menuItem.action = "editStatus:"
             }
         }
-        
-        /* *********************************** */
-        /* ****** viewProfileController ****** */
-        /* *********************************** */
-        
-        let DoneViewingProfileButton: NSButton = viewProfileController!.window.contentView.viewWithTag(1) as NSButton
-        
-        DoneViewingProfileButton.target = self;
-        DoneViewingProfileButton.action = "closeContactProfile:";
+
+        /* Remove Contact Button */
+        let deleteContactButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(3) as NSButton
+
+        deleteContactButton.target = self
+        deleteContactButton.action = "removeContact:"
         
         
         /* ************************************ */
@@ -107,24 +91,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let DoneAddingContact: NSButton = addContactWindowController!.window.contentView.viewWithTag(1) as NSButton
         
         DoneAddingContact.target = self;
-        DoneAddingContact.action = "closeAddingContactScreen:";
+        DoneAddingContact.action = "userDidCompleteAddContact:";
         
         /* ************************************ */
         
         let CancelAddingContact: NSButton = addContactWindowController!.window.contentView.viewWithTag(2) as NSButton
         
         CancelAddingContact.target = self;
-        CancelAddingContact.action = "closeAddingContactScreen:";
-        
-        /* ************************************ */
-        /* ********** DeleteContact *********** */
-        /* ************************************ */
-        
-        let DeleteContact: NSButton = rosterListWindowController!.window.contentView.viewWithTag(3) as NSButton
-        
-        DeleteContact.target = "self"
-        DeleteContact.action = "DeletingContact";
-        
+        CancelAddingContact.action = "userDidCancelAddContact:";
+
         
         /* ************************************ */
         /* ***** groupAddWindowController ***** */
@@ -240,16 +215,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /* ******** Add Contact Window ******** */
     /* ************************************ */
     
-    @IBAction func openAddContactScreen(sender: AnyObject) {
+    @IBAction func openAddContactWindow(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
             self.addContactWindowController!.showWindow(self)
         }
     }
     
-    @IBAction func closeAddingContactScreen(sender: AnyObject) {
+    @IBAction func closeAddContactWindow(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
             self.addContactWindowController!.window.orderOut(self)
+            self.addContactWindowController!.clearFields();
         }
+    }
+
+    @IBAction func userDidCompleteAddContact(sender: AnyObject) {
+        let jid = JID(string: addContactWindowController?.contactJID)
+        let name = addContactWindowController?.contactName
+
+        closeAddContactWindow(sender);
+
+        let item = RosterItem(JID: jid, subscriptionState: .None, name: name)
+        client?.updateRosterWithItem(item);
+        client?.requestSubscriptionFromJID(jid, message: nil);
+    }
+
+    @IBAction func userDidCancelAddContact(sender: AnyObject) {
+        closeAddContactWindow(sender);
     }
     
     /* ************************************ */
@@ -310,9 +301,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     /* *********************************** */
     
-    @IBAction func DeletingContact(sender: AnyObject){
-        NSOperationQueue.mainQueue().addOperationWithBlock(){
-            //Code must be implemented once source list/view completed
+    @IBAction func removeContact(sender: AnyObject){
+        let possibleSelectedObjects = self.rosterListWindowController?.rosterListController?.selectedObjects
+        if let theSelectedObjects = possibleSelectedObjects {
+            for selectedObject in theSelectedObjects {
+                if let item = selectedObject as? RosterListViewItem {
+                    self.client?.removeItemFromRoster(item.rosterItem)
+                    self.client?.unsubscribeFromJID(item.rosterItem?.jid)
+                    self.client?.cancelSubscriptionFromJID(item.rosterItem?.jid)
+                }
+            }
         }
     }
     

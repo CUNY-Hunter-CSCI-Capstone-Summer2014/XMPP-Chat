@@ -35,6 +35,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                                                           StrongPointer<JID const> const)>;
 
         using RosterItemReceivedEventHandler = function<void(StrongPointer<RosterItem const> const)>;
+        using RosterItemRemovedEventHandler = function<void(StrongPointer<JID const> const)>;
 
         using JIDAcceptedSubscriptionRequestEventHandler = function<void(StrongPointer<JID const> const)>;
         using JIDCanceledSubscriptionEventHandler = function<void(StrongPointer<JID const> const)>;
@@ -77,6 +78,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         RAMBLER_API void removeItemFromRoster(StrongPointer<RosterItem const> const item);
 
         RAMBLER_API void setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler);
+        RAMBLER_API void setRosterItemRemovedEventHandler(RosterItemRemovedEventHandler eventHandler);
 
 #pragma mark Subscription Management
 
@@ -120,6 +122,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         PresenceReceivedEventHandler                presenceReceivedEventHandler;
 
         RosterItemReceivedEventHandler              rosterItemReceivedEventHandler;
+        RosterItemRemovedEventHandler               rosterItemRemovedEventHandler;
 
         JIDAcceptedSubscriptionRequestEventHandler  jidAcceptedSubscriptionRequestEventHandler;
         JIDCanceledSubscriptionEventHandler         jidCanceledSubscriptionEventHandler;
@@ -151,6 +154,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 #pragma mark RosterItem Handling
 
         void handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem);
+        void handleRosterItemRemovedEvent(StrongPointer<JID const> const jid);
 
 #pragma mark Subscription Handling
 
