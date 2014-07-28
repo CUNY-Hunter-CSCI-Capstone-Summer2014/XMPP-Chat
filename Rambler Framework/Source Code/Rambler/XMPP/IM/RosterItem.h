@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    Rambler/XMPP/IM/Client/RosterItem.h
+ * @file    Rambler/XMPP/IM/RosterItem.h
  * @date    2014-07-11
  * @author  Omar Stefan Evans
  * @brief   <# Brief Description#>
@@ -8,16 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-#import "JID.h"
 #import "SubscriptionState.h"
+
+@class JID;
 
 @interface RosterItem : NSObject
 
 @property (readonly, strong) JID * jid;
-@property (readwrite, strong, nonatomic) NSString * name;
-@property (readwrite, assign, nonatomic) SubscriptionState subscriptionState;
-@property (readonly, strong, nonatomic) NSArray * groups;
-@property (readwrite, strong, nonatomic) NSString * presence;
+@property (readonly, strong) NSString * name;
+@property (readonly, assign) SubscriptionState subscriptionState;
+@property (readonly, strong) NSArray * groups;
 
 - (instancetype)initWithJID:(JID *)aJID
           subscriptionState:(SubscriptionState)aState

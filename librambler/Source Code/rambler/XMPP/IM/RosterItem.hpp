@@ -9,9 +9,9 @@
 
 #include "rambler/types.hpp"
 #include "rambler/XMPP/Core/JID.hpp"
-#include "rambler/XMPP/IM/Client/SubscriptionState.hpp"
+#include "rambler/XMPP/IM/SubscriptionState.hpp"
 
-namespace rambler { namespace XMPP { namespace IM { namespace Client {
+namespace rambler { namespace XMPP { namespace IM {
 
     using namespace XMPP::Core;
 
@@ -19,28 +19,27 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     public:
 
         StrongPointer<JID const>    const   jid;
-        SubscriptionState                   subscriptionState;
-        String                              name;
+        SubscriptionState           const   subscriptionState;
+        String                      const   name;
         std::vector<String const>           groups;
-        String                              presence;
 
-        static StrongPointer<RosterItem> createRosterItem(StrongPointer<JID const> jid,
+        static StrongPointer<RosterItem const> createRosterItem(StrongPointer<JID const> jid,
                                                                 SubscriptionState subscriptionState,
                                                                 String name,
                                                                 std::vector<String const> groups);
 
-        static StrongPointer<RosterItem> createRosterItem(StrongPointer<JID const> jid,
+        static StrongPointer<RosterItem const> createRosterItem(StrongPointer<JID const> jid,
                                                                 SubscriptionState subscriptionState,
                                                                 String name);
 
-        static StrongPointer<RosterItem> createRosterItem(StrongPointer<JID const> jid,
+        static StrongPointer<RosterItem const> createRosterItem(StrongPointer<JID const> jid,
                                                                 SubscriptionState subscriptionState,
                                                                 std::vector<String const> groups);
 
-        static StrongPointer<RosterItem> createRosterItem(StrongPointer<JID const> jid,
+        static StrongPointer<RosterItem const> createRosterItem(StrongPointer<JID const> jid,
                                                                 SubscriptionState subscriptionState);
 
-        String description();
+        String description() const;
 
     private:
         RosterItem(StrongPointer<JID const> jid,
@@ -50,4 +49,4 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
     };
 
-}}}}
+}}}

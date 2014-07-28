@@ -77,6 +77,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var loginWindowController:       LoginWindowController?
     var rosterListWindowController:  RosterListWindowController?
     var viewProfileController:       NSWindowController?
+    var StatusBar:                   NSPopUpButton?
 
     var conversationWindowControllers: NSMutableDictionary?
 
@@ -127,10 +128,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         /* ************************************ */
         
-        let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(5) as NSButton
+        //let ContactProfileButton: NSButton = rosterListWindowController!.window.contentView.viewWithTag(5) as NSButton
         
-        ContactProfileButton.target = self;
-        ContactProfileButton.action = "openContactProfile:";
+        //ContactProfileButton.target = self;
+        //ContactProfileButton.action = "openContactProfile:";
         
         /* ************************************ */
         
@@ -138,6 +139,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         EditProfileButton.target = self;
         EditProfileButton.action = "editOwnProfile:";
+        
+        /* ************************************ */
+
+        let StatusChange: NSPopUpButton? = rosterListWindowController!.window.contentView.viewWithTag(99) as? NSPopUpButton
+        
+        for item in StatusChange!.itemArray {
+            if let menuItem = item as? NSMenuItem {
+                menuItem.target = self
+                menuItem.action = "editStatus:"
+            }
+        }
         
         /* *********************************** */
         /* ****** viewProfileController ****** */
@@ -300,11 +312,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /* ****** Contact Profile Window ****** */
     /* ************************************ */
     
-    @IBAction func openContactProfile(sender: AnyObject) {
-        NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.viewProfileController!.showWindow(self)
-        }
-    }
+   // @IBAction func openContactProfile(sender: AnyObject) {
+      //  NSOperationQueue.mainQueue().addOperationWithBlock() {
+      //      self.viewProfileController!.showWindow(self)
+      //  }
+   // }
     
     @IBAction func closeContactProfile(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
@@ -338,8 +350,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
-    /* ************************************ */
+    /* ************************************ */ //New for changings status
     
+    @IBAction func editStatus(sender: AnyObject){
+        NSOperationQueue.mainQueue().addOperationWithBlock(){
+            
+            if let menuItem = sender as? NSMenuItem {
+                NSLog("%@", menuItem.title);
+            }
+
+            //Documentation for selecting item
+            //func selectItem(_ anObject: NSMenuItem!)
+        }
+    }
     
     /* *********************************** */
     

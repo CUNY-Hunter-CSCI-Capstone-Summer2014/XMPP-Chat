@@ -61,27 +61,28 @@ class RosterListViewItem : NSObject {
         if isGroup {
             return NSColor.controlTextColor()
         } else {
-            if let presence = rosterItem!.presence {
-                if presence == "unavailable" {
-                    return NSColor.disabledControlTextColor();
-                }
-                if presence == "available" || presence == "chat" {
-                    return NSColor.controlTextColor()
-                }
-                if presence == "away" {
-                    return NSColor(calibratedRed:0.858, green:0.175, blue:0.159, alpha:1.000)
-                }
-                if presence == "dnd" {
-                    return NSColor(calibratedRed: 0.240, green:0.393, blue:0.641, alpha:1.000)
-                }
-                if presence == "xa" {
-                    return NSColor(calibratedRed:0.525, green:0.138, blue:0.153, alpha:1.000)
-                }
-
-                return NSColor.controlTextColor()
-            } else {
-                return NSColor.disabledControlTextColor()
-            }
+//            if let presence = rosterItem!.presence {
+//                if presence == "unavailable" {
+//                    return NSColor.disabledControlTextColor();
+//                }
+//                if presence == "available" || presence == "chat" {
+//                    return NSColor.controlTextColor()
+//                }
+//                if presence == "away" {
+//                    return NSColor(calibratedRed:0.858, green:0.175, blue:0.159, alpha:1.000)
+//                }
+//                if presence == "dnd" {
+//                    return NSColor(calibratedRed: 0.240, green:0.393, blue:0.641, alpha:1.000)
+//                }
+//                if presence == "xa" {
+//                    return NSColor(calibratedRed:0.525, green:0.138, blue:0.153, alpha:1.000)
+//                }
+//
+//                return NSColor.controlTextColor()
+//            } else {
+//                return NSColor.disabledControlTextColor()
+//            }
+            return NSColor.controlTextColor();
         }
 
     }
