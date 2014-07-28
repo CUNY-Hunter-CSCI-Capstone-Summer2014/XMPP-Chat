@@ -1,6 +1,7 @@
 #import "Client.internal.h"
 #import "JID.internal.h"
 #import "Message.internal.h"
+#import "Presence.internal.h"
 #import "RosterItem.internal.h"
 
 @implementation Client
@@ -47,7 +48,7 @@
 - (void)setPasswordRequiredEventHandler:(PasswordRequiredEventHandler)passwordRequiredEventHandler
 {
     if (!passwordRequiredEventHandler) {
-        self.nativeObject->setPasswordRequiredEventHandler(nullptr);
+        return self.nativeObject->setPasswordRequiredEventHandler(nullptr);
     }
 
     self.nativeObject->setPasswordRequiredEventHandler(^(String username) {
@@ -71,7 +72,7 @@
 - (void)setMessageReceivedEventHandler:(MessageReceivedEventHandler)messageReceivedEventHandler
 {
     if (!messageReceivedEventHandler) {
-        self.nativeObject->setMessageReceivedEventHandler(nullptr);
+        return self.nativeObject->setMessageReceivedEventHandler(nullptr);
     }
 
     self.nativeObject->setMessageReceivedEventHandler(^(StrongPointer<XMPP::IM::Message const> const message) {
@@ -82,7 +83,38 @@
 
 #pragma mark Presence Exchanging
 
-#warning TODO:
+- (void)sendPresence:(Presence *)presence
+{
+    [self sendPresence:presence toJID:nil];
+}
+
+- (void)sendPresence:(Presence *)presence toJID:(JID *)jid
+{
+    if (!presence) {
+        return;
+    }
+
+    if (!jid) {
+        self.nativeObject->sendPresence(presence.nativeObject);
+    } else {
+        self.nativeObject->sendPresence(presence.nativeObject, jid.nativeObject);
+    }
+}
+
+- (void)setPresenceReceivedEventHandler:(PresenceReceivedEventHandler)presenceReceivedEventHandler
+{
+    if (!presenceReceivedEventHandler) {
+        return self.nativeObject->setPresenceReceivedEventHandler(nullptr);
+    }
+
+    self.nativeObject->setPresenceReceivedEventHandler(^(StrongPointer<XMPP::IM::Presence const> const presence,
+                                                         StrongPointer<XMPP::Core::JID const> const jid) {
+
+        Presence * aPresence = [[Presence alloc] initWithNativeObject:presence];
+        JID * aJID = [[JID alloc] initWithNativeObject:jid];
+        presenceReceivedEventHandler(aPresence, aJID);
+    });
+}
 
 
 #pragma mark Roster Management
@@ -113,7 +145,7 @@
 - (void)setRosterItemReceivedEventHandler:(RosterItemReceivedEventHandler)rosterItemReceivedEventHandler
 {
     if (!rosterItemReceivedEventHandler) {
-        self.nativeObject->setRosterItemReceivedEventHandler(nullptr);
+        return self.nativeObject->setRosterItemReceivedEventHandler(nullptr);
     }
 
     self.nativeObject->setRosterItemReceivedEventHandler(^(StrongPointer<XMPP::IM::RosterItem const> const item) {
@@ -124,7 +156,7 @@
 - (void)setRosterItemUpdatedEventHandler:(RosterItemUpdatedEventHandler)rosterItemUpdatedEventHandler
 {
     if (!rosterItemUpdatedEventHandler) {
-        self.nativeObject->setRosterItemUpdatedEventHandler(nullptr);
+        return self.nativeObject->setRosterItemUpdatedEventHandler(nullptr);
     }
 
     self.nativeObject->setRosterItemUpdatedEventHandler(^(StrongPointer<XMPP::IM::RosterItem const> const item) {
@@ -186,7 +218,7 @@
 - (void)setJidAcceptedSubscriptionRequestEventHandler:(JIDAcceptedSubscriptionRequestEventHandler)jidAcceptedSubscriptionRequestEventHandler
 {
     if (!jidAcceptedSubscriptionRequestEventHandler) {
-        self.nativeObject->setJIDAcceptedSubscriptionRequestEventHandler(nullptr);
+        return self.nativeObject->setJIDAcceptedSubscriptionRequestEventHandler(nullptr);
     }
 
     self.nativeObject->setJIDAcceptedSubscriptionRequestEventHandler(^(StrongPointer<XMPP::Core::JID const> const jid) {
@@ -197,7 +229,7 @@
 - (void)setJidRejectedSubscriptionRequestEventHandler:(JIDRejectedSubscriptionRequestEventHandler)jidRejectedSubscriptionRequestEventHandler
 {
     if (!jidRejectedSubscriptionRequestEventHandler) {
-        self.nativeObject->setJIDRejectedSubscriptionRequestEventHandler(nullptr);
+        return self.nativeObject->setJIDRejectedSubscriptionRequestEventHandler(nullptr);
     }
 
     self.nativeObject->setJIDRejectedSubscriptionRequestEventHandler(^(StrongPointer<XMPP::Core::JID const> const jid) {
@@ -208,7 +240,7 @@
 - (void)setJidCanceledSubscriptionEventHandler:(JIDCanceledSubscriptionEventHandler)jidCanceledSubscriptionEventHandler
 {
     if (!jidCanceledSubscriptionEventHandler) {
-        self.nativeObject->setJIDCanceledSubscriptionEventHandler(nullptr);
+        return self.nativeObject->setJIDCanceledSubscriptionEventHandler(nullptr);
     }
 
     self.nativeObject->setJIDCanceledSubscriptionEventHandler(^(StrongPointer<XMPP::Core::JID const> const jid) {
@@ -219,7 +251,7 @@
 - (void)setJidUnsubscribedEventHandler:(JIDUnsubscribedEventHandler)jidUnsubscribedEventHandler
 {
     if (!jidUnsubscribedEventHandler) {
-        self.nativeObject->setJIDUnsubscribedEventHandler(nullptr);
+        return self.nativeObject->setJIDUnsubscribedEventHandler(nullptr);
     }
 
     self.nativeObject->setJIDUnsubscribedEventHandler(^(StrongPointer<XMPP::Core::JID const> const jid) {
@@ -230,10 +262,11 @@
 - (void)setSubscriptionRequestedByJIDEventHandler:(SubscriptionRequestedByJIDEventHandler)subscriptionRequestedByJIDEventHandler
 {
     if (!subscriptionRequestedByJIDEventHandler) {
-        self.nativeObject->setSubscriptionRequestReceivedEventHandler(nullptr);
+        return self.nativeObject->setSubscriptionRequestReceivedEventHandler(nullptr);
     }
 
-    self.nativeObject->setSubscriptionRequestReceivedEventHandler(^(StrongPointer<XMPP::Core::JID const> const jid, String message) {
+    self.nativeObject->setSubscriptionRequestReceivedEventHandler(^(StrongPointer<XMPP::Core::JID const> const jid,
+                                                                    String message) {
         JID * aJID = [[JID alloc] initWithNativeObject:jid];
         NSString * aMessage = [[NSString alloc] initWithUTF8String:message.c_str()];
         

@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    Rambler/XMPP/IM/Client/RosterItem.h
+ * @file    Rambler/XMPP/IM/RosterItem.h
  * @date    2014-07-11
  * @author  Omar Stefan Evans
  * @brief   <# Brief Description#>
@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "JID.h"
 #import "SubscriptionState.h"
+
+@class JID;
 
 @interface RosterItem : NSObject
 

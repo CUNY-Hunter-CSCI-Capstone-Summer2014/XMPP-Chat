@@ -30,7 +30,7 @@ typedef void (^MessageReceivedEventHandler)(Message *);
 
 #pragma mark Presence Exchanging
 
-typedef void (^PresenceReceivedEventHandler)(Presence *);
+typedef void (^PresenceReceivedEventHandler)(Presence *, JID *);
 
 @property (readwrite, assign, nonatomic) PresenceReceivedEventHandler presenceReceivedEventHandler;
 

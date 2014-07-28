@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    Ramber/XMPP/IM/Client/RosterItem.mm
+ * @file    Ramber/XMPP/IM/RosterItem.mm
  * @date    2014-07-11
  * @author  Omar Stefan Evans
  * @brief   <# Brief Description#>
@@ -7,6 +7,7 @@
  **********************************************************************************************************************/
 
 #import "RosterItem.internal.h"
+#import "JID.internal.h"
 
 @implementation RosterItem
 

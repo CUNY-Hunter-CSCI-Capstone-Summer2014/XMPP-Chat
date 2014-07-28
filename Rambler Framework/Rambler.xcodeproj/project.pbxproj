@@ -30,6 +30,7 @@
 		075097621973679400CBBA60 /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 075097611973679400CBBA60 /* Message.cpp */; };
 		076FC726197789F90046A227 /* timestamp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 076FC725197789F90046A227 /* timestamp.mm */; };
 		0772D5EB19837AA900AC399F /* Presence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0772D5EA19837AA900AC399F /* Presence.cpp */; };
+		07921C8B19861D09008FCA3B /* Presence.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07921C8A19861D09008FCA3B /* Presence.mm */; };
 		079FDC321966514700F9DBC6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 079FDC311966514700F9DBC6 /* Security.framework */; };
 		07A30662196F79B000D9523E /* RosterItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A3065D196F79B000D9523E /* RosterItem.cpp */; };
 		07A30663196F79B000D9523E /* RosterItem.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 07A3065E196F79B000D9523E /* RosterItem.hpp */; };
@@ -210,6 +211,9 @@
 		076FC725197789F90046A227 /* timestamp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = timestamp.mm; sourceTree = "<group>"; };
 		0772D5E91983770200AC399F /* Presence.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Presence.hpp; sourceTree = "<group>"; };
 		0772D5EA19837AA900AC399F /* Presence.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Presence.cpp; sourceTree = "<group>"; };
+		07921C8A19861D09008FCA3B /* Presence.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = Presence.mm; path = "Source Code/Rambler/XMPP/IM/Presence.mm"; sourceTree = SOURCE_ROOT; };
+		07921C8C19861D33008FCA3B /* Presence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Presence.h; path = "Source Code/Rambler/XMPP/IM/Presence.h"; sourceTree = SOURCE_ROOT; };
+		07921C8D19861D41008FCA3B /* Presence.internal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Presence.internal.h; path = "Source Code/Rambler/XMPP/IM/Presence.internal.h"; sourceTree = SOURCE_ROOT; };
 		079FDC311966514700F9DBC6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		07A3065D196F79B000D9523E /* RosterItem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RosterItem.cpp; sourceTree = "<group>"; };
 		07A3065E196F79B000D9523E /* RosterItem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RosterItem.hpp; sourceTree = "<group>"; };
@@ -441,6 +445,9 @@
 				07F81465196E2AF300207EC1 /* Message.h */,
 				072EAA0E1973784D00B14A42 /* Message.internal.h */,
 				07F81466196E2AF300207EC1 /* Message.mm */,
+				07921C8C19861D33008FCA3B /* Presence.h */,
+				07921C8D19861D41008FCA3B /* Presence.internal.h */,
+				07921C8A19861D09008FCA3B /* Presence.mm */,
 				07F81467196E2AF300207EC1 /* RosterItem.h */,
 				07A3066F1970A13800D9523E /* RosterItem.internal.h */,
 				07F81468196E2AF300207EC1 /* RosterItem.mm */,
@@ -831,6 +838,7 @@
 				07E761FC197B852500CD1BDE /* XMLNamespace.mm in Sources */,
 				076FC726197789F90046A227 /* timestamp.mm in Sources */,
 				073A3FFB197CE6DE00DC670F /* XMLStreamParser_expat.cpp in Sources */,
+				07921C8B19861D09008FCA3B /* Presence.mm in Sources */,
 				070A852F19641B6D00798ABE /* CFNetworkBasedTCPConnection.cpp in Sources */,
 				075097621973679400CBBA60 /* Message.cpp in Sources */,
 				07DECDC71963C2F1007938D1 /* XMLStream_Constants.cpp in Sources */,

@@ -142,7 +142,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         /* ************************************ */
 
-        let StatusChange: NSPopUpButton? = rosterListWindowController!.window.contentView.viewWithTag(99) as NSPopUpButton
+        let StatusChange: NSPopUpButton? = rosterListWindowController!.window.contentView.viewWithTag(99) as? NSPopUpButton
         
         for item in StatusChange!.itemArray {
             if let menuItem = item as? NSMenuItem {

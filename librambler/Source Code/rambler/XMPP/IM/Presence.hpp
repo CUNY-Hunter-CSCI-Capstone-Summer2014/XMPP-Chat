@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    rambler/XMPP/IM/Client/Presence.hpp
+ * @file    rambler/XMPP/IM/Presence.hpp
  * @date    <# Modified Date #>
  * @brief   <# Brief Description #>
  * @details <# Detailed Description #>

@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    Ramber/XMPP/IM/Client/Message.internal.h
+ * @file    Ramber/XMPP/IM/Message.internal.h
  * @date    2014-07-13
  * @author  Omar Stefan Evans
  * @brief   <# Brief Description#>
@@ -7,7 +7,6 @@
  **********************************************************************************************************************/
 
 #import "Message.h"
-#import "JID.internal.h"
 
 #include "rambler/XMPP/IM/Message.hpp"
 
