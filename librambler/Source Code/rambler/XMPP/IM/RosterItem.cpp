@@ -5,9 +5,9 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#include "rambler/XMPP/IM/Client/RosterItem.hpp"
+#include "rambler/XMPP/IM/RosterItem.hpp"
 
-namespace rambler { namespace XMPP { namespace IM { namespace Client {
+namespace rambler { namespace XMPP { namespace IM {
 
     StrongPointer<RosterItem const> RosterItem::createRosterItem(StrongPointer<JID const> jid,
                                                                  SubscriptionState subscriptionState,
@@ -96,4 +96,4 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         return description;
     }
 
-}}}}
+}}}

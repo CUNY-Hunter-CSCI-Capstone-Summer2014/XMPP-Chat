@@ -25,8 +25,12 @@
 		07BC4328197FECCC00FFFAFB /* RosterListViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC4327197FECCC00FFFAFB /* RosterListViewItem.swift */; };
 		07BC432A198015F500FFFAFB /* ConversationWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC4329198015F500FFFAFB /* ConversationWindowController.swift */; };
 		5403B53C1975AF7300327BFA /* GroupChatBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5403B53A1975AF7300327BFA /* GroupChatBox.xib */; };
+		54590CF61986CE58006F82D5 /* ChatWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54590CF41986CE58006F82D5 /* ChatWindow.xib */; };
 		54C166401975CEAA000F5B9E /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C1663C1975CEAA000F5B9E /* LoginWindow.xib */; };
 		54C166411975CEAA000F5B9E /* RosterList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54C1663E1975CEAA000F5B9E /* RosterList.xib */; };
+		54D0FD551986D0DF002B0A7E /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D0FD501986D0DF002B0A7E /* AppController.m */; };
+		54D0FD561986D0DF002B0A7E /* Default.css in Resources */ = {isa = PBXBuildFile; fileRef = 54D0FD531986D0DF002B0A7E /* Default.css */; };
+		54D0FD571986D0DF002B0A7E /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 54D0FD541986D0DF002B0A7E /* index.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,8 +121,14 @@
 		07BC4327197FECCC00FFFAFB /* RosterListViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterListViewItem.swift; sourceTree = "<group>"; };
 		07BC4329198015F500FFFAFB /* ConversationWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationWindowController.swift; sourceTree = "<group>"; };
 		5403B53B1975AF7300327BFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GroupChatBox.xib; sourceTree = "<group>"; };
+		54590CF51986CE58006F82D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ChatWindow.xib; sourceTree = "<group>"; };
 		54C1663D1975CEAA000F5B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LoginWindow.xib; sourceTree = "<group>"; };
 		54C1663F1975CEAA000F5B9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/RosterList.xib; sourceTree = "<group>"; };
+		54D0FD4F1986D0DF002B0A7E /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		54D0FD501986D0DF002B0A7E /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		54D0FD511986D0DF002B0A7E /* SkinnableApp_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkinnableApp_Prefix.pch; sourceTree = "<group>"; };
+		54D0FD531986D0DF002B0A7E /* Default.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Default.css; sourceTree = "<group>"; };
+		54D0FD541986D0DF002B0A7E /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +153,8 @@
 		0735E0AD1974732000AE5136 = {
 			isa = PBXGroup;
 			children = (
+				54D0FD4E1986D0DF002B0A7E /* Classes */,
+				54D0FD521986D0DF002B0A7E /* Themes */,
 				0735E0D9197473E300AE5136 /* Resources */,
 				0735E0D8197473D200AE5136 /* Source Code */,
 				0735E0DA197473EA00AE5136 /* Tests */,
@@ -188,6 +200,7 @@
 				0735E0EB1974747100AE5136 /* ProfileUpdate.xib */,
 				54C1663E1975CEAA000F5B9E /* RosterList.xib */,
 				0735E0DB1974744500AE5136 /* Info.plist */,
+				54590CF41986CE58006F82D5 /* ChatWindow.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -225,6 +238,27 @@
 				07461ECD1974E99D002B3DF3 /* Example Client (Objective-C) */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		54D0FD4E1986D0DF002B0A7E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				54D0FD4F1986D0DF002B0A7E /* AppController.h */,
+				54D0FD501986D0DF002B0A7E /* AppController.m */,
+				54D0FD511986D0DF002B0A7E /* SkinnableApp_Prefix.pch */,
+			);
+			name = Classes;
+			path = Resources/Classes;
+			sourceTree = "<group>";
+		};
+		54D0FD521986D0DF002B0A7E /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				54D0FD531986D0DF002B0A7E /* Default.css */,
+				54D0FD541986D0DF002B0A7E /* index.html */,
+			);
+			name = Themes;
+			path = Resources/Themes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,11 +378,14 @@
 				54C166411975CEAA000F5B9E /* RosterList.xib in Resources */,
 				0735E0F11974747100AE5136 /* ContactProfile.xib in Resources */,
 				54C166401975CEAA000F5B9E /* LoginWindow.xib in Resources */,
+				54D0FD571986D0DF002B0A7E /* index.html in Resources */,
 				0735E0F01974747100AE5136 /* ChatBox.xib in Resources */,
 				0735E0F61974747100AE5136 /* ProfileUpdate.xib in Resources */,
 				0735E0F91974748A00AE5136 /* Images.xcassets in Resources */,
 				0735E0EF1974747100AE5136 /* AddContact.xib in Resources */,
+				54D0FD561986D0DF002B0A7E /* Default.css in Resources */,
 				0735E0F51974747100AE5136 /* PrefWindow.xib in Resources */,
+				54590CF61986CE58006F82D5 /* ChatWindow.xib in Resources */,
 				0735E0F41974747100AE5136 /* MainMenu.xib in Resources */,
 				5403B53C1975AF7300327BFA /* GroupChatBox.xib in Resources */,
 			);
@@ -375,6 +412,7 @@
 				07BC4324197FE02900FFFAFB /* RosterListWindowController.swift in Sources */,
 				070B9760197F6B5800873940 /* LoginWindowController.swift in Sources */,
 				07BC4328197FECCC00FFFAFB /* RosterListViewItem.swift in Sources */,
+				54D0FD551986D0DF002B0A7E /* AppController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +504,14 @@
 				5403B53B1975AF7300327BFA /* Base */,
 			);
 			name = GroupChatBox.xib;
+			sourceTree = "<group>";
+		};
+		54590CF41986CE58006F82D5 /* ChatWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54590CF51986CE58006F82D5 /* Base */,
+			);
+			name = ChatWindow.xib;
 			sourceTree = "<group>";
 		};
 		54C1663C1975CEAA000F5B9E /* LoginWindow.xib */ = {

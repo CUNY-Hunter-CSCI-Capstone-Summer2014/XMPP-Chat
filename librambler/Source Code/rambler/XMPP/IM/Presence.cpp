@@ -5,9 +5,9 @@
  * @details <# Detailed Description #>
  **********************************************************************************************************************/
 
-#include "rambler/XMPP/IM/Client/Presence.hpp"
+#include "rambler/XMPP/IM/Presence.hpp"
 
-namespace rambler { namespace XMPP { namespace IM { namespace Client {
+namespace rambler { namespace XMPP { namespace IM {
 
     StrongPointer<Presence const> Presence::createWithState(State const state)
     {
@@ -24,4 +24,4 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         /* Nothing to do here */
     }
 
-}}}}
+}}}

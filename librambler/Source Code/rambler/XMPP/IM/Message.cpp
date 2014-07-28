@@ -5,9 +5,9 @@
  * @details <#Detailed Description#>
  **********************************************************************************************************************/
 
-#include "rambler/XMPP/IM/Client/Message.hpp"
+#include "rambler/XMPP/IM/Message.hpp"
 
-namespace rambler { namespace XMPP { namespace IM { namespace Client {
+namespace rambler { namespace XMPP { namespace IM {
 
     StrongPointer<Message const> Message::createMessage(StrongPointer<JID const> const sender,
                                                         StrongPointer<JID const> const recipient,
@@ -76,4 +76,4 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         /* Nothing to do here */
     }
 
-}}}}
+}}}

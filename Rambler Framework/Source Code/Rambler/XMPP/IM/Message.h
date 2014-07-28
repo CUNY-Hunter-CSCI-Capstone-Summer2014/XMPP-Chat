@@ -1,5 +1,5 @@
 /**********************************************************************************************************************
- * @file    Ramber/XMPP/IM/Client/Message.h
+ * @file    Ramber/XMPP/IM/Message.h
  * @date    2014-07-13
  * @author  Omar Stefan Evans
  * @brief   <# Brief Description#>
@@ -7,7 +7,8 @@
  **********************************************************************************************************************/
 
 #import <Foundation/Foundation.h>
-#import "JID.h"
+
+@class JID;
 
 @interface Message : NSObject
 

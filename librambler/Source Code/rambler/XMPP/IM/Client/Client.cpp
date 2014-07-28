@@ -1,17 +1,17 @@
 /**********************************************************************************************************************
- * @file    ramler/XMPP/IM/Client/Client.hpp
+ * @file    ramler/XMPP/IM/Client/Client.cpp
  * @date    2014-07-16
  * @brief   <# Brief Description #>
  * @details <# Detailed Description #>
  **********************************************************************************************************************/
 
 #include "rambler/XMPP/IM/Client/Client.hpp"
-#include "rambler/XMPP/IM/Client/Message.hpp"
 
 #include "rambler/timestamp/timestamp.hpp"
 #include "rambler/uuid/uuid.hpp"
 
 #include <iostream>
+#include <cassert>
 
 namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
@@ -30,12 +30,14 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
     StrongPointer<XML::Namespace const>
     Client::Ping_Namespace = XML::Namespace::createWithName(Ping_Namespace_String);
 
-    Client::Client(String username) : jid(JID::createJIDWithString(username))
+    Client::Client(String username)
     {
-        xmlStream = std::make_shared<XMLStream>(jid);
+        auto jid = JID::createJIDWithString(username);
 
-        xmlStream->setAuthenticationRequiredEventHandler([this](StrongPointer<XMLStream> xmlStream) {
-            xmlStream->authenticateSASL_Plain("", JID::createBareJIDWithJID(this->jid)->description, getPasswordForJID(jid));
+        xmlStream = std::make_shared<XMLStream>(jid);
+        
+        xmlStream->setAuthenticationRequiredEventHandler([this, jid](StrongPointer<XMLStream> xmlStream) {
+            xmlStream->authenticateSASL_Plain("", JID::createBareJIDWithJID(jid)->description, getPasswordForJID(jid));
         });
 
         xmlStream->setResourceBoundEventHandler([this](StrongPointer<XMLStream> xmlStream) {
@@ -44,7 +46,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         });
 
         xmlStream->setIQStanzaReceivedEventHandler([this](StrongPointer<XMLStream> xmlStream, StrongPointer<XML::Element> stanza) {
-#warning TODO: modularize this
 #warning TODO: handle roster pushes
             auto typeAttribute = stanza->getAttribute("type");
             auto IQType = typeAttribute.getValue();
@@ -57,6 +58,11 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                     return handleIQStanzaReceivedEvent_ping(stanza);
                 }
 
+            } else if (IQType == "set") {
+                auto queryElement = stanza->getFirstElementByName("query", Jabber_IQ_Roster_Namespace);
+                if (queryElement != nullptr) {
+                    return handleIQStanzaReceivedEvent_rosterPush(stanza);
+                }
             } else if (IQType == "result") {
                 switch (uniqueID_IQRequestType_map[uniqueID]) {
                     case IQRequestType::RosterGet: {
@@ -67,35 +73,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
                         if (queryElement != nullptr) {
                             auto itemElements = queryElement->getElementsByName("item");
                             for (auto itemElement : itemElements) {
-                                auto jidAttribute = itemElement->getAttribute("jid");
-                                auto subscriptionAttribute = itemElement->getAttribute("subscription");
-                                auto nameAttribute = itemElement->getAttribute("name");
-                                auto groupElements = itemElement->getElementsByName("group");
 
-                                auto jid = JID::createJIDWithString(jidAttribute.getValue());
-                                SubscriptionState subscription;
-                                if (subscriptionAttribute.getValue() == "none") {
-                                    subscription = SubscriptionState::None;
-                                } else if (subscriptionAttribute.getValue() == "to") {
-                                    subscription = SubscriptionState::To;
-                                } else if (subscriptionAttribute.getValue() == "from") {
-                                    subscription = SubscriptionState::From;
-                                } else if (subscriptionAttribute.getValue() == "both") {
-                                    subscription = SubscriptionState::Both;
-                                } else {
-                                    //error
-                                    std::cout << "RosterItemError!\n";
-                                    continue;
-                                }
-
-                                auto name = nameAttribute.getValue();
-
-                                std::vector<String const> groups;
-                                for (auto groupElement : groupElements) {
-                                    groups.push_back(groupElement->getTextContent());
-                                }
-
-                                auto rosterItem = RosterItem::createRosterItem(jid, subscription, name, groups);
+                                auto rosterItem = createRosterItemFromItemElement(itemElement);
 
                                 handleRosterItemReceivedEvent(rosterItem);
                                 std::cout << rosterItem->description();
@@ -115,6 +94,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
             auto typeAttribute = stanza->getAttribute("type");
             auto messageType = typeAttribute.getValue();
 
+#warning TODO: complete this
             //Other valid types are groupchat, headline, normal, and error. Handling only for now chat for simplicity
             if (messageType == "chat") {
                 auto bodyElement = stanza->getFirstElementByName("body");
@@ -167,35 +147,60 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         xmlStream->setPresenceStanzaReceivedEventHandler([this](StrongPointer<XMLStream> xmlStream,
                                                                 StrongPointer<XML::Element> stanza) {
             StrongPointer<Presence const> presence;
-            auto jid = JID::createBareJIDWithJID(JID::createJIDWithString(stanza->getAttribute("from").getValue()));
-            auto type = stanza->getAttribute("type").getValue();
 
-#warning TODO: Get status message
+            auto jid = JID::createBareJIDWithJID(JID::createJIDWithString(stanza->getAttribute("from").getValue()));
+            auto bareJID = JID::createBareJIDWithJID(jid);
+            auto type = stanza->getAttribute("type").getValue();
+            auto statusElement = stanza->getFirstElementByName("status");
+
+            String message;
+            if (statusElement) {
+                message = statusElement->getTextContent();
+            }
 
             if (type.empty()) {
                 auto showElement = stanza->getFirstElementByName("show");
                 if (showElement) {
                     auto value = showElement->getTextContent();
                     if (value == "chat") {
-                        presence = Presence::createWithState(Presence::State::WantsToChat);
+                        presence = Presence::createWithStateAndMessage(Presence::State::WantsToChat, message);
                     } else if (value == "dnd") {
-                        presence = Presence::createWithState(Presence::State::DoNotDisturb);
+                        presence = Presence::createWithStateAndMessage(Presence::State::DoNotDisturb, message);
                     } else if (value == "away") {
-                        presence = Presence::createWithState(Presence::State::Away);
+                        presence = Presence::createWithStateAndMessage(Presence::State::Away, message);
                     } else if (value == "xa") {
-                        presence = Presence::createWithState(Presence::State::ExtendedAway);
+                        presence = Presence::createWithStateAndMessage(Presence::State::ExtendedAway, message);
                     }
                 } else {
-                    presence = Presence::createWithState(Presence::State::Available);
+                    presence = Presence::createWithStateAndMessage(Presence::State::Available, message);
                 }
 
                 if (presence) {
                     handlePresenceReceivedEvent(presence, jid);
                 }
             } else if (type == "unavailable") {
-                presence = Presence::createWithState(Presence::State::Unavailable);
+                presence = Presence::createWithStateAndMessage(Presence::State::Unavailable, message);
 
                 handlePresenceReceivedEvent(presence, jid);
+            } else if (type == "subscribe") {
+                handleSubscriptionRequestReceivedEvent(bareJID, message);
+            } else if (type == "subscribed") {
+                if (pendingSubscriptions.count(bareJID) > 0) {
+                    pendingSubscriptions.erase(bareJID);
+                }
+                handleJIDAcceptedSubscriptionRequestEvent(jid);
+            } else if (type == "unsubscribed") {
+                if (pendingSubscriptions.count(bareJID) > 0) {
+                    pendingSubscriptions.erase(bareJID);
+
+                    handleJIDRejectedSubscriptionRequestEvent(bareJID);
+                } else {
+                    handleJIDCanceledSubscriptionEvent(bareJID);
+                }
+            } else if (type == "unsubscribe") {
+                handleJIDUnsubscribedEvent(bareJID);
+            } else {
+                //error
             }
 
 
@@ -238,33 +243,11 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         }
     }
 
-    void Client::setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler)
-    {
-        rosterItemReceivedEventHandler = eventHandler;
-    }
 
-    void Client::setRosterItemUpdatedEventHandler(RosterItemUpdatedEventHandler eventHandler)
-    {
-        rosterItemUpdatedEventHandler = eventHandler;
-    }
 
     void Client::setPasswordRequiredEventHandler(PasswordRequiredEventHandler eventHandler)
     {
         passwordRequiredEventHandler = eventHandler;
-    }
-
-    void Client::handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem)
-    {
-        if (rosterItemReceivedEventHandler) {
-            rosterItemReceivedEventHandler(rosterItem);
-        }
-    }
-
-    void Client::handleRosterItemUpdatedEvent(StrongPointer<RosterItem const> const rosterItem)
-    {
-        if (rosterItemUpdatedEventHandler) {
-            rosterItemUpdatedEventHandler(rosterItem);
-        }
     }
 
     String Client::handlePasswordRequiredEvent(String username)
@@ -279,8 +262,58 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
     /* User facing functionality */
 
+#pragma mark Session Management
+
+    void Client::initiateSessionForUser(String username)
+    {
+#warning TODO
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setInitiatedSessionEventHandler(InitiatedSessionEventHandler eventHandler)
+    {
+        initiatedSessionEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setFailedToInitiateSessionEventHandler(FailedToInitiateSessionEventHandler eventHandler)
+    {
+        failedToInitiateSessionEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleInitiatedSessionEvent()
+    {
+        if (!initiatedSessionEventHandler) {
+            return;
+        }
+
+        return initiatedSessionEventHandler();
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleFailedToInitiateSessionEvent()
+    {
+        if (!failedToInitiateSessionEventHandler) {
+            return;
+        }
+
+        return failedToInitiateSessionEventHandler();
+    }
+
 #pragma mark Presence Management
 
+    /**
+     * @author Omar Stefan Evans
+     */
     void Client::sendPresence(StrongPointer<Presence const> const presence, StrongPointer<JID const> const jid)
     {
         StrongPointer<XML::Element> presenceElement = XML::Element::createWithName("presence");
@@ -328,21 +361,32 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         xmlStream->sendData(presenceElement);
     }
 
+    /**
+     * @author Omar Stefan Evans
+     */
     void Client::setPresenceReceivedEventHandler(PresenceReceivedEventHandler eventHandler)
     {
         presenceReceivedEventHandler = eventHandler;
     }
 
+    /**
+     * @author Omar Stefan Evans
+     */
     void Client::handlePresenceReceivedEvent(StrongPointer<Presence const> const presence,
                                     StrongPointer<JID const> const jid)
     {
-        if (presenceReceivedEventHandler) {
-            presenceReceivedEventHandler(presence, jid);
+        if (!presenceReceivedEventHandler) {
+            return;
         }
+
+        return presenceReceivedEventHandler(presence, jid);
     }
 
 #pragma mark Roster Management
 
+    /**
+     * @author Omar Stefan Evans
+     */
     void Client::requestRoster()
     {
         String uuid = uuid::generate();
@@ -358,6 +402,9 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         xmlStream->sendData(iqElement);
     }
 
+    /**
+     * @author Omar Stefan Evans
+     */
     void Client::updateRosterWithItem(StrongPointer<RosterItem const> const item)
     {
         String uuid = uuid::generate();
@@ -389,6 +436,9 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         xmlStream->sendData(iqElement);
     }
 
+    /**
+     * @author Omar Stefan Evans
+     */
     void Client::removeItemFromRoster(StrongPointer<RosterItem const> const item)
     {
         String uuid = uuid::generate();
@@ -411,9 +461,237 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         xmlStream->sendData(iqElement);
     }
 
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setRosterItemReceivedEventHandler(RosterItemReceivedEventHandler eventHandler)
+    {
+        rosterItemReceivedEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleRosterItemReceivedEvent(StrongPointer<RosterItem const> const rosterItem)
+    {
+        if (!rosterItemReceivedEventHandler) {
+            return;
+        }
+
+        return rosterItemReceivedEventHandler(rosterItem);
+    }
+
+#pragma mark Subscription Management
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::acceptSubscriptionRequestFromJID(StrongPointer<JID const> const jid)
+    {
+        if (!jid) {
+            return;
+        }
+
+        auto bareJID = JID::createBareJIDWithJID(jid);
+        auto uuid = uuid::generate();
+        auto presenceElement = XML::Element::createWithName("presence");
+        presenceElement->addAttribute({"id", uuid});
+        presenceElement->addAttribute({"to", bareJID->description});
+        presenceElement->addAttribute({"type", "subscribed"});
+
+        xmlStream->sendData(presenceElement);
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::cancelSubscriptionFromJID(StrongPointer<JID const> const jid)
+    {
+        if (!jid) {
+            return;
+        }
+
+        auto bareJID = JID::createBareJIDWithJID(jid);
+        auto uuid = uuid::generate();
+        auto presenceElement = XML::Element::createWithName("presence");
+        presenceElement->addAttribute({"id", uuid});
+        presenceElement->addAttribute({"to", bareJID->description});
+        presenceElement->addAttribute({"type", "unsubscribed"});
+
+        xmlStream->sendData(presenceElement);
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::rejectSubscriptionRequestFromJID(StrongPointer<JID const> const jid)
+    {
+        if (!jid) {
+            return;
+        }
+
+        auto bareJID = JID::createBareJIDWithJID(jid);
+        auto uuid = uuid::generate();
+        auto presenceElement = XML::Element::createWithName("presence");
+        presenceElement->addAttribute({"id", uuid});
+        presenceElement->addAttribute({"to", bareJID->description});
+        presenceElement->addAttribute({"type", "unsubscribed"});
+
+        xmlStream->sendData(presenceElement);
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::requestSubscriptionToJID(StrongPointer<JID const> const jid, const String message)
+    {
+        if (!jid) {
+            return;
+        }
+
+        auto bareJID = JID::createBareJIDWithJID(jid);
+        auto uuid = uuid::generate();
+        auto presenceElement = XML::Element::createWithName("presence");
+        presenceElement->addAttribute({"id", uuid});
+        presenceElement->addAttribute({"to", bareJID->description});
+        presenceElement->addAttribute({"type", "subscribe"});
+        if (!message.empty()) {
+            auto statusElement = XML::Element::createWithName("status");
+            auto textNode = XML::TextNode::createWithContent(message);
+            statusElement->addChild(textNode);
+            presenceElement->addChild(statusElement);
+        }
+
+        pendingSubscriptions.insert(bareJID);
+        xmlStream->sendData(presenceElement);
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::unsubscribeFromJID(StrongPointer<JID const> const jid)
+    {
+        if (!jid) {
+            return;
+        }
+
+        auto bareJID = JID::createBareJIDWithJID(jid);
+        auto uuid = uuid::generate();
+        auto presenceElement = XML::Element::createWithName("presence");
+        presenceElement->addAttribute({"id", uuid});
+        presenceElement->addAttribute({"to", bareJID->description});
+        presenceElement->addAttribute({"type", "unsubscribe"});
+
+        xmlStream->sendData(presenceElement);
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setJIDAcceptedSubscriptionRequestEventHandler(JIDAcceptedSubscriptionRequestEventHandler eventHandler)
+    {
+        jidAcceptedSubscriptionRequestEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setJIDCanceledSubscriptionEventHandler(JIDCanceledSubscriptionEventHandler eventHandler)
+    {
+        jidCanceledSubscriptionEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setJIDRejectedSubscriptionRequestEventHandler(JIDRejectedSubscriptionRequestEventHandler eventHandler)
+    {
+        jidRejectedSubscriptionRequestEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setJIDUnsubscribedEventHandler(JIDUnsubscribedEventHandler eventHandler)
+    {
+        jidUnsubscribedEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::setSubscriptionRequestReceivedEventHandler(SubscriptionRequestReceivedEventHandler eventHandler)
+    {
+        subscriptionRequestReceivedEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleJIDAcceptedSubscriptionRequestEvent(StrongPointer<JID const> const jid)
+    {
+        if (!jidAcceptedSubscriptionRequestEventHandler) {
+            return;
+        }
+
+        return jidAcceptedSubscriptionRequestEventHandler(jid);
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleJIDCanceledSubscriptionEvent(StrongPointer<JID const> const jid)
+    {
+        if (!jidCanceledSubscriptionEventHandler) {
+            return;
+        }
+
+        return jidCanceledSubscriptionEventHandler(jid);
+    }
+
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleJIDRejectedSubscriptionRequestEvent(StrongPointer<JID const> const jid)
+    {
+        if (!jidRejectedSubscriptionRequestEventHandler) {
+            return;
+        }
+
+        return jidRejectedSubscriptionRequestEventHandler(jid);
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleJIDUnsubscribedEvent(StrongPointer<JID const> const jid)
+    {
+        if (!jidUnsubscribedEventHandler) {
+            return;
+        }
+
+        return jidUnsubscribedEventHandler(jid);
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleSubscriptionRequestReceivedEvent(StrongPointer<JID const> const jid, String const message)
+    {
+        if (!subscriptionRequestReceivedEventHandler) {
+            return;
+        }
+
+        return subscriptionRequestReceivedEventHandler(jid, message);
+    }
+
 #pragma mark Message Exchange
 
-    void Client::sendMessage(StrongPointer<const rambler::XMPP::IM::Client::Message> message)
+    /**
+     * @author Mark Dologuin
+     */
+    void Client::sendMessage(StrongPointer<const rambler::XMPP::IM::Message> message)
     {
         //send message via the wire
 
@@ -435,12 +713,34 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         xmlStream->sendData(_message);
     }
 
+    /**
+     * @author Mark Dologuin
+     */
+    void Client::setMessageReceivedEventHandler(MessageReceivedEventHandler eventHandler)
+    {
+        messageReceivedEventHandler = eventHandler;
+    }
+
+    /**
+     * @author Omar Stefan Evans
+     */
+    void Client::handleMessageReceivedEvent(StrongPointer<Message const> const message)
+    {
+        if(!messageReceivedEventHandler){
+            return;
+        }
+
+        return messageReceivedEventHandler(message);
+    }
 
 
     /* Event Handling */
 
 #pragma mark Stanza Handling
 
+    /**
+     * @author Omar Stefan Evans
+     */
     void Client::handleIQStanzaReceivedEvent_ping(StrongPointer<XML::Element> const stanza)
     {
         std::cout << "\n[PING]\n";
@@ -457,5 +757,68 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         xmlStream->sendData(response);
     }
 
+    void Client::handleIQStanzaReceivedEvent_rosterPush(StrongPointer<XML::Element> const stanza)
+    {
+        auto jid = JID::createJIDWithString(stanza->getAttribute("from").getValue());
+        /* From RFC 6121, 2.1.6.
+         * A receiving client MUST ignore the stanza unless it has no 'from' attribute (i.e., implicitly from
+         * the bare JID of the user's account) or it has a 'from' attribute whose value matches the user's
+         * bare JID <user@domainpart>.
+         */
+        if (!jid || jid != JID::createBareJIDWithJID(xmlStream->getJID())) {
+            return;
+        }
+
+        auto queryElement = stanza->getFirstElementByName("query", Jabber_IQ_Roster_Namespace);
+
+        assert(queryElement != nullptr);
+
+        auto itemElement = queryElement->getFirstElementByName("item");
+
+        if (!itemElement) {
+            //error
+        }
+
+        auto rosterItem = createRosterItemFromItemElement(itemElement);
+
+        std::cout << rosterItem->description();
+
+        handleRosterItemReceivedEvent(rosterItem);
+    }
+
+    StrongPointer<RosterItem const> Client::createRosterItemFromItemElement(StrongPointer<XML::Element> const itemElement)
+    {
+        assert(itemElement != nullptr);
+        assert(itemElement->getName() == "item");
+
+        auto jidAttribute = itemElement->getAttribute("jid");
+        auto subscriptionAttribute = itemElement->getAttribute("subscription");
+        auto nameAttribute = itemElement->getAttribute("name");
+        auto groupElements = itemElement->getElementsByName("group");
+
+        auto jid = JID::createJIDWithString(jidAttribute.getValue());
+        SubscriptionState subscription;
+        if (subscriptionAttribute.getValue() == "none") {
+            subscription = SubscriptionState::None;
+        } else if (subscriptionAttribute.getValue() == "to") {
+            subscription = SubscriptionState::To;
+        } else if (subscriptionAttribute.getValue() == "from") {
+            subscription = SubscriptionState::From;
+        } else if (subscriptionAttribute.getValue() == "both") {
+            subscription = SubscriptionState::Both;
+        } else {
+            //error
+            return nullptr;
+        }
+
+        auto name = nameAttribute.getValue();
+
+        std::vector<String const> groups;
+        for (auto groupElement : groupElements) {
+            groups.push_back(groupElement->getTextContent());
+        }
+
+        return RosterItem::createRosterItem(jid, subscription, name, groups);
+    }
 
 }}}}

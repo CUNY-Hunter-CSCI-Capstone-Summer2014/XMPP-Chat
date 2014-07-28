@@ -13,6 +13,9 @@
 	</Window.BorderBrush>
 
     <Grid x:Name="LayoutRoot">
+    	<Grid.Background>
+    		<ImageBrush ImageSource="DAMPKEG.jpg" Stretch="Uniform"/>
+    	</Grid.Background>
         <Menu VerticalAlignment="Top">
             <MenuItem Header="File" Height="22    ">
                 <MenuItem Header="Add contact" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,-2.395,0" Width="180"/>
@@ -33,19 +36,13 @@
                 <MenuItem Header="About" HorizontalAlignment="Left" Width="139.506666666667"/>
             </MenuItem>
         </Menu>
-        <ListBox x:Name="Roster_Window" Margin="10,89.48,10,38.96" SelectionMode="Multiple" Foreground="White" FontSize="16" FontFamily="Arial" BorderBrush="#FFC37A59">
-        	<ListBox.Background>
-        		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-        			<GradientStop Color="Black" Offset="0"/>
-        			<GradientStop Color="#FFC37A59" Offset="1"/>
-        		</LinearGradientBrush>
-        	</ListBox.Background>
+        <ListBox x:Name="Roster_Window" Margin="10,89.48,10,38.96" SelectionMode="Multiple" Foreground="White" FontSize="16" FontFamily="Arial" BorderBrush="#FFC37A59" Background="White" Opacity="0.9">
 
-            <ListBoxItem x:Name="Friends" Content="-- Friends -- " FontStyle="Italic" IsEnabled="False"/>
-			<ListBoxItem x:Name="geoffrey_dampkeg_com" Content="Geoffrey@dampkeg.com" DragLeave="open_chat_window" MouseDoubleClick="open_chat_window" FontFamily="Calibri"/>
+            <ListBoxItem x:Name="Friends" Content="-- Friends -- " FontStyle="Italic" IsEnabled="False" Background="White" Foreground="Black"/>
+			<ListBoxItem x:Name="geoffrey_dampkeg_com" Content="Geoffrey@dampkeg.com" DragLeave="open_chat_window" MouseDoubleClick="open_chat_window" FontFamily="Calibri" Foreground="Black"/>
 			<ListBoxItem x:Name="Offline" Content="-- Offline -- " FontStyle="Italic" IsEnabled="False"/>
-			<ListBoxItem x:Name="Arnab" Content="Peter@facebook.com" FontFamily="Calibri" IsEnabled="False"/>
-			<ListBoxItem x:Name="Peter" Content="Arnab@yahoo.com" FontFamily="Calibri" IsEnabled="False"/>
+			<ListBoxItem x:Name="Arnab" Content="Peter@facebook.com" FontFamily="Calibri" IsEnabled="False" Foreground="Black"/>
+			<ListBoxItem x:Name="Peter" Content="Arnab@yahoo.com" FontFamily="Calibri" IsEnabled="False" Foreground="Black"/>
 
 
 
