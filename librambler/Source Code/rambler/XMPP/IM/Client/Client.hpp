@@ -79,10 +79,10 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 #pragma mark Subscription Management
 
         RAMBLER_API void acceptSubscriptionRequestFromJID(StrongPointer<JID const> const jid);
-        RAMBLER_API void cancelSubscriptionFromJID(StrongPointer<JID const> const jid);
         RAMBLER_API void rejectSubscriptionRequestFromJID(StrongPointer<JID const> const jid);
-        RAMBLER_API void requestSubscriptionToJID(StrongPointer<JID const> const jid, String const message);
+        RAMBLER_API void cancelSubscriptionFromJID(StrongPointer<JID const> const jid);
         RAMBLER_API void unsubscribeFromJID(StrongPointer<JID const> const jid);
+        RAMBLER_API void requestSubscriptionToJID(StrongPointer<JID const> const jid, String const message);
 
 
         RAMBLER_API void setJIDAcceptedSubscriptionRequestEventHandler(JIDAcceptedSubscriptionRequestEventHandler eventHandler);
