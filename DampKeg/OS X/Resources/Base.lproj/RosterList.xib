@@ -30,19 +30,9 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="eWt-M9-UW0">
+                    <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="eWt-M9-UW0">
                         <rect key="frame" x="10" y="3" width="21" height="25"/>
                         <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dDd-Xg-NAN">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v6u-kD-QAX">
-                        <rect key="frame" x="40" y="3" width="89" height="25"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="89" id="H9F-Vq-goR"/>
-                        </constraints>
-                        <buttonCell key="cell" type="roundTextured" title="Edit Roster" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EAz-FS-R3K">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -55,13 +45,6 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </searchFieldCell>
                     </searchField>
-                    <button verticalHuggingPriority="750" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="CvS-ky-hx1">
-                        <rect key="frame" x="137" y="3" width="93" height="25"/>
-                        <buttonCell key="cell" type="squareTextured" title="Edit Profile" bezelStyle="texturedSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fjA-dt-Saj">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
                     <button verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="Cb2-9o-chq">
                         <rect key="frame" x="4" y="30" width="232" height="32"/>
                         <buttonCell key="cell" type="push" title="Start a Conversation With..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FYQ-TE-hG8">
@@ -92,21 +75,21 @@
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
+                    <button verticalHuggingPriority="750" fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="KzJ-em-mZt">
+                        <rect key="frame" x="34" y="3" width="28" height="25"/>
+                        <buttonCell key="cell" type="roundTextured" title="-" alternateTitle="DeleteContact" bezelStyle="texturedRounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="B82-zu-YKx">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Cb2-9o-chq" firstAttribute="leading" secondItem="9kf-qG-P4T" secondAttribute="leading" constant="10" id="C9E-UR-2jZ"/>
-                    <constraint firstItem="v6u-kD-QAX" firstAttribute="baseline" secondItem="eWt-M9-UW0" secondAttribute="baseline" id="KHJ-uH-A2w"/>
                     <constraint firstItem="HdH-CL-dsw" firstAttribute="centerX" secondItem="9kf-qG-P4T" secondAttribute="centerX" id="Kbw-wL-aIA"/>
-                    <constraint firstAttribute="bottom" secondItem="v6u-kD-QAX" secondAttribute="bottom" constant="5" id="NLf-d5-WiX"/>
                     <constraint firstItem="HdH-CL-dsw" firstAttribute="top" secondItem="9kf-qG-P4T" secondAttribute="top" constant="6" id="Rni-6b-f7k"/>
-                    <constraint firstItem="CvS-ky-hx1" firstAttribute="leading" secondItem="v6u-kD-QAX" secondAttribute="trailing" constant="8" symbolic="YES" id="VYH-BI-3HO"/>
                     <constraint firstItem="HdH-CL-dsw" firstAttribute="leading" secondItem="9kf-qG-P4T" secondAttribute="leading" constant="3" id="gQg-2j-gtt"/>
-                    <constraint firstItem="v6u-kD-QAX" firstAttribute="leading" secondItem="eWt-M9-UW0" secondAttribute="trailing" constant="9" id="htj-ws-huz"/>
                     <constraint firstItem="Cb2-9o-chq" firstAttribute="leading" secondItem="eWt-M9-UW0" secondAttribute="leading" id="l7j-Mn-iCr"/>
                     <constraint firstAttribute="trailing" secondItem="Cb2-9o-chq" secondAttribute="trailing" constant="8" id="mad-GY-hri"/>
-                    <constraint firstItem="v6u-kD-QAX" firstAttribute="baseline" secondItem="CvS-ky-hx1" secondAttribute="baseline" id="o81-3T-953"/>
-                    <constraint firstItem="Cb2-9o-chq" firstAttribute="trailing" secondItem="CvS-ky-hx1" secondAttribute="trailing" id="wph-jM-G0O"/>
-                    <constraint firstItem="v6u-kD-QAX" firstAttribute="leading" secondItem="9kf-qG-P4T" secondAttribute="leading" constant="40" id="xtn-pK-fhb"/>
                 </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="0EEF7C02-50FF-4E12-9E67-C0E3B9A6D6B5" autosavesConfiguration="NO" displayMode="iconOnly" sizeMode="regular" id="AEB-dI-ziX">
