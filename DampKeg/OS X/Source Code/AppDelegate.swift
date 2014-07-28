@@ -77,8 +77,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var loginWindowController:       LoginWindowController?
     var rosterListWindowController:  RosterListWindowController?
     var viewProfileController:       NSWindowController?
-    var StatusBar:                   NSPopUpButton?
-
+    
     var conversationWindowControllers: NSMutableDictionary?
 
     var client: Client?;
@@ -176,6 +175,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         CancelAddingContact.target = self;
         CancelAddingContact.action = "closeAddingContactScreen:";
+        
+        /* ************************************ */
+        /* ********** DeleteContact *********** */
+        /* ************************************ */
+        
+        let DeleteContact: NSButton = rosterListWindowController!.window.contentView.viewWithTag(2) as NSButton
+        
+        DeleteContact.target = "self"
+        DeleteContact.action = "DeletingContact";
+        
         
         /* ************************************ */
         /* ***** groupAddWindowController ***** */
@@ -360,5 +369,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     /* *********************************** */
+    
+    @IBAction func DeletingContact(sender: AnyObject){
+        NSOperationQueue.mainQueue().addOperationWithBlock(){
+            //Code must be implemented once source list/view completed
+        }
+    }
     
 }
