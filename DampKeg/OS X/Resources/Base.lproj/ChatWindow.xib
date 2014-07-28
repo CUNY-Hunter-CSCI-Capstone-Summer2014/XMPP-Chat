@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6185.11"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="6185.11"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Chat Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="dVW-N3-LbM">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="335" y="342" width="585" height="543"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+            <value key="minSize" type="size" width="400" height="300"/>
+            <view key="contentView" id="Xi2-wR-gMU">
+                <rect key="frame" x="0.0" y="-10" width="585" height="543"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <webView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CHb-jq-VRq">
+                        <rect key="frame" x="20" y="155" width="545" height="263"/>
+                        <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12"/>
+                    </webView>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sBQ-K0-KGo">
+                        <rect key="frame" x="110" y="500" width="238" height="26"/>
+                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" id="Cgb-IU-F6M">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <menu key="menu" title="OtherViews" id="3dg-U4-u17">
+                                <items>
+                                    <menuItem title="Item 1" state="on" id="PcZ-Ba-whZ"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AbV-xl-acx">
+                        <rect key="frame" x="17" y="506" width="91" height="17"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Theme:" id="JZ5-Yk-R9c">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="khc-bH-NdF">
+                        <rect key="frame" x="457" y="20" width="108" height="115"/>
+                        <buttonCell key="cell" type="square" title="Send Message" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hCB-02-c8r">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                    </button>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahu-jD-oil">
+                        <rect key="frame" x="17" y="462" width="91" height="17"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Content Title:" id="WMh-c4-ltn">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rS6-zG-oXD">
+                        <rect key="frame" x="20" y="20" width="429" height="115"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="bxx-5B-weD">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <box autoresizesSubviews="NO" verticalHuggingPriority="750" fixedFrame="YES" title="Box" boxType="separator" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="uLB-Wr-oHs">
+                        <rect key="frame" x="20" y="141" width="545" height="5"/>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <font key="titleFont" metaFont="system"/>
+                    </box>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="139.5" y="225.5"/>
+        </window>
+        <menu title="AMainMenu" systemMenu="main" id="rx1-LQ-IXa" userLabel="MainMenu">
+            <items>
+                <menuItem title="NewApplication" id="NtY-w8-HXY">
+                    <menu key="submenu" title="NewApplication" systemMenu="apple" id="pK1-YK-tpW">
+                        <items>
+                            <menuItem title="About NewApplication" id="UJP-Nd-VQV">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="WnI-Q0-qEx">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Preferences…" keyEquivalent="," id="bjE-P6-Chy" userLabel="121"/>
+                            <menuItem isSeparatorItem="YES" id="Xj3-fF-bpm">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Services" id="KSc-T8-7vw">
+                                <menu key="submenu" title="Services" systemMenu="services" id="jpi-7j-LQc"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="G6x-WS-gGg">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Hide NewApplication" keyEquivalent="h" id="dfK-nK-wk8"/>
+                            <menuItem title="Hide Others" keyEquivalent="h" id="lRH-ep-k5Q">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Show All" id="vU2-XU-2pT"/>
+                            <menuItem isSeparatorItem="YES" id="VIP-1S-Iox">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Quit NewApplication" keyEquivalent="q" id="2KT-wO-xh6" userLabel="1111"/>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="File" id="dcN-Th-yOL">
+                    <menu key="submenu" title="File" id="bnh-cY-UIw">
+                        <items>
+                            <menuItem title="New" keyEquivalent="n" id="PL1-ic-HAd" userLabel="9"/>
+                            <menuItem title="Open…" keyEquivalent="o" id="Nc7-f0-4cR"/>
+                            <menuItem title="Open Recent" id="u4F-qz-d2F">
+                                <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="M6H-pN-uPT">
+                                    <items>
+                                        <menuItem title="Clear Menu" id="eI3-RF-Glt"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="LDE-Sb-SbZ" userLabel="7">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Close" keyEquivalent="w" id="ooI-hi-PJO" userLabel="1"/>
+                            <menuItem title="Save" keyEquivalent="s" id="2sB-PA-3EV" userLabel="3"/>
+                            <menuItem title="Save As…" keyEquivalent="S" id="u8M-YY-2HL" userLabel="8">
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Revert to Saved" id="OqT-T0-Hre" userLabel="10">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="eNt-5B-wh5" userLabel="2">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Page Setup..." keyEquivalent="P" id="5yl-bK-oEK" userLabel="5">
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Print…" keyEquivalent="p" id="g6y-5t-MY8" userLabel="6"/>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Edit" id="50m-oh-e4f">
+                    <menu key="submenu" title="Edit" id="kag-aL-Hx3">
+                        <items>
+                            <menuItem title="Undo" keyEquivalent="z" id="qoW-pm-DIg"/>
+                            <menuItem title="Redo" keyEquivalent="Z" id="y6b-V8-ySi">
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="cld-iy-EJm">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Cut" keyEquivalent="x" id="l4h-jh-RUQ"/>
+                            <menuItem title="Copy" keyEquivalent="c" id="REs-53-tzO"/>
+                            <menuItem title="Paste" keyEquivalent="v" id="NG5-ct-REZ"/>
+                            <menuItem title="Delete" id="fZ5-ff-NRs"/>
+                            <menuItem title="Select All" keyEquivalent="a" id="gKt-Oe-i2w"/>
+                            <menuItem isSeparatorItem="YES" id="45s-RY-YJq">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Find" id="8R6-8B-u1E">
+                                <menu key="submenu" title="Find" id="KD6-wM-0lz">
+                                    <items>
+                                        <menuItem title="Find…" tag="1" keyEquivalent="f" id="1fw-PX-yc6"/>
+                                        <menuItem title="Find Next" tag="2" keyEquivalent="g" id="rKm-Ke-gtg"/>
+                                        <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="gxi-g5-a3A">
+                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                        </menuItem>
+                                        <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="SQQ-ey-Sof"/>
+                                        <menuItem title="Jump to Selection" keyEquivalent="j" id="j1a-WP-iFd"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Spelling and Grammar" id="lux-hu-rzA">
+                                <menu key="submenu" title="Spelling and Grammar" id="XYm-gk-8YP">
+                                    <items>
+                                        <menuItem title="Show Spelling…" keyEquivalent=":" id="xyi-x5-Jjr"/>
+                                        <menuItem title="Check Spelling" keyEquivalent=";" id="e9P-Rs-5ix"/>
+                                        <menuItem title="Check Spelling While Typing" id="qzW-I5-VH1"/>
+                                        <menuItem title="Check Grammar With Spelling" id="KSY-Pq-F0q"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Substitutions" id="0QK-AN-Bcl">
+                                <menu key="submenu" title="Substitutions" id="3Mw-79-yHw">
+                                    <items>
+                                        <menuItem title="Smart Copy/Paste" tag="1" keyEquivalent="f" id="CCk-W5-Glp"/>
+                                        <menuItem title="Smart Quotes" tag="2" keyEquivalent="g" id="kg0-FL-4yh"/>
+                                        <menuItem title="Smart Links" tag="3" keyEquivalent="G" id="NKp-Rr-ifS">
+                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Speech" id="4p3-vz-Jqy">
+                                <menu key="submenu" title="Speech" id="cCy-UK-9au">
+                                    <items>
+                                        <menuItem title="Start Speaking" id="SgK-I4-vIN"/>
+                                        <menuItem title="Stop Speaking" id="uyw-uK-1UY"/>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Format" id="Lpr-zZ-awA">
+                    <menu key="submenu" title="Format" id="0px-fV-o2u">
+                        <items>
+                            <menuItem title="Show Fonts" keyEquivalent="t" id="ctC-O7-a4R"/>
+                            <menuItem title="Show Colors" keyEquivalent="C" id="YCS-Lt-PX5">
+                                <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="View" id="4ay-Z7-BZT">
+                    <menu key="submenu" title="View" id="xZx-a4-tTa">
+                        <items>
+                            <menuItem title="Show Toolbar" keyEquivalent="t" id="lSD-Nr-giK">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Customize Toolbar…" id="6Ep-XL-Szk"/>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Window" id="bq0-hP-rEi">
+                    <menu key="submenu" title="Window" systemMenu="window" id="Uar-Fu-iUB">
+                        <items>
+                            <menuItem title="Minimize" keyEquivalent="m" id="wJJ-71-7A3"/>
+                            <menuItem title="Zoom" id="cay-D2-TaE"/>
+                            <menuItem isSeparatorItem="YES" id="zaw-dm-Fax">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Bring All to Front" id="wUK-1p-jp8"/>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Help" id="B8q-kZ-B5k" userLabel="1">
+                    <menu key="submenu" title="Help" id="nO7-RP-Rkq" userLabel="2">
+                        <items>
+                            <menuItem title="NewApplication Help" keyEquivalent="?" id="F8o-Xy-hsR"/>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+        </menu>
+        <customObject id="FaL-FF-vln" customClass="AppController"/>
+    </objects>
+</document>
