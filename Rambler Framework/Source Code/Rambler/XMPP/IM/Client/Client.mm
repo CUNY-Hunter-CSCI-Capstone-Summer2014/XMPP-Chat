@@ -44,6 +44,11 @@
     delete _nativeObject;
 }
 
+- (JID *)jid
+{
+    return [[JID alloc] initWithNativeObject:self.nativeObject->getJID()];
+}
+
 #pragma mark Authentication
 
 - (void)setPasswordRequiredEventHandler:(PasswordRequiredEventHandler)passwordRequiredEventHandler

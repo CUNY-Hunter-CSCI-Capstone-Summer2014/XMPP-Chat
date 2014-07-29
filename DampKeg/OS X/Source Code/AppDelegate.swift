@@ -31,11 +31,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to initialize your application
         
         addContactWindowController  = AddContacttWindowController(windowNibName: "AddContact")
-        chatBoxWindowController     = ConversationWindowController(windowNibName: "ChatBox")
+        chatBoxWindowController     = ConversationWindowController(windowNibName: "ConversationWindow")
         editProfileWindowController = NSWindowController(windowNibName: "ProfileUpdate")
         groupAddWindowController    = NSWindowController(windowNibName: "GroupChatBox")
         loginWindowController       = LoginWindowController(windowNibName: "LoginWindow")
-        rosterListWindowController  = RosterListWindowController(windowNibName: "RosterList")
+        rosterListWindowController  = RosterListWindowController(windowNibName: "RosterListWindow")
         viewProfileController       = NSWindowController(windowNibName: "ContactProfile")
 
         conversationWindowControllers = NSMutableDictionary()
@@ -155,6 +155,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return self.loginWindowController!.plainAuthenticationCredentials.password
         }
 
+        client!.messageReceivedEventHandler = {
+            (message: Message?) in
+
+            if !message {
+                return
+            }
+
+            var jid = message!.sender.bareJID.description
+
+            var conversationWindowController: ConversationWindowController
+            if self.conversationWindowControllers![jid] {
+                conversationWindowController =
+                    self.conversationWindowControllers![jid] as ConversationWindowController
+            } else {
+                conversationWindowController = ConversationWindowController(windowNibName: "ConversationWindow")
+                conversationWindowController.partner = JID(string: jid)
+                conversationWindowController.client = self.client
+                conversationWindowController.windowTitle = "Conversation with \(jid)"
+                self.conversationWindowControllers![jid] = conversationWindowController
+            }
+
+            conversationWindowController.displayMessage(message)
+            conversationWindowController.showWindow(self)
+        }
+
         client!.presenceReceivedEventHandler = {
             (presence: Presence?, jid: JID?) in
             if presence? && jid? {
@@ -229,7 +254,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                         conversationWindowController =
                             conversationWindowControllers![item.jid] as ConversationWindowController
                     } else {
-                        conversationWindowController = ConversationWindowController(windowNibName: "ChatBox")
+                        conversationWindowController = ConversationWindowController(windowNibName: "ConversationWindow")
+                        conversationWindowController.partner = JID(string: item.jid)
+                        conversationWindowController.client = client
                         conversationWindowController.windowTitle = "Conversation with \(item.name)"
                         conversationWindowControllers![item.jid] = conversationWindowController
                     }
@@ -237,7 +264,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                     conversationWindowController.showWindow(self)
                 }
             }
-            NSLog("ping")
         }
     }
     
@@ -253,7 +279,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func closeAddContactWindow(sender: AnyObject) {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.addContactWindowController!.window.orderOut(self)
+            self.addContactWindowController!.window.close();
             self.addContactWindowController!.clearFields();
         }
     }

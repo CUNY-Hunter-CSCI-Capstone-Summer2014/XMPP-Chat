@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "rambler/types.hpp"
+#include "rambler/rambler.hpp"
 #include "rambler/XMPP/Core/JID.hpp"
 
 namespace rambler { namespace XMPP { namespace IM {

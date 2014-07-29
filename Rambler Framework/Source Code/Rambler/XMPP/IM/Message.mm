@@ -70,13 +70,13 @@ using namespace rambler;
                      timestamp:(NSString *)theTimestamp
                       uniqueID:(NSString *)aUniqueID
 {
-    auto sender     = theSender == nil      ? nullptr  : theSender.nativeObject;
-    auto recipient  = theRecipient == nil   ? nullptr  : theRecipient.nativeObject;
-    auto thread     = theThread == nil      ? String() : theThread.UTF8String;
-    auto subject    = theSubject == nil     ? String() : theSubject.UTF8String;
-    auto body       = theBody == nil        ? String() : theBody.UTF8String;
-    auto timestamp  = theTimestamp == nil   ? String() : theTimestamp.UTF8String;
-    auto uniqueID   = aUniqueID == nil      ? String() : aUniqueID.UTF8String;
+    auto sender     = theSender == nil      ? nullptr          : theSender.nativeObject;
+    auto recipient  = theRecipient == nil   ? nullptr          : theRecipient.nativeObject;
+    auto thread     = theThread == nil      ? String()         : theThread.UTF8String;
+    auto subject    = theSubject == nil     ? String()         : theSubject.UTF8String;
+    auto body       = theBody == nil        ? String()         : theBody.UTF8String;
+    auto timestamp  = theTimestamp == nil   ? timestamp::now() : theTimestamp.UTF8String;
+    auto uniqueID   = aUniqueID == nil      ? uuid::generate() : aUniqueID.UTF8String;
 
     return [self initWithNativeObject:XMPP::IM::Message::createMessage(sender,
                                                                        recipient,

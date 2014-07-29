@@ -47,6 +47,8 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 		RAMBLER_API Client(String username);
 		RAMBLER_API ~Client() = default;
 
+        RAMBLER_API StrongPointer<JID const> getJID() const;
+
 #pragma mark Session Management
 
         RAMBLER_API void initiateSessionForUser(String username); //Not Implemented Yet

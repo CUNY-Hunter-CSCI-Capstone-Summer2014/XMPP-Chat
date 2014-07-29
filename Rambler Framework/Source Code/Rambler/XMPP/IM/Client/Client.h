@@ -13,6 +13,8 @@
 - (void)start;
 - (void)stop;
 
+@property (readonly, strong) JID * jid;
+
 #pragma mark Authentication
 
 typedef NSString * (^PasswordRequiredEventHandler)(NSString *);

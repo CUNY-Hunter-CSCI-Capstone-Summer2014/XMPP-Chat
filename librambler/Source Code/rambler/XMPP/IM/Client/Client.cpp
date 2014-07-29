@@ -128,6 +128,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
                     auto message = Message::createMessage(sender, recipient, thread, subject, body, timestamp, uniqueID);
 
+                    handleMessageReceivedEvent(message);
                     std::cout << std::endl << message->description();
 
                 }
@@ -205,6 +206,11 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
 
         });
+    }
+
+    StrongPointer<JID const> Client::getJID() const
+    {
+        return xmlStream->getJID();
     }
 
     String Client::getPasswordForJID(StrongPointer<JID const> jid)

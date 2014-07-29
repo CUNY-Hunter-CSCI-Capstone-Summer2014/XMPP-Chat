@@ -11,3 +11,6 @@
 #endif
 
 #include "rambler/types.hpp"
+#include "rambler/base64/base64.hpp"
+#include "rambler/timestamp/timestamp.hpp"
+#include "rambler/uuid/uuid.hpp"
