@@ -163,6 +163,9 @@
     <ClCompile Include="Source Code\rambler\XMPP\IM\RosterItem.cpp">
       <Filter>Source Code\rambler\XMPP\IM\Client\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Presence.cpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source Code\windows\stdafx.h">
@@ -256,6 +259,9 @@
       <Filter>Source Code\rambler\XMPP\IM\Client\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source Code\rambler\XMPP\IM\RosterItem.hpp">
+      <Filter>Source Code\rambler\XMPP\IM\Client\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Presence.hpp">
       <Filter>Source Code\rambler\XMPP\IM\Client\Header Files</Filter>
     </ClInclude>
   </ItemGroup>

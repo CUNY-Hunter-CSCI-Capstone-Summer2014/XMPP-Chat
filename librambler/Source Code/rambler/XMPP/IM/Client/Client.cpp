@@ -46,7 +46,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
         });
 
         xmlStream->setIQStanzaReceivedEventHandler([this](StrongPointer<XMLStream> xmlStream, StrongPointer<XML::Element> stanza) {
-#warning TODO: handle roster pushes
             auto typeAttribute = stanza->getAttribute("type");
             auto IQType = typeAttribute.getValue();
             auto uniqueID = typeAttribute.getValue();
@@ -94,7 +93,6 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
             auto typeAttribute = stanza->getAttribute("type");
             auto messageType = typeAttribute.getValue();
 
-#warning TODO: complete this
             //Other valid types are groupchat, headline, normal, and error. Handling only for now chat for simplicity
             if (messageType == "chat") {
                 auto bodyElement = stanza->getFirstElementByName("body");
@@ -272,7 +270,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
 
     void Client::initiateSessionForUser(String username)
     {
-#warning TODO
+		//TODO
     }
 
     /**

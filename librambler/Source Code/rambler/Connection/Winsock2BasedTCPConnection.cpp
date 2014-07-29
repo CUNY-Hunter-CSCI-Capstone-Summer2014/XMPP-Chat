@@ -9,14 +9,6 @@
 
 #include <algorithm>
 #include <iostream>
-#include <windows.h>
-#include <stdio.h>
-#include <schannel.h>
-#pragma comment(lib, "crypt32.lib")
-
-#include <ntsecapi.h>
-#include <sspi.h>
-#include <schnlsp.h>
 
 namespace rambler { namespace Connection {
 void getSchannelClientHandle(PCredHandle ppClientCred)
@@ -136,6 +128,52 @@ void getSchannelClientHandle(PCredHandle ppClientCred)
 		}
 
 		state = Stream::State::OpenAndSecuring;
+
+		securityFunctionTable = InitSecurityInterfaceW();
+		if (!securityFunctionTable) {
+			handleSecuringFailedEvent();
+			return false;
+		}
+
+		SECURITY_STATUS status = SEC_E_OK;
+		SCHANNEL_CRED credentials;
+		CredHandle credentialHandle;
+		TimeStamp certificateExpirationDateTime;
+
+		ZeroMemory(&credentials, sizeof(credentials));
+		ZeroMemory(&credentialHandle, sizeof(credentialHandle));
+		ZeroMemory(&certificateExpirationDateTime, sizeof(certificateExpirationDateTime));
+		ZeroMemory(&securityContextHandle, sizeof(securityContextHandle));
+
+		credentials.dwVersion = SCHANNEL_CRED_VERSION;
+		credentials.grbitEnabledProtocols = SP_PROT_TLS1_2_CLIENT;
+		credentials.dwFlags = SCH_CRED_AUTO_CRED_VALIDATION | SCH_USE_STRONG_CRYPTO;
+
+
+
+
+
+		status = AcquireCredentialsHandleW(NULL,
+										   UNISP_NAME,
+										   SECPKG_CRED_INBOUND,
+										   NULL,
+										   &credentials,
+										   NULL,
+										   NULL,
+										   &credentialHandle,
+										   &certificateExpirationDateTime);
+
+		//status = InitializeSecurityContextW(&credentialHandle,
+		//	                                NULL,
+		//									L"dampkeg.com.",
+		//									,
+		//									0,
+		//									0,
+		//									NULL,
+		//									0,
+		//									&securityContextHandle,
+		//									,,)
+
 		/*GET SCHANNEL CREDENTIALS*/
 
 		//OSStatus status = noErr;		

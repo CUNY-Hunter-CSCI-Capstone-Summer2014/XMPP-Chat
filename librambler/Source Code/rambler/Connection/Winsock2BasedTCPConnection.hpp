@@ -14,6 +14,10 @@
 #include <winsock2.h>
 #include <ws2tcpip.h>
 
+#define SECURITY_WIN32
+#include <security.h>
+#include <schnlsp.h>
+
 namespace rambler { namespace Connection {
 
 	/**
@@ -77,6 +81,8 @@ namespace rambler { namespace Connection {
 
 		WSADATA wsaData;
 		SOCKET theSocket { INVALID_SOCKET };
+		PSecurityFunctionTable securityFunctionTable;
+		CtxtHandle securityContextHandle;
 
 		std::thread readLoopThread;
 	};

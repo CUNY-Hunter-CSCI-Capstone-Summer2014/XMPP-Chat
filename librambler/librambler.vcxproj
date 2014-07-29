@@ -30,6 +30,7 @@
     <ClCompile Include="Source Code\rambler\XMPP\Core\XMLStream_Context.cpp" />
     <ClCompile Include="Source Code\rambler\XMPP\IM\Client\Client.cpp" />
     <ClCompile Include="Source Code\rambler\XMPP\IM\Message.cpp" />
+    <ClCompile Include="Source Code\rambler\XMPP\IM\Presence.cpp" />
     <ClCompile Include="Source Code\rambler\XMPP\IM\RosterItem.cpp" />
     <ClCompile Include="Source Code\windows\dllmain.cpp" />
     <ClCompile Include="Source Code\windows\librambler.cpp" />
@@ -63,6 +64,7 @@
     <ClInclude Include="Source Code\rambler\XMPP\IM\Client\IQRequestType.hpp" />
     <ClInclude Include="Source Code\rambler\XMPP\IM\Client\SubscriptionState.hpp" />
     <ClInclude Include="Source Code\rambler\XMPP\IM\Message.hpp" />
+    <ClInclude Include="Source Code\rambler\XMPP\IM\Presence.hpp" />
     <ClInclude Include="Source Code\rambler\XMPP\IM\RosterItem.hpp" />
     <ClInclude Include="Source Code\windows\stdafx.h" />
     <ClInclude Include="Source Code\windows\targetver.h" />
@@ -127,7 +129,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Ws2_32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Ws2_32.lib;rpcrt4.lib;secur32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -148,7 +150,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>Ws2_32.lib;rpcrt4.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Ws2_32.lib;rpcrt4.lib;secur32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
