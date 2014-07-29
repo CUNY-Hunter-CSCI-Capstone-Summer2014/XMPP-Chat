@@ -36,7 +36,11 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="contactName" id="9GK-FM-SMK"/>
+                            <binding destination="-2" name="value" keyPath="contactName" id="o32-X1-IHc">
+                                <dictionary key="options">
+                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ef-Mb-sgs">
@@ -72,7 +76,11 @@ Gw
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="contactJID" id="iCG-U3-yLz"/>
+                            <binding destination="-2" name="value" keyPath="contactJID" id="QVN-Wg-yyp">
+                                <dictionary key="options">
+                                    <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                </dictionary>
+                            </binding>
                         </connections>
                     </textField>
                 </subviews>

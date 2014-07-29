@@ -114,12 +114,14 @@
                     </searchField>
                     <popUpButton verticalHuggingPriority="750" tag="99" translatesAutoresizingMaskIntoConstraints="NO" id="MHD-c6-jjG">
                         <rect key="frame" x="8" y="61" width="223" height="26"/>
-                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" continuous="YES" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ERb-HI-Sww">
+                        <popUpButtonCell key="cell" type="push" title="Available" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" continuous="YES" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" selectedItem="ppO-Rv-jre" id="ERb-HI-Sww">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="hEF-Dd-Wht">
                                 <items>
-                                    <menuItem title="Available" id="ppO-Rv-jre"/>
+                                    <menuItem title="Available" state="on" id="ppO-Rv-jre">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
                                     <menuItem title="Chatting" tag="1" id="ihD-QO-UAM"/>
                                     <menuItem title="Away" tag="2" id="Jzg-IU-EFU">
                                         <modifierMask key="keyEquivalentModifierMask"/>

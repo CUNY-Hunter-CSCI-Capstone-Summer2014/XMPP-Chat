@@ -30,6 +30,7 @@
 		075097621973679400CBBA60 /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 075097611973679400CBBA60 /* Message.cpp */; };
 		076FC726197789F90046A227 /* timestamp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 076FC725197789F90046A227 /* timestamp.mm */; };
 		0772D5EB19837AA900AC399F /* Presence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0772D5EA19837AA900AC399F /* Presence.cpp */; };
+		07746CE719876FF700B27FFA /* Presence.h in Headers */ = {isa = PBXBuildFile; fileRef = 07921C8C19861D33008FCA3B /* Presence.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07921C8B19861D09008FCA3B /* Presence.mm in Sources */ = {isa = PBXBuildFile; fileRef = 07921C8A19861D09008FCA3B /* Presence.mm */; };
 		079FDC321966514700F9DBC6 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 079FDC311966514700F9DBC6 /* Security.framework */; };
 		07A30662196F79B000D9523E /* RosterItem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 07A3065D196F79B000D9523E /* RosterItem.cpp */; };
@@ -671,6 +672,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0715A6CA1957872E004519D9 /* JID.hpp in Headers */,
+				07746CE719876FF700B27FFA /* Presence.h in Headers */,
 				07F8147B196E2B0900207EC1 /* XMLStream.h in Headers */,
 				07A3066E1970870700D9523E /* JID.internal.h in Headers */,
 				0739C3DA195B9D8F006A7EA8 /* types.hpp in Headers */,

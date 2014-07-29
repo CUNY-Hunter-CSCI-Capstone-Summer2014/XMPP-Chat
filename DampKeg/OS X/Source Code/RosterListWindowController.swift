@@ -34,4 +34,13 @@ class RosterListWindowController : NSWindowController {
         NSLog("%@", item.description)
     }
 
+    func removeRosterItemWithJID(jid: JID) {
+        var potentialPosition: Int? = rosterItemPositions[jid]
+        if let position = potentialPosition {
+            let indexPath = NSIndexPath(index: position);
+            rosterListController?.removeObjectAtArrangedObjectIndexPath(indexPath)
+            rosterItemPositions.removeValueForKey(jid);
+        }
+    }
+
 }

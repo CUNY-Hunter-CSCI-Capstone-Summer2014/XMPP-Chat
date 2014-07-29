@@ -22,6 +22,8 @@
 		0735E100197474D700AE5136 /* PlainAuthenticationCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E0FC197474D700AE5136 /* PlainAuthenticationCredentials.swift */; };
 		0735E1081974760000AE5136 /* Damp_KegTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0735E106197475A600AE5136 /* Damp_KegTests.swift */; };
 		07746CE119870D2F00B27FFA /* AddContactWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07746CE019870D2F00B27FFA /* AddContactWindowController.swift */; };
+		07746CE4198713C400B27FFA /* SubscriptionRequestWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07746CE2198713C400B27FFA /* SubscriptionRequestWindow.xib */; };
+		07746CE61987175600B27FFA /* SubscriptionRequestWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07746CE51987175600B27FFA /* SubscriptionRequestWindowController.swift */; };
 		07BC4324197FE02900FFFAFB /* RosterListWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC4323197FE02900FFFAFB /* RosterListWindowController.swift */; };
 		07BC4328197FECCC00FFFAFB /* RosterListViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC4327197FECCC00FFFAFB /* RosterListViewItem.swift */; };
 		07BC432A198015F500FFFAFB /* ConversationWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BC4329198015F500FFFAFB /* ConversationWindowController.swift */; };
@@ -119,6 +121,8 @@
 		0735E106197475A600AE5136 /* Damp_KegTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Damp_KegTests.swift; sourceTree = "<group>"; };
 		0735E10D197476A200AE5136 /* Rambler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Rambler.xcodeproj; path = "../../Rambler Framework/Rambler.xcodeproj"; sourceTree = "<group>"; };
 		07746CE019870D2F00B27FFA /* AddContactWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContactWindowController.swift; sourceTree = "<group>"; };
+		07746CE3198713C400B27FFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SubscriptionRequestWindow.xib; sourceTree = "<group>"; };
+		07746CE51987175600B27FFA /* SubscriptionRequestWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubscriptionRequestWindowController.swift; sourceTree = "<group>"; };
 		07BC4323197FE02900FFFAFB /* RosterListWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterListWindowController.swift; sourceTree = "<group>"; };
 		07BC4327197FECCC00FFFAFB /* RosterListViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RosterListViewItem.swift; sourceTree = "<group>"; };
 		07BC4329198015F500FFFAFB /* ConversationWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationWindowController.swift; sourceTree = "<group>"; };
@@ -176,14 +180,15 @@
 		0735E0D8197473D200AE5136 /* Source Code */ = {
 			isa = PBXGroup;
 			children = (
-				0735E0FA197474D700AE5136 /* AppDelegate.swift */,
 				07746CE019870D2F00B27FFA /* AddContactWindowController.swift */,
-				07BC4323197FE02900FFFAFB /* RosterListWindowController.swift */,
+				0735E0FA197474D700AE5136 /* AppDelegate.swift */,
+				07BC4329198015F500FFFAFB /* ConversationWindowController.swift */,
+				070B975F197F6B5800873940 /* LoginWindowController.swift */,
 				0735E0FB197474D700AE5136 /* main.swift */,
 				0735E0FC197474D700AE5136 /* PlainAuthenticationCredentials.swift */,
-				070B975F197F6B5800873940 /* LoginWindowController.swift */,
 				07BC4327197FECCC00FFFAFB /* RosterListViewItem.swift */,
-				07BC4329198015F500FFFAFB /* ConversationWindowController.swift */,
+				07BC4323197FE02900FFFAFB /* RosterListWindowController.swift */,
+				07746CE51987175600B27FFA /* SubscriptionRequestWindowController.swift */,
 			);
 			path = "Source Code";
 			sourceTree = "<group>";
@@ -192,8 +197,10 @@
 			isa = PBXGroup;
 			children = (
 				0735E0F81974748A00AE5136 /* Images.xcassets */,
+				0735E0DB1974744500AE5136 /* Info.plist */,
 				0735E0DD1974747100AE5136 /* AddContact.xib */,
 				0735E0DF1974747100AE5136 /* ChatBox.xib */,
+				54590CF41986CE58006F82D5 /* ChatWindow.xib */,
 				0735E0E11974747100AE5136 /* ContactProfile.xib */,
 				5403B53A1975AF7300327BFA /* GroupChatBox.xib */,
 				54C1663C1975CEAA000F5B9E /* LoginWindow.xib */,
@@ -201,8 +208,7 @@
 				0735E0E91974747100AE5136 /* PrefWindow.xib */,
 				0735E0EB1974747100AE5136 /* ProfileUpdate.xib */,
 				54C1663E1975CEAA000F5B9E /* RosterList.xib */,
-				0735E0DB1974744500AE5136 /* Info.plist */,
-				54590CF41986CE58006F82D5 /* ChatWindow.xib */,
+				07746CE2198713C400B27FFA /* SubscriptionRequestWindow.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -389,6 +395,7 @@
 				54590CF61986CE58006F82D5 /* ChatWindow.xib in Resources */,
 				0735E0F41974747100AE5136 /* MainMenu.xib in Resources */,
 				5403B53C1975AF7300327BFA /* GroupChatBox.xib in Resources */,
+				07746CE4198713C400B27FFA /* SubscriptionRequestWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +422,7 @@
 				07BC4328197FECCC00FFFAFB /* RosterListViewItem.swift in Sources */,
 				07746CE119870D2F00B27FFA /* AddContactWindowController.swift in Sources */,
 				54D0FD551986D0DF002B0A7E /* AppController.m in Sources */,
+				07746CE61987175600B27FFA /* SubscriptionRequestWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -498,6 +506,14 @@
 				0735E0EC1974747100AE5136 /* Base */,
 			);
 			name = ProfileUpdate.xib;
+			sourceTree = "<group>";
+		};
+		07746CE2198713C400B27FFA /* SubscriptionRequestWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07746CE3198713C400B27FFA /* Base */,
+			);
+			name = SubscriptionRequestWindow.xib;
 			sourceTree = "<group>";
 		};
 		5403B53A1975AF7300327BFA /* GroupChatBox.xib */ = {

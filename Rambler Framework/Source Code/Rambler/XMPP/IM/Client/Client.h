@@ -42,8 +42,10 @@ typedef void (^PresenceReceivedEventHandler)(Presence *, JID *);
 #pragma mark Roster Management
 
 typedef void (^RosterItemReceivedEventHandler)(RosterItem *);
+typedef void (^RosterItemRemovedEventHandler)(JID *);
 
 @property (readwrite, assign, nonatomic) RosterItemReceivedEventHandler rosterItemReceivedEventHandler;
+@property (readwrite, assign, nonatomic) RosterItemRemovedEventHandler rosterItemRemovedEventHandler;
 
 - (void)requestRoster;
 - (void)updateRosterWithItem:(RosterItem *)item;

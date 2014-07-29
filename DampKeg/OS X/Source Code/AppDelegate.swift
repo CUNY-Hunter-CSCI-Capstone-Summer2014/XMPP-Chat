@@ -21,6 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var viewProfileController:       NSWindowController?
     
     var conversationWindowControllers: NSMutableDictionary?
+    var subscriptionRequestWindowControllers: NSMutableDictionary?
 
     var client: Client?;
     
@@ -148,19 +149,52 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /* ************************************ */
     
     @IBAction func closeLoginWindowAndOpenRosterListWindow(sender: AnyObject) {
+        client = Client(JIDString: self.loginWindowController!.plainAuthenticationCredentials.username);
+
+        client!.passwordRequiredEventHandler = { (String username) in
+            return self.loginWindowController!.plainAuthenticationCredentials.password
+        }
+
+        client!.rosterItemReceivedEventHandler = {
+            (item: RosterItem?) in
+            if item? {
+                self.rosterListWindowController?.addRosterItem(item!)
+            }
+        }
+
+        client!.rosterItemRemovedEventHandler = {
+            (jid: JID?) in
+            if jid? {
+                self.rosterListWindowController?.removeRosterItemWithJID(jid!)
+            }
+        }
+
+        self.client!.subscriptionRequestedByJIDEventHandler = {
+            (maybeJID: JID?, maybeMessage: String?) in
+
+            if !self.subscriptionRequestWindowControllers? {
+                self.subscriptionRequestWindowControllers = NSMutableDictionary()
+            }
+
+            if let jid = maybeJID {
+                let controller = SubscriptionRequestWindowController(windowNibName: "SubscriptionRequestWindow")
+
+                self.subscriptionRequestWindowControllers![jid] = controller
+
+                controller.appDelegate = self
+                controller.client = self.client
+                controller.jid = jid
+                controller.message = maybeMessage
+
+                NSOperationQueue.mainQueue().addOperationWithBlock() {
+                    controller.showWindow(self)
+                }
+            }
+        }
+
+        self.client!.start();
         NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.client = Client(JIDString: self.loginWindowController!.plainAuthenticationCredentials.username);
-            self.client!.rosterItemReceivedEventHandler = {
-                var dummy: AnyObject
-                self.rosterListWindowController?.addRosterItem($0)
-            }
 
-            self.client!.passwordRequiredEventHandler = { (String username) in
-                var dummy: AnyObject
-                return self.loginWindowController!.plainAuthenticationCredentials.password
-            }
-
-            self.client!.start();
 
             self.loginWindowController!.window.orderOut(self)
             self.rosterListWindowController!.showWindow(self)
@@ -174,18 +208,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSOperationQueue.mainQueue().addOperationWithBlock() {
             self.chatBoxWindowController!.showWindow(self)
             self.groupAddWindowController!.window.orderOut(self)
-        }
-    }
-    
-    @IBAction func cancelGroupAdd(sender: AnyObject) {
-        NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.groupAddWindowController!.window.orderOut(self)
-        }
-    }
-    
-    @IBAction func openGroupAddWindow(sender: AnyObject) {
-        NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.groupAddWindowController!.showWindow(self)
         }
     }
 
@@ -242,49 +264,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func userDidCancelAddContact(sender: AnyObject) {
         closeAddContactWindow(sender);
     }
+
     
-    /* ************************************ */
-    /* ****** Contact Profile Window ****** */
-    /* ************************************ */
-    
-   // @IBAction func openContactProfile(sender: AnyObject) {
-      //  NSOperationQueue.mainQueue().addOperationWithBlock() {
-      //      self.viewProfileController!.showWindow(self)
-      //  }
-   // }
-    
-    @IBAction func closeContactProfile(sender: AnyObject) {
-        NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.viewProfileController!.window.orderOut(self)
-        }
-    }
-    
-    /* ************************************ */
-    /* ******** Edit Profile Window ******* */
-    /* ************************************ */
-    
-    @IBAction func editOwnProfile(sender: AnyObject) {
-        NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.editProfileWindowController!.showWindow(self)
-        }
-    }
-    
-    /* ************************************ */
-    
-    @IBAction func saveProfileChanges(sender: AnyObject) {
-        NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.editProfileWindowController!.window.orderOut(self)
-        }
-    }
-    
-    /* ************************************ */
-    
-    @IBAction func discardProfileChanges(sender: AnyObject) {
-        NSOperationQueue.mainQueue().addOperationWithBlock() {
-            self.editProfileWindowController!.window.orderOut(self)
-        }
-    }
-    
+
     /* ************************************ */ //New for changings status
     
     @IBAction func editStatus(sender: AnyObject){
@@ -292,10 +274,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             if let menuItem = sender as? NSMenuItem {
                 NSLog("%@", menuItem.title);
-            }
 
-            //Documentation for selecting item
-            //func selectItem(_ anObject: NSMenuItem!)
+                switch menuItem.tag {
+                case 0:
+                    self.client?.sendPresence(Presence(state: .Available))
+                case 1:
+                    self.client?.sendPresence(Presence(state: .WantsToChat))
+                case 2:
+                    self.client?.sendPresence(Presence(state: .Away))
+                case 3:
+                    self.client?.sendPresence(Presence(state: .DoNotDisturb))
+                case 4:
+                    self.client?.sendPresence(Presence(state: .ExtendedAway))
+                case 5:
+                    self.client?.sendPresence(Presence(state: .Unavailable))
+                default:
+                    break;
+                }
+            }
         }
     }
     

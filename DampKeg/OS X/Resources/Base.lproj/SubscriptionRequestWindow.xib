@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6185.11" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6185.11"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="SubscriptionRequestWindowController" customModule="DampKeg" customModuleProvider="target">
+            <connections>
+                <outlet property="window" destination="QvC-M9-y7g" id="anR-9k-Qom"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <rect key="contentRect" x="196" y="240" width="476" height="153"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <value key="minSize" type="size" width="476" height="153"/>
+            <view key="contentView" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="476" height="153"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cjq-5E-LDW">
+                        <rect key="frame" x="122" y="116" width="232" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Subscription request received from:" id="80e-BQ-Aaj">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9YW-5C-jcW">
+                        <rect key="frame" x="218" y="67" width="41" height="29"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="JID" id="hpu-GS-0Tr">
+                            <font key="font" metaFont="system" size="24"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="jid.description" id="EyC-5i-rwE"/>
+                        </connections>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lOm-BK-1xQ">
+                        <rect key="frame" x="236" y="13" width="137" height="32"/>
+                        <buttonCell key="cell" type="push" title="Accept Request" bezelStyle="rounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nvg-qE-jfw">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="userDidAcceptSubscriptionRequest:" target="-2" id="nU4-W7-BxB"/>
+                        </connections>
+                    </button>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0ch-sP-Tk3">
+                        <rect key="frame" x="103" y="13" width="133" height="32"/>
+                        <buttonCell key="cell" type="push" title="Reject Request" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3o0-nI-uwH">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="userDidRejectSubscriptionRequest:" target="-2" id="4jm-18-8Ln"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lOm-BK-1xQ" firstAttribute="leading" secondItem="0ch-sP-Tk3" secondAttribute="trailing" constant="12" id="7Kb-ej-ZDp"/>
+                    <constraint firstAttribute="centerX" secondItem="9YW-5C-jcW" secondAttribute="centerX" id="HkF-Ha-6bw"/>
+                    <constraint firstItem="0ch-sP-Tk3" firstAttribute="baseline" secondItem="lOm-BK-1xQ" secondAttribute="baseline" id="LI1-6I-2hP"/>
+                    <constraint firstAttribute="bottom" secondItem="0ch-sP-Tk3" secondAttribute="bottom" constant="20" id="MY0-Br-03J"/>
+                    <constraint firstAttribute="centerX" secondItem="0ch-sP-Tk3" secondAttribute="centerX" constant="68.5" id="Rbe-bh-TH4"/>
+                    <constraint firstAttribute="centerX" secondItem="lOm-BK-1xQ" secondAttribute="centerX" constant="-66.5" id="YuH-42-mOG"/>
+                    <constraint firstAttribute="bottom" secondItem="lOm-BK-1xQ" secondAttribute="bottom" constant="20" id="ZyU-Wb-YTP"/>
+                    <constraint firstAttribute="centerX" secondItem="Cjq-5E-LDW" secondAttribute="centerX" constant="0.5" id="s0j-Hu-3cn"/>
+                </constraints>
+            </view>
+            <connections>
+                <binding destination="-2" name="title" keyPath="title" id="pDu-Dd-zaJ"/>
+                <outlet property="initialFirstResponder" destination="lOm-BK-1xQ" id="zsA-f3-iz6"/>
+            </connections>
+            <point key="canvasLocation" x="317" y="180.5"/>
+        </window>
+        <userDefaultsController representsSharedInstance="YES" id="QDF-Jg-Rlz"/>
+    </objects>
+</document>

@@ -154,6 +154,17 @@
     });
 }
 
+- (void)setRosterItemRemovedEventHandler:(RosterItemRemovedEventHandler)rosterItemRemovedEventHandler
+{
+    if (!rosterItemRemovedEventHandler) {
+        return self.nativeObject->setRosterItemRemovedEventHandler(nullptr);
+    }
+
+    self.nativeObject->setRosterItemRemovedEventHandler(^(StrongPointer<XMPP::Core::JID const> const jid) {
+        rosterItemRemovedEventHandler([[JID alloc] initWithNativeObject:jid]);
+    });
+}
+
 
 #pragma mark Subscription Management
 

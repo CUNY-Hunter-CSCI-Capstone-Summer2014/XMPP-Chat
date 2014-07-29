@@ -805,7 +805,7 @@ namespace rambler { namespace XMPP { namespace IM { namespace Client {
             std::cout << rosterItem->description();
             handleRosterItemReceivedEvent(rosterItem);
         } else {
-            handleRosterItemRemovedEvent(JID::createJIDWithString(itemElement->getTextContent()));
+            handleRosterItemRemovedEvent(JID::createJIDWithString(itemElement->getAttribute("jid").getValue()));
         }
 
     }
