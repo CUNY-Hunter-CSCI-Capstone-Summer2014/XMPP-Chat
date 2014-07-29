@@ -34,6 +34,17 @@ class RosterListWindowController : NSWindowController {
         NSLog("%@", item.description)
     }
 
+    func updatePresence(presence: Presence, jid: JID) {
+        var potentialPosition: Int? = rosterItemPositions[jid]
+
+        if let position = potentialPosition {
+            var item = rosterItems.objectAtIndex(position) as RosterListViewItem
+            item.presence = presence
+        }
+
+        rosterListView?.reloadData()
+    }
+
     func removeRosterItemWithJID(jid: JID) {
         var potentialPosition: Int? = rosterItemPositions[jid]
         if let position = potentialPosition {

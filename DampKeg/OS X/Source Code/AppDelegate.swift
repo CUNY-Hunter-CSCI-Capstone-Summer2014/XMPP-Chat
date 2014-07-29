@@ -155,6 +155,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return self.loginWindowController!.plainAuthenticationCredentials.password
         }
 
+        client!.presenceReceivedEventHandler = {
+            (presence: Presence?, jid: JID?) in
+            if presence? && jid? {
+                self.rosterListWindowController?.updatePresence(presence!, jid: jid!)
+            }
+
+        }
+
         client!.rosterItemReceivedEventHandler = {
             (item: RosterItem?) in
             if item? {
@@ -265,10 +273,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         closeAddContactWindow(sender);
     }
 
-    
-
-    /* ************************************ */ //New for changings status
-    
     @IBAction func editStatus(sender: AnyObject){
         NSOperationQueue.mainQueue().addOperationWithBlock(){
             
@@ -294,9 +298,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
     }
-    
-    /* *********************************** */
-    
+
     @IBAction func removeContact(sender: AnyObject){
         let possibleSelectedObjects = self.rosterListWindowController?.rosterListController?.selectedObjects
         if let theSelectedObjects = possibleSelectedObjects {
